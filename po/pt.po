@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-23 20:26+0000\n"
-"PO-Revision-Date: 2015-07-24 09:18+0100\n"
+"POT-Creation-Date: 2015-07-24 08:20+0000\n"
+"PO-Revision-Date: 2015-07-24 09:22+0100\n"
 "Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
@@ -38,12 +38,14 @@ msgstr ""
 "para integração no GNOME."
 
 #: ../data/gtk/menus.ui.h:1
-msgid "New Listâ€¦"
-msgstr "Nova lista..."
+#| msgid "New List"
+msgid "New List…"
+msgstr "Nova lista…"
 
 #: ../data/gtk/menus.ui.h:2
-msgid "Change default storage locationâ€¦"
-msgstr "Alterar armazenamento predefinido..."
+#| msgid "Change default storage locationâ€¦"
+msgid "Change default storage location…"
+msgstr "Alterar armazenamento predefinido…"
 
 #: ../data/gtk/menus.ui.h:3
 msgid "_About"
@@ -222,8 +224,9 @@ msgid "Or you can just store your tasks on this computer"
 msgstr "Ou pode só armazenar as tarefas neste computador"
 
 #: ../data/ui/task-row.ui.h:1
-msgid "New taskâ€¦"
-msgstr "Nova tarefa..."
+#| msgid "New taskâ€¦"
+msgid "New task…"
+msgstr "Nova tarefa…"
 
 #: ../data/ui/window.ui.h:1
 msgid "Lists"
@@ -247,12 +250,14 @@ msgid "New List"
 msgstr "Nova lista"
 
 #: ../src/gtd-application.c:90
-msgid "Copyright Â© %Id The To Do authors"
-msgstr "Copyright Â© %Id os autores do A fazer"
+#| msgid "Copyright Â© %Id The To Do authors"
+msgid "Copyright © %Id The To Do authors"
+msgstr "Copyright © %Id Os autores do A fazer"
 
 #: ../src/gtd-application.c:95
-msgid "Copyright Â© %Idâ€“%Id The To Do authors"
-msgstr "Copyright Â© %Idâ€“%Id os autores do A fazer"
+#| msgid "Copyright Â© %Idâ€“%Id The To Do authors"
+msgid "Copyright © %Id–%Id The To Do authors"
+msgstr "Copyright © %Id–%Id Os autores do A fazer"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
 #: ../src/gtd-window.c:297
@@ -591,8 +596,9 @@ msgid "Setting new color for task list"
 msgstr "Definir nova cor para a lista de tarefas"
 
 #: ../src/gtd-window.c:552
-msgid "Loading your task listsâ€¦"
-msgstr "A carregar a sua lista de tarefas..."
+#| msgid "Loading your task listsâ€¦"
+msgid "Loading your task lists…"
+msgstr "A carregar a sua lista de tarefas…"
 
 #: ../src/storage/gtd-storage.c:189
 msgid "Whether the storage is enabled"
@@ -738,3 +744,6 @@ msgstr "Expiração da notificação"
 #: ../src/notification/gtd-notification.c:239
 msgid "The time the notification is displayed"
 msgstr "O tempo que a notificação é mostrada"
+
+#~ msgid "New Listâ€¦"
+#~ msgstr "Nova lista..."
