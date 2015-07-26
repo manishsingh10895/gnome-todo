@@ -1,0 +1,784 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Jordi Mas i Hernàndez <jmas@softcatala.org>, 2015
+#
+# To Do -> Per fer
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-07-26 08:32+0200\n"
+"PO-Revision-Date: 2015-07-26 15:08+0100\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Jordi Mas <jmas@softcaatala.org>\n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.7.5\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Per fer"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Un gestor de tasques per fer pel al GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Llista nova…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Canvia la ubicació per defecte de l'emmagatzematge…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Quant a"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Surt"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Gestioneu les tasques personals"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Tasques; Productivitat;"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:1
+msgid "Window maximized"
+msgstr "Finestra maximitzada"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:2
+msgid "Window maximized state"
+msgstr "Estat de la finestra maximitzada"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:3
+msgid "Window size"
+msgstr "Mida de la finestra"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:4
+msgid "Window size (width and height)."
+msgstr "Mida de la finestra (amplada i alçada)"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:5
+msgid "Window position"
+msgstr "Posició de la finestra"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:6
+msgid "Window position (x and y)."
+msgstr "Posició de la finestra (x i y)."
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:7
+msgid "First run of GNOME To Do"
+msgstr "Primera execució del GNOME Per fer"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:9
+msgid "Default location to add new lists to"
+msgstr "Ubicació per defecte a afegir a les llistes noves"
+
+#: ../data/org.gnome.todo.gschema.xml.in.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr ""
+
+#: ../data/ui/edit-pane.ui.h:1
+msgid "Details"
+msgstr "Detalls"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Notes"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Data de venciment"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritat"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Cap"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Baixa"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Mitjà"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Alta"
+
+#: ../data/ui/edit-pane.ui.h:9
+msgid "Delete"
+msgstr "Suprimeix"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Benvinguts"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr ""
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:288
+msgid "Done"
+msgstr "Fet"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "No s'han trobat tasques"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr ""
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Mostra o amaga les tasques completades"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Ubicació d'emmagatzematge per defecte"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Creació"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Nom de la llista"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Seleccioneu una ubicació de l'emmagatzematge"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Desactiva"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Feu clic per afegeix un nou compte de Google"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Feu clic per afegir un no compte ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr ""
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "O podeu simplement emmagatzemar les tasques en aquest PC"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Tasca nova…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Llistes"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:145 ../src/gtd-window.c:133
+#: ../src/gtd-window.c:138
+msgid "Today"
+msgstr "Avui"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+msgid "Scheduled"
+msgstr "Planificat"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Canvia el nom"
+
+#: ../data/ui/window.ui.h:5
+msgid "New List"
+msgstr "Llista nova"
+
+#: ../src/gtd-application.c:90
+msgid "Copyright © %Id The To Do authors"
+msgstr "Copyright © %Id–%Id els autors del Per fer"
+
+#: ../src/gtd-application.c:95
+msgid "Copyright © %Id–%Id The To Do authors"
+msgstr "Copyright © %Id–%Id els autors del Per fer"
+
+#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
+#: ../src/gtd-window.c:297
+msgid "To Do"
+msgstr "Per fer"
+
+#: ../src/gtd-application.c:107
+msgid "translator-credits"
+msgstr "Jordi Mas i Hernàndez <jmas@softcatala.org>, 2015"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "S'ha produït un error carregant el CSS des del recurs"
+
+#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:175
+msgid "No date set"
+msgstr "No s'ha establert cap data"
+
+#: ../src/gtd-edit-pane.c:251
+msgid "Manager of this application"
+msgstr "El gestor d'aquesta aplicació"
+
+#: ../src/gtd-edit-pane.c:252
+msgid "The manager of the application"
+msgstr "El gestor de l'aplicació"
+
+#: ../src/gtd-edit-pane.c:265
+msgid "Task being edited"
+msgstr "La tasca que s'està ediant"
+
+#: ../src/gtd-edit-pane.c:266
+msgid "The task that is actually being edited"
+msgstr "La tasca que s'està editant ara mateix"
+
+#: ../src/gtd-initial-setup-window.c:216
+msgid "Manager of the task"
+msgstr "El gestor de la tasca"
+
+#: ../src/gtd-initial-setup-window.c:217
+msgid "The singleton manager instance of the task"
+msgstr "La instància única del gestor de la tasca"
+
+#: ../src/gtd-manager.c:376
+msgid "Error loading GNOME Online Accounts"
+msgstr "S'ha produït un error carregant els comptes en línia del GNOME"
+
+#: ../src/gtd-manager.c:405
+msgid "Error saving task list"
+msgstr "S'ha produït un error desant la llista de tasques"
+
+#: ../src/gtd-manager.c:432
+msgid "Error removing task list"
+msgstr "S'ha produït un error en suprimir la llista de tasques"
+
+#: ../src/gtd-manager.c:467
+msgid "Error creating task"
+msgstr "S'ha produït un error en crear una tasca nova"
+
+#: ../src/gtd-manager.c:531
+msgid "Error removing task"
+msgstr "S'ha produït un error en suprimir la tasca"
+
+#: ../src/gtd-manager.c:584
+msgid "Error updating task"
+msgstr "S'ha produït un error en actualitzar la tasca"
+
+#: ../src/gtd-manager.c:613
+#, fuzzy
+msgid "Failed to prompt for credentials"
+msgstr "Ha fallat demanar les credencials per a «{0}»"
+
+#: ../src/gtd-manager.c:636
+#, fuzzy
+msgid "Failed to prompt for credentials for"
+msgstr "Ha fallat demanar les credencials per a «{0}»"
+
+#: ../src/gtd-manager.c:688
+#, fuzzy
+msgid "Authentication failure"
+msgstr "ha fallat l'autenticació"
+
+#: ../src/gtd-manager.c:755
+#, fuzzy
+msgid "Error fetching tasks from list"
+msgstr "Error en recuperar la llista d'informes d'error"
+
+#: ../src/gtd-manager.c:821
+msgid "Task list source successfully connected"
+msgstr ""
+
+#: ../src/gtd-manager.c:828
+#, fuzzy
+msgid "Failed to connect to task list source"
+msgstr "Ha fallat la creació d'una tasca a la llista de tasques «{0}»"
+
+#: ../src/gtd-manager.c:858
+msgid "Skipping already loaded task list "
+msgstr ""
+
+#: ../src/gtd-manager.c:896
+#, fuzzy
+msgid "Error loading task manager"
+msgstr "S'ha produït un error en carregar la llista de tasques «{0}»"
+
+#: ../src/gtd-manager.c:1030
+msgid "Local"
+msgstr "Local"
+
+#: ../src/gtd-manager.c:1031
+msgid "On This Computer"
+msgstr "En aquest ordinador"
+
+#: ../src/gtd-manager.c:1064
+#, fuzzy
+msgid "The online accounts client of the manager"
+msgstr ""
+"Fes concordar els comptes de banca electrònica amb els comptes del GnuCash"
+
+#: ../src/gtd-manager.c:1065
+msgid ""
+"The read-only GNOME online accounts client loaded and owned by the manager"
+msgstr ""
+
+#: ../src/gtd-manager.c:1078
+msgid "Whether GNOME Online Accounts client is ready"
+msgstr ""
+
+#: ../src/gtd-manager.c:1079
+msgid "Whether the read-only GNOME online accounts client is loaded"
+msgstr ""
+
+#: ../src/gtd-manager.c:1092
+#, fuzzy
+msgid "The source registry of the manager"
+msgstr "&Registre"
+
+#: ../src/gtd-manager.c:1093
+msgid "The read-only source registry loaded and owned by the manager"
+msgstr ""
+
+#: ../src/gtd-object.c:152
+#, fuzzy
+msgid "Unique identifier of the object"
+msgstr "L'identificador únic de l'objecte"
+
+#: ../src/gtd-object.c:153
+#, fuzzy
+msgid "The unique identifier of the object, defined by the backend"
+msgstr "L'identificador únic de l'objecte"
+
+#: ../src/gtd-object.c:166
+#, fuzzy
+msgid "Ready state of the object"
+msgstr "Introduïu l'estat (deixeu «-» si no hi ha estat per l'objecte) "
+
+#: ../src/gtd-object.c:167
+#, fuzzy
+msgid "Whether the object is marked as ready or not"
+msgstr "Comprova si aquest objecte existeix"
+
+#: ../src/gtd-task.c:254
+#, fuzzy
+msgid "Whether the task is completed or not"
+msgstr "La tasca està %1% completada"
+
+#: ../src/gtd-task.c:255
+msgid "Whether the task is marked as completed by the user"
+msgstr ""
+
+#: ../src/gtd-task.c:268
+msgid "Component of the task"
+msgstr "Component de la tasca"
+
+#: ../src/gtd-task.c:269
+#, fuzzy
+msgid "The #ECalComponent this task handles."
+msgstr "Nanses:"
+
+#: ../src/gtd-task.c:282
+msgid "Description of the task"
+msgstr "Descripció de la tasca"
+
+#: ../src/gtd-task.c:283
+msgid "Optional string describing the task"
+msgstr "Comentari descriptiu opcional de la tasca"
+
+#: ../src/gtd-task.c:297
+msgid "End date of the task"
+msgstr "Data de finalització de la tasca"
+
+#: ../src/gtd-task.c:298
+msgid "The day the task is supposed to be completed"
+msgstr "El dia que se suposa que la tasca estarà completada"
+
+#: ../src/gtd-task.c:311
+msgid "List of the task"
+msgstr "Llista de la tasca"
+
+#: ../src/gtd-task.c:312
+msgid "The list that owns this task"
+msgstr "Llista a la que pertany aquesta tasca"
+
+#: ../src/gtd-task.c:325
+msgid "Priority of the task"
+msgstr "Prioritat de la tasca"
+
+#: ../src/gtd-task.c:326
+msgid ""
+"The priority of the task. 0 means no priority set, and tasks will be sorted "
+"alfabetically."
+msgstr ""
+
+#: ../src/gtd-task.c:341
+msgid "Title of the task"
+msgstr "Títol de la tasca"
+
+#: ../src/gtd-task.c:342
+msgid "The title of the task"
+msgstr "El títol de la tasca"
+
+#: ../src/gtd-task-list.c:152
+msgid "Color of the list"
+msgstr "Color de la llista"
+
+#: ../src/gtd-task-list.c:153
+msgid "The color of the list"
+msgstr "El color de la llista"
+
+#: ../src/gtd-task-list.c:166
+msgid "Name of the list"
+msgstr "Nom de la llista"
+
+#: ../src/gtd-task-list.c:167
+msgid "The name of the list"
+msgstr "El nom de la llista"
+
+#: ../src/gtd-task-list.c:180
+msgid "Data origin of the list"
+msgstr "Data d'origen de la llista"
+
+#: ../src/gtd-task-list.c:181
+#, fuzzy
+msgid "The data origin location of the list"
+msgstr "ubicació dels fitxers de dades d’idiomes"
+
+#: ../src/gtd-task-list.c:194
+msgid "Source of the list"
+msgstr "Font de la llista"
+
+#: ../src/gtd-task-list.c:195
+#, fuzzy
+msgid "The parent source that handles the list"
+msgstr "Llista de fitxers font"
+
+#: ../src/gtd-task-list-item.c:231
+msgid "No tasks"
+msgstr "Sense tasques"
+
+#: ../src/gtd-task-list-item.c:436
+#, fuzzy
+msgid "Mode of this item"
+msgstr ""
+"Si heu d'introduir la fórmula a una línia de text, els límits augmenten "
+"l'alçada de la línia. Podeu triar <item type=\"menuitem\">Format - Mode de "
+"text</item> per posar els límits al costat del símbol de sumatori o "
+"d'integral, cosa que redueix l'alçada de la línia."
+
+#: ../src/gtd-task-list-item.c:437
+msgid "The mode of this item, inherited from the parent's mode"
+msgstr ""
+
+#: ../src/gtd-task-list-item.c:452
+#, fuzzy
+msgid "Task list of the item"
+msgstr "S'està copiant una tasca al llistat de tasques «{0}»"
+
+#: ../src/gtd-task-list-item.c:453
+#, fuzzy
+msgid "The task list associated with this item"
+msgstr "Noms de tasques i fitxers .desktop associats"
+
+#: ../src/gtd-task-list-view.c:201
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "S'ha suprimit la tasca <b>%s</b>"
+
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "Desfés"
+
+#: ../src/gtd-task-list-view.c:662 ../src/gtd-window.c:516
+#: ../src/storage/gtd-storage-dialog.c:153
+#: ../src/storage/gtd-storage-popover.c:272
+#: ../src/storage/gtd-storage-selector.c:522
+msgid "Manager of this window's application"
+msgstr "Gestor de la finestra d'aquesta aplicació"
+
+#: ../src/gtd-task-list-view.c:663 ../src/gtd-window.c:517
+#: ../src/storage/gtd-storage-dialog.c:154
+#: ../src/storage/gtd-storage-popover.c:273
+#: ../src/storage/gtd-storage-selector.c:523
+msgid "The manager of the window's application"
+msgstr "El gestor de la finestra d'aquesta aplicació"
+
+#: ../src/gtd-task-list-view.c:676
+msgid "Whether the list is readonly"
+msgstr "Si aquesta llista és de només lectura"
+
+#: ../src/gtd-task-list-view.c:677
+msgid ""
+"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:690
+msgid "Whether task rows show the list name"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:691
+msgid "Whether task rows show the list name at the end of the row"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:704
+#, fuzzy
+msgid "Whether completed tasks are shown"
+msgstr ""
+"Si s'han d'amagar les tasques completades a la visualització de tasques"
+
+#: ../src/gtd-task-list-view.c:705
+#, fuzzy
+msgid "Whether completed tasks are visible or not"
+msgstr ""
+"Si s'han d'amagar les tasques completades a la visualització de tasques"
+
+#: ../src/gtd-task-row.c:149
+msgid "Tomorrow"
+msgstr "Demà"
+
+#: ../src/gtd-task-row.c:153
+msgid "Yesterday"
+msgstr "Ahir"
+
+#: ../src/gtd-task-row.c:375
+#, fuzzy
+msgid "If the row is used to add a new task"
+msgstr "Afegeix un nou filtre de línia"
+
+#: ../src/gtd-task-row.c:376
+msgid "Whether the row is used to add a new task"
+msgstr ""
+
+#: ../src/gtd-task-row.c:389
+msgid "Task of the row"
+msgstr "Tasca de la fila"
+
+#: ../src/gtd-task-row.c:390
+msgid "The task that this row represents"
+msgstr ""
+
+#: ../src/gtd-window.c:181
+#, fuzzy
+msgid "Setting new color for task list"
+msgstr "Llista de tasques nova"
+
+#: ../src/gtd-window.c:552
+msgid "Loading your task lists…"
+msgstr "S'està carregat la llista de tasques…"
+
+#: ../src/storage/gtd-storage.c:189
+msgid "Whether the storage is enabled"
+msgstr "Si l'emmagatzematge està activat"
+
+#: ../src/storage/gtd-storage.c:190
+#, fuzzy
+msgid "Whether the storage is available to be used."
+msgstr "Mostra l'emmagatzematge que utilitzen les aplicacions"
+
+#: ../src/storage/gtd-storage.c:203
+#, fuzzy
+msgid "Icon of the storage"
+msgstr "una icona descrivint el tipus d'emmagatzematge"
+
+#: ../src/storage/gtd-storage.c:204
+#, fuzzy
+msgid "The icon representing the storage location."
+msgstr "una icona descrivint el tipus d'emmagatzematge"
+
+#: ../src/storage/gtd-storage.c:217
+#, fuzzy
+msgid "Identifier of the storage"
+msgstr "Emmagatzematge"
+
+#: ../src/storage/gtd-storage.c:218
+#, fuzzy
+msgid "The unique identifier of the storage location."
+msgstr "Identificador únic universal"
+
+#: ../src/storage/gtd-storage.c:231
+#, fuzzy
+msgid "Whether the storage is the default"
+msgstr "Default Storage Class"
+
+#: ../src/storage/gtd-storage.c:232
+msgid "Whether the storage is the default storage location to be used."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:245
+#, fuzzy
+msgid "Name of the storage"
+msgstr "Storage Account Name"
+
+#: ../src/storage/gtd-storage.c:246
+#, fuzzy
+msgid "The user-visible name of the storage location."
+msgstr "Nom de transport visible per l'usuari"
+
+#: ../src/storage/gtd-storage.c:259
+#, fuzzy
+msgid "Parent of the storage"
+msgstr "Pare"
+
+#: ../src/storage/gtd-storage.c:260
+msgid "The parent source identifier of the storage location."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:273
+#, fuzzy
+msgid "Provider type of the storage"
+msgstr "Tipus d'emmagatzematge"
+
+#: ../src/storage/gtd-storage.c:274
+#, fuzzy
+msgid "The provider type of the storage location."
+msgstr "Tipus d'emmagatzematge"
+
+#: ../src/storage/gtd-storage.c:287
+#, fuzzy
+msgid "Provider name of the storage"
+msgstr "Nom del proveïdor (p.ex. proveïdor.net)"
+
+#: ../src/storage/gtd-storage.c:288
+#, fuzzy
+msgid "The name of the provider of the storage location."
+msgstr "Ubicació dels subtítols"
+
+#: ../src/storage/gtd-storage.c:680
+#, fuzzy
+msgid "Error creating new task list"
+msgstr "S'ha produït un error en crear una tasca nova"
+
+#: ../src/storage/gtd-storage-row.c:148
+#, fuzzy
+msgid "Storage of the row"
+msgstr "Columna"
+
+#: ../src/storage/gtd-storage-row.c:149
+#, fuzzy
+msgid "The storage that this row holds"
+msgstr "Emmagatzematge"
+
+#: ../src/storage/gtd-storage-selector.c:536
+#, fuzzy
+msgid "Show local storage row"
+msgstr "Inspector d'emmagatzematge (galetes, emmagatzematge local…)"
+
+#: ../src/storage/gtd-storage-selector.c:537
+msgid "Whether should show a local storage row instead of a checkbox"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:550
+#, fuzzy
+msgid "Show stub rows"
+msgstr "Mo~stra les files"
+
+#: ../src/storage/gtd-storage-selector.c:551
+msgid "Whether should show stub rows for non-added accounts"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:564
+#, fuzzy
+msgid "Selects default storage row"
+msgstr "Selecciona la fila actual."
+
+#: ../src/storage/gtd-storage-selector.c:565
+msgid "Whether should select the default storage row"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:181
+msgid "Whether the notification has a primary action"
+msgstr "Si la notificació té una acció primaria"
+
+#: ../src/notification/gtd-notification.c:182
+msgid ""
+"Whether the notification has the primary action, activated on timeout or "
+"dismiss"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:196
+msgid "Whether the notification has a secondary action"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:197
+msgid ""
+"Whether the notification has the secondary action, activated by the user"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:210
+#, fuzzy
+msgid "Text of the secondary action button"
+msgstr "Doble clic, botó secundari"
+
+#: ../src/notification/gtd-notification.c:211
+#, fuzzy
+msgid "The text of the secondary action button"
+msgstr "Doble clic, botó secundari"
+
+#: ../src/notification/gtd-notification.c:224
+msgid "Notification message"
+msgstr "Missatge de notificació"
+
+#: ../src/notification/gtd-notification.c:225
+#, fuzzy
+msgid "The main message of the notification"
+msgstr "Reproduir sons de missatges de notificació."
+
+#: ../src/notification/gtd-notification.c:238
+#, fuzzy
+msgid "Notification timeout"
+msgstr "_Temps d'espera:"
+
+#: ../src/notification/gtd-notification.c:239
+#, fuzzy
+msgid "The time the notification is displayed"
+msgstr "Temps durant el qual es mostrarà la notificació"
