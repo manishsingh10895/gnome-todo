@@ -27,7 +27,7 @@ msgstr "Per fer"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
 msgid "Todo manager for GNOME"
-msgstr "Un gestor de tasques per fer pel al GNOME"
+msgstr "Un gestor de tasques per fer per al GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
@@ -191,7 +191,7 @@ msgstr "Desactiva"
 
 #: ../data/ui/storage-selector.ui.h:1
 msgid "Click to add a new Google account"
-msgstr "Feu clic per afegeix un nou compte de Google"
+msgstr "Feu clic per afegeir un nou compte de Google"
 
 #: ../data/ui/storage-selector.ui.h:2
 msgid "Google"
@@ -277,7 +277,7 @@ msgstr "El gestor de l'aplicació"
 
 #: ../src/gtd-edit-pane.c:265
 msgid "Task being edited"
-msgstr "La tasca que s'està ediant"
+msgstr "La tasca que s'està editant"
 
 #: ../src/gtd-edit-pane.c:266
 msgid "The task that is actually being edited"
@@ -316,24 +316,20 @@ msgid "Error updating task"
 msgstr "S'ha produït un error en actualitzar la tasca"
 
 #: ../src/gtd-manager.c:613
-#, fuzzy
 msgid "Failed to prompt for credentials"
-msgstr "Ha fallat demanar les credencials per a «{0}»"
+msgstr "S'ha produït un error en demanar les credencials"
 
 #: ../src/gtd-manager.c:636
-#, fuzzy
 msgid "Failed to prompt for credentials for"
-msgstr "Ha fallat demanar les credencials per a «{0}»"
+msgstr "S'ha produït un error en demanar les credencials per"
 
 #: ../src/gtd-manager.c:688
-#, fuzzy
 msgid "Authentication failure"
-msgstr "ha fallat l'autenticació"
+msgstr "Ha fallat l'autenticació"
 
 #: ../src/gtd-manager.c:755
-#, fuzzy
 msgid "Error fetching tasks from list"
-msgstr "Error en recuperar la llista d'informes d'error"
+msgstr "S'ha produït un error en recuperar les tasques de la llista"
 
 #: ../src/gtd-manager.c:821
 msgid "Task list source successfully connected"
@@ -449,7 +445,7 @@ msgstr "Llista de la tasca"
 
 #: ../src/gtd-task.c:312
 msgid "The list that owns this task"
-msgstr "Llista a la que pertany aquesta tasca"
+msgstr "Llista a la qual pertany aquesta tasca"
 
 #: ../src/gtd-task.c:325
 msgid "Priority of the task"
@@ -605,12 +601,11 @@ msgstr "Tasca de la fila"
 
 #: ../src/gtd-task-row.c:390
 msgid "The task that this row represents"
-msgstr ""
+msgstr "La tasca que aquesta fila representa"
 
 #: ../src/gtd-window.c:181
-#, fuzzy
 msgid "Setting new color for task list"
-msgstr "Llista de tasques nova"
+msgstr "S'està establint el nou color per la llista de tasques"
 
 #: ../src/gtd-window.c:552
 msgid "Loading your task lists…"
@@ -621,43 +616,36 @@ msgid "Whether the storage is enabled"
 msgstr "Si l'emmagatzematge està activat"
 
 #: ../src/storage/gtd-storage.c:190
-#, fuzzy
 msgid "Whether the storage is available to be used."
-msgstr "Mostra l'emmagatzematge que utilitzen les aplicacions"
+msgstr "Si l'emmagatzematge està disponible per a ser utilitzat."
 
 #: ../src/storage/gtd-storage.c:203
-#, fuzzy
 msgid "Icon of the storage"
-msgstr "una icona descrivint el tipus d'emmagatzematge"
+msgstr "Icona de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:204
-#, fuzzy
 msgid "The icon representing the storage location."
-msgstr "una icona descrivint el tipus d'emmagatzematge"
+msgstr "La icona representant la ubicació de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:217
-#, fuzzy
 msgid "Identifier of the storage"
-msgstr "Emmagatzematge"
+msgstr "Identificador de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:218
-#, fuzzy
 msgid "The unique identifier of the storage location."
-msgstr "Identificador únic universal"
+msgstr "L'identificador únic de la ubicació de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:231
-#, fuzzy
 msgid "Whether the storage is the default"
-msgstr "Default Storage Class"
+msgstr "Si l'emmagatzematge és per defecte"
 
 #: ../src/storage/gtd-storage.c:232
 msgid "Whether the storage is the default storage location to be used."
 msgstr ""
 
 #: ../src/storage/gtd-storage.c:245
-#, fuzzy
 msgid "Name of the storage"
-msgstr "Storage Account Name"
+msgstr "Nom de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:246
 #, fuzzy
@@ -665,9 +653,8 @@ msgid "The user-visible name of the storage location."
 msgstr "Nom de transport visible per l'usuari"
 
 #: ../src/storage/gtd-storage.c:259
-#, fuzzy
 msgid "Parent of the storage"
-msgstr "Pare"
+msgstr "Pare de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:260
 msgid "The parent source identifier of the storage location."
@@ -737,7 +724,7 @@ msgstr ""
 
 #: ../src/notification/gtd-notification.c:181
 msgid "Whether the notification has a primary action"
-msgstr "Si la notificació té una acció primaria"
+msgstr "Si la notificació té una acció primària"
 
 #: ../src/notification/gtd-notification.c:182
 msgid ""
