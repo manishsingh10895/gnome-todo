@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-06 01:14+0000\n"
-"PO-Revision-Date: 2015-07-08 20:44+0200\n"
+"POT-Creation-Date: 2015-07-20 23:01+0000\n"
+"PO-Revision-Date: 2015-07-27 09:48+0200\n"
 "Last-Translator: \n"
 "Language-Team: Slovak <gnome-sk-list@gnome.org>\n"
 "Language: sk\n"
@@ -154,7 +154,7 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:285
+#: ../src/gtd-task-list-view.c:288
 msgid "Done"
 msgstr "Dokončiť"
 
@@ -177,6 +177,10 @@ msgid "Select the default storage location to create task lists:"
 msgstr ""
 "Vyberte predvolené umiestnenie úložiska, v ktorom sa majú vytvoriť zoznamy "
 "úloh:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Predvolené umiestnenie úložiska"
 
 #: ../data/ui/storage-popover.ui.h:1
 msgid "Create"
@@ -229,40 +233,37 @@ msgstr "Alebo môžete ukladať vaše úlohy iba v tomto počítači"
 msgid "New task…"
 msgstr "Nová úloha…"
 
-#: ../data/ui/window.ui.h:1 ../src/gtd-task-list-view.c:218
-msgid "Undo"
-msgstr "Vrátiť späť"
-
-#: ../data/ui/window.ui.h:2
+#: ../data/ui/window.ui.h:1
 msgid "Lists"
 msgstr "Zoznamy"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-task-row.c:145 ../src/gtd-window.c:147
-#: ../src/gtd-window.c:152
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:145 ../src/gtd-window.c:133
+#: ../src/gtd-window.c:138
 msgid "Today"
 msgstr "Dnes"
 
-#: ../data/ui/window.ui.h:4 ../src/gtd-window.c:147 ../src/gtd-window.c:152
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
 msgid "Scheduled"
 msgstr "Naplánované"
 
-#: ../data/ui/window.ui.h:5
+#: ../data/ui/window.ui.h:4
 msgid "Rename"
 msgstr "Premenovať"
 
-#: ../data/ui/window.ui.h:6
+#: ../data/ui/window.ui.h:5
 msgid "New List"
 msgstr "Nový zoznam"
 
 #: ../src/gtd-application.c:90
-msgid "Copyright © %Id The Todo authors"
+msgid "Copyright © %Id The To Do authors"
 msgstr "Autorské práva © %Id Autori aplikácie Úlohy"
 
 #: ../src/gtd-application.c:95
-msgid "Copyright © %Id–%Id The Todo authors"
+msgid "Copyright © %Id–%Id The To Do authors"
 msgstr "Autorské práva © %Id–%Id Autori aplikácie Úlohy"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
+#: ../src/gtd-window.c:297
 msgid "To Do"
 msgstr "Úlohy"
 
@@ -410,120 +411,6 @@ msgstr "Stav pripravenosti objektu"
 msgid "Whether the object is marked as ready or not"
 msgstr "Určuje, či je objekt označený ako pripravený alebo nie"
 
-#: ../src/gtd-storage.c:189
-msgid "Whether the storage is enabled"
-msgstr "Či je povolené úložisko"
-
-#: ../src/gtd-storage.c:190
-msgid "Whether the storage is available to be used."
-msgstr "Určuje, či je úložisko dostupné na použitie."
-
-#: ../src/gtd-storage.c:203
-msgid "Icon of the storage"
-msgstr "Ikona úložiska"
-
-#: ../src/gtd-storage.c:204
-msgid "The icon representing the storage location."
-msgstr "Ikona predstavujúca umiestnenie úložiska."
-
-#: ../src/gtd-storage.c:217
-msgid "Identifier of the storage"
-msgstr "Identifikátor úložiska"
-
-#: ../src/gtd-storage.c:218
-msgid "The unique identifier of the storage location."
-msgstr "Jedinečný identifikátor umiestnenia úložiska."
-
-#: ../src/gtd-storage.c:231
-msgid "Whether the storage is the default"
-msgstr "Či je úložisko predvolené"
-
-#: ../src/gtd-storage.c:232
-msgid "Whether the storage is the default storage location to be used."
-msgstr "Určuje, či je úložisko predvoleným úložiskom, ktoré sa má použiť."
-
-#: ../src/gtd-storage.c:245
-msgid "Name of the storage"
-msgstr "Názov úložiska"
-
-#: ../src/gtd-storage.c:246
-msgid "The user-visible name of the storage location."
-msgstr "Názov umiestnenia úložiska viditeľný pre používateľa."
-
-#: ../src/gtd-storage.c:259
-msgid "Parent of the storage"
-msgstr "Rodič úložiska"
-
-#: ../src/gtd-storage.c:260
-msgid "The parent source identifier of the storage location."
-msgstr "Identifikátor rodičovského zdroja umiestnenia úložiska."
-
-#: ../src/gtd-storage.c:273
-msgid "Provider type of the storage"
-msgstr "Typ poskytovateľa úložiska"
-
-#: ../src/gtd-storage.c:274
-msgid "The provider type of the storage location."
-msgstr "Typ poskytovateľa umiestnenia úložiska."
-
-#: ../src/gtd-storage.c:287
-msgid "Provider name of the storage"
-msgstr "Názov poskytovateľa úložiska"
-
-#: ../src/gtd-storage.c:288
-msgid "The name of the provider of the storage location."
-msgstr "Názov poskytovateľa umiestnenia úložiska."
-
-#: ../src/gtd-storage.c:680
-msgid "Error creating new task list"
-msgstr "Chyba pri vytváraní nového zoznamu úloh"
-
-#: ../src/gtd-storage-dialog.c:153 ../src/gtd-storage-popover.c:264
-#: ../src/gtd-storage-selector.c:522 ../src/gtd-task-list-view.c:659
-#: ../src/gtd-window.c:564
-msgid "Manager of this window's application"
-msgstr "Správca aplikácie pre toto okno"
-
-#: ../src/gtd-storage-dialog.c:154 ../src/gtd-storage-popover.c:265
-#: ../src/gtd-storage-selector.c:523 ../src/gtd-task-list-view.c:660
-#: ../src/gtd-window.c:565
-msgid "The manager of the window's application"
-msgstr "Správca aplikácie okna"
-
-#: ../src/gtd-storage-row.c:148
-msgid "Storage of the row"
-msgstr "Úložisko riadku"
-
-#: ../src/gtd-storage-row.c:149
-msgid "The storage that this row holds"
-msgstr "Úložisko, ktoré drží tento riadok"
-
-#: ../src/gtd-storage-selector.c:536
-msgid "Show local storage row"
-msgstr "Zobraziť riadok s miestnym úložiskom"
-
-#: ../src/gtd-storage-selector.c:537
-msgid "Whether should show a local storage row instead of a checkbox"
-msgstr ""
-"Určuje, či sa má zobraziť riadok s miestnym úložiskom namiesto "
-"zaškrtávacieho poľa"
-
-#: ../src/gtd-storage-selector.c:550
-msgid "Show stub rows"
-msgstr ""
-
-#: ../src/gtd-storage-selector.c:551
-msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
-
-#: ../src/gtd-storage-selector.c:564
-msgid "Selects default storage row"
-msgstr "Vyberie riadok predvoleného úložiska"
-
-#: ../src/gtd-storage-selector.c:565
-msgid "Whether should select the default storage row"
-msgstr "Určuje, či sa má vybrať riadok s predvoleným úložiskom"
-
 #: ../src/gtd-task.c:254
 msgid "Whether the task is completed or not"
 msgstr "Či je úloha dokončená alebo nie"
@@ -620,52 +507,70 @@ msgstr "Rodičovský zdroj, ktorý spravuje tento zoznam"
 msgid "No tasks"
 msgstr "Žiadne úlohy"
 
-#: ../src/gtd-task-list-item.c:443
+#: ../src/gtd-task-list-item.c:436
 msgid "Mode of this item"
 msgstr "Režim tejto položky"
 
-#: ../src/gtd-task-list-item.c:444
+#: ../src/gtd-task-list-item.c:437
 msgid "The mode of this item, inherited from the parent's mode"
 msgstr "Režim tejto položky, zdedený z režimu rodičov"
 
-#: ../src/gtd-task-list-item.c:459
+#: ../src/gtd-task-list-item.c:452
 msgid "Task list of the item"
 msgstr "Zoznam úloh položky"
 
-#: ../src/gtd-task-list-item.c:460
+#: ../src/gtd-task-list-item.c:453
 msgid "The task list associated with this item"
 msgstr "Zoznam úloh priradený k tejto položke"
 
-#: ../src/gtd-task-list-view.c:202
+#: ../src/gtd-task-list-view.c:201
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Úloha <b>%s</b> bola odstránená"
 
-#: ../src/gtd-task-list-view.c:673
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "Vrátiť späť"
+
+#: ../src/gtd-task-list-view.c:662 ../src/gtd-window.c:516
+#: ../src/storage/gtd-storage-dialog.c:153
+#: ../src/storage/gtd-storage-popover.c:272
+#: ../src/storage/gtd-storage-selector.c:522
+msgid "Manager of this window's application"
+msgstr "Správca aplikácie pre toto okno"
+
+#: ../src/gtd-task-list-view.c:663 ../src/gtd-window.c:517
+#: ../src/storage/gtd-storage-dialog.c:154
+#: ../src/storage/gtd-storage-popover.c:273
+#: ../src/storage/gtd-storage-selector.c:523
+msgid "The manager of the window's application"
+msgstr "Správca aplikácie okna"
+
+#: ../src/gtd-task-list-view.c:676
 msgid "Whether the list is readonly"
 msgstr "Či je zoznam iba na čítanie"
 
-#: ../src/gtd-task-list-view.c:674
+#: ../src/gtd-task-list-view.c:677
 msgid ""
 "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
 msgstr ""
 "Určuje, či je zoznam iba na čítanie, t.j. zobrazí alebo nezobrazí sa riadok "
 "Nová úloha"
 
-#: ../src/gtd-task-list-view.c:687
+#: ../src/gtd-task-list-view.c:690
 msgid "Whether task rows show the list name"
 msgstr "Či riadky s úlohami zobrazia názov zoznamu"
 
-#: ../src/gtd-task-list-view.c:688
+#: ../src/gtd-task-list-view.c:691
 msgid "Whether task rows show the list name at the end of the row"
 msgstr ""
 "Určuje, či riadky s úlohami majú zobraziť názov zoznamu na konci riadku"
 
-#: ../src/gtd-task-list-view.c:701
+#: ../src/gtd-task-list-view.c:704
 msgid "Whether completed tasks are shown"
 msgstr "Či sa zobrazia dokončené úlohy"
 
-#: ../src/gtd-task-list-view.c:702
+#: ../src/gtd-task-list-view.c:705
 msgid "Whether completed tasks are visible or not"
 msgstr "Určuje, či sú viditeľné dokončené úlohy alebo nie"
 
@@ -693,10 +598,159 @@ msgstr "Úloha riadku"
 msgid "The task that this row represents"
 msgstr "Úloha, ktorú reprezentuje tento riadok"
 
-#: ../src/gtd-window.c:287
+#: ../src/gtd-window.c:181
 msgid "Setting new color for task list"
 msgstr "Nastavuje sa nová farba zoznamu úloh"
 
-#: ../src/gtd-window.c:333
+#: ../src/gtd-window.c:552
 msgid "Loading your task lists…"
 msgstr "Načítavanie vašich zoznamov úloh…"
+
+#: ../src/storage/gtd-storage.c:189
+msgid "Whether the storage is enabled"
+msgstr "Či je povolené úložisko"
+
+#: ../src/storage/gtd-storage.c:190
+msgid "Whether the storage is available to be used."
+msgstr "Určuje, či je úložisko dostupné na použitie."
+
+#: ../src/storage/gtd-storage.c:203
+msgid "Icon of the storage"
+msgstr "Ikona úložiska"
+
+#: ../src/storage/gtd-storage.c:204
+msgid "The icon representing the storage location."
+msgstr "Ikona predstavujúca umiestnenie úložiska."
+
+#: ../src/storage/gtd-storage.c:217
+msgid "Identifier of the storage"
+msgstr "Identifikátor úložiska"
+
+#: ../src/storage/gtd-storage.c:218
+msgid "The unique identifier of the storage location."
+msgstr "Jedinečný identifikátor umiestnenia úložiska."
+
+#: ../src/storage/gtd-storage.c:231
+msgid "Whether the storage is the default"
+msgstr "Či je úložisko predvolené"
+
+#: ../src/storage/gtd-storage.c:232
+msgid "Whether the storage is the default storage location to be used."
+msgstr "Určuje, či je úložisko predvoleným úložiskom, ktoré sa má použiť."
+
+#: ../src/storage/gtd-storage.c:245
+msgid "Name of the storage"
+msgstr "Názov úložiska"
+
+#: ../src/storage/gtd-storage.c:246
+msgid "The user-visible name of the storage location."
+msgstr "Názov umiestnenia úložiska viditeľný pre používateľa."
+
+#: ../src/storage/gtd-storage.c:259
+msgid "Parent of the storage"
+msgstr "Rodič úložiska"
+
+#: ../src/storage/gtd-storage.c:260
+msgid "The parent source identifier of the storage location."
+msgstr "Identifikátor rodičovského zdroja umiestnenia úložiska."
+
+#: ../src/storage/gtd-storage.c:273
+msgid "Provider type of the storage"
+msgstr "Typ poskytovateľa úložiska"
+
+#: ../src/storage/gtd-storage.c:274
+msgid "The provider type of the storage location."
+msgstr "Typ poskytovateľa umiestnenia úložiska."
+
+#: ../src/storage/gtd-storage.c:287
+msgid "Provider name of the storage"
+msgstr "Názov poskytovateľa úložiska"
+
+#: ../src/storage/gtd-storage.c:288
+msgid "The name of the provider of the storage location."
+msgstr "Názov poskytovateľa umiestnenia úložiska."
+
+#: ../src/storage/gtd-storage.c:680
+msgid "Error creating new task list"
+msgstr "Chyba pri vytváraní nového zoznamu úloh"
+
+#: ../src/storage/gtd-storage-row.c:148
+msgid "Storage of the row"
+msgstr "Úložisko riadku"
+
+#: ../src/storage/gtd-storage-row.c:149
+msgid "The storage that this row holds"
+msgstr "Úložisko, ktoré drží tento riadok"
+
+#: ../src/storage/gtd-storage-selector.c:536
+msgid "Show local storage row"
+msgstr "Zobraziť riadok s miestnym úložiskom"
+
+#: ../src/storage/gtd-storage-selector.c:537
+msgid "Whether should show a local storage row instead of a checkbox"
+msgstr ""
+"Určuje, či sa má zobraziť riadok s miestnym úložiskom namiesto "
+"zaškrtávacieho poľa"
+
+#: ../src/storage/gtd-storage-selector.c:550
+msgid "Show stub rows"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:551
+msgid "Whether should show stub rows for non-added accounts"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:564
+msgid "Selects default storage row"
+msgstr "Vyberie riadok predvoleného úložiska"
+
+#: ../src/storage/gtd-storage-selector.c:565
+msgid "Whether should select the default storage row"
+msgstr "Určuje, či sa má vybrať riadok s predvoleným úložiskom"
+
+#: ../src/notification/gtd-notification.c:181
+msgid "Whether the notification has a primary action"
+msgstr "Či oznámenie obsahuje hlavnú akciu"
+
+# desc
+#: ../src/notification/gtd-notification.c:182
+msgid ""
+"Whether the notification has the primary action, activated on timeout or "
+"dismiss"
+msgstr ""
+"Určuje, či oznámenie obsahuje hlavnú akciu, aktivovanú po vypršaní času, "
+"alebo odmietnutí"
+
+#: ../src/notification/gtd-notification.c:196
+msgid "Whether the notification has a secondary action"
+msgstr "Či oznámenie obsahuje vedľajšiu akciu"
+
+# desc
+#: ../src/notification/gtd-notification.c:197
+msgid ""
+"Whether the notification has the secondary action, activated by the user"
+msgstr "Určuje, či oznámenie obsahuje vedľajšiu akciu, aktivovanú používateľom"
+
+#: ../src/notification/gtd-notification.c:210
+msgid "Text of the secondary action button"
+msgstr "Text vedľajšieho akčného tlačidla"
+
+#: ../src/notification/gtd-notification.c:211
+msgid "The text of the secondary action button"
+msgstr "Text vedľajšieho akčného tlačidla"
+
+#: ../src/notification/gtd-notification.c:224
+msgid "Notification message"
+msgstr "Oznamovacia správa"
+
+#: ../src/notification/gtd-notification.c:225
+msgid "The main message of the notification"
+msgstr "Hlavná správa oznámenia"
+
+#: ../src/notification/gtd-notification.c:238
+msgid "Notification timeout"
+msgstr "Časový limit oznámenia"
+
+#: ../src/notification/gtd-notification.c:239
+msgid "The time the notification is displayed"
+msgstr "Doba, počas ktorej je zobrazené oznámenie"
