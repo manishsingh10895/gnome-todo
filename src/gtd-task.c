@@ -323,7 +323,7 @@ gtd_task_class_init (GtdTaskClass *klass)
         PROP_PRIORITY,
         g_param_spec_int ("priority",
                           _("Priority of the task"),
-                          _("The priority of the task. 0 means no priority set, and tasks will be sorted alfabetically."),
+                          _("The priority of the task. 0 means no priority set, and tasks will be sorted alphabetically."),
                           0,
                           G_MAXINT,
                           0,
