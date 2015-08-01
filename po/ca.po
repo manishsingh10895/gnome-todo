@@ -5,6 +5,7 @@
 # Jordi Mas i Hernàndez <jmas@softcatala.org>, 2015
 #
 # To Do -> Per fer
+# Backend -> dorsal
 #
 msgid ""
 msgstr ""
@@ -34,7 +35,7 @@ msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-
+"El GNOME Per fer és una aplicació de gestió de tasques simple disenyada per a integrar-se amb el GNOME."
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
 msgstr "Llista nova…"
@@ -91,6 +92,7 @@ msgstr "Primera execució del GNOME Per fer"
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
 msgstr ""
+"Si és el primer cop que s'executa el GNOME Per fer (per a executar la configuració inicial) o no"
 
 #: ../data/org.gnome.todo.gschema.xml.in.h:9
 msgid "Default location to add new lists to"
@@ -98,7 +100,7 @@ msgstr "Ubicació per defecte a afegir a les llistes noves"
 
 #: ../data/org.gnome.todo.gschema.xml.in.h:10
 msgid "The identifier of the default location to add new lists to"
-msgstr ""
+msgstr "L'identificador de la ubicació per defecte on s'han d'afegir les llistes noves"
 
 #: ../data/ui/edit-pane.ui.h:1
 msgid "Details"
@@ -142,7 +144,7 @@ msgstr "Benvinguts"
 
 #: ../data/ui/initial-setup.ui.h:2
 msgid "Login to online accounts to access your tasks"
-msgstr ""
+msgstr "Entreu als comptes en línia per accedir a les vostres tasques"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
 msgid "Cancel"
@@ -159,7 +161,7 @@ msgstr "No s'han trobat tasques"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr ""
+msgstr "Podeu afegir tasques a les llistes en la vista <b>Llistes</b>"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
@@ -167,7 +169,7 @@ msgstr "Mostra o amaga les tasques completades"
 
 #: ../data/ui/storage-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
-msgstr ""
+msgstr "Seleccioneu la ubicació de l'emmagatzematge per defecte per crear llistes de tasques:"
 
 #: ../data/ui/storage-dialog.ui.h:2
 msgid "Default storage location"
@@ -191,7 +193,7 @@ msgstr "Desactiva"
 
 #: ../data/ui/storage-selector.ui.h:1
 msgid "Click to add a new Google account"
-msgstr "Feu clic per afegeir un nou compte de Google"
+msgstr "Feu clic per afegir un nou compte de Google"
 
 #: ../data/ui/storage-selector.ui.h:2
 msgid "Google"
@@ -207,7 +209,7 @@ msgstr "ownCloud"
 
 #: ../data/ui/storage-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
-msgstr ""
+msgstr "Feu clic per a afegir un nou compte del Microsoft Exchange"
 
 #: ../data/ui/storage-selector.ui.h:6
 msgid "Microsoft Exchange"
@@ -333,21 +335,19 @@ msgstr "S'ha produït un error en recuperar les tasques de la llista"
 
 #: ../src/gtd-manager.c:821
 msgid "Task list source successfully connected"
-msgstr ""
+msgstr "S'ha connectat la font de la llista de tasques"
 
 #: ../src/gtd-manager.c:828
-#, fuzzy
 msgid "Failed to connect to task list source"
-msgstr "Ha fallat la creació d'una tasca a la llista de tasques «{0}»"
+msgstr "S'ha produït un error en connectar a la font de la llista de tasques"
 
 #: ../src/gtd-manager.c:858
 msgid "Skipping already loaded task list "
-msgstr ""
+msgstr "S'està ometent la llista de tasques ja carregada "
 
 #: ../src/gtd-manager.c:896
-#, fuzzy
 msgid "Error loading task manager"
-msgstr "S'ha produït un error en carregar la llista de tasques «{0}»"
+msgstr "S'ha produït un error en carregar el gestor de tasques"
 
 #: ../src/gtd-manager.c:1030
 msgid "Local"
@@ -358,70 +358,62 @@ msgid "On This Computer"
 msgstr "En aquest ordinador"
 
 #: ../src/gtd-manager.c:1064
-#, fuzzy
 msgid "The online accounts client of the manager"
-msgstr ""
-"Fes concordar els comptes de banca electrònica amb els comptes del GnuCash"
+msgstr "El client de comptes en línia del gestor"
 
 #: ../src/gtd-manager.c:1065
 msgid ""
 "The read-only GNOME online accounts client loaded and owned by the manager"
 msgstr ""
+"El client de comptes en línia del GNOME de només de lectura carregat i propietat del gestor"
 
 #: ../src/gtd-manager.c:1078
 msgid "Whether GNOME Online Accounts client is ready"
-msgstr ""
+msgstr "Si el client de comptes en línia està preparat"
 
 #: ../src/gtd-manager.c:1079
 msgid "Whether the read-only GNOME online accounts client is loaded"
-msgstr ""
+msgstr "Si el client de comptes en línia del GNOME de només de lectura està carregat"
 
 #: ../src/gtd-manager.c:1092
-#, fuzzy
 msgid "The source registry of the manager"
-msgstr "&Registre"
+msgstr "El registre de la font del gestor"
 
 #: ../src/gtd-manager.c:1093
 msgid "The read-only source registry loaded and owned by the manager"
-msgstr ""
+msgstr "El registre de la font de només lectura carregat i propietat del gestor"
 
 #: ../src/gtd-object.c:152
-#, fuzzy
 msgid "Unique identifier of the object"
 msgstr "L'identificador únic de l'objecte"
 
 #: ../src/gtd-object.c:153
-#, fuzzy
 msgid "The unique identifier of the object, defined by the backend"
-msgstr "L'identificador únic de l'objecte"
+msgstr "L'identificador únic de l'objecte definit pel dorsal"
 
 #: ../src/gtd-object.c:166
-#, fuzzy
 msgid "Ready state of the object"
-msgstr "Introduïu l'estat (deixeu «-» si no hi ha estat per l'objecte) "
+msgstr "Estat preparat de l'objecte"
 
 #: ../src/gtd-object.c:167
-#, fuzzy
 msgid "Whether the object is marked as ready or not"
-msgstr "Comprova si aquest objecte existeix"
+msgstr "Si l'objecte està marcat com preparat o no"
 
 #: ../src/gtd-task.c:254
-#, fuzzy
 msgid "Whether the task is completed or not"
-msgstr "La tasca està %1% completada"
+msgstr "Si la tasca està completada o no"
 
 #: ../src/gtd-task.c:255
 msgid "Whether the task is marked as completed by the user"
-msgstr ""
+msgstr "Si la tasca està marcada com a completada per l'usuari"
 
 #: ../src/gtd-task.c:268
 msgid "Component of the task"
 msgstr "Component de la tasca"
 
 #: ../src/gtd-task.c:269
-#, fuzzy
 msgid "The #ECalComponent this task handles."
-msgstr "Nanses:"
+msgstr "El #ECalComponent gestionat per aquesta tasca."
 
 #: ../src/gtd-task.c:282
 msgid "Description of the task"
@@ -456,6 +448,7 @@ msgid ""
 "The priority of the task. 0 means no priority set, and tasks will be sorted "
 "alfabetically."
 msgstr ""
+"La prioritat de les tasques. 0 vol dir que no s'ha establert cap prioritat i que les tasques s'ordenaran alfabèticament."
 
 #: ../src/gtd-task.c:341
 msgid "Title of the task"
@@ -486,45 +479,36 @@ msgid "Data origin of the list"
 msgstr "Data d'origen de la llista"
 
 #: ../src/gtd-task-list.c:181
-#, fuzzy
 msgid "The data origin location of the list"
-msgstr "ubicació dels fitxers de dades d’idiomes"
+msgstr "La ubicació origen de les dades de la llista"
 
 #: ../src/gtd-task-list.c:194
 msgid "Source of the list"
 msgstr "Font de la llista"
 
 #: ../src/gtd-task-list.c:195
-#, fuzzy
 msgid "The parent source that handles the list"
-msgstr "Llista de fitxers font"
+msgstr "La font pare que gestiona la llista"
 
 #: ../src/gtd-task-list-item.c:231
 msgid "No tasks"
 msgstr "Sense tasques"
 
 #: ../src/gtd-task-list-item.c:436
-#, fuzzy
 msgid "Mode of this item"
-msgstr ""
-"Si heu d'introduir la fórmula a una línia de text, els límits augmenten "
-"l'alçada de la línia. Podeu triar <item type=\"menuitem\">Format - Mode de "
-"text</item> per posar els límits al costat del símbol de sumatori o "
-"d'integral, cosa que redueix l'alçada de la línia."
+msgstr "Mode d'aquest element"
 
 #: ../src/gtd-task-list-item.c:437
 msgid "The mode of this item, inherited from the parent's mode"
-msgstr ""
+msgstr "El mode d'aquest element, heretat del mode del pare"
 
 #: ../src/gtd-task-list-item.c:452
-#, fuzzy
 msgid "Task list of the item"
-msgstr "S'està copiant una tasca al llistat de tasques «{0}»"
+msgstr "La llista de tasques de l'element"
 
 #: ../src/gtd-task-list-item.c:453
-#, fuzzy
 msgid "The task list associated with this item"
-msgstr "Noms de tasques i fitxers .desktop associats"
+msgstr "La llista de tasques associada amb aquest element"
 
 #: ../src/gtd-task-list-view.c:201
 #, c-format
@@ -557,26 +541,23 @@ msgstr "Si aquesta llista és de només lectura"
 msgid ""
 "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
 msgstr ""
+"Si la llista és només de lectura, és a dir, si es mostra o no la fila de la tasca nova"
 
 #: ../src/gtd-task-list-view.c:690
 msgid "Whether task rows show the list name"
-msgstr ""
+msgstr "Si les files de la tasca mostren el nom de la llista"
 
 #: ../src/gtd-task-list-view.c:691
 msgid "Whether task rows show the list name at the end of the row"
-msgstr ""
+msgstr "Si les files de la tasca mostren el nom de la llista al final de la fila"
 
 #: ../src/gtd-task-list-view.c:704
-#, fuzzy
 msgid "Whether completed tasks are shown"
-msgstr ""
-"Si s'han d'amagar les tasques completades a la visualització de tasques"
+msgstr "Si les tasques completades es mostren"
 
 #: ../src/gtd-task-list-view.c:705
-#, fuzzy
 msgid "Whether completed tasks are visible or not"
-msgstr ""
-"Si s'han d'amagar les tasques completades a la visualització de tasques"
+msgstr "Si les tasques completades són visibles o no"
 
 #: ../src/gtd-task-row.c:149
 msgid "Tomorrow"
@@ -587,13 +568,12 @@ msgid "Yesterday"
 msgstr "Ahir"
 
 #: ../src/gtd-task-row.c:375
-#, fuzzy
 msgid "If the row is used to add a new task"
-msgstr "Afegeix un nou filtre de línia"
+msgstr "Si s'utilitza la fila per afegir una tasca nova"
 
 #: ../src/gtd-task-row.c:376
 msgid "Whether the row is used to add a new task"
-msgstr ""
+msgstr "Indica si s'utilitza la fila per afegir una tasca nova"
 
 #: ../src/gtd-task-row.c:389
 msgid "Task of the row"
@@ -641,16 +621,15 @@ msgstr "Si l'emmagatzematge és per defecte"
 
 #: ../src/storage/gtd-storage.c:232
 msgid "Whether the storage is the default storage location to be used."
-msgstr ""
+msgstr "Si l'emmagatzematge és la ubicació d'emmagatzematge per defecte a utilitzar."
 
 #: ../src/storage/gtd-storage.c:245
 msgid "Name of the storage"
 msgstr "Nom de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:246
-#, fuzzy
 msgid "The user-visible name of the storage location."
-msgstr "Nom de transport visible per l'usuari"
+msgstr "Nom visible per l'usuari de la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:259
 msgid "Parent of the storage"
@@ -658,69 +637,59 @@ msgstr "Pare de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:260
 msgid "The parent source identifier of the storage location."
-msgstr ""
+msgstr "L'identificador font del pare de la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:273
-#, fuzzy
 msgid "Provider type of the storage"
-msgstr "Tipus d'emmagatzematge"
+msgstr "Proveïdor del tipus d'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:274
-#, fuzzy
 msgid "The provider type of the storage location."
-msgstr "Tipus d'emmagatzematge"
+msgstr "El tipus de proveïdor de la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:287
-#, fuzzy
 msgid "Provider name of the storage"
-msgstr "Nom del proveïdor (p.ex. proveïdor.net)"
+msgstr "Nom del proveïdor de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:288
-#, fuzzy
 msgid "The name of the provider of the storage location."
-msgstr "Ubicació dels subtítols"
+msgstr "El nom del proveïdor de la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:680
-#, fuzzy
 msgid "Error creating new task list"
-msgstr "S'ha produït un error en crear una tasca nova"
+msgstr "S'ha produït un error en crear una nova llista de tasques"
 
 #: ../src/storage/gtd-storage-row.c:148
-#, fuzzy
 msgid "Storage of the row"
-msgstr "Columna"
+msgstr "Emmagatzematge de la fila"
 
 #: ../src/storage/gtd-storage-row.c:149
-#, fuzzy
 msgid "The storage that this row holds"
-msgstr "Emmagatzematge"
+msgstr "L'emmagatzematge que conté aquesta fila"
 
 #: ../src/storage/gtd-storage-selector.c:536
-#, fuzzy
 msgid "Show local storage row"
-msgstr "Inspector d'emmagatzematge (galetes, emmagatzematge local…)"
+msgstr "Mostra la fila de l'emmagatzematge local"
 
 #: ../src/storage/gtd-storage-selector.c:537
 msgid "Whether should show a local storage row instead of a checkbox"
-msgstr ""
+msgstr "Si s'ha de mostrar una fila de l'emmagatzematge local en comptes d'una casella de selecció"
 
 #: ../src/storage/gtd-storage-selector.c:550
-#, fuzzy
 msgid "Show stub rows"
-msgstr "Mo~stra les files"
+msgstr "Mostra les files auxiliars"
 
 #: ../src/storage/gtd-storage-selector.c:551
 msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
+msgstr "Si s'han de mostrar les files auxiliars per comptes no afegits"
 
 #: ../src/storage/gtd-storage-selector.c:564
-#, fuzzy
 msgid "Selects default storage row"
-msgstr "Selecciona la fila actual."
+msgstr "Selecciona fila de l'emmagatzematge per defecte"
 
 #: ../src/storage/gtd-storage-selector.c:565
 msgid "Whether should select the default storage row"
-msgstr ""
+msgstr "Si s'ha de seleccionar la fila de l'emmagatzematge per defecte"
 
 #: ../src/notification/gtd-notification.c:181
 msgid "Whether the notification has a primary action"
@@ -731,41 +700,38 @@ msgid ""
 "Whether the notification has the primary action, activated on timeout or "
 "dismiss"
 msgstr ""
+"Si la notificació té una acció primària, activada a l'esgotar-se el temps o descartada"
 
 #: ../src/notification/gtd-notification.c:196
 msgid "Whether the notification has a secondary action"
-msgstr ""
+msgstr "Si la notificació té una acció secundària"
 
 #: ../src/notification/gtd-notification.c:197
 msgid ""
 "Whether the notification has the secondary action, activated by the user"
 msgstr ""
+"Si la notificació té una acció secundària, activada per l'usuari"
 
 #: ../src/notification/gtd-notification.c:210
-#, fuzzy
 msgid "Text of the secondary action button"
-msgstr "Doble clic, botó secundari"
+msgstr "Text del botó d'acció secundària"
 
 #: ../src/notification/gtd-notification.c:211
-#, fuzzy
 msgid "The text of the secondary action button"
-msgstr "Doble clic, botó secundari"
+msgstr "El text del botó d'acció secundària"
 
 #: ../src/notification/gtd-notification.c:224
 msgid "Notification message"
 msgstr "Missatge de notificació"
 
 #: ../src/notification/gtd-notification.c:225
-#, fuzzy
 msgid "The main message of the notification"
-msgstr "Reproduir sons de missatges de notificació."
+msgstr "El missatge principal de la notificació"
 
 #: ../src/notification/gtd-notification.c:238
-#, fuzzy
 msgid "Notification timeout"
-msgstr "_Temps d'espera:"
+msgstr "Temps d'espera de la notificació"
 
 #: ../src/notification/gtd-notification.c:239
-#, fuzzy
 msgid "The time the notification is displayed"
-msgstr "Temps durant el qual es mostrarà la notificació"
+msgstr "Temps durant el qual es mostra la notificació"
