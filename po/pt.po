@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-07-28 15:07+0000\n"
-"PO-Revision-Date: 2015-08-01 10:46+0100\n"
+"PO-Revision-Date: 2015-08-03 05:22+0100\n"
 "Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
@@ -34,8 +34,8 @@ msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"A fazer do GNOME 'e uma simples aplicação de gestão de tarefas desenhada "
-"para integração no GNOME."
+"A fazer do GNOME é uma simples aplicação de gestão de tarefas desenhada para "
+"integração no GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -345,7 +345,7 @@ msgstr "Falha ao ligar à origem da lista de tarefas"
 
 #: ../src/gtd-manager.c:850
 msgid "Skipping already loaded task list "
-msgstr "A saltar lista de tarefas já carregada"
+msgstr "A saltar lista de tarefas já carregada "
 
 #: ../src/gtd-manager.c:888
 msgid "Error loading task manager"
@@ -432,7 +432,7 @@ msgstr "Data de fim da tarefa"
 
 #: ../src/gtd-task.c:298
 msgid "The day the task is supposed to be completed"
-msgstr "O dia em que é suposto a tarefa estar terminada "
+msgstr "O dia em que é suposto a tarefa estar terminada"
 
 #: ../src/gtd-task.c:311
 msgid "List of the task"
@@ -571,7 +571,7 @@ msgstr "Amanhã"
 
 #: ../src/gtd-task-row.c:147
 msgid "Yesterday"
-msgstr "Ontém"
+msgstr "Ontem"
 
 #: ../src/gtd-task-row.c:366
 msgid "If the row is used to add a new task"
