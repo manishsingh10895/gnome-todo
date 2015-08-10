@@ -11,7 +11,12 @@ bin_PROGRAMS = gnome-todo
 
 BUILT_SOURCES = \
 	gtd-resources.c \
-	gtd-resources.h
+	gtd-resources.h \
+	gtd-enum-types.c \
+	gtd-enum-types.h
+
+ENUM_TYPES = \
+	gtd-enums.h
 
 gnome_todo_SOURCES = \
 	$(BUILT_SOURCES) \
@@ -68,11 +73,23 @@ gnome_todo_LDFLAGS = \
 gnome_todo_LDADD = \
 	$(GNOME_TODO_LIBS)
 
+#
+# Resources
+#
 resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --generate-dependencies $(top_srcdir)/data/todo.gresource.xml)
 gtd-resources.c: $(top_srcdir)/data/todo.gresource.xml $(resource_files)
 	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-source --c-name todo $(top_srcdir)/data/todo.gresource.xml
 gtd-resources.h: $(top_srcdir)/data/todo.gresource.xml $(resource_files)
 	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-header --c-name todo $(top_srcdir)/data/todo.gresource.xml
+
+#
+# Enums
+#
+gtd-enum-types.c: gtd-enum-types.c.template $(ENUM_TYPES) $(GLIB_MKENUMS)
+	$(AM_V_GEN) (cd $(srcdir) && $(GLIB_MKENUMS) --template gtd-enum-types.c.template $(ENUM_TYPES)) > $@
+
+gtd-enum-types.h: gtd-enum-types.h.template $(ENUM_TYPES) $(GLIB_MKENUMS)
+	$(AM_V_GEN) (cd $(srcdir) && $(GLIB_MKENUMS) --template gtd-enum-types.h.template $(ENUM_TYPES)) > $@
 
 CLEANFILES = \
 	$(BUILT_SOURCES)
