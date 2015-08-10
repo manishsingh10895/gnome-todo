@@ -608,6 +608,7 @@ gtd_task_set_due_date (GtdTask   *task,
 
       comp_dt.value = NULL;
       comp_dt.tzid = NULL;
+      idt = NULL;
 
       if (!current_dt ||
           (current_dt &&
