@@ -17,7 +17,6 @@
  */
 
 #include "gtd-arrow-frame.h"
-#include "gtd-task-list-view.h"
 #include "gtd-task-row.h"
 
 typedef struct
@@ -86,17 +85,12 @@ on_pan_cb (GtkWidget       *widget,
 {
   GtdArrowFramePrivate *priv;
   GtkTextDirection dir;
-  GtkWidget *ancestor;
   gdouble offset_x;
-  gint max_width;
 
   priv = GTD_ARROW_FRAME (widget)->priv;
   dir = gtk_widget_get_direction (widget);
-  ancestor = gtk_widget_get_ancestor (widget, GTD_TYPE_TASK_LIST_VIEW);
 
   priv->moving = TRUE;
-
-  max_width = gtk_widget_get_allocated_width (ancestor);
 
   gtk_gesture_drag_get_offset (GTK_GESTURE_DRAG (pan),
                                &offset_x,
@@ -105,7 +99,7 @@ on_pan_cb (GtkWidget       *widget,
   if (dir == GTK_TEXT_DIR_RTL)
     priv->offset = MAX (0, offset_x);
   else
-    priv->offset = MAX (0, priv->offset - offset_x);
+    priv->offset = MAX (0, priv->offset + -1 * offset_x);
 
 
   gtk_widget_queue_resize (widget);
