@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-28 15:07+0000\n"
-"PO-Revision-Date: 2015-08-03 \n"
+"POT-Creation-Date: 2015-08-10 21:53+0000\n"
+"PO-Revision-Date: 2015-08-11 \n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Spanish <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -175,7 +175,6 @@ msgid "Select the default storage location to create task lists:"
 msgstr "Seleccionar la ubicación predeterminada para crear listas de tareas:"
 
 #: ../data/ui/storage-dialog.ui.h:2
-#| msgid "Select a storage location"
 msgid "Default storage location"
 msgstr "Ubicación predeterminada del almacenamiento"
 
@@ -249,14 +248,16 @@ msgid "New List"
 msgstr "Nueva lista"
 
 #: ../src/gtd-application.c:90
-#| msgid "Copyright © %Id The Todo authors"
-msgid "Copyright © %Id The To Do authors"
-msgstr "Copyright © %Id los autores de Tareas pendientes"
+#, c-format
+#| msgid "Copyright © %Id The To Do authors"
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d los autores de Tareas pendientes"
 
 #: ../src/gtd-application.c:95
-#| msgid "Copyright © %Id–%Id The Todo authors"
-msgid "Copyright © %Id–%Id The To Do authors"
-msgstr "Copyright © %Id–%Id los autores de Tareas pendientes"
+#, c-format
+#| msgid "Copyright © %Id–%Id The To Do authors"
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d los autores de Tareas pendientes"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
 #: ../src/gtd-window.c:297
@@ -453,9 +454,6 @@ msgid "Priority of the task"
 msgstr "Prioridad de la tarea"
 
 #: ../src/gtd-task.c:326
-#| msgid ""
-#| "The priority of the task. 0 means no priority set, and tasks will be "
-#| "sorted alfabetically."
 msgid ""
 "The priority of the task. 0 means no priority set, and tasks will be sorted "
 "alphabetically."
