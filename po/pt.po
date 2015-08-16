@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-07-28 15:07+0000\n"
-"PO-Revision-Date: 2015-08-03 05:22+0100\n"
+"POT-Creation-Date: 2015-08-10 21:53+0000\n"
+"PO-Revision-Date: 2015-08-16 07:04+0100\n"
 "Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
@@ -247,12 +247,16 @@ msgid "New List"
 msgstr "Nova lista"
 
 #: ../src/gtd-application.c:90
-msgid "Copyright © %Id The To Do authors"
-msgstr "Copyright © %Id Os autores do A fazer"
+#, c-format
+#| msgid "Copyright © %Id The To Do authors"
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d Os autores do A fazer"
 
 #: ../src/gtd-application.c:95
-msgid "Copyright © %Id–%Id The To Do authors"
-msgstr "Copyright © %Id–%Id Os autores do A fazer"
+#, c-format
+#| msgid "Copyright © %Id–%Id The To Do authors"
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d Os autores do A fazer"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
 #: ../src/gtd-window.c:297
@@ -447,9 +451,6 @@ msgid "Priority of the task"
 msgstr "Prioridade da tarefa"
 
 #: ../src/gtd-task.c:326
-#| msgid ""
-#| "The priority of the task. 0 means no priority set, and tasks will be "
-#| "sorted alfabetically."
 msgid ""
 "The priority of the task. 0 means no priority set, and tasks will be sorted "
 "alphabetically."
