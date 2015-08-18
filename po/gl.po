@@ -1,0 +1,750 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Fran Dieguez <frandieguez@gnome.org>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-toto 3.18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-17 01:35+0200\n"
+"PO-Revision-Date: 2015-08-19 00:50+0200\n"
+"Last-Translator: Fran Dieguez <frandieguez@gnome.org>\n"
+"Language-Team: gnome-l10n-gl@gnome.org\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Lista de tarefas"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Xestor de tarefas para GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"Lista de tarefas de GNOME é un aplicativo de xestión de tarefas deseñado "
+"para integrarse con GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Nova lista…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Cambiar a localización de almacenamento por omisión…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Sobre"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Saír"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Xestione as súas tarefas persoais"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Tarefas;Productividade;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Xanela maximizada"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Estado da xanela maximizada"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Tamaño da xanela"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Tamaño da xanela (ancho e alto)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Posición da xanela"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Posición da xanela (x e y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Primeira execución da Lista de tarefas de GNOME"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Indica se é a primeira vez que se executa Lista de tarefas de GNOME (para "
+"iniciar a configuración inicial) ou non"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Localización por omisión onde engadir novas listas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "O identificador da localización por omisión onde engadir novas listas"
+
+#: ../data/ui/edit-pane.ui.h:1
+msgid "Details"
+msgstr "Detalles"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Notas"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Data de vencemento"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioridade"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Ningunha"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Baixa"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Media"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Alta"
+
+#: ../data/ui/edit-pane.ui.h:9
+msgid "Delete"
+msgstr "Eliminar"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Benvido/a"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Iniciar sesión en contas en liña para acceder ás súas tarefas"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:288
+msgid "Done"
+msgstr "Feito"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Non se atoparon tarefas"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Pode engadir tarefas para mostralas na vista de <b>Listas</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Mostrar ou ocultar as tarefas completadas"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+"Seleccione a localización de almacenamento por omisión ao crear listas de "
+"tarefas:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Localización do almacenamento por omisión"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Crear"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Nome da lista"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Seleccione a localización do almacenamento"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Desactivado"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Prema para engadir unha conta de Google"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Prema para engadir unha conta de ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Prema para engadir unha conta de Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Ou tamén pode almacenar as súas tarefas neste computador"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Novas tarefas…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Listas"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:133
+#: ../src/gtd-window.c:138
+msgid "Today"
+msgstr "Hoxe"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+msgid "Scheduled"
+msgstr "Planificada"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Renomear"
+
+#: ../data/ui/window.ui.h:5
+msgid "New List"
+msgstr "Nova lista"
+
+#: ../src/gtd-application.c:90
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d Os autores da Lista de tarefas"
+
+#: ../src/gtd-application.c:95
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d-%d Os autores da Lista de tarefas"
+
+#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
+#: ../src/gtd-window.c:297
+msgid "To Do"
+msgstr "Lista de tarefas"
+
+#: ../src/gtd-application.c:107
+msgid "translator-credits"
+msgstr "Fran Diéguez <frandieguez@gnome.org>, 2015."
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Prouciuse un erro ao cargar o CSS desde o recurso"
+
+#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
+msgid "No date set"
+msgstr "Non se estabeleceu unha data"
+
+#: ../src/gtd-edit-pane.c:248
+msgid "Manager of this application"
+msgstr "O xestor deste aplicativo"
+
+#: ../src/gtd-edit-pane.c:249
+msgid "The manager of the application"
+msgstr "O xestor deste aplicativo"
+
+#: ../src/gtd-edit-pane.c:262
+msgid "Task being edited"
+msgstr "Tarefa editándose"
+
+#: ../src/gtd-edit-pane.c:263
+msgid "The task that is actually being edited"
+msgstr "A tarefa está actualmente editándose"
+
+#: ../src/gtd-initial-setup-window.c:213
+msgid "Manager of the task"
+msgstr "Xestor da tarefa"
+
+#: ../src/gtd-initial-setup-window.c:214
+msgid "The singleton manager instance of the task"
+msgstr "Unha instancia de xestión singleton da tarefa"
+
+#: ../src/gtd-manager.c:375
+msgid "Error loading GNOME Online Accounts"
+msgstr "Produciuse un erro ao cargar as Contas en liña de GNOME"
+
+#: ../src/gtd-manager.c:403
+msgid "Error saving task list"
+msgstr "Produciuse un erro ao gardar a lista de tarefas"
+
+#: ../src/gtd-manager.c:430
+msgid "Error removing task list"
+msgstr "Produciuse un erro ao eliminar a lista de tarefas"
+
+#: ../src/gtd-manager.c:464
+msgid "Error creating task"
+msgstr "Produciuse un erro ao crear a tarefa"
+
+#: ../src/gtd-manager.c:527
+msgid "Error removing task"
+msgstr "Produciuse un erro ao eliminar a tarefa"
+
+#: ../src/gtd-manager.c:579
+msgid "Error updating task"
+msgstr "Produciuse un erro ao actualizar a tarefa"
+
+#: ../src/gtd-manager.c:608
+msgid "Failed to prompt for credentials"
+msgstr "Produciuse un fallo ao solicitar as credenciais"
+
+#: ../src/gtd-manager.c:631
+msgid "Failed to prompt for credentials for"
+msgstr "Produciuse un fallo ao solicitar as credenciais para"
+
+#: ../src/gtd-manager.c:683
+msgid "Authentication failure"
+msgstr "Fallo de autenticación"
+
+#: ../src/gtd-manager.c:747
+msgid "Error fetching tasks from list"
+msgstr "Produciuse un erro ao obter as tarefas da lista"
+
+#: ../src/gtd-manager.c:813
+msgid "Task list source successfully connected"
+msgstr "Conexión con éxito á orixe da lista de tarefas"
+
+#: ../src/gtd-manager.c:820
+msgid "Failed to connect to task list source"
+msgstr "Produciuse un fallo ao conectarse á orixe da lista de tarefas"
+
+#: ../src/gtd-manager.c:850
+msgid "Skipping already loaded task list "
+msgstr "Omitindo a lista de tarefas xa cargadas"
+
+#: ../src/gtd-manager.c:888
+msgid "Error loading task manager"
+msgstr "Produciuse un erro ao cargar o xestor de tarefas"
+
+#: ../src/gtd-manager.c:1018
+msgid "Local"
+msgstr "Local"
+
+#: ../src/gtd-manager.c:1019
+msgid "On This Computer"
+msgstr "Neste computador"
+
+#: ../src/gtd-manager.c:1052
+msgid "The online accounts client of the manager"
+msgstr "O cliente das contas en liña do xestor"
+
+#: ../src/gtd-manager.c:1053
+msgid ""
+"The read-only GNOME online accounts client loaded and owned by the manager"
+msgstr "Cliente de contas en liña de GNOME xa cargado e que pertence ao xestor"
+
+#: ../src/gtd-manager.c:1066
+msgid "Whether GNOME Online Accounts client is ready"
+msgstr "Indica se o cliente de Contas en liña de GNOME está listo"
+
+#: ../src/gtd-manager.c:1067
+msgid "Whether the read-only GNOME online accounts client is loaded"
+msgstr ""
+"Indica se o cliente de só lectura de contas en liña de GNOME está cargado"
+
+#: ../src/gtd-manager.c:1080
+msgid "The source registry of the manager"
+msgstr "O rexistro de orixe do xestor"
+
+#: ../src/gtd-manager.c:1081
+msgid "The read-only source registry loaded and owned by the manager"
+msgstr "Rexistro de orixe de só lectura cargado e que pertence ao xestor"
+
+#: ../src/gtd-object.c:152
+msgid "Unique identifier of the object"
+msgstr "Identificador único do obxecto"
+
+#: ../src/gtd-object.c:153
+msgid "The unique identifier of the object, defined by the backend"
+msgstr "O identificador único do boxecto, difinido polo backend"
+
+#: ../src/gtd-object.c:166
+msgid "Ready state of the object"
+msgstr "Estado de preparación do obxecto"
+
+#: ../src/gtd-object.c:167
+msgid "Whether the object is marked as ready or not"
+msgstr "Indica se o obxecto está marcado como listo ou non"
+
+#: ../src/gtd-task.c:254
+msgid "Whether the task is completed or not"
+msgstr "Indica se a tarefa está completada ou non"
+
+#: ../src/gtd-task.c:255
+msgid "Whether the task is marked as completed by the user"
+msgstr "Indica se a tarefa está marcada como completada polo usuario"
+
+#: ../src/gtd-task.c:268
+msgid "Component of the task"
+msgstr "Compoñente da tarefa"
+
+#: ../src/gtd-task.c:269
+msgid "The #ECalComponent this task handles."
+msgstr "#ECalComponent que xestiona esta tarefa."
+
+#: ../src/gtd-task.c:282
+msgid "Description of the task"
+msgstr "Descrición da tarefa"
+
+#: ../src/gtd-task.c:283
+msgid "Optional string describing the task"
+msgstr "Cade de texto opcional que describe a tarefa"
+
+#: ../src/gtd-task.c:297
+msgid "End date of the task"
+msgstr "Data de final da tarefa"
+
+#: ../src/gtd-task.c:298
+msgid "The day the task is supposed to be completed"
+msgstr "O día que a tarefa se supón que debe estar completada"
+
+#: ../src/gtd-task.c:311
+msgid "List of the task"
+msgstr "Lista da tarefa"
+
+#: ../src/gtd-task.c:312
+msgid "The list that owns this task"
+msgstr "A lista á que pertence esta tarefa"
+
+#: ../src/gtd-task.c:325
+msgid "Priority of the task"
+msgstr "Prioridade da tarefa"
+
+#: ../src/gtd-task.c:326
+msgid ""
+"The priority of the task. 0 means no priority set, and tasks will be sorted "
+"alphabetically."
+msgstr ""
+"A prioridade da tarefa. 0 significa que non ten prioridade, e polo tanto as "
+"tarefas ordenaranse de forma alfabética."
+
+#: ../src/gtd-task.c:341
+msgid "Title of the task"
+msgstr "Título da tarefa"
+
+#: ../src/gtd-task.c:342
+msgid "The title of the task"
+msgstr "O título da tarefa"
+
+#: ../src/gtd-task-list.c:152
+msgid "Color of the list"
+msgstr "Cor da lista"
+
+#: ../src/gtd-task-list.c:153
+msgid "The color of the list"
+msgstr "A cor da lista"
+
+#: ../src/gtd-task-list.c:166
+msgid "Name of the list"
+msgstr "Nome da lista"
+
+#: ../src/gtd-task-list.c:167
+msgid "The name of the list"
+msgstr "O nome da lista"
+
+#: ../src/gtd-task-list.c:180
+msgid "Data origin of the list"
+msgstr "Datos de orixe da lista"
+
+#: ../src/gtd-task-list.c:181
+msgid "The data origin location of the list"
+msgstr "Os datos de localización de orixe da lista"
+
+#: ../src/gtd-task-list.c:194
+msgid "Source of the list"
+msgstr "Orixe da lista"
+
+#: ../src/gtd-task-list.c:195
+msgid "The parent source that handles the list"
+msgstr "O orixe do pai que xestiona a lista"
+
+#: ../src/gtd-task-list-item.c:231
+msgid "No tasks"
+msgstr "Non hai tarefas"
+
+#: ../src/gtd-task-list-item.c:433
+msgid "Mode of this item"
+msgstr "Modo deste elemento"
+
+#: ../src/gtd-task-list-item.c:434
+msgid "The mode of this item, inherited from the parent's mode"
+msgstr "O modo deste elemento, herdado do modo do pai"
+
+#: ../src/gtd-task-list-item.c:449
+msgid "Task list of the item"
+msgstr "A lista de tarefas do elemento"
+
+#: ../src/gtd-task-list-item.c:450
+msgid "The task list associated with this item"
+msgstr "A lista de tareas asociada a este elemento"
+
+#: ../src/gtd-task-list-view.c:201
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Tarefa <b>%s</b> eliminada"
+
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "Desfacer"
+
+#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:516
+#: ../src/storage/gtd-storage-dialog.c:150
+#: ../src/storage/gtd-storage-popover.c:269
+#: ../src/storage/gtd-storage-selector.c:515
+msgid "Manager of this window's application"
+msgstr "Xestor do aplicativo de xanelas"
+
+#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:517
+#: ../src/storage/gtd-storage-dialog.c:151
+#: ../src/storage/gtd-storage-popover.c:270
+#: ../src/storage/gtd-storage-selector.c:516
+msgid "The manager of the window's application"
+msgstr "O xestor do aplicativo de xanelas"
+
+#: ../src/gtd-task-list-view.c:670
+msgid "Whether the list is readonly"
+msgstr "Indica se a lista é de só lectura"
+
+#: ../src/gtd-task-list-view.c:671
+msgid ""
+"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+msgstr ""
+"Indica se a lista é de só lectura, p.ex. non se mostra a fila Nova tarefa, "
+"ou non"
+
+#: ../src/gtd-task-list-view.c:684
+msgid "Whether task rows show the list name"
+msgstr "Indica se a lista de tarefas mostra o nome da lista"
+
+#: ../src/gtd-task-list-view.c:685
+msgid "Whether task rows show the list name at the end of the row"
+msgstr "Indica se as filas de tarefas mostran o nome da lista ao final da fila"
+
+#: ../src/gtd-task-list-view.c:698
+msgid "Whether completed tasks are shown"
+msgstr "Indica se se mostran as tarefas completadas"
+
+#: ../src/gtd-task-list-view.c:699
+msgid "Whether completed tasks are visible or not"
+msgstr "Indica se se mostran as tarefas completadas están visíbeis ou non"
+
+#: ../src/gtd-task-row.c:143
+msgid "Tomorrow"
+msgstr "Mañán"
+
+#: ../src/gtd-task-row.c:147
+msgid "Yesterday"
+msgstr "Hoxe"
+
+#: ../src/gtd-task-row.c:366
+msgid "If the row is used to add a new task"
+msgstr "Se a fila se usa para engadir unha nova tarefa"
+
+#: ../src/gtd-task-row.c:367
+msgid "Whether the row is used to add a new task"
+msgstr "Indica se a fila se usa para engadir unha nova tarefa"
+
+#: ../src/gtd-task-row.c:380
+msgid "Task of the row"
+msgstr "Tarefa da fila"
+
+#: ../src/gtd-task-row.c:381
+msgid "The task that this row represents"
+msgstr "A tarefa que esta fila representa"
+
+#: ../src/gtd-window.c:181
+msgid "Setting new color for task list"
+msgstr "Estabelecendo nova cor para a lista de tarefas"
+
+#: ../src/gtd-window.c:552
+msgid "Loading your task lists…"
+msgstr "Cargando a lista de tarefas…"
+
+#: ../src/storage/gtd-storage.c:189
+msgid "Whether the storage is enabled"
+msgstr "Indica se o almacenamento está activado"
+
+#: ../src/storage/gtd-storage.c:190
+msgid "Whether the storage is available to be used."
+msgstr "Indica se o almacenamento está dispoñíbel para usarse."
+
+#: ../src/storage/gtd-storage.c:203
+msgid "Icon of the storage"
+msgstr "Icona do almacenamento"
+
+#: ../src/storage/gtd-storage.c:204
+msgid "The icon representing the storage location."
+msgstr "A icona que representa a localización do almacenamento."
+
+#: ../src/storage/gtd-storage.c:217
+msgid "Identifier of the storage"
+msgstr "Identificador do almacenamento"
+
+#: ../src/storage/gtd-storage.c:218
+msgid "The unique identifier of the storage location."
+msgstr "Un identificador único da localización do almacenamento."
+
+#: ../src/storage/gtd-storage.c:231
+msgid "Whether the storage is the default"
+msgstr "Indica se o almacenamento está o predefinido"
+
+#: ../src/storage/gtd-storage.c:232
+msgid "Whether the storage is the default storage location to be used."
+msgstr ""
+"Indica se o almacenamento é a localización de almacenamento predefinido para "
+"usarse."
+
+#: ../src/storage/gtd-storage.c:245
+msgid "Name of the storage"
+msgstr "Nome do almacenamento"
+
+#: ../src/storage/gtd-storage.c:246
+msgid "The user-visible name of the storage location."
+msgstr "O nome visíbel polo usuario da localización de almacenamento."
+
+#: ../src/storage/gtd-storage.c:259
+msgid "Parent of the storage"
+msgstr "Pai do almacenamento"
+
+#: ../src/storage/gtd-storage.c:260
+msgid "The parent source identifier of the storage location."
+msgstr "O identificador de orixe pai da localización do almacenamento."
+
+#: ../src/storage/gtd-storage.c:273
+msgid "Provider type of the storage"
+msgstr "Tipo de fornecedor do almacenamento"
+
+#: ../src/storage/gtd-storage.c:274
+msgid "The provider type of the storage location."
+msgstr "O tipo de fornecedor da localización de almacenamento."
+
+#: ../src/storage/gtd-storage.c:287
+msgid "Provider name of the storage"
+msgstr "Nome do fornecedor do almacenamento"
+
+#: ../src/storage/gtd-storage.c:288
+msgid "The name of the provider of the storage location."
+msgstr "O nome do fornecedor da localización do almacenamento."
+
+#: ../src/storage/gtd-storage.c:680
+msgid "Error creating new task list"
+msgstr "Produciuse un erro ao crear a nova lista de tarefas"
+
+#: ../src/storage/gtd-storage-row.c:148
+msgid "Storage of the row"
+msgstr "Almacenamento da fila"
+
+#: ../src/storage/gtd-storage-row.c:149
+msgid "The storage that this row holds"
+msgstr "O almacenamento no que está esta fila"
+
+#: ../src/storage/gtd-storage-selector.c:529
+msgid "Show local storage row"
+msgstr "Mostrar a fila de almacenamento local"
+
+#: ../src/storage/gtd-storage-selector.c:530
+msgid "Whether should show a local storage row instead of a checkbox"
+msgstr ""
+"Indica se se debería mostrar unha fila de almacenamento local dunha caixa de "
+"verificacion"
+
+#: ../src/storage/gtd-storage-selector.c:543
+msgid "Show stub rows"
+msgstr "Mostrar filas auxiliares"
+
+#: ../src/storage/gtd-storage-selector.c:544
+msgid "Whether should show stub rows for non-added accounts"
+msgstr ""
+"Indica se se deberían mostrar filas de código auxiliar para as contas non "
+"engadidas"
+
+#: ../src/storage/gtd-storage-selector.c:557
+msgid "Selects default storage row"
+msgstr "Seleccione a fila de almacenamento por omisión"
+
+#: ../src/storage/gtd-storage-selector.c:558
+msgid "Whether should select the default storage row"
+msgstr "Indica se se debería seleccionar a fila de almacenamento por omisión"
+
+#: ../src/notification/gtd-notification.c:181
+msgid "Whether the notification has a primary action"
+msgstr "Indica se a notificación ten unha acción primaria"
+
+#: ../src/notification/gtd-notification.c:182
+msgid ""
+"Whether the notification has the primary action, activated on timeout or "
+"dismiss"
+msgstr ""
+"Indica se a notificación ten unha acción primaria, activada con tempo de "
+"espera ou omitida"
+
+#: ../src/notification/gtd-notification.c:196
+msgid "Whether the notification has a secondary action"
+msgstr "Indica se a notificación ten unha acción secundaria"
+
+#: ../src/notification/gtd-notification.c:197
+msgid ""
+"Whether the notification has the secondary action, activated by the user"
+msgstr ""
+"Indica se a notificación ten unha acción secundaria, activada polo usuario"
+
+#: ../src/notification/gtd-notification.c:210
+msgid "Text of the secondary action button"
+msgstr "O texto do botón de acción secundario"
+
+#: ../src/notification/gtd-notification.c:211
+msgid "The text of the secondary action button"
+msgstr "O texto do botón de acción secundario"
+
+#: ../src/notification/gtd-notification.c:224
+msgid "Notification message"
+msgstr "Mensaxe de notificación"
+
+#: ../src/notification/gtd-notification.c:225
+msgid "The main message of the notification"
+msgstr "O mensaxe principal da notificación"
+
+#: ../src/notification/gtd-notification.c:238
+msgid "Notification timeout"
+msgstr "Tempo de espera da notificación"
+
+#: ../src/notification/gtd-notification.c:239
+msgid "The time the notification is displayed"
+msgstr "O tempo que se mostra a notificación"
