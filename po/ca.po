@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-02 22:36+0200\n"
+"POT-Creation-Date: 2015-08-21 18:06+0200\n"
 "PO-Revision-Date: 2015-07-26 15:08+0100\n"
 "Last-Translator: Jordi Mas <jmas@softcaatala.org>\n"
 "Language-Team: \n"
@@ -76,7 +76,7 @@ msgstr "Mida de la finestra"
 
 #: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
-msgstr "Mida de la finestra (amplada i alçada)"
+msgstr "Mida de la finestra (amplada i alçada)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:5
 msgid "Window position"
@@ -252,12 +252,14 @@ msgid "New List"
 msgstr "Llista nova"
 
 #: ../src/gtd-application.c:90
-msgid "Copyright © %Id The To Do authors"
-msgstr "Copyright © %Id–%Id els autors del Per fer"
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d els autors del Per fer"
 
 #: ../src/gtd-application.c:95
-msgid "Copyright © %Id–%Id The To Do authors"
-msgstr "Copyright © %Id–%Id els autors del Per fer"
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d els autors del Per fer"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
 #: ../src/gtd-window.c:297
@@ -618,7 +620,7 @@ msgstr "Icona de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:204
 msgid "The icon representing the storage location."
-msgstr "La icona representant la ubicació de l'emmagatzematge"
+msgstr "La icona representant la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:217
 msgid "Identifier of the storage"
@@ -626,7 +628,7 @@ msgstr "Identificador de l'emmagatzematge"
 
 #: ../src/storage/gtd-storage.c:218
 msgid "The unique identifier of the storage location."
-msgstr "L'identificador únic de la ubicació de l'emmagatzematge"
+msgstr "L'identificador únic de la ubicació de l'emmagatzematge."
 
 #: ../src/storage/gtd-storage.c:231
 msgid "Whether the storage is the default"
