@@ -419,7 +419,7 @@ gtd_window__list_added (GtdManager  *manager,
                           "mode",
                           item,
                           "mode",
-                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
+                          G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
 
   gtk_widget_show (item);
 
