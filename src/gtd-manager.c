@@ -409,34 +409,53 @@ gtd_manager__commit_source_finished (GObject      *registry,
 }
 
 static void
-gtd_manager__remove_source_finished (GObject      *source,
-                                     GAsyncResult *result,
-                                     gpointer      user_data)
+task_list_removal_finished (GtdManager  *manager,
+                            ESource     *source,
+                            GError     **error)
 {
-  GtdManagerPrivate *priv = GTD_MANAGER (user_data)->priv;
-  GError *error = NULL;
+  gtd_object_set_ready (GTD_OBJECT (manager), TRUE);
 
-  g_return_if_fail (GTD_IS_MANAGER (user_data));
-
-  gtd_object_set_ready (GTD_OBJECT (user_data), TRUE);
-  e_source_remove_finish (E_SOURCE (source),
-                          result,
-                          &error);
-
-  if (error)
+  if (*error)
     {
       g_warning ("%s: %s: %s",
                  G_STRFUNC,
                  _("Error removing task list"),
-                 error->message);
+                 (*error)->message);
 
-      g_error_free (error);
-      return;
+      g_clear_error (error);
     }
-  else
-    {
-      priv->task_lists = g_list_remove (priv->task_lists, source);
-    }
+}
+
+static void
+gtd_manager__remote_delete_finished (GObject      *source,
+                                     GAsyncResult *result,
+                                     gpointer      user_data)
+{
+  GError *error = NULL;
+
+  e_source_remote_delete_finish (E_SOURCE (source),
+                                 result,
+                                 &error);
+
+  task_list_removal_finished (GTD_MANAGER (user_data),
+                              E_SOURCE (source),
+                              &error);
+}
+
+static void
+gtd_manager__remove_source_finished (GObject      *source,
+                                     GAsyncResult *result,
+                                     gpointer      user_data)
+{
+  GError *error = NULL;
+
+  e_source_remove_finish (E_SOURCE (source),
+                          result,
+                          &error);
+
+  task_list_removal_finished (GTD_MANAGER (user_data),
+                              E_SOURCE (source),
+                              &error);
 }
 
 static void
@@ -1367,10 +1386,26 @@ gtd_manager_remove_task_list (GtdManager  *manager,
   source = gtd_task_list_get_source (list);
 
   gtd_object_set_ready (GTD_OBJECT (manager), FALSE);
-  e_source_remove (source,
-                   NULL,
-                   (GAsyncReadyCallback) gtd_manager__remove_source_finished,
-                   manager);
+
+  if (e_source_get_remote_deletable (source))
+    {
+      e_source_remote_delete (source,
+                              NULL,
+                              (GAsyncReadyCallback) gtd_manager__remote_delete_finished,
+                              manager);
+    }
+  else
+    {
+      e_source_remove (source,
+                       NULL,
+                       (GAsyncReadyCallback) gtd_manager__remove_source_finished,
+                       manager);
+    }
+
+  g_signal_emit (manager,
+                 signals[LIST_REMOVED],
+                 0,
+                 list);
 }
 
 /**
