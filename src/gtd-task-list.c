@@ -65,6 +65,7 @@ gtd_task_list_finalize (GObject *object)
 {
   GtdTaskList *self = (GtdTaskList*) object;
 
+  g_clear_object (&self->priv->source);
   g_clear_pointer (&self->priv->origin, g_free);
 
   G_OBJECT_CLASS (gtd_task_list_parent_class)->finalize (object);
@@ -128,7 +129,7 @@ gtd_task_list_set_property (GObject      *object,
       break;
 
     case PROP_SOURCE:
-      self->priv->source = g_value_get_object (value);
+      g_set_object (&self->priv->source, g_value_get_object (value));
       break;
 
     default:
