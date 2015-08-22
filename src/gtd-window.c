@@ -429,6 +429,26 @@ gtd_window__list_added (GtdManager  *manager,
 }
 
 static void
+gtd_window__list_removed (GtdManager  *manager,
+                          GtdTaskList *list,
+                          gpointer     user_data)
+{
+  GtdWindowPrivate *priv = GTD_WINDOW (user_data)->priv;
+  GList *children;
+  GList *l;
+
+  children = gtk_container_get_children (GTK_CONTAINER (priv->lists_flowbox));
+
+  for (l = children; l != NULL; l = l->next)
+    {
+      if (gtd_task_list_item_get_list (l->data) == list)
+        gtk_widget_destroy (l->data);
+    }
+
+  g_list_free (children);
+}
+
+static void
 gtd_window_constructed (GObject *object)
 {
   GtdWindowPrivate *priv = GTD_WINDOW (object)->priv;
@@ -521,6 +541,10 @@ gtd_window_set_property (GObject      *object,
       g_signal_connect (self->priv->manager,
                         "list-added",
                         G_CALLBACK (gtd_window__list_added),
+                        self);
+      g_signal_connect (self->priv->manager,
+                        "list-removed",
+                        G_CALLBACK (gtd_window__list_removed),
                         self);
 
       /* Add already loaded lists */
