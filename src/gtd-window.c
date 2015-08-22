@@ -17,6 +17,7 @@
  */
 
 #include "gtd-application.h"
+#include "gtd-enum-types.h"
 #include "gtd-task-list-view.h"
 #include "gtd-manager.h"
 #include "gtd-notification.h"
@@ -31,17 +32,20 @@
 
 typedef struct
 {
+  GtkWidget                     *action_bar;
   GtkButton                     *back_button;
   GtkColorButton                *color_button;
   GtkHeaderBar                  *headerbar;
   GtkFlowBox                    *lists_flowbox;
   GtkStack                      *main_stack;
+  GtkWidget                     *new_list_button;
   GtkWidget                     *new_list_popover;
   GtdNotificationWidget         *notification_widget;
   GtdTaskListView               *scheduled_list_view;
   GtkSearchBar                  *search_bar;
   GtkToggleButton               *search_button;
   GtkSearchEntry                *search_entry;
+  GtkWidget                     *select_button;
   GtkStack                      *stack;
   GtkStackSwitcher              *stack_switcher;
   GtdStorageDialog              *storage_dialog;
@@ -78,6 +82,7 @@ static const GActionEntry gtd_window_entries[] = {
 enum {
   PROP_0,
   PROP_MANAGER,
+  PROP_MODE,
   LAST_PROP
 };
 
@@ -93,6 +98,20 @@ gtd_window__stack_visible_child_cb (GtdWindow *window)
           g_strcmp0 (gtk_stack_get_visible_child_name (priv->main_stack), "overview") == 0 &&
           g_strcmp0 (gtk_stack_get_visible_child_name (priv->stack), "lists") == 0);
 
+}
+
+static void
+gtd_window__select_button_toggled (GtkToggleButton *button,
+                                   GtdWindow       *window)
+{
+  gtd_window_set_mode (window, gtk_toggle_button_get_active (button) ? GTD_WINDOW_MODE_SELECTION : GTD_WINDOW_MODE_NORMAL);
+}
+
+static void
+gtd_window__cancel_selection_button_clicked (GtkWidget *button,
+                                             GtdWindow *window)
+{
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (window->priv->select_button), FALSE);
 }
 
 static void
@@ -311,30 +330,42 @@ gtd_window__list_selected (GtkFlowBox      *flowbox,
   g_return_if_fail (GTD_IS_WINDOW (user_data));
   g_return_if_fail (GTD_IS_TASK_LIST_ITEM (item));
 
-  list = gtd_task_list_item_get_list (item);
-  list_color = gtd_task_list_get_color (list);
+  switch (priv->mode)
+    {
+    case GTD_WINDOW_MODE_SELECTION:
+      gtd_task_list_item_set_selected (item, !gtd_task_list_item_get_selected (item));
+      break;
 
-  g_signal_handlers_block_by_func (priv->color_button,
-                                   gtd_window__list_color_set,
-                                   user_data);
+    case GTD_WINDOW_MODE_NORMAL:
+      list = gtd_task_list_item_get_list (item);
+      list_color = gtd_task_list_get_color (list);
 
-  gtk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (priv->color_button), list_color);
+      g_signal_handlers_block_by_func (priv->color_button,
+                                       gtd_window__list_color_set,
+                                       user_data);
 
-  gtk_stack_set_visible_child_name (priv->main_stack, "tasks");
-  gtk_header_bar_set_title (priv->headerbar, gtd_task_list_get_name (list));
-  gtk_header_bar_set_subtitle (priv->headerbar, gtd_task_list_get_origin (list));
-  gtk_header_bar_set_custom_title (priv->headerbar, NULL);
-  gtk_search_bar_set_search_mode (priv->search_bar, FALSE);
-  gtd_task_list_view_set_task_list (priv->list_view, list);
-  gtd_task_list_view_set_show_completed (priv->list_view, FALSE);
-  gtk_widget_show (GTK_WIDGET (priv->back_button));
-  gtk_widget_show (GTK_WIDGET (priv->color_button));
+      gtk_color_chooser_set_rgba (GTK_COLOR_CHOOSER (priv->color_button), list_color);
 
-  g_signal_handlers_unblock_by_func (priv->color_button,
-                                     gtd_window__list_color_set,
-                                     user_data);
+      gtk_stack_set_visible_child_name (priv->main_stack, "tasks");
+      gtk_header_bar_set_title (priv->headerbar, gtd_task_list_get_name (list));
+      gtk_header_bar_set_subtitle (priv->headerbar, gtd_task_list_get_origin (list));
+      gtk_header_bar_set_custom_title (priv->headerbar, NULL);
+      gtk_search_bar_set_search_mode (priv->search_bar, FALSE);
+      gtd_task_list_view_set_task_list (priv->list_view, list);
+      gtd_task_list_view_set_show_completed (priv->list_view, FALSE);
+      gtk_widget_show (GTK_WIDGET (priv->back_button));
+      gtk_widget_show (GTK_WIDGET (priv->color_button));
 
-  gdk_rgba_free (list_color);
+      g_signal_handlers_unblock_by_func (priv->color_button,
+                                         gtd_window__list_color_set,
+                                         user_data);
+
+      gdk_rgba_free (list_color);
+      break;
+
+    default:
+      g_assert_not_reached ();
+    }
 }
 
 static void
@@ -346,6 +377,13 @@ gtd_window__list_added (GtdManager  *manager,
   GtkWidget *item;
 
   item = gtd_task_list_item_new (list);
+
+  g_object_bind_property (user_data,
+                          "mode",
+                          item,
+                          "mode",
+                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
+
   gtk_widget_show (item);
 
   gtk_flow_box_insert (priv->lists_flowbox,
@@ -409,6 +447,10 @@ gtd_window_get_property (GObject    *object,
     {
     case PROP_MANAGER:
       g_value_set_object (value, self->priv->manager);
+      break;
+
+    case PROP_MODE:
+      g_value_set_enum (value, self->priv->mode);
       break;
 
     default:
@@ -488,6 +530,10 @@ gtd_window_set_property (GObject      *object,
       g_object_notify (object, "manager");
       break;
 
+    case PROP_MODE:
+      gtd_window_set_mode (self, g_value_get_enum (value));
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -518,14 +564,31 @@ gtd_window_class_init (GtdWindowClass *klass)
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
+  /**
+   * GtdWindow::mode:
+   *
+   * The current interaction mode of the window.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_MODE,
+        g_param_spec_enum ("mode",
+                           _("Mode of this window"),
+                           _("The interaction mode of the window"),
+                           GTD_TYPE_WINDOW_MODE,
+                           GTD_WINDOW_MODE_NORMAL,
+                           G_PARAM_READWRITE));
+
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/window.ui");
 
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, action_bar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, back_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, color_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, headerbar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, lists_flowbox);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, list_view);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, main_stack);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_popover);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, notification_widget);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, scheduled_list_view);
@@ -533,14 +596,17 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_bar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_entry);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, select_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack_switcher);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, storage_dialog);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, today_list_view);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__back_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__cancel_selection_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__list_color_set);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__list_selected);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__on_key_press_event);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__select_button_toggled);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__stack_visible_child_cb);
 }
 
@@ -619,4 +685,76 @@ gtd_window_cancel_notification (GtdWindow       *window,
   priv = window->priv;
 
   gtd_notification_widget_cancel (priv->notification_widget, notification);
+}
+
+/**
+ * gtd_window_get_mode:
+ * @window: a #GtdWindow
+ *
+ * Retrieves the current mode of @window.
+ *
+ * Returns: the #GtdWindow::mode property value
+ */
+GtdWindowMode
+gtd_window_get_mode (GtdWindow *window)
+{
+  g_return_val_if_fail (GTD_IS_WINDOW (window), GTD_WINDOW_MODE_NORMAL);
+
+  return window->priv->mode;
+}
+
+/**
+ * gtd_window_set_mode:
+ * @window: a #GtdWindow
+ * @mode: a #GtdWindowMode
+ *
+ * Sets the current window mode to @mode.
+ *
+ * Returns:
+ */
+void
+gtd_window_set_mode (GtdWindow     *window,
+                     GtdWindowMode  mode)
+{
+  GtdWindowPrivate *priv;
+
+  g_return_if_fail (GTD_IS_WINDOW (window));
+
+  priv = window->priv;
+
+  if (priv->mode != mode)
+    {
+      GtkStyleContext *context;
+      gboolean is_selection_mode;
+
+      priv->mode = mode;
+      context = gtk_widget_get_style_context (GTK_WIDGET (priv->headerbar));
+      is_selection_mode = (mode == GTD_WINDOW_MODE_SELECTION);
+
+      gtk_widget_set_visible (priv->select_button, is_selection_mode);
+      gtk_widget_set_visible (GTK_WIDGET (priv->new_list_button), !is_selection_mode);
+      gtk_widget_set_visible (GTK_WIDGET (priv->action_bar), is_selection_mode);
+      gtk_header_bar_set_show_close_button (priv->headerbar, !is_selection_mode);
+      gtk_header_bar_set_subtitle (priv->headerbar, NULL);
+
+      if (is_selection_mode)
+        {
+          gtk_style_context_add_class (context, "selection-mode");
+          gtk_header_bar_set_custom_title (priv->headerbar, NULL);
+          gtk_header_bar_set_title (priv->headerbar, _("Click a task list to select"));
+        }
+      else
+        {
+          /* Unselect all items when leaving selection mode */
+          gtk_container_foreach (GTK_CONTAINER (priv->lists_flowbox),
+                                 (GtkCallback) gtd_task_list_item_set_selected,
+                                 FALSE);
+
+          gtk_style_context_remove_class (context, "selection-mode");
+          gtk_header_bar_set_custom_title (priv->headerbar, GTK_WIDGET (priv->stack_switcher));
+          gtk_header_bar_set_title (priv->headerbar, _("To Do"));
+        }
+
+      g_object_notify (G_OBJECT (window), "mode");
+    }
 }

@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "gtd-enum-types.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 #include "gtd-task-list-item.h"
@@ -24,7 +25,6 @@
 
 typedef struct
 {
-  GtkCheckButton            *selection_check;
   GtkImage                  *icon_image;
   GtkLabel                  *subtitle_label;
   GtkLabel                  *title_label;
@@ -33,6 +33,9 @@ typedef struct
   /* data */
   GtdTaskList               *list;
   GtdWindowMode              mode;
+
+  /* flags */
+  gint                      selected : 1;
 
 } GtdTaskListItemPrivate;
 
@@ -49,10 +52,12 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtdTaskListItem, gtd_task_list_item, GTK_TYPE_FLOW_B
 #define LUMINANCE(c)              (0.299 * c->red + 0.587 * c->green + 0.114 * c->blue)
 
 #define THUMBNAIL_SIZE            192
+#define CHECK_SIZE                40
 
 enum {
   PROP_0,
   PROP_MODE,
+  PROP_SELECTED,
   PROP_TASK_LIST,
   LAST_PROP
 };
@@ -247,6 +252,22 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
   pango_font_description_free (font_desc);
   g_object_unref (layout);
 
+  /* Draws the selection checkbox */
+  if (item->priv->mode == GTD_WINDOW_MODE_SELECTION)
+    {
+      gtk_style_context_add_class (context, GTK_STYLE_CLASS_CHECK);
+
+      if (item->priv->selected)
+        gtk_style_context_set_state (context, GTK_STATE_FLAG_CHECKED);
+
+      gtk_render_check (context,
+                        cr,
+                        THUMBNAIL_SIZE - CHECK_SIZE * 1.5,
+                        THUMBNAIL_SIZE - CHECK_SIZE,
+                        CHECK_SIZE,
+                        CHECK_SIZE);
+    }
+
   /* Retrieves the pixbuf from the drawed image */
   pix = gdk_pixbuf_get_from_surface (surface,
                                      0,
@@ -331,7 +352,11 @@ gtd_task_list_item_get_property (GObject    *object,
   switch (prop_id)
     {
     case PROP_MODE:
-      g_value_set_int (value, self->priv->mode);
+      g_value_set_enum (value, self->priv->mode);
+      break;
+
+    case PROP_SELECTED:
+      g_value_set_boolean (value, self->priv->selected);
       break;
 
     case PROP_TASK_LIST:
@@ -355,9 +380,12 @@ gtd_task_list_item_set_property (GObject      *object,
   switch (prop_id)
     {
     case PROP_MODE:
-      priv->mode = g_value_get_int (value);
-      gtk_widget_set_visible (GTK_WIDGET (priv->selection_check),
-                              priv->mode == GTD_WINDOW_MODE_SELECTION);
+      priv->mode = g_value_get_enum (value);
+      gtd_task_list_item__update_thumbnail (self);
+      break;
+
+    case PROP_SELECTED:
+      gtd_task_list_item_set_selected (self, g_value_get_boolean (value));
       break;
 
     case PROP_TASK_LIST:
@@ -429,13 +457,26 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
   g_object_class_install_property (
         object_class,
         PROP_MODE,
-        g_param_spec_int ("mode",
-                          _("Mode of this item"),
-                          _("The mode of this item, inherited from the parent's mode"),
-                          GTD_WINDOW_MODE_NORMAL,
-                          GTD_WINDOW_MODE_SELECTION,
-                          GTD_WINDOW_MODE_NORMAL,
-                          G_PARAM_READWRITE));
+        g_param_spec_enum ("mode",
+                           _("Mode of this item"),
+                           _("The mode of this item, inherited from the parent's mode"),
+                           GTD_TYPE_WINDOW_MODE,
+                           GTD_WINDOW_MODE_NORMAL,
+                           G_PARAM_READWRITE));
+
+  /**
+   * GtdTaskListItem::selected:
+   *
+   * Whether this item is selected when in %GTD_WINDOW_MODE_SELECTION.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_SELECTED,
+        g_param_spec_boolean ("selected",
+                              _("Whether the task list is selected"),
+                              _("Whether the task list is selected when in selection mode"),
+                              FALSE,
+                              G_PARAM_READWRITE));
 
   /**
    * GtdTaskListItem::task-list:
@@ -455,7 +496,6 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/task-list-item.ui");
 
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, icon_image);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, selection_check);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, spinner);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, subtitle_label);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, title_label);
@@ -483,4 +523,49 @@ gtd_task_list_item_get_list (GtdTaskListItem *item)
   g_return_val_if_fail (GTD_IS_TASK_LIST_ITEM (item), NULL);
 
   return item->priv->list;
+}
+
+/**
+ * gtd_task_list_item_get_selected:
+ * @item: a #GtdTaskListItem
+ *
+ * Retrieves whether @item is selected or not.
+ *
+ * Returns: %TRUE if @item is selected, %FALSE otherwise
+ */
+gboolean
+gtd_task_list_item_get_selected (GtdTaskListItem *item)
+{
+  g_return_val_if_fail (GTD_IS_TASK_LIST_ITEM (item), FALSE);
+
+  return item->priv->selected;
+}
+
+/**
+ * gtd_task_list_item_set_selected:
+ * @item: a #GtdTaskListItem
+ * @selected: %TRUE if @item is selected, %FALSE otherwise
+ *
+ * Sets whether @item is selected or not.
+ *
+ * Returns:
+ */
+void
+gtd_task_list_item_set_selected (GtdTaskListItem *item,
+                                 gboolean         selected)
+{
+  GtdTaskListItemPrivate *priv;
+
+  g_return_if_fail (GTD_IS_TASK_LIST_ITEM (item));
+
+  priv = item->priv;
+
+  if (priv->selected != selected)
+    {
+      priv->selected = selected;
+
+      gtd_task_list_item__update_thumbnail (item);
+
+      g_object_notify (G_OBJECT (item), "selected");
+    }
 }

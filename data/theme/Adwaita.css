@@ -14,6 +14,10 @@ GtdTaskListItem.thumbnail {
     font-size: 9px;
 }
 
+GtdTaskListItem {
+    background-color: transparent;
+}
+
 GtdTaskListItem,
 GtdTaskListView GtdTaskRow {
     color: #000003;

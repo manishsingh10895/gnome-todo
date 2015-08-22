@@ -33,6 +33,11 @@ GtkWidget*              gtd_task_list_item_new                (GtdTaskList      
 
 GtdTaskList*            gtd_task_list_item_get_list           (GtdTaskListItem      *item);
 
+gboolean                gtd_task_list_item_get_selected       (GtdTaskListItem      *item);
+
+void                    gtd_task_list_item_set_selected       (GtdTaskListItem      *item,
+                                                               gboolean              selected);
+
 G_END_DECLS
 
 #endif /* GTD_TASK_LIST_ITEM_H */
