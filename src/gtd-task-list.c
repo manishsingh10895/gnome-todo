@@ -86,7 +86,7 @@ gtd_task_list_get_property (GObject    *object,
       break;
 
     case PROP_IS_REMOVABLE:
-      g_value_set_boolean (value, e_source_get_removable (self->priv->source));
+      g_value_set_boolean (value, gtd_task_list_is_removable (self));
       break;
 
     case PROP_NAME:
@@ -531,5 +531,5 @@ gtd_task_list_is_removable (GtdTaskList *list)
 {
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), FALSE);
 
-  return e_source_get_removable (list->priv->source);
+  return e_source_get_removable (list->priv->source) || e_source_get_remote_deletable (list->priv->source);
 }
