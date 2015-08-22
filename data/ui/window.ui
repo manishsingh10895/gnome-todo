@@ -144,7 +144,7 @@
                         <property name="label" translatable="yes">Rename</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
+                        <property name="sensitive">False</property>
                       </object>
                       <packing>
                         <property name="position">1</property>
@@ -154,7 +154,7 @@
                       <object class="GtkButton" id="remove_button">
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
-                        <property name="receives_default">True</property>
+                        <property name="sensitive">False</property>
                         <child>
                           <object class="GtkImage" id="trash_image">
                             <property name="visible">True</property>
