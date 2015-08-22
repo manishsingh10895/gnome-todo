@@ -41,6 +41,8 @@ typedef struct
   GtkWidget                     *new_list_button;
   GtkWidget                     *new_list_popover;
   GtdNotificationWidget         *notification_widget;
+  GtkWidget                     *remove_button;
+  GtkWidget                     *rename_button;
   GtdTaskListView               *scheduled_list_view;
   GtkSearchBar                  *search_bar;
   GtkToggleButton               *search_button;
@@ -99,6 +101,39 @@ gtd_window__stack_visible_child_cb (GtdWindow *window)
   gtk_widget_set_visible (GTK_WIDGET (priv->search_button), is_list_view);
   gtk_widget_set_visible (GTK_WIDGET (priv->select_button), is_list_view);
 
+}
+
+static void
+update_action_bar_buttons (GtdWindow *window)
+{
+  GtdWindowPrivate *priv;
+  GList *children;
+  GList *l;
+  gboolean all_lists_removable;
+  gint selected_lists;
+
+  priv = window->priv;
+  children = gtk_container_get_children (GTK_CONTAINER (priv->lists_flowbox));
+  selected_lists = 0;
+  all_lists_removable = TRUE;
+
+  for (l = children; l != NULL; l = l->next)
+    {
+      GtdTaskList *list;
+
+      list = gtd_task_list_item_get_list (l->data);
+
+      if (gtd_task_list_item_get_selected (l->data))
+        {
+          selected_lists++;
+
+          if (!gtd_task_list_is_removable (list))
+            all_lists_removable = FALSE;
+        }
+    }
+
+  gtk_widget_set_sensitive (priv->remove_button, selected_lists > 0 && all_lists_removable);
+  gtk_widget_set_sensitive (priv->rename_button, selected_lists == 1);
 }
 
 static void
@@ -335,6 +370,7 @@ gtd_window__list_selected (GtkFlowBox      *flowbox,
     {
     case GTD_WINDOW_MODE_SELECTION:
       gtd_task_list_item_set_selected (item, !gtd_task_list_item_get_selected (item));
+      update_action_bar_buttons (GTD_WINDOW (user_data));
       break;
 
     case GTD_WINDOW_MODE_NORMAL:
@@ -592,6 +628,8 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_popover);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, notification_widget);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, remove_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, scheduled_list_view);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_bar);
@@ -743,6 +781,8 @@ gtd_window_set_mode (GtdWindow     *window,
           gtk_style_context_add_class (context, "selection-mode");
           gtk_header_bar_set_custom_title (priv->headerbar, NULL);
           gtk_header_bar_set_title (priv->headerbar, _("Click a task list to select"));
+
+          update_action_bar_buttons (window);
         }
       else
         {
