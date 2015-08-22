@@ -40,6 +40,8 @@ GdkRGBA*                gtd_task_list_get_color                 (GtdTaskList    
 void                    gtd_task_list_set_color                 (GtdTaskList            *list,
                                                                  const GdkRGBA          *color);
 
+gboolean                gtd_task_list_is_removable              (GtdTaskList            *list);
+
 const gchar*            gtd_task_list_get_name                  (GtdTaskList            *list);
 
 void                    gtd_task_list_set_name                  (GtdTaskList            *list,

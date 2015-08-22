@@ -53,6 +53,7 @@ enum
 {
   PROP_0,
   PROP_COLOR,
+  PROP_IS_REMOVABLE,
   PROP_NAME,
   PROP_ORIGIN,
   PROP_SOURCE,
@@ -81,6 +82,10 @@ gtd_task_list_get_property (GObject    *object,
     {
     case PROP_COLOR:
       g_value_set_boxed (value, gtd_task_list_get_color (self));
+      break;
+
+    case PROP_IS_REMOVABLE:
+      g_value_set_boolean (value, e_source_get_removable (self->priv->source));
       break;
 
     case PROP_NAME:
@@ -153,6 +158,20 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
                             _("The color of the list"),
                             GDK_TYPE_RGBA,
                             G_PARAM_READWRITE));
+
+  /**
+   * GtdTaskList::is-removable:
+   *
+   * Whether the task list can be removed from the system.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_IS_REMOVABLE,
+        g_param_spec_boolean ("is-removable",
+                              _("Whether the task list is removable"),
+                              _("Whether the task list can be removed from the system"),
+                              TRUE,
+                              G_PARAM_READABLE));
 
   /**
    * GtdTaskList::name:
@@ -496,4 +515,20 @@ gtd_task_list_get_origin (GtdTaskList *list)
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
   return list->priv->origin;
+}
+
+/**
+ * gtd_task_list_get_is_removable:
+ * @list: a #GtdTaskList
+ *
+ * Retrieves whether @list can be removed or not.
+ *
+ * Returns: %TRUE if the @list can be removed, %FALSE otherwise
+ */
+gboolean
+gtd_task_list_is_removable (GtdTaskList *list)
+{
+  g_return_val_if_fail (GTD_IS_TASK_LIST (list), FALSE);
+
+  return e_source_get_removable (list->priv->source);
 }
