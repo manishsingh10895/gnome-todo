@@ -90,13 +90,14 @@ static void
 gtd_window__stack_visible_child_cb (GtdWindow *window)
 {
   GtdWindowPrivate *priv;
+  gboolean is_list_view;
 
   priv = window->priv;
+  is_list_view = g_strcmp0 (gtk_stack_get_visible_child_name (priv->main_stack), "overview") == 0 &&
+                 g_strcmp0 (gtk_stack_get_visible_child_name (priv->stack), "lists") == 0;
 
-  gtk_widget_set_visible (
-          GTK_WIDGET (priv->search_button),
-          g_strcmp0 (gtk_stack_get_visible_child_name (priv->main_stack), "overview") == 0 &&
-          g_strcmp0 (gtk_stack_get_visible_child_name (priv->stack), "lists") == 0);
+  gtk_widget_set_visible (GTK_WIDGET (priv->search_button), is_list_view);
+  gtk_widget_set_visible (GTK_WIDGET (priv->select_button), is_list_view);
 
 }
 
