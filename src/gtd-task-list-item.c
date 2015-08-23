@@ -382,6 +382,7 @@ gtd_task_list_item_set_property (GObject      *object,
     case PROP_MODE:
       priv->mode = g_value_get_enum (value);
       gtd_task_list_item__update_thumbnail (self);
+      g_object_notify (object, "mode");
       break;
 
     case PROP_SELECTED:
@@ -436,8 +437,6 @@ gtd_task_list_item_set_property (GObject      *object,
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
 }
-
-//static void
 
 static void
 gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
