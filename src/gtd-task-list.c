@@ -226,9 +226,6 @@ gtd_task_list_set_property (GObject      *object,
 
           selectable = E_SOURCE_SELECTABLE (e_source_get_extension (self->priv->source, E_SOURCE_EXTENSION_TASK_LIST));
 
-          /* We are always showing the task lists */
-          e_source_selectable_set_selected (selectable, TRUE);
-
           g_object_bind_property_full (object,
                                        "color",
                                        selectable,
