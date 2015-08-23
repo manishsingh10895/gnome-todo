@@ -437,6 +437,8 @@ gtd_task_list_item_set_property (GObject      *object,
     }
 }
 
+//static void
+
 static void
 gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
 {

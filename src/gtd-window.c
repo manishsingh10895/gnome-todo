@@ -55,6 +55,11 @@ typedef struct
   GtdTaskListView               *today_list_view;
   GtdTaskListView               *list_view;
 
+  /* rename popover */
+  GtkWidget                     *rename_entry;
+  GtkWidget                     *rename_popover;
+  GtkWidget                     *save_rename_button;
+
   /* mode */
   GtdWindowMode                  mode;
 
@@ -88,6 +93,34 @@ enum {
   PROP_MODE,
   LAST_PROP
 };
+
+static GtdTaskListItem*
+get_selected_list (GtdWindow *window)
+{
+  GtdWindowPrivate *priv;
+  GtdTaskListItem *item;
+  GList *children;
+  GList *l;
+
+  priv = window->priv;
+  item = NULL;
+
+  /* Retrieve the only selected task list */
+  children = gtk_container_get_children (GTK_CONTAINER (priv->lists_flowbox));
+
+  for (l = children; l != NULL; l = l->next)
+    {
+      if (gtd_task_list_item_get_selected (l->data))
+        {
+          item = l->data;
+          break;
+        }
+    }
+
+  g_list_free (children);
+
+  return item;
+}
 
 static void
 gtd_window__remove_button_clicked (GtdWindow *window)
@@ -152,6 +185,69 @@ gtd_window__remove_button_clicked (GtdWindow *window)
 
   /* After removing the lists, exit SELECTION mode */
   gtd_window_set_mode (window, GTD_WINDOW_MODE_NORMAL);
+}
+
+static void
+gtd_window__rename_button_clicked (GtdWindow *window)
+{
+  GtdWindowPrivate *priv;
+  GtdTaskListItem *item;
+
+  priv = window->priv;
+  item = get_selected_list (window);
+
+  if (item)
+    {
+      GtdTaskList *list;
+
+      list = gtd_task_list_item_get_list (item);
+
+      gtk_popover_set_relative_to (GTK_POPOVER (priv->rename_popover), GTK_WIDGET (item));
+      gtk_entry_set_text (GTK_ENTRY (priv->rename_entry), gtd_task_list_get_name (list));
+      gtk_widget_show (priv->rename_popover);
+
+      gtk_widget_grab_focus (priv->rename_entry);
+    }
+}
+
+static void
+gtd_window__rename_entry_text_changed (GObject *object,
+                                       GParamSpec *pspec,
+                                       GtdWindow *window)
+{
+  gtk_widget_set_sensitive (window->priv->save_rename_button,
+                            gtk_entry_get_text_length (GTK_ENTRY (object)) > 0);
+}
+
+static void
+gtd_window__rename_task_list (GtdWindow *window)
+{
+  GtdWindowPrivate *priv;
+  GtdTaskListItem *item;
+
+  priv = window->priv;
+
+  /*
+   * If the save_rename_button is insensitive, the list name is
+   * empty and cannot be saved.
+   */
+  if (!gtk_widget_get_sensitive (priv->save_rename_button))
+    return;
+
+  item = get_selected_list (window);
+
+  if (item)
+    {
+      GtdTaskList *list;
+
+      list = gtd_task_list_item_get_list (item);
+
+      gtd_task_list_set_name (list, gtk_entry_get_text (GTK_ENTRY (priv->rename_entry)));
+      gtk_flow_box_invalidate_sort (GTK_FLOW_BOX (priv->lists_flowbox));
+      gtd_window_set_mode (window, GTD_WINDOW_MODE_NORMAL);
+
+      gtk_widget_hide (priv->rename_popover);
+    }
 }
 
 static void
@@ -721,6 +817,9 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, notification_widget);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, remove_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_entry);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_popover);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, save_rename_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, scheduled_list_view);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_bar);
@@ -737,6 +836,9 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__list_selected);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__on_key_press_event);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__remove_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__rename_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__rename_entry_text_changed);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__rename_task_list);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__select_button_toggled);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__stack_visible_child_cb);
 }
