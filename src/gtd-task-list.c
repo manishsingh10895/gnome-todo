@@ -27,6 +27,9 @@ typedef struct
   GList               *tasks;
   ESource             *source;
   gchar               *origin;
+
+  /* ongoing operations */
+  GCancellable        *cancellable;
 } GtdTaskListPrivate;
 
 struct _GtdTaskList
@@ -61,10 +64,60 @@ enum
 };
 
 static void
+save_task_list_finished_cb (GObject      *source,
+                            GAsyncResult *result,
+                            gpointer      user_data)
+{
+  GtdTaskList  *list;
+  GError *error;
+
+  list = user_data;
+  error = NULL;
+
+  gtd_object_set_ready (GTD_OBJECT (list), TRUE);
+
+  e_source_write_finish (E_SOURCE (source),
+                         result,
+                         &error);
+
+  if (error)
+    {
+      g_warning ("%s: %s: %s",
+                 G_STRFUNC,
+                 _("Error saving task list"),
+                 error->message);
+      g_clear_error (&error);
+    }
+}
+
+static void
+save_task_list (GtdTaskList *list)
+{
+  GtdTaskListPrivate *priv;
+  ESource *source;
+
+  priv = list->priv;
+  source = gtd_task_list_get_source (list);
+
+  if (!priv->cancellable)
+    priv->cancellable = g_cancellable_new ();
+
+  gtd_object_set_ready (GTD_OBJECT (list), FALSE);
+
+  e_source_write (source,
+                  priv->cancellable,
+                  save_task_list_finished_cb,
+                  list);
+}
+
+static void
 gtd_task_list_finalize (GObject *object)
 {
   GtdTaskList *self = (GtdTaskList*) object;
 
+  g_cancellable_cancel (self->priv->cancellable);
+
+  g_clear_object (&self->priv->cancellable);
   g_clear_object (&self->priv->source);
   g_clear_pointer (&self->priv->origin, g_free);
 
@@ -137,12 +190,78 @@ gtd_task_list_set_property (GObject      *object,
     }
 }
 
+static gboolean
+color_to_string (GBinding     *binding,
+                 const GValue *from_value,
+                 GValue       *to_value,
+                 gpointer      user_data)
+{
+  GdkRGBA *color;
+  gchar *color_str;
+
+  color = g_value_get_boxed (from_value);
+  color_str = gdk_rgba_to_string (color);
+
+  g_value_set_string (to_value, color_str);
+
+  g_free (color_str);
+
+  return TRUE;
+}
+
+static gboolean
+string_to_color (GBinding     *binding,
+                 const GValue *from_value,
+                 GValue       *to_value,
+                 gpointer      user_data)
+{
+  GdkRGBA color;
+
+  if (!gdk_rgba_parse (&color, g_value_get_string (from_value)))
+    gdk_rgba_parse (&color, "#ffffff"); /* calendar default colour */
+
+  g_value_set_boxed (to_value, &color);
+
+  return TRUE;
+}
+
+static void
+gtd_task_list_constructed (GObject *object)
+{
+  GtdTaskListPrivate *priv;
+  GtdTaskList *list;
+
+  list = GTD_TASK_LIST (object);
+  priv = list->priv;
+
+  G_OBJECT_CLASS (gtd_task_list_parent_class)->constructed (object);
+
+  if (priv->source)
+    {
+      ESourceSelectable *selectable;
+
+      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (list->priv->source, E_SOURCE_EXTENSION_TASK_LIST));
+
+
+      g_object_bind_property_full (object,
+                                   "color",
+                                   selectable,
+                                   "color",
+                                   G_BINDING_BIDIRECTIONAL,
+                                   color_to_string,
+                                   string_to_color,
+                                   object,
+                                   NULL);
+    }
+}
+
 static void
 gtd_task_list_class_init (GtdTaskListClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
   object_class->finalize = gtd_task_list_finalize;
+  object_class->constructed = gtd_task_list_constructed;
   object_class->get_property = gtd_task_list_get_property;
   object_class->set_property = gtd_task_list_set_property;
 
@@ -353,6 +472,7 @@ gtd_task_list_set_color (GtdTaskList   *list,
       color_str = gdk_rgba_to_string (color);
 
       e_source_selectable_set_color (selectable, color_str);
+      save_task_list (list);
       g_free (color_str);
 
       g_object_notify (G_OBJECT (list), "color");
@@ -394,6 +514,7 @@ gtd_task_list_set_name (GtdTaskList *list,
   if (g_strcmp0 (e_source_get_display_name (list->priv->source), name) != 0)
     {
       e_source_set_display_name (list->priv->source, name);
+      save_task_list (list);
 
       g_object_notify (G_OBJECT (list), "name");
     }
