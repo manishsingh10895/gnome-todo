@@ -156,14 +156,8 @@
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="sensitive">False</property>
+                        <property name="label" translatable="yes">Delete</property>
                         <signal name="clicked" handler="gtd_window__remove_button_clicked" object="GtdWindow" swapped="yes" />
-                        <child>
-                          <object class="GtkImage" id="trash_image">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="icon_name">user-trash-symbolic</property>
-                          </object>
-                        </child>
                         <style>
                           <class name="destructive-action"/>
                         </style>
