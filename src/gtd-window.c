@@ -34,6 +34,7 @@ typedef struct
 {
   GtkWidget                     *action_bar;
   GtkButton                     *back_button;
+  GtkWidget                     *cancel_selection_button;
   GtkColorButton                *color_button;
   GtkHeaderBar                  *headerbar;
   GtkFlowBox                    *lists_flowbox;
@@ -87,6 +88,71 @@ enum {
   PROP_MODE,
   LAST_PROP
 };
+
+static void
+gtd_window__remove_button_clicked (GtdWindow *window)
+{
+  GtdWindowPrivate *priv;
+  GtkWidget *dialog;
+  GtkWidget *button;
+  GList *children;
+  GList *l;
+  gint response;
+
+  priv = window->priv;
+  dialog = gtk_message_dialog_new (GTK_WINDOW (window),
+                                   GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT | GTK_DIALOG_USE_HEADER_BAR,
+                                   GTK_MESSAGE_QUESTION,
+                                   GTK_BUTTONS_NONE,
+                                   _("Remove the selected task lists?"));
+
+  gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dialog),
+                                            _("Once removed, the task lists cannot be recovered."));
+
+  /* Focus the Cancel button by default */
+  gtk_dialog_add_button (GTK_DIALOG (dialog),
+                         _("Cancel"),
+                         GTK_RESPONSE_CANCEL);
+
+  button = gtk_dialog_get_widget_for_response (GTK_DIALOG (dialog), GTK_RESPONSE_CANCEL);
+  gtk_widget_grab_focus (button);
+
+  /* Make the Remove button visually destructive */
+  gtk_dialog_add_button (GTK_DIALOG (dialog),
+                         _("Remove task lists"),
+                         GTK_RESPONSE_ACCEPT);
+
+  button = gtk_dialog_get_widget_for_response (GTK_DIALOG (dialog), GTK_RESPONSE_ACCEPT);
+  gtk_style_context_add_class (gtk_widget_get_style_context (button), "destructive-action");
+
+  response = gtk_dialog_run (GTK_DIALOG (dialog));
+
+  /* Remove selected lists */
+  if (response == GTK_RESPONSE_ACCEPT)
+    {
+      children = gtk_container_get_children (GTK_CONTAINER (priv->lists_flowbox));
+
+      for (l = children; l != NULL; l = l->next)
+        {
+          if (gtd_task_list_item_get_selected (l->data))
+            {
+              GtdTaskList *list;
+
+              list = gtd_task_list_item_get_list (l->data);
+
+              if (gtd_task_list_is_removable (list))
+                gtd_manager_remove_task_list (priv->manager, list);
+            }
+        }
+
+      g_list_free (children);
+    }
+
+  gtk_widget_destroy (dialog);
+
+  /* After removing the lists, exit SELECTION mode */
+  gtd_window_set_mode (window, GTD_WINDOW_MODE_NORMAL);
+}
 
 static void
 gtd_window__stack_visible_child_cb (GtdWindow *window)
@@ -644,6 +710,7 @@ gtd_window_class_init (GtdWindowClass *klass)
 
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, action_bar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, back_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, cancel_selection_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, color_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, headerbar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, lists_flowbox);
@@ -669,6 +736,7 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__list_color_set);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__list_selected);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__on_key_press_event);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__remove_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__select_button_toggled);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__stack_visible_child_cb);
 }
@@ -794,7 +862,9 @@ gtd_window_set_mode (GtdWindow     *window,
       context = gtk_widget_get_style_context (GTK_WIDGET (priv->headerbar));
       is_selection_mode = (mode == GTD_WINDOW_MODE_SELECTION);
 
-      gtk_widget_set_visible (priv->select_button, is_selection_mode);
+      gtk_widget_set_visible (priv->select_button, !is_selection_mode);
+      gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->select_button), is_selection_mode);
+      gtk_widget_set_visible (priv->cancel_selection_button, is_selection_mode);
       gtk_widget_set_visible (GTK_WIDGET (priv->new_list_button), !is_selection_mode);
       gtk_widget_set_visible (GTK_WIDGET (priv->action_bar), is_selection_mode);
       gtk_header_bar_set_show_close_button (priv->headerbar, !is_selection_mode);
