@@ -419,6 +419,10 @@ gtd_task_list_item_set_property (GObject      *object,
                                 "notify::ready",
                                 G_CALLBACK (gtd_task_list_item__notify_ready),
                                 self);
+      g_signal_connect_swapped (priv->list,
+                                "notify::color",
+                                G_CALLBACK (gtd_task_list_item__update_thumbnail),
+                                self);
       g_signal_connect (priv->list,
                        "task-added",
                         G_CALLBACK (gtd_task_list_item__task_changed),
