@@ -26,7 +26,7 @@ struct _GtdStorageGoa
 {
   GtdStorage          parent;
 
-  GoaAccount         *account;
+  GoaObject          *goa_object;
   GIcon              *icon;
   gchar              *parent_source;
   gchar              *uri;
@@ -36,7 +36,7 @@ G_DEFINE_TYPE (GtdStorageGoa, gtd_storage_goa, GTD_TYPE_STORAGE)
 
 enum {
   PROP_0,
-  PROP_ACCOUNT,
+  PROP_GOA_OBJECT,
   PROP_PARENT,
   PROP_URI,
   LAST_PROP
@@ -125,7 +125,7 @@ gtd_storage_goa_finalize (GObject *object)
 {
   GtdStorageGoa *self = (GtdStorageGoa *)object;
 
-  g_clear_object (&self->account);
+  g_clear_object (&self->goa_object);
   g_clear_object (&self->icon);
   g_clear_pointer (&self->parent_source, g_free);
 
@@ -142,8 +142,8 @@ gtd_storage_goa_get_property (GObject    *object,
 
   switch (prop_id)
     {
-    case PROP_ACCOUNT:
-      g_value_set_object (value, self->account);
+    case PROP_GOA_OBJECT:
+      g_value_set_object (value, self->goa_object);
       break;
 
     case PROP_PARENT:
@@ -169,25 +169,8 @@ gtd_storage_goa_set_property (GObject      *object,
 
   switch (prop_id)
     {
-    case PROP_ACCOUNT:
-      g_set_object (&self->account, g_value_get_object (value));
-      g_object_notify (object, "account");
-
-      if (self->account)
-        {
-          gchar *icon_name;
-
-          icon_name = g_strdup_printf ("goa-account-%s", goa_account_get_provider_type (self->account));
-
-          gtd_storage_set_name (GTD_STORAGE (object), goa_account_get_identity (self->account));
-          gtd_storage_set_provider (GTD_STORAGE (object), goa_account_get_provider_name (self->account));
-
-          g_set_object (&self->icon, g_themed_icon_new (icon_name));
-          g_object_notify (object, "icon");
-
-          g_free (icon_name);
-        }
-
+    case PROP_GOA_OBJECT:
+      gtd_storage_goa_set_object (self, g_value_get_object (value));
       break;
 
     case PROP_PARENT:
@@ -224,11 +207,11 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
    */
   g_object_class_install_property (
         object_class,
-        PROP_ACCOUNT,
-        g_param_spec_object ("account",
-                             _("Account of the storage"),
-                             _("The account of the storage location."),
-                             GOA_TYPE_ACCOUNT,
+        PROP_GOA_OBJECT,
+        g_param_spec_object ("goa-object",
+                             _("GoaObject of the storage"),
+                             _("The GoaObject this storage location represents."),
+                             GOA_TYPE_OBJECT,
                              G_PARAM_READWRITE));
 
   /**
@@ -266,37 +249,19 @@ gtd_storage_goa_init (GtdStorageGoa *self)
 }
 
 GtdStorage*
-gtd_storage_goa_new (GoaAccount *account)
+gtd_storage_goa_new (GoaObject *object)
 {
-  GtdStorageGoa *self;
   GtdStorage *storage;
 
   storage =  g_object_new (GTD_TYPE_STORAGE_GOA,
-                           "account", account,
+                           "goa-object", object,
                            NULL);
-  self = GTD_STORAGE_GOA (storage);
 
   /*
    * HACK: for any esoteric reason, gtd_storage_goa_set_property
    * is not called when we set ::account property.
    */
-  g_set_object (&self->account, account);
-  g_object_notify (G_OBJECT (self), "account");
-
-  if (self->account)
-    {
-      gchar *icon_name;
-
-      icon_name = g_strdup_printf ("goa-account-%s", goa_account_get_provider_type (self->account));
-
-      gtd_storage_set_name (storage, goa_account_get_identity (account));
-      gtd_storage_set_provider (storage, goa_account_get_provider_name (account));
-
-      g_set_object (&self->icon, g_themed_icon_new (icon_name));
-      g_object_notify (G_OBJECT (self), "icon");
-
-      g_free (icon_name);
-    }
+  gtd_storage_goa_set_object (GTD_STORAGE_GOA (storage), object);
 
   return storage;
 }
@@ -306,7 +271,51 @@ gtd_storage_goa_get_account (GtdStorageGoa *goa_storage)
 {
   g_return_val_if_fail (GTD_IS_STORAGE_GOA (goa_storage), NULL);
 
-  return goa_storage->account;
+  return goa_storage->goa_object ? goa_object_peek_account (goa_storage->goa_object) : NULL;
+}
+
+GoaObject*
+gtd_storage_goa_get_object (GtdStorageGoa *goa_storage)
+{
+  g_return_val_if_fail (GTD_IS_STORAGE_GOA (goa_storage), NULL);
+
+  return goa_storage->goa_object;
+}
+
+void
+gtd_storage_goa_set_object (GtdStorageGoa *goa_storage,
+                            GoaObject     *object)
+{
+  g_return_if_fail (GTD_IS_STORAGE_GOA (goa_storage));
+
+  if (goa_storage->goa_object != object)
+    {
+      g_set_object (&goa_storage->goa_object, object);
+      g_object_notify (G_OBJECT (goa_storage), "goa-object");
+
+      if (goa_storage->goa_object)
+        {
+          GoaCalendar *calendar;
+          GoaAccount *account;
+          gchar *icon_name;
+
+          /* Setup calendar */
+          calendar = goa_object_peek_calendar (goa_storage->goa_object);
+          gtd_storage_goa_set_uri (goa_storage, goa_calendar_get_uri (calendar));
+
+          /* Setup account */
+          account = goa_object_peek_account (goa_storage->goa_object);
+          icon_name = g_strdup_printf ("goa-account-%s", goa_account_get_provider_type (account));
+
+          gtd_storage_set_name (GTD_STORAGE (goa_storage), goa_account_get_identity (account));
+          gtd_storage_set_provider (GTD_STORAGE (goa_storage), goa_account_get_provider_name (account));
+
+          g_set_object (&goa_storage->icon, g_themed_icon_new (icon_name));
+          g_object_notify (G_OBJECT (goa_storage), "icon");
+
+          g_free (icon_name);
+        }
+    }
 }
 
 const gchar*
