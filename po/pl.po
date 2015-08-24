@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-19 16:29+0200\n"
-"PO-Revision-Date: 2015-07-19 16:30+0200\n"
+"POT-Creation-Date: 2015-08-24 21:05+0200\n"
+"PO-Revision-Date: 2015-08-24 21:08+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -62,48 +62,48 @@ msgstr "Zarządzanie zadaniami"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Zadanie;Produktywność;Biuro;"
+msgstr "Zadanie;Lista;Produktywność;Biuro;"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:1
+#: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
 msgstr "Zmaksymalizowane okno"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:2
+#: ../data/org.gnome.todo.gschema.xml.h:2
 msgid "Window maximized state"
 msgstr "Stan maksymalizacji okna"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:3
+#: ../data/org.gnome.todo.gschema.xml.h:3
 msgid "Window size"
 msgstr "Rozmiar okna"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:4
+#: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
 msgstr "Rozmiar okna (szerokość i wysokość)."
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:5
+#: ../data/org.gnome.todo.gschema.xml.h:5
 msgid "Window position"
 msgstr "Położenie okna"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:6
+#: ../data/org.gnome.todo.gschema.xml.h:6
 msgid "Window position (x and y)."
 msgstr "Położenie okna (na osi X i Y)."
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:7
+#: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
 msgstr "Pierwsze uruchomienie Menedżera zadań GNOME"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:8
+#: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
 msgstr ""
 "Czy jest to pierwsze uruchomienie Menedżera zadań GNOME (aby wykonać "
 "początkowe ustawienie)"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:9
+#: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
 msgstr "Domyślne położenie, do którego dodawać nowe listy"
 
-#: ../data/org.gnome.todo.gschema.xml.in.h:10
+#: ../data/org.gnome.todo.gschema.xml.h:10
 msgid "The identifier of the default location to add new lists to"
 msgstr "Identyfikator domyślnego położenia, do którego dodawać nowe listy"
 
@@ -139,7 +139,7 @@ msgstr "Średni"
 msgid "High"
 msgstr "Wysoki"
 
-#: ../data/ui/edit-pane.ui.h:9
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Usuń"
 
@@ -152,6 +152,7 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Zalogowanie do kont online umożliwi dostęp do zadań"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:147
 msgid "Cancel"
 msgstr "Anuluj"
 
@@ -232,12 +233,12 @@ msgstr "Nowe zadanie…"
 msgid "Lists"
 msgstr "Listy"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:145 ../src/gtd-window.c:133
-#: ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:350
+#: ../src/gtd-window.c:355
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:350 ../src/gtd-window.c:355
 msgid "Scheduled"
 msgstr "Zaplanowane"
 
@@ -245,20 +246,26 @@ msgstr "Zaplanowane"
 msgid "Rename"
 msgstr "Zmień nazwę"
 
-#: ../data/ui/window.ui.h:5
+#: ../data/ui/window.ui.h:6
 msgid "New List"
 msgstr "Nowa lista"
 
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Nazwa listy zadań"
+
 #: ../src/gtd-application.c:90
-msgid "Copyright © %Id The Todo authors"
-msgstr "Copyright © %Id Autorzy Menedżera zadań"
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d Autorzy Menedżera zadań"
 
 #: ../src/gtd-application.c:95
-msgid "Copyright © %Id–%Id The Todo authors"
-msgstr "Copyright © %Id–%Id Autorzy Menedżera zadań"
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d Autorzy Menedżera zadań"
 
 #: ../src/gtd-application.c:100 ../src/gtd-application.c:126
-#: ../src/gtd-window.c:297
+#: ../src/gtd-window.c:514 ../src/gtd-window.c:992
 msgid "To Do"
 msgstr "Zadania"
 
@@ -272,122 +279,114 @@ msgstr ""
 msgid "Error loading CSS from resource"
 msgstr "Błąd podczas wczytywania pliku CSS z zasobu"
 
-#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:175
+#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
 msgid "No date set"
 msgstr "Nie ustawiono daty"
 
-#: ../src/gtd-edit-pane.c:251
+#: ../src/gtd-edit-pane.c:248
 msgid "Manager of this application"
 msgstr "Menedżer tego programu"
 
-#: ../src/gtd-edit-pane.c:252
+#: ../src/gtd-edit-pane.c:249
 msgid "The manager of the application"
 msgstr "Menedżer programu"
 
-#: ../src/gtd-edit-pane.c:265
+#: ../src/gtd-edit-pane.c:262
 msgid "Task being edited"
 msgstr "Modyfikowane zadanie"
 
-#: ../src/gtd-edit-pane.c:266
+#: ../src/gtd-edit-pane.c:263
 msgid "The task that is actually being edited"
 msgstr "Obecnie modyfikowane zadanie"
 
-#: ../src/gtd-initial-setup-window.c:216
+#: ../src/gtd-initial-setup-window.c:213
 msgid "Manager of the task"
 msgstr "Menedżer zadania"
 
-#: ../src/gtd-initial-setup-window.c:217
+#: ../src/gtd-initial-setup-window.c:214
 msgid "The singleton manager instance of the task"
 msgstr "Pojedyncze wystąpienie menedżera zadania"
 
-#: ../src/gtd-manager.c:376
+#: ../src/gtd-manager.c:372
 msgid "Error loading GNOME Online Accounts"
 msgstr "Błąd podczas wczytywania Kont online GNOME"
 
-#: ../src/gtd-manager.c:405
+#: ../src/gtd-manager.c:400 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
 msgstr "Błąd podczas zapisywania listy zadań"
 
-#: ../src/gtd-manager.c:432
+#: ../src/gtd-manager.c:419
 msgid "Error removing task list"
 msgstr "Błąd podczas usuwania listy zadań"
 
-#: ../src/gtd-manager.c:467
+#: ../src/gtd-manager.c:480
 msgid "Error creating task"
 msgstr "Błąd podczas tworzenia zadania"
 
-#: ../src/gtd-manager.c:531
+#: ../src/gtd-manager.c:543
 msgid "Error removing task"
 msgstr "Błąd podczas usuwania zadania"
 
-#: ../src/gtd-manager.c:584
+#: ../src/gtd-manager.c:595
 msgid "Error updating task"
 msgstr "Błąd podczas aktualizowania zadania"
 
-#: ../src/gtd-manager.c:613
+#: ../src/gtd-manager.c:624
 msgid "Failed to prompt for credentials"
 msgstr "Zapytanie o dane uwierzytelniające się nie powiodło"
 
-#: ../src/gtd-manager.c:636
+#: ../src/gtd-manager.c:647
 msgid "Failed to prompt for credentials for"
 msgstr "Nie powiodło się zapytanie o dane uwierzytelniające dla"
 
-#: ../src/gtd-manager.c:688
+#: ../src/gtd-manager.c:699
 msgid "Authentication failure"
 msgstr "Niepowodzenie uwierzytelnienia"
 
-#: ../src/gtd-manager.c:755
+#: ../src/gtd-manager.c:763
 msgid "Error fetching tasks from list"
 msgstr "Błąd podczas pobierania zadań z listy"
 
-#: ../src/gtd-manager.c:821
+#: ../src/gtd-manager.c:829
 msgid "Task list source successfully connected"
 msgstr "Pomyślnie połączono ze źródłem listy zadań"
 
-#: ../src/gtd-manager.c:828
+#: ../src/gtd-manager.c:836
 msgid "Failed to connect to task list source"
 msgstr "Połączenie ze źródłem listy zadań się nie powiodło"
 
-#: ../src/gtd-manager.c:858
+#: ../src/gtd-manager.c:866
 msgid "Skipping already loaded task list "
 msgstr "Pomijanie już wczytanej listy zadań "
 
-#: ../src/gtd-manager.c:896
+#: ../src/gtd-manager.c:904
 msgid "Error loading task manager"
 msgstr "Błąd podczas wczytywania menedżera zadań"
 
-#: ../src/gtd-manager.c:1030
-msgid "Local"
-msgstr "Lokalne"
-
-#: ../src/gtd-manager.c:1031
-msgid "On This Computer"
-msgstr "Na tym komputerze"
-
-#: ../src/gtd-manager.c:1064
+#: ../src/gtd-manager.c:1065
 msgid "The online accounts client of the manager"
 msgstr "Klient kont online menedżera"
 
-#: ../src/gtd-manager.c:1065
+#: ../src/gtd-manager.c:1066
 msgid ""
 "The read-only GNOME online accounts client loaded and owned by the manager"
 msgstr ""
 "Klient kont online GNOME tylko do odczytu, wczytany i posiadany przez "
 "menedżera"
 
-#: ../src/gtd-manager.c:1078
+#: ../src/gtd-manager.c:1079
 msgid "Whether GNOME Online Accounts client is ready"
 msgstr "Czy klient Kont online GNOME jest gotowy"
 
-#: ../src/gtd-manager.c:1079
+#: ../src/gtd-manager.c:1080
 msgid "Whether the read-only GNOME online accounts client is loaded"
 msgstr "Czy klient kont online GNOME tylko do odczytu jest wczytany"
 
-#: ../src/gtd-manager.c:1092
+#: ../src/gtd-manager.c:1093
 msgid "The source registry of the manager"
 msgstr "Rejestr źródeł menedżera"
 
-#: ../src/gtd-manager.c:1093
+#: ../src/gtd-manager.c:1094
 msgid "The read-only source registry loaded and owned by the manager"
 msgstr "Rejestr źródeł tylko do odczytu, wczytany i posiadany przez menedżera"
 
@@ -454,7 +453,7 @@ msgstr "Priorytet zadania"
 #: ../src/gtd-task.c:326
 msgid ""
 "The priority of the task. 0 means no priority set, and tasks will be sorted "
-"alfabetically."
+"alphabetically."
 msgstr ""
 "Priorytet zadania. 0 oznacza brak priorytetu, a zadania będą porządkowane "
 "alfabetycznie."
@@ -467,55 +466,71 @@ msgstr "Tytuł zadania"
 msgid "The title of the task"
 msgstr "Tytuł zadania"
 
-#: ../src/gtd-task-list.c:152
+#: ../src/gtd-task-list.c:264
 msgid "Color of the list"
 msgstr "Kolor listy"
 
-#: ../src/gtd-task-list.c:153
+#: ../src/gtd-task-list.c:265
 msgid "The color of the list"
 msgstr "Kolor listy"
 
-#: ../src/gtd-task-list.c:166
+#: ../src/gtd-task-list.c:278
+msgid "Whether the task list is removable"
+msgstr "Czy lista zadań jest możliwa do usunięcia"
+
+#: ../src/gtd-task-list.c:279
+msgid "Whether the task list can be removed from the system"
+msgstr "Czy lista zadań może być usuwana z systemu"
+
+#: ../src/gtd-task-list.c:292
 msgid "Name of the list"
 msgstr "Nazwa listy"
 
-#: ../src/gtd-task-list.c:167
+#: ../src/gtd-task-list.c:293
 msgid "The name of the list"
 msgstr "Nazwa listy"
 
-#: ../src/gtd-task-list.c:180
+#: ../src/gtd-task-list.c:306
 msgid "Data origin of the list"
 msgstr "Data początku listy"
 
-#: ../src/gtd-task-list.c:181
+#: ../src/gtd-task-list.c:307
 msgid "The data origin location of the list"
 msgstr "Położenie daty początku listy"
 
-#: ../src/gtd-task-list.c:194
+#: ../src/gtd-task-list.c:320
 msgid "Source of the list"
 msgstr "Źródło listy"
 
-#: ../src/gtd-task-list.c:195
+#: ../src/gtd-task-list.c:321
 msgid "The parent source that handles the list"
 msgstr "Nadrzędne źródło obsługujące listę"
 
-#: ../src/gtd-task-list-item.c:231
+#: ../src/gtd-task-list-item.c:236
 msgid "No tasks"
 msgstr "Brak zadań"
 
-#: ../src/gtd-task-list-item.c:436
+#: ../src/gtd-task-list-item.c:466
 msgid "Mode of this item"
 msgstr "Tryb tego elementu"
 
-#: ../src/gtd-task-list-item.c:437
+#: ../src/gtd-task-list-item.c:467
 msgid "The mode of this item, inherited from the parent's mode"
 msgstr "Tryb tego elementu, odziedziczony z trybu elementu nadrzędnego"
 
-#: ../src/gtd-task-list-item.c:452
+#: ../src/gtd-task-list-item.c:481
+msgid "Whether the task list is selected"
+msgstr "Czy lista zadań jest zaznaczona"
+
+#: ../src/gtd-task-list-item.c:482
+msgid "Whether the task list is selected when in selection mode"
+msgstr "Czy lista zadań jest zaznaczona w trybie zaznaczania"
+
+#: ../src/gtd-task-list-item.c:495
 msgid "Task list of the item"
 msgstr "Lista zadań elementu"
 
-#: ../src/gtd-task-list-item.c:453
+#: ../src/gtd-task-list-item.c:496
 msgid "The task list associated with this item"
 msgstr "Lista zadań powiązana z tym elementem"
 
@@ -528,145 +543,179 @@ msgstr "Usunięto zadanie <b>%s</b>"
 msgid "Undo"
 msgstr "Cofnij"
 
-#: ../src/gtd-task-list-view.c:662 ../src/gtd-window.c:516
-#: ../src/storage/gtd-storage-dialog.c:153
-#: ../src/storage/gtd-storage-popover.c:272
-#: ../src/storage/gtd-storage-selector.c:522
+#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:785
+#: ../src/storage/gtd-storage-dialog.c:150
+#: ../src/storage/gtd-storage-popover.c:269
+#: ../src/storage/gtd-storage-selector.c:516
 msgid "Manager of this window's application"
 msgstr "Menedżer programu tego okna"
 
-#: ../src/gtd-task-list-view.c:663 ../src/gtd-window.c:517
-#: ../src/storage/gtd-storage-dialog.c:154
-#: ../src/storage/gtd-storage-popover.c:273
-#: ../src/storage/gtd-storage-selector.c:523
+#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:786
+#: ../src/storage/gtd-storage-dialog.c:151
+#: ../src/storage/gtd-storage-popover.c:270
+#: ../src/storage/gtd-storage-selector.c:517
 msgid "The manager of the window's application"
 msgstr "Menedżer programu okna"
 
-#: ../src/gtd-task-list-view.c:676
+#: ../src/gtd-task-list-view.c:670
 msgid "Whether the list is readonly"
 msgstr "Czy lista jest tylko do odczytu"
 
-#: ../src/gtd-task-list-view.c:677
+#: ../src/gtd-task-list-view.c:671
 msgid ""
 "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
 msgstr ""
 "Czy lista jest tylko do odczytu, tzn. rząd Nowe zadanie nie jest wyświetlany"
 
-#: ../src/gtd-task-list-view.c:690
+#: ../src/gtd-task-list-view.c:684
 msgid "Whether task rows show the list name"
 msgstr "Czy rzędy zadań wyświetlają nazwę listy"
 
-#: ../src/gtd-task-list-view.c:691
+#: ../src/gtd-task-list-view.c:685
 msgid "Whether task rows show the list name at the end of the row"
 msgstr "Czy rzędy zadań wyświetlają nazwę listy na końcu rzędu"
 
-#: ../src/gtd-task-list-view.c:704
+#: ../src/gtd-task-list-view.c:698
 msgid "Whether completed tasks are shown"
 msgstr "Czy wyświetlać ukończone zadania"
 
-#: ../src/gtd-task-list-view.c:705
+#: ../src/gtd-task-list-view.c:699
 msgid "Whether completed tasks are visible or not"
 msgstr "Czy ukończone zadania są widoczne"
 
-#: ../src/gtd-task-row.c:149
+#: ../src/gtd-task-row.c:143
 msgid "Tomorrow"
 msgstr "Jutro"
 
-#: ../src/gtd-task-row.c:153
+#: ../src/gtd-task-row.c:147
 msgid "Yesterday"
 msgstr "Wczoraj"
 
-#: ../src/gtd-task-row.c:375
+#: ../src/gtd-task-row.c:366
 msgid "If the row is used to add a new task"
 msgstr "Czy rząd jest używane do dodania nowego zadania"
 
-#: ../src/gtd-task-row.c:376
+#: ../src/gtd-task-row.c:367
 msgid "Whether the row is used to add a new task"
 msgstr "Czy rząd jest używane do dodania nowego zadania"
 
-#: ../src/gtd-task-row.c:389
+#: ../src/gtd-task-row.c:380
 msgid "Task of the row"
 msgstr "Zadanie rzędu"
 
-#: ../src/gtd-task-row.c:390
+#: ../src/gtd-task-row.c:381
 msgid "The task that this row represents"
 msgstr "Zadanie przedstawiane przez ten rząd"
 
-#: ../src/gtd-window.c:181
+#: ../src/gtd-window.c:140
+msgid "Remove the selected task lists?"
+msgstr "Usunąć zaznaczone listy zadań?"
+
+#: ../src/gtd-window.c:143
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Nie można będzie ich przywrócić po usunięciu."
+
+#: ../src/gtd-window.c:155
+msgid "Remove task lists"
+msgstr "Usuń listy zadań"
+
+#: ../src/gtd-window.c:398
 msgid "Setting new color for task list"
 msgstr "Ustawianie nowego koloru listy zadań"
 
-#: ../src/gtd-window.c:552
+#: ../src/gtd-window.c:799
+msgid "Mode of this window"
+msgstr "Tryb tego okna"
+
+#: ../src/gtd-window.c:800
+msgid "The interaction mode of the window"
+msgstr "Tryb interakcji okna"
+
+#: ../src/gtd-window.c:851
 msgid "Loading your task lists…"
 msgstr "Wczytywanie list zadań…"
 
-#: ../src/storage/gtd-storage.c:189
+#: ../src/gtd-window.c:979
+msgid "Click a task list to select"
+msgstr "Kliknięcie listy zadań zaznacza ją"
+
+#: ../src/storage/gtd-storage.c:153
 msgid "Whether the storage is enabled"
 msgstr "Czy położenie zadań jest włączone"
 
-#: ../src/storage/gtd-storage.c:190
+#: ../src/storage/gtd-storage.c:154
 msgid "Whether the storage is available to be used."
 msgstr "Czy położenie zadań jest dostępne do użytku."
 
-#: ../src/storage/gtd-storage.c:203
+#: ../src/storage/gtd-storage.c:167
 msgid "Icon of the storage"
 msgstr "Ikona położenia zadań"
 
-#: ../src/storage/gtd-storage.c:204
+#: ../src/storage/gtd-storage.c:168
 msgid "The icon representing the storage location."
 msgstr "Ikona przedstawiająca położenie zadań."
 
-#: ../src/storage/gtd-storage.c:217
+#: ../src/storage/gtd-storage.c:181
 msgid "Identifier of the storage"
 msgstr "Identyfikator położenia zadań"
 
-#: ../src/storage/gtd-storage.c:218
+#: ../src/storage/gtd-storage.c:182
 msgid "The unique identifier of the storage location."
 msgstr "Unikalny identyfikator położenia zadań."
 
-#: ../src/storage/gtd-storage.c:231
+#: ../src/storage/gtd-storage.c:195
 msgid "Whether the storage is the default"
 msgstr "Czy położenie zadań jest domyślne"
 
-#: ../src/storage/gtd-storage.c:232
+#: ../src/storage/gtd-storage.c:196
 msgid "Whether the storage is the default storage location to be used."
 msgstr "Czy to położenie zadań jest domyślnie używane."
 
-#: ../src/storage/gtd-storage.c:245
+#: ../src/storage/gtd-storage.c:209
 msgid "Name of the storage"
 msgstr "Nazwa położenia zadań"
 
-#: ../src/storage/gtd-storage.c:246
+#: ../src/storage/gtd-storage.c:210
 msgid "The user-visible name of the storage location."
 msgstr "Nazwa położenia zadań widoczna dla użytkownika."
 
-#: ../src/storage/gtd-storage.c:259
+#: ../src/storage/gtd-storage.c:223
+msgid "Name of the data provider of the storage"
+msgstr "Nazwa dostawcy danych położenia zadań"
+
+#: ../src/storage/gtd-storage.c:224
+msgid "The user-visible name of the data provider of the storage location."
+msgstr "Nazwa dostawcy danych położenia zadań widoczna dla użytkownika."
+
+#: ../src/storage/gtd-storage-goa.c:72 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Błąd podczas tworzenia nowej listy zadań"
+
+#: ../src/storage/gtd-storage-goa.c:219
+msgid "Account of the storage"
+msgstr "Konto położenia zadań"
+
+#: ../src/storage/gtd-storage-goa.c:220
+msgid "The account of the storage location."
+msgstr "Konto położenia zadań."
+
+#: ../src/storage/gtd-storage-goa.c:233
 msgid "Parent of the storage"
 msgstr "Element nadrzędny położenia zadań"
 
-#: ../src/storage/gtd-storage.c:260
+#: ../src/storage/gtd-storage-goa.c:234
 msgid "The parent source identifier of the storage location."
 msgstr "Identyfikator nadrzędnego źródła położenia zadań."
 
-#: ../src/storage/gtd-storage.c:273
-msgid "Provider type of the storage"
-msgstr "Typ dostawcy położenia zadań"
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Na tym komputerze"
 
-#: ../src/storage/gtd-storage.c:274
-msgid "The provider type of the storage location."
-msgstr "Typ dostawcy położenia zadań."
-
-#: ../src/storage/gtd-storage.c:287
-msgid "Provider name of the storage"
-msgstr "Nazwa dostawcy położenia zadań"
-
-#: ../src/storage/gtd-storage.c:288
-msgid "The name of the provider of the storage location."
-msgstr "Nazwa dostawcy położenia zadań."
-
-#: ../src/storage/gtd-storage.c:680
-msgid "Error creating new task list"
-msgstr "Błąd podczas tworzenia nowej listy zadań"
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Lokalne"
 
 #: ../src/storage/gtd-storage-row.c:148
 msgid "Storage of the row"
@@ -676,27 +725,27 @@ msgstr "Położenie zadań rzędu"
 msgid "The storage that this row holds"
 msgstr "Położenie zadań w tym rzędzie"
 
-#: ../src/storage/gtd-storage-selector.c:536
+#: ../src/storage/gtd-storage-selector.c:530
 msgid "Show local storage row"
 msgstr "Wyświetlanie rzędu lokalnego położenia zadań"
 
-#: ../src/storage/gtd-storage-selector.c:537
+#: ../src/storage/gtd-storage-selector.c:531
 msgid "Whether should show a local storage row instead of a checkbox"
 msgstr "Czy wyświetlać rząd lokalnego położenia zadań zamiast pola wyboru"
 
-#: ../src/storage/gtd-storage-selector.c:550
+#: ../src/storage/gtd-storage-selector.c:544
 msgid "Show stub rows"
 msgstr "Wyświetlanie nieużywanych rzędów"
 
-#: ../src/storage/gtd-storage-selector.c:551
+#: ../src/storage/gtd-storage-selector.c:545
 msgid "Whether should show stub rows for non-added accounts"
 msgstr "Czy wyświetlać rzędy niedodanych kont"
 
-#: ../src/storage/gtd-storage-selector.c:564
+#: ../src/storage/gtd-storage-selector.c:558
 msgid "Selects default storage row"
 msgstr "Wybiera domyślny rząd położenia zadań"
 
-#: ../src/storage/gtd-storage-selector.c:565
+#: ../src/storage/gtd-storage-selector.c:559
 msgid "Whether should select the default storage row"
 msgstr "Czy wybrać domyślny rząd położenia zadań"
 
