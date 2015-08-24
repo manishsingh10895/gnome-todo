@@ -17,6 +17,8 @@
  */
 
 #include "gtd-manager.h"
+#include "gtd-storage-goa.h"
+#include "gtd-storage-local.h"
 #include "gtd-storage.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
@@ -134,7 +136,7 @@ is_today (GDateTime *dt)
 
 static void
 gtd_manager__setup_url (GtdManager *manager,
-                        GtdStorage *storage)
+                        GtdStorageGoa *storage)
 {
   GtdManagerPrivate *priv;
   GList *sources;
@@ -171,9 +173,9 @@ gtd_manager__setup_url (GtdManager *manager,
           goa_ext = e_source_get_extension (goa_source, E_SOURCE_EXTENSION_GOA);
 
           /* Found an ESourceGoa with the same uid of storage */
-          if (g_strcmp0 (e_source_goa_get_account_id (goa_ext), gtd_storage_get_id (storage)) == 0)
+          if (g_strcmp0 (e_source_goa_get_account_id (goa_ext), gtd_storage_get_id (GTD_STORAGE (storage))) == 0)
             {
-              gtd_storage_set_parent (storage, e_source_get_uid (source));
+              gtd_storage_goa_set_parent (storage, e_source_get_uid (source));
               break;
             }
         }
@@ -273,15 +275,12 @@ gtd_manager__goa_account_added_cb (GoaClient  *client,
 
       default_location = g_settings_get_string (priv->settings, "storage-location");
 
-      storage = gtd_storage_new (goa_account_get_id (account),
-                                 goa_account_get_provider_type (account),
-                                 goa_account_get_provider_name (account),
-                                 goa_account_get_identity (account));
+      storage = gtd_storage_goa_new (account);
 
       gtd_storage_set_enabled (storage, !goa_account_get_calendar_disabled (account));
       gtd_storage_set_is_default (storage, g_strcmp0 (gtd_storage_get_id (storage), default_location) == 0);
 
-      gtd_manager__setup_url (manager, storage);
+      gtd_manager__setup_url (manager, GTD_STORAGE_GOA (storage));
 
       priv->storage_locations = g_list_insert_sorted (priv->storage_locations,
                                                       storage,
@@ -331,15 +330,13 @@ gtd_manager__goa_client_finish_cb (GObject      *client,
             {
               GtdStorage *storage;
 
-              storage = gtd_storage_new (goa_account_get_id (account),
-                                         goa_account_get_provider_type (account),
-                                         goa_account_get_provider_name (account),
-                                         goa_account_get_identity (account));
-
+              storage = gtd_storage_goa_new (account);
               gtd_storage_set_enabled (storage, !goa_account_get_calendar_disabled (account));
               gtd_storage_set_is_default (storage, g_strcmp0 (gtd_storage_get_id (storage), default_location) == 0);
 
-              gtd_manager__setup_url (GTD_MANAGER (user_data), storage);
+              g_assert (gtd_storage_goa_get_account (GTD_STORAGE_GOA (storage)) == account);
+
+              gtd_manager__setup_url (GTD_MANAGER (user_data), GTD_STORAGE_GOA (storage));
 
               priv->storage_locations = g_list_insert_sorted (priv->storage_locations,
                                                               storage,
@@ -1032,10 +1029,7 @@ gtd_manager_constructed (GObject *object)
                          object);
 
   /* local storage location */
-  local_storage = gtd_storage_new ("local",
-                                   "local",
-                                   _("Local"),
-                                   _("On This Computer"));
+  local_storage = gtd_storage_local_new ();
   gtd_storage_set_enabled (local_storage, TRUE);
   gtd_storage_set_is_default (local_storage, g_strcmp0 (default_location, "local") == 0);
 

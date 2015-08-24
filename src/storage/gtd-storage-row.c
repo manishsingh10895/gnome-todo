@@ -103,7 +103,7 @@ gtd_storage_row_set_property (GObject      *object,
                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
 
       g_object_bind_property (self->priv->storage,
-                              "provider-name",
+                              "provider",
                               self->priv->provider,
                               "label",
                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);

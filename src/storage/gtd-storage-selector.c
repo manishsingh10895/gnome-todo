@@ -19,6 +19,7 @@
 #include "gtd-application.h"
 #include "gtd-manager.h"
 #include "gtd-storage.h"
+#include "gtd-storage-goa.h"
 #include "gtd-storage-row.h"
 #include "gtd-storage-selector.h"
 
@@ -824,12 +825,20 @@ gtd_storage_selector_set_show_stub_rows (GtdStorageSelector *selector,
               if (GTD_IS_STORAGE_ROW (l->data))
                 {
                   GtdStorage *storage = gtd_storage_row_get_storage (l->data);
+                  GoaAccount *account;
+                  const gchar *type;
 
-                  if (g_strcmp0 (gtd_storage_get_provider (storage), "google") == 0)
+                  if (!GTD_IS_STORAGE_GOA (storage))
+                    continue;
+
+                  account = gtd_storage_goa_get_account (GTD_STORAGE_GOA (storage));
+                  type = goa_account_get_provider_type (account);
+
+                  if (g_strcmp0 (type, "google") == 0)
                     google_counter++;
-                  else if (g_strcmp0 (gtd_storage_get_provider (storage), "exchange") == 0)
+                  else if (g_strcmp0 (type, "exchange") == 0)
                     exchange_counter++;
-                  else if (g_strcmp0 (gtd_storage_get_provider (storage), "owncloud") == 0)
+                  else if (g_strcmp0 (type, "owncloud") == 0)
                     owncloud_counter++;
                 }
             }

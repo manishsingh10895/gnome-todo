@@ -27,6 +27,8 @@ src/gtd-window.c
 src/main.c
 src/storage/gtd-storage.c
 src/storage/gtd-storage-dialog.c
+src/storage/gtd-storage-goa.c
+src/storage/gtd-storage-local.c
 src/storage/gtd-storage-popover.c
 src/storage/gtd-storage-row.c
 src/storage/gtd-storage-selector.c

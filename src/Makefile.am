@@ -28,6 +28,10 @@ gnome_todo_SOURCES = \
 	storage/gtd-storage.h \
 	storage/gtd-storage-dialog.c \
 	storage/gtd-storage-dialog.h \
+	storage/gtd-storage-goa.c \
+	storage/gtd-storage-goa.h \
+	storage/gtd-storage-local.c \
+	storage/gtd-storage-local.h \
 	storage/gtd-storage-popover.c \
 	storage/gtd-storage-popover.h \
 	storage/gtd-storage-row.c \

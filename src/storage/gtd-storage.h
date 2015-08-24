@@ -28,12 +28,24 @@ G_BEGIN_DECLS
 
 #define GTD_TYPE_STORAGE (gtd_storage_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdStorage, gtd_storage, GTD, STORAGE, GObject)
+G_DECLARE_DERIVABLE_TYPE (GtdStorage, gtd_storage, GTD, STORAGE, GObject)
 
-GtdStorage*        gtd_storage_new                               (const gchar        *id,
-                                                                  const gchar        *provider,
-                                                                  const gchar        *provider_name,
+struct _GtdStorageClass
+{
+  GObject            parent;
+
+  /* Abstract methods */
+  GIcon*             (*get_icon)                                 (GtdStorage         *storage);
+
+  gint               (*compare)                                  (GtdStorage         *a,
+                                                                  GtdStorage         *b);
+
+  GtdTaskList*       (*create_list)                              (GtdStorage         *storage,
                                                                   const gchar        *name);
+
+  /* Padding for future expansions */
+  gpointer           padding[12];
+};
 
 gboolean           gtd_storage_get_enabled                       (GtdStorage         *storage);
 
@@ -43,6 +55,9 @@ void               gtd_storage_set_enabled                       (GtdStorage    
 GIcon*             gtd_storage_get_icon                          (GtdStorage         *storage);
 
 const gchar*       gtd_storage_get_id                            (GtdStorage         *storage);
+
+void               gtd_storage_set_id                            (GtdStorage         *storage,
+                                                                  const gchar        *id);
 
 gboolean           gtd_storage_get_is_default                    (GtdStorage         *storage);
 
@@ -54,20 +69,10 @@ const gchar*       gtd_storage_get_name                          (GtdStorage    
 void               gtd_storage_set_name                          (GtdStorage         *storage,
                                                                   const gchar        *name);
 
-const gchar*       gtd_storage_get_parent                        (GtdStorage         *storage);
-
-void               gtd_storage_set_parent                        (GtdStorage         *storage,
-                                                                  const gchar        *url);
-
 const gchar*       gtd_storage_get_provider                      (GtdStorage         *storage);
 
 void               gtd_storage_set_provider                      (GtdStorage         *storage,
-                                                                  const gchar        *provider);
-
-const gchar*       gtd_storage_get_provider_name                 (GtdStorage         *storage);
-
-void               gtd_storage_set_provider_name                 (GtdStorage         *storage,
-                                                                  const gchar        *provider_name);
+                                                                  const gchar        *name);
 
 gint               gtd_storage_compare                           (GtdStorage         *a,
                                                                   GtdStorage         *b);
