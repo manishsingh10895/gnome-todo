@@ -31,9 +31,14 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (GtdStorageGoa, gtd_storage_goa, GTD, STORAGE_GOA, GtdStorage)
 
-GtdStorage*          gtd_storage_goa_new                         (GoaAccount         *account);
+GtdStorage*          gtd_storage_goa_new                         (GoaObject          *object);
 
 GoaAccount*          gtd_storage_goa_get_account                 (GtdStorageGoa      *goa_storage);
+
+GoaObject*           gtd_storage_goa_get_object                  (GtdStorageGoa      *goa_storage);
+
+void                 gtd_storage_goa_set_object                  (GtdStorageGoa      *goa_storage,
+                                                                  GoaObject          *object);
 
 const gchar*         gtd_storage_goa_get_parent                  (GtdStorageGoa      *goa_storage);
 
