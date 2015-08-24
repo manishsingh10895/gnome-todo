@@ -161,8 +161,6 @@ gtd_storage_goa_set_property (GObject      *object,
 {
   GtdStorageGoa *self = GTD_STORAGE_GOA (object);
 
-  g_message ("%s", G_STRFUNC);
-
   switch (prop_id)
     {
     case PROP_ACCOUNT:
@@ -175,10 +173,8 @@ gtd_storage_goa_set_property (GObject      *object,
 
           icon_name = g_strdup_printf ("goa-account-%s", goa_account_get_provider_type (self->account));
 
-          g_message ("Creating GOA storage: %s (%s)", goa_account_get_identity (self->account), goa_account_get_id (self->account));
-
           gtd_storage_set_name (GTD_STORAGE (object), goa_account_get_identity (self->account));
-          gtd_storage_set_provider (GTD_STORAGE (object), goa_account_get_id (self->account));
+          gtd_storage_set_provider (GTD_STORAGE (object), goa_account_get_provider_name (self->account));
 
           g_set_object (&self->icon, g_themed_icon_new (icon_name));
           g_object_notify (object, "icon");
