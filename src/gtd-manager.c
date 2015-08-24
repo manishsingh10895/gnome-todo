@@ -324,15 +324,22 @@ gtd_manager__goa_client_finish_cb (GObject      *client,
           GoaAccount *account;
 
           object = l->data;
-          account = goa_object_get_account (object);
+          account = goa_object_peek_account (object);
 
           if (g_strv_contains (supported_providers, goa_account_get_provider_type (account)))
             {
               GtdStorage *storage;
+              GoaCalendar *calendar;
+              gchar *uri;
 
+              calendar = goa_object_peek_calendar (object);
+              uri = goa_calendar_dup_uri (calendar);
+
+              /* Create the new GOA storage */
               storage = gtd_storage_goa_new (account);
               gtd_storage_set_enabled (storage, !goa_account_get_calendar_disabled (account));
               gtd_storage_set_is_default (storage, g_strcmp0 (gtd_storage_get_id (storage), default_location) == 0);
+              gtd_storage_goa_set_uri (GTD_STORAGE_GOA (storage), uri);
 
               g_assert (gtd_storage_goa_get_account (GTD_STORAGE_GOA (storage)) == account);
 
@@ -341,6 +348,8 @@ gtd_manager__goa_client_finish_cb (GObject      *client,
               priv->storage_locations = g_list_insert_sorted (priv->storage_locations,
                                                               storage,
                                                               (GCompareFunc) gtd_storage_compare);
+
+              g_free (uri);
 
               g_signal_emit (user_data, signals[STORAGE_ADDED], 0, storage);
             }

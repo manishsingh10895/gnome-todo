@@ -29,6 +29,7 @@ struct _GtdStorageGoa
   GoaAccount         *account;
   GIcon              *icon;
   gchar              *parent_source;
+  gchar              *uri;
 };
 
 G_DEFINE_TYPE (GtdStorageGoa, gtd_storage_goa, GTD_TYPE_STORAGE)
@@ -37,6 +38,7 @@ enum {
   PROP_0,
   PROP_ACCOUNT,
   PROP_PARENT,
+  PROP_URI,
   LAST_PROP
 };
 
@@ -148,6 +150,10 @@ gtd_storage_goa_get_property (GObject    *object,
       g_value_set_string (value, gtd_storage_goa_get_parent (self));
       break;
 
+    case PROP_URI:
+      g_value_set_string (value, gtd_storage_goa_get_uri (self));
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -186,6 +192,10 @@ gtd_storage_goa_set_property (GObject      *object,
 
     case PROP_PARENT:
       gtd_storage_goa_set_parent (self, g_value_get_string (value));
+      break;
+
+    case PROP_URI:
+      gtd_storage_goa_set_uri (self, g_value_get_string (value));
       break;
 
     default:
@@ -232,6 +242,20 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
         g_param_spec_string ("parent",
                              _("Parent of the storage"),
                              _("The parent source identifier of the storage location."),
+                             NULL,
+                             G_PARAM_READWRITE));
+
+  /**
+   * GtdStorageGoa::uri:
+   *
+   * The uri of this GOA calendar.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_URI,
+        g_param_spec_string ("uri",
+                             _("URI of the storage"),
+                             _("The URI of the calendar of the storage location."),
                              NULL,
                              G_PARAM_READWRITE));
 }
@@ -306,5 +330,29 @@ gtd_storage_goa_set_parent (GtdStorageGoa *goa_storage,
       goa_storage->parent_source = g_strdup (parent);
 
       g_object_notify (G_OBJECT (goa_storage), "parent");
+    }
+}
+
+const gchar*
+gtd_storage_goa_get_uri (GtdStorageGoa *goa_storage)
+{
+  g_return_val_if_fail (GTD_IS_STORAGE_GOA (goa_storage), NULL);
+
+  return goa_storage->uri;
+}
+
+void
+gtd_storage_goa_set_uri (GtdStorageGoa *goa_storage,
+                         const gchar   *uri)
+{
+  g_return_if_fail (GTD_IS_STORAGE_GOA (goa_storage));
+
+  if (g_strcmp0 (goa_storage->uri, uri) != 0)
+    {
+      g_clear_pointer (&goa_storage->uri, g_free);
+
+      goa_storage->uri = g_strdup (uri);
+
+      g_object_notify (G_OBJECT (goa_storage), "uri");
     }
 }
