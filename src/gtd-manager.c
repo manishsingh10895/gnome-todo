@@ -425,6 +425,30 @@ task_list_removal_finished (GtdManager  *manager,
 }
 
 static void
+gtd_manager__remote_create_source_finished (GObject      *source,
+                                            GAsyncResult *result,
+                                            gpointer      user_data)
+{
+  GError *error;
+
+  error = NULL;
+
+  e_source_remote_create_finish (E_SOURCE (source),
+                                 result,
+                                 &error);
+
+  if (error)
+    {
+      g_warning ("%s: %s: %s",
+                 G_STRFUNC,
+                 _("Error creating task list"),
+                 error->message);
+
+      g_clear_error (&error);
+    }
+}
+
+static void
 gtd_manager__remote_delete_finished (GObject      *source,
                                      GAsyncResult *result,
                                      gpointer      user_data)
@@ -1357,6 +1381,39 @@ gtd_manager_update_task (GtdManager *manager,
                               NULL, // We won't cancel the operation
                               (GAsyncReadyCallback) gtd_manager__update_task_finished,
                               data);
+}
+
+/**
+ * gtd_manager_create_task_list:
+ *
+ *
+ * Creates a new task list at the given source.
+ *
+ * Returns:
+ */
+void
+gtd_manager_create_task_list (GtdManager  *manager,
+                              GtdTaskList *list)
+{
+  GtdManagerPrivate *priv;
+  ESource *source;
+  ESource *parent;
+
+  g_return_if_fail (GTD_IS_MANAGER (manager));
+  g_return_if_fail (GTD_IS_TASK_LIST (list));
+  g_return_if_fail (gtd_task_list_get_source (list));
+
+  priv = manager->priv;
+  source = gtd_task_list_get_source (list);
+  parent = e_source_registry_ref_source (priv->source_registry, e_source_get_parent (source));
+
+  e_source_remote_create (parent,
+                          source,
+                          NULL,
+                          (GAsyncReadyCallback) gtd_manager__remote_create_source_finished,
+                          manager);
+
+  g_object_unref (parent);
 }
 
 /**
