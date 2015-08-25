@@ -29,7 +29,6 @@ struct _GtdStorageGoa
   GoaObject          *goa_object;
   GIcon              *icon;
   gchar              *parent_source;
-  gchar              *uri;
 };
 
 G_DEFINE_TYPE (GtdStorageGoa, gtd_storage_goa, GTD_TYPE_STORAGE)
@@ -38,7 +37,6 @@ enum {
   PROP_0,
   PROP_GOA_OBJECT,
   PROP_PARENT,
-  PROP_URI,
   LAST_PROP
 };
 
@@ -54,8 +52,11 @@ static GtdTaskList*
 gtd_storage_goa_create_list (GtdStorage  *storage,
                              const gchar *name)
 {
+  ESourceExtension *extension;
   GtdStorageGoa *self;
+  GoaCalendar *calendar;
   GtdTaskList *task_list;
+  GoaAccount *account;
   ESource *source;
   GError *error;
 
@@ -63,6 +64,8 @@ gtd_storage_goa_create_list (GtdStorage  *storage,
 
   self = GTD_STORAGE_GOA (storage);
   error = NULL;
+  account = goa_object_peek_account (self->goa_object);
+  calendar = goa_object_peek_calendar (self->goa_object);
   source = e_source_new (NULL,
                          NULL,
                          &error);
@@ -82,8 +85,20 @@ gtd_storage_goa_create_list (GtdStorage  *storage,
   e_source_set_display_name (source, name);
   e_source_set_parent (source, self->parent_source);
 
-  /* TODO: create source for GOA account */
-  e_source_get_extension (source, E_SOURCE_EXTENSION_TASK_LIST);
+  g_message ("parent source: %s", self->parent_source);
+
+  /* Mark it as a TASKLIST */
+  extension = e_source_get_extension (source, E_SOURCE_EXTENSION_TASK_LIST);
+  e_source_backend_set_backend_name (E_SOURCE_BACKEND (extension), goa_account_get_provider_type (account));
+
+  /* Make it a WebDAV source */
+  extension = e_source_get_extension (source, E_SOURCE_EXTENSION_WEBDAV_BACKEND);
+  e_source_webdav_set_display_name (E_SOURCE_WEBDAV (extension), gtd_storage_get_name (storage));
+
+  /* Setup authentication */
+  extension = e_source_get_extension (source, E_SOURCE_EXTENSION_AUTHENTICATION);
+  e_source_authentication_set_user (E_SOURCE_AUTHENTICATION (extension), goa_account_get_identity (account));
+  e_source_authentication_set_host (E_SOURCE_AUTHENTICATION (extension), goa_calendar_get_uri (calendar));
 
   /* Create task list */
   task_list = gtd_task_list_new (source, gtd_storage_get_name (storage));
@@ -150,10 +165,6 @@ gtd_storage_goa_get_property (GObject    *object,
       g_value_set_string (value, gtd_storage_goa_get_parent (self));
       break;
 
-    case PROP_URI:
-      g_value_set_string (value, gtd_storage_goa_get_uri (self));
-      break;
-
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -175,10 +186,6 @@ gtd_storage_goa_set_property (GObject      *object,
 
     case PROP_PARENT:
       gtd_storage_goa_set_parent (self, g_value_get_string (value));
-      break;
-
-    case PROP_URI:
-      gtd_storage_goa_set_uri (self, g_value_get_string (value));
       break;
 
     default:
@@ -212,7 +219,7 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
                              _("GoaObject of the storage"),
                              _("The GoaObject this storage location represents."),
                              GOA_TYPE_OBJECT,
-                             G_PARAM_READWRITE));
+                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
   /**
    * GtdStorageGoa::parent:
@@ -227,20 +234,6 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
                              _("The parent source identifier of the storage location."),
                              NULL,
                              G_PARAM_READWRITE));
-
-  /**
-   * GtdStorageGoa::uri:
-   *
-   * The uri of this GOA calendar.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_URI,
-        g_param_spec_string ("uri",
-                             _("URI of the storage"),
-                             _("The URI of the calendar of the storage location."),
-                             NULL,
-                             G_PARAM_READWRITE));
 }
 
 static void
@@ -248,24 +241,30 @@ gtd_storage_goa_init (GtdStorageGoa *self)
 {
 }
 
+/**
+ * gtd_storage_goa_new:
+ * @object: the #GoaObject related to this storage
+ *
+ * Creates a new #GtdStorageGoa.
+ *
+ * Returns: (transfer full): a newly allocated #GtdStorageGoa
+ */
 GtdStorage*
 gtd_storage_goa_new (GoaObject *object)
 {
-  GtdStorage *storage;
-
-  storage =  g_object_new (GTD_TYPE_STORAGE_GOA,
+  return g_object_new (GTD_TYPE_STORAGE_GOA,
                            "goa-object", object,
-                           NULL);
-
-  /*
-   * HACK: for any esoteric reason, gtd_storage_goa_set_property
-   * is not called when we set ::account property.
-   */
-  gtd_storage_goa_set_object (GTD_STORAGE_GOA (storage), object);
-
-  return storage;
+                           NULL);;
 }
 
+/**
+ * gtd_storage_goa_get_account:
+ * @goa_storage: a #GtdStorageGoa
+ *
+ * Retrieves the #GoaAccount of @goa_storage.
+ *
+ * Returns: (transfer none): a #GoaAccount.
+ */
 GoaAccount*
 gtd_storage_goa_get_account (GtdStorageGoa *goa_storage)
 {
@@ -274,6 +273,14 @@ gtd_storage_goa_get_account (GtdStorageGoa *goa_storage)
   return goa_storage->goa_object ? goa_object_peek_account (goa_storage->goa_object) : NULL;
 }
 
+/**
+ * gtd_storage_goa_get_object:
+ * @goa_storage: a #GtdStorageGoa
+ *
+ * Retrieves the internal #GoaObject of @goa_storage.
+ *
+ * Returns: (transger none): a #GoaObject
+ */
 GoaObject*
 gtd_storage_goa_get_object (GtdStorageGoa *goa_storage)
 {
@@ -282,6 +289,15 @@ gtd_storage_goa_get_object (GtdStorageGoa *goa_storage)
   return goa_storage->goa_object;
 }
 
+/**
+ * gtd_storage_goa_set_object:
+ * @goa_storage: a #GtdStorageGoa
+ * @object: a #GoaObject
+ *
+ * Sets the #GoaObject of @goa_storage.
+ *
+ * Returns:
+ */
 void
 gtd_storage_goa_set_object (GtdStorageGoa *goa_storage,
                             GoaObject     *object)
@@ -295,18 +311,14 @@ gtd_storage_goa_set_object (GtdStorageGoa *goa_storage,
 
       if (goa_storage->goa_object)
         {
-          GoaCalendar *calendar;
           GoaAccount *account;
           gchar *icon_name;
-
-          /* Setup calendar */
-          calendar = goa_object_peek_calendar (goa_storage->goa_object);
-          gtd_storage_goa_set_uri (goa_storage, goa_calendar_get_uri (calendar));
 
           /* Setup account */
           account = goa_object_peek_account (goa_storage->goa_object);
           icon_name = g_strdup_printf ("goa-account-%s", goa_account_get_provider_type (account));
 
+          gtd_storage_set_id (GTD_STORAGE (goa_storage), goa_account_get_id (account));
           gtd_storage_set_name (GTD_STORAGE (goa_storage), goa_account_get_identity (account));
           gtd_storage_set_provider (GTD_STORAGE (goa_storage), goa_account_get_provider_name (account));
 
@@ -318,6 +330,14 @@ gtd_storage_goa_set_object (GtdStorageGoa *goa_storage,
     }
 }
 
+/**
+ * gtd_storage_goa_get_parent:
+ * @goa_storage: a #GtdStorageGoa
+ *
+ * Retrieve @goa_storage's parent #ESource UID.
+ *
+ * Returns: (transfer none): the parent #ESource's UID
+ */
 const gchar*
 gtd_storage_goa_get_parent (GtdStorageGoa *goa_storage)
 {
@@ -326,6 +346,15 @@ gtd_storage_goa_get_parent (GtdStorageGoa *goa_storage)
   return goa_storage->parent_source;
 }
 
+/**
+ * gtd_storage_goa_set_parent:
+ * @goa_storage: a #GtdStorageGoa
+ * @parent: the parent #ESource UID of @goa_storage
+ *
+ * Sets the parent #ESource UID of @goa_storage.
+ *
+ * Returns:
+ */
 void
 gtd_storage_goa_set_parent (GtdStorageGoa *goa_storage,
                             const gchar   *parent)
@@ -339,29 +368,5 @@ gtd_storage_goa_set_parent (GtdStorageGoa *goa_storage,
       goa_storage->parent_source = g_strdup (parent);
 
       g_object_notify (G_OBJECT (goa_storage), "parent");
-    }
-}
-
-const gchar*
-gtd_storage_goa_get_uri (GtdStorageGoa *goa_storage)
-{
-  g_return_val_if_fail (GTD_IS_STORAGE_GOA (goa_storage), NULL);
-
-  return goa_storage->uri;
-}
-
-void
-gtd_storage_goa_set_uri (GtdStorageGoa *goa_storage,
-                         const gchar   *uri)
-{
-  g_return_if_fail (GTD_IS_STORAGE_GOA (goa_storage));
-
-  if (g_strcmp0 (goa_storage->uri, uri) != 0)
-    {
-      g_clear_pointer (&goa_storage->uri, g_free);
-
-      goa_storage->uri = g_strdup (uri);
-
-      g_object_notify (G_OBJECT (goa_storage), "uri");
     }
 }

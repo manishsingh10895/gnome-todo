@@ -45,11 +45,6 @@ const gchar*         gtd_storage_goa_get_parent                  (GtdStorageGoa 
 void                 gtd_storage_goa_set_parent                  (GtdStorageGoa      *goa_storage,
                                                                   const gchar        *parent);
 
-const gchar*         gtd_storage_goa_get_uri                     (GtdStorageGoa      *goa_storage);
-
-void                 gtd_storage_goa_set_uri                     (GtdStorageGoa      *goa_storage,
-                                                                  const gchar        *uri);
-
 G_END_DECLS
 
 #endif /* GTD_STORAGE_GOA_H */
