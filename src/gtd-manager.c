@@ -175,7 +175,7 @@ gtd_manager__setup_url (GtdManager *manager,
           /* Found an ESourceGoa with the same uid of storage */
           if (g_strcmp0 (e_source_goa_get_account_id (goa_ext), gtd_storage_get_id (GTD_STORAGE (storage))) == 0)
             {
-              gtd_storage_goa_set_parent (storage, e_source_get_uid (source));
+              gtd_storage_goa_set_parent (storage, e_source_get_uid (goa_source));
               break;
             }
         }
