@@ -32,7 +32,7 @@ G_DECLARE_DERIVABLE_TYPE (GtdStorage, gtd_storage, GTD, STORAGE, GObject)
 
 struct _GtdStorageClass
 {
-  GObject            parent;
+  GObjectClass       parent;
 
   /* Abstract methods */
   GIcon*             (*get_icon)                                 (GtdStorage         *storage);
