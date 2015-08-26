@@ -77,6 +77,8 @@ GtdStorage*             gtd_manager_get_default_storage   (GtdManager           
 void                    gtd_manager_set_default_storage   (GtdManager           *manager,
                                                            GtdStorage           *default_storage);
 
+GSettings*              gtd_manager_get_settings          (GtdManager           *manager);
+
 gboolean                gtd_manager_get_is_first_run      (GtdManager           *manager);
 
 void                    gtd_manager_set_is_first_run      (GtdManager           *manager,

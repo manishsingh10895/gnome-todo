@@ -1624,6 +1624,22 @@ gtd_manager_set_default_storage (GtdManager *manager,
 }
 
 /**
+ * gtd_manager_get_settings:
+ * @manager: a #GtdManager
+ *
+ * Retrieves the internal #GSettings from @manager.
+ *
+ * Returns: (transfer none): the internal #GSettings of @manager
+ */
+GSettings*
+gtd_manager_get_settings (GtdManager *manager)
+{
+  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
+
+  return manager->priv->settings;
+}
+
+/**
  * gtd_manager_get_is_first_run:
  * @manager: a #GtdManager
  *

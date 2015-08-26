@@ -66,6 +66,7 @@ typedef struct
   /* loading notification */
   GtdNotification               *loading_notification;
 
+  guint                          save_geometry_timeout_id;
   GtdManager                    *manager;
 } GtdWindowPrivate;
 
@@ -76,6 +77,8 @@ struct _GtdWindow
   /*< private >*/
   GtdWindowPrivate     *priv;
 };
+
+#define              SAVE_GEOMETRY_ID_TIMEOUT                    100 /* ms */
 
 static void          gtd_window__change_storage_action           (GSimpleAction         *simple,
                                                                   GVariant              *parameter,
@@ -93,6 +96,112 @@ enum {
   PROP_MODE,
   LAST_PROP
 };
+
+static void
+gtd_window__load_geometry (GtdWindow *window)
+{
+  GSettings *settings;
+  GVariant *variant;
+  gboolean maximized;
+  const gint32 *position;
+  const gint32 *size;
+  gsize n_elements;
+
+  settings = gtd_manager_get_settings (window->priv->manager);
+
+  /* load window settings: size */
+  variant = g_settings_get_value (settings,
+                                  "window-size");
+  size = g_variant_get_fixed_array (variant,
+                                    &n_elements,
+                                    sizeof (gint32));
+  if (n_elements == 2)
+    gtk_window_set_default_size (GTK_WINDOW (window),
+                                 size[0],
+                                 size[1]);
+  g_variant_unref (variant);
+
+  /* load window settings: position */
+  variant = g_settings_get_value (settings,
+                                  "window-position");
+  position = g_variant_get_fixed_array (variant,
+                                        &n_elements,
+                                        sizeof (gint32));
+  if (n_elements == 2)
+    gtk_window_move (GTK_WINDOW (window),
+                     position[0],
+                     position[1]);
+
+  g_variant_unref (variant);
+
+  /* load window settings: state */
+  maximized = g_settings_get_boolean (settings,
+                                      "window-maximized");
+  if (maximized)
+    gtk_window_maximize (GTK_WINDOW (window));
+}
+
+static gboolean
+gtd_window__save_geometry (gpointer user_data)
+{
+  GtdWindowPrivate *priv;
+  GdkWindowState state;
+  GdkWindow *window;
+  GtkWindow *self;
+  GSettings *settings;
+  gboolean maximized;
+  GVariant *variant;
+  gint32 size[2];
+  gint32 position[2];
+
+  self = GTK_WINDOW (user_data);
+
+  window = gtk_widget_get_window (GTK_WIDGET (self));
+  state = gdk_window_get_state (window);
+  priv = GTD_WINDOW (self)->priv;
+
+  settings = gtd_manager_get_settings (priv->manager);
+
+  /* save window's state */
+  maximized = state & GDK_WINDOW_STATE_MAXIMIZED;
+  g_settings_set_boolean (settings,
+                          "window-maximized",
+                          maximized);
+
+  if (maximized)
+    {
+      priv->save_geometry_timeout_id = 0;
+      return FALSE;
+    }
+
+  /* save window's size */
+  gtk_window_get_size (self,
+                       (gint *) &size[0],
+                       (gint *) &size[1]);
+  variant = g_variant_new_fixed_array (G_VARIANT_TYPE_INT32,
+                                       size,
+                                       2,
+                                       sizeof (size[0]));
+  g_settings_set_value (settings,
+                        "window-size",
+                        variant);
+
+  /* save windows's position */
+  gtk_window_get_position (self,
+                           (gint *) &position[0],
+                           (gint *) &position[1]);
+  variant = g_variant_new_fixed_array (G_VARIANT_TYPE_INT32,
+                                       position,
+                                       2,
+                                       sizeof (position[0]));
+  g_settings_set_value (settings,
+                        "window-position",
+                        variant);
+
+  priv->save_geometry_timeout_id = 0;
+
+  return FALSE;
+}
 
 static GtdTaskListItem*
 get_selected_list (GtdWindow *window)
@@ -610,12 +719,41 @@ gtd_window__list_removed (GtdManager  *manager,
   g_list_free (children);
 }
 
+static gboolean
+gtd_window_state_event (GtkWidget           *widget,
+                        GdkEventWindowState *event)
+{
+  GtdWindowPrivate *priv;
+  GtdWindow *window;
+  gboolean retval;
+
+  window = GTD_WINDOW (widget);
+  priv = window->priv;
+
+  if (priv->save_geometry_timeout_id != 0)
+    {
+      g_source_remove (priv->save_geometry_timeout_id);
+      priv->save_geometry_timeout_id = 0;
+    }
+
+  priv->save_geometry_timeout_id = g_timeout_add (SAVE_GEOMETRY_ID_TIMEOUT,
+                                                  gtd_window__save_geometry,
+                                                  window);
+
+  retval = GTK_WIDGET_CLASS (gtd_window_parent_class)->window_state_event (widget, event);
+
+  return retval;
+}
+
 static void
 gtd_window_constructed (GObject *object)
 {
   GtdWindowPrivate *priv = GTD_WINDOW (object)->priv;
 
   G_OBJECT_CLASS (gtd_window_parent_class)->constructed (object);
+
+  /* load stored size */
+  gtd_window__load_geometry (GTD_WINDOW (object));
 
   gtk_flow_box_set_sort_func (priv->lists_flowbox,
                               (GtkFlowBoxSortFunc) gtd_window__flowbox_sort_func,
@@ -772,6 +910,8 @@ gtd_window_class_init (GtdWindowClass *klass)
   object_class->constructed = gtd_window_constructed;
   object_class->get_property = gtd_window_get_property;
   object_class->set_property = gtd_window_set_property;
+
+  widget_class->window_state_event = gtd_window_state_event;
 
   /**
    * GtdWindow::manager:
