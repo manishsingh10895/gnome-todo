@@ -76,6 +76,7 @@ AC_CONFIG_FILES([
       Makefile
       src/Makefile
       data/Makefile
+      data/icons/Makefile
       data/org.gnome.Todo.desktop.in
       po/Makefile.in
 ])
