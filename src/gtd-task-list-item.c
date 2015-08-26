@@ -325,6 +325,28 @@ gtd_task_list_item_new (GtdTaskList *list)
                        NULL);
 }
 
+static gboolean
+gtd_task_list_item__button_press_event_cb (GtkWidget *widget,
+                                           GdkEvent  *event,
+                                           gpointer   user_data)
+{
+  GdkEventButton *button_ev;
+
+  button_ev = (GdkEventButton*) event;
+
+  if (button_ev->button == 3)
+    {
+      g_object_set (user_data,
+                    "mode", GTD_WINDOW_MODE_SELECTION,
+                    "selected", TRUE,
+                    NULL);
+
+      return GDK_EVENT_STOP;
+    }
+
+  return GDK_EVENT_PROPAGATE;
+}
+
 static void
 gtd_task_list_item_state_flags_changed (GtkWidget     *item,
                                          GtkStateFlags  flags)
@@ -504,6 +526,8 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, spinner);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, subtitle_label);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, title_label);
+
+  gtk_widget_class_bind_template_callback (widget_class, gtd_task_list_item__button_press_event_cb);
 }
 
 static void
