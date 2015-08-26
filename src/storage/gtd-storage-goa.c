@@ -83,13 +83,16 @@ gtd_storage_goa_create_list (GtdStorage  *storage,
 
   /* Some properties */
   e_source_set_display_name (source, name);
-  e_source_set_parent (source, self->parent_source);
 
-  g_message ("parent source: %s", self->parent_source);
+  /* FIXME: while Evolution-Data-Server doesn't support creating remote
+   * sources that are children of the GOA source, we'll have to make it
+   * a plain webdav source.
+   */
+  e_source_set_parent (source, "webdav-stub");
 
   /* Mark it as a TASKLIST */
   extension = e_source_get_extension (source, E_SOURCE_EXTENSION_TASK_LIST);
-  e_source_backend_set_backend_name (E_SOURCE_BACKEND (extension), goa_account_get_provider_type (account));
+  e_source_backend_set_backend_name (E_SOURCE_BACKEND (extension), "webdav");
 
   /* Make it a WebDAV source */
   extension = e_source_get_extension (source, E_SOURCE_EXTENSION_WEBDAV_BACKEND);
