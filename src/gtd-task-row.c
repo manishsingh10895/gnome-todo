@@ -568,6 +568,8 @@ gtd_task_row_set_task (GtdTaskRow *row,
 
       if (task)
         {
+          gtk_label_set_label (row->priv->task_list_label, gtd_task_list_get_name (gtd_task_get_list (task)));
+
           g_object_bind_property (task,
                                   "title",
                                   priv->title_entry,
@@ -576,7 +578,7 @@ gtd_task_row_set_task (GtdTaskRow *row,
 
           g_object_bind_property (task,
                                   "title",
-                                  priv->task_list_label,
+                                  priv->title_label,
                                   "label",
                                   G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
 
