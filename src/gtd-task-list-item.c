@@ -62,7 +62,7 @@ enum {
   LAST_PROP
 };
 
-static GdkPixbuf*
+static cairo_surface_t*
 gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
 {
   PangoFontDescription *font_desc;
@@ -71,7 +71,6 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
   GtkStateFlags state;
   PangoLayout *layout;
   GtdTaskList *list;
-  GdkPixbuf *pix = NULL;
   GdkPixbuf *thumbnail;
   GtkBorder margin;
   GtkBorder padding;
@@ -165,9 +164,7 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
    * we know for sure (since the list is already sorted) that there's
    * no undone tasks here.
    */
-  if (!tasks ||
-      (g_list_length (tasks) == 0) ||
-      (tasks && !gtd_task_get_complete (tasks->data)))
+  if (tasks && !gtd_task_get_complete (tasks->data))
     {
       /* Draw the task name for each selected row. */
       gdouble x, y;
@@ -240,7 +237,7 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
                                    NULL,
                                    &font_height);
 
-      y = (192 - font_height) / 2.0;
+      y = (THUMBNAIL_SIZE - font_height) / 2.0;
 
       gtk_render_layout (context,
                          cr,
@@ -268,34 +265,26 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
                         CHECK_SIZE);
     }
 
-  /* Retrieves the pixbuf from the drawed image */
-  pix = gdk_pixbuf_get_from_surface (surface,
-                                     0,
-                                     0,
-                                     THUMBNAIL_SIZE,
-                                     THUMBNAIL_SIZE);
-
   gdk_rgba_free (color);
 
 out:
   gtk_style_context_restore (context);
-  cairo_surface_destroy (surface);
   cairo_destroy (cr);
-  return pix;
+  return surface;
 }
 
 static void
 gtd_task_list_item__update_thumbnail (GtdTaskListItem *item)
 {
   GtdTaskListItemPrivate *priv;
-  GdkPixbuf *pix;
+  cairo_surface_t *surface;
 
   priv = item->priv;
-  pix = gtd_task_list_item__render_thumbnail (item);
+  surface = gtd_task_list_item__render_thumbnail (item);
 
-  gtk_image_set_from_pixbuf (GTK_IMAGE (priv->icon_image), pix);
+  gtk_image_set_from_surface (GTK_IMAGE (priv->icon_image), surface);
 
-  g_object_unref (pix);
+  cairo_surface_destroy (surface);
 }
 
 static void
