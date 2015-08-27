@@ -15,6 +15,9 @@
           <object class="GtkStack" id="stack">
             <property name="visible">True</property>
             <property name="vexpand">True</property>
+            <style>
+              <class name="view" />
+            </style>
             <child>
               <object class="GtkScrolledWindow" id="scrolled_window">
                 <property name="visible">True</property>
