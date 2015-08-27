@@ -37,6 +37,7 @@ typedef struct
   GtkEntry                  *title_entry;
   GtkLabel                  *task_date_label;
   GtkLabel                  *task_list_label;
+  GtkStack                  *task_stack;
   GtkSpinner                *task_loading_spinner;
   GtkLabel                  *title_label;
 
@@ -205,9 +206,9 @@ gtd_task_row__entry_focus_out (GtkWidget     *widget,
   g_return_val_if_fail (GTD_IS_TASK_ROW (user_data), FALSE);
 
   if (priv->new_task_mode)
-    {
-      gtk_stack_set_visible_child_name (priv->new_task_stack, "label");
-    }
+    gtk_stack_set_visible_child_name (priv->new_task_stack, "label");
+  else
+    gtk_stack_set_visible_child_name (priv->task_stack, "label");
 
   return FALSE;
 }
@@ -224,6 +225,11 @@ gtd_task_row__focus_in (GtkWidget *widget,
     {
       gtk_stack_set_visible_child_name (priv->new_task_stack, "entry");
       gtk_widget_grab_focus (GTK_WIDGET (priv->new_task_entry));
+    }
+  else
+    {
+      gtk_stack_set_visible_child_name (priv->task_stack, "title");
+      gtk_widget_grab_focus (GTK_WIDGET (priv->title_entry));
     }
 
   return FALSE;
@@ -452,6 +458,7 @@ gtd_task_row_class_init (GtdTaskRowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, revealer);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, task_date_label);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, task_list_label);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, task_stack);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, task_loading_spinner);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, title_entry);
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskRow, title_label);
@@ -549,7 +556,11 @@ void
 gtd_task_row_set_task (GtdTaskRow *row,
                        GtdTask    *task)
 {
+  GtdTaskRowPrivate *priv;
+
   g_return_if_fail (GTD_IS_TASK_ROW (row));
+
+  priv = row->priv;
 
   if (row->priv->task != task)
     {
@@ -557,8 +568,18 @@ gtd_task_row_set_task (GtdTaskRow *row,
 
       if (task)
         {
-          gtk_entry_set_text (row->priv->title_entry, gtd_task_get_title (task));
-          gtk_label_set_label (row->priv->task_list_label, gtd_task_list_get_name (gtd_task_get_list (task)));
+          g_object_bind_property (task,
+                                  "title",
+                                  priv->title_entry,
+                                  "text",
+                                  G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
+
+          g_object_bind_property (task,
+                                  "title",
+                                  priv->task_list_label,
+                                  "label",
+                                  G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
+
           g_object_bind_property (task,
                                   "complete",
                                   row->priv->done_check,
@@ -567,13 +588,13 @@ gtd_task_row_set_task (GtdTaskRow *row,
 
           g_object_bind_property (task,
                                   "ready",
-                                  row->priv->task_loading_spinner,
+                                  priv->task_loading_spinner,
                                   "visible",
                                   G_BINDING_INVERT_BOOLEAN | G_BINDING_SYNC_CREATE);
 
           g_object_bind_property_full (task,
                                        "due-date",
-                                       row->priv->task_date_label,
+                                       priv->task_date_label,
                                        "label",
                                        G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
                                        gtd_task_row__date_changed_binding,
