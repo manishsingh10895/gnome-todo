@@ -169,7 +169,9 @@ gtd_storage_popover__storage_selected (GtdStoragePopover *popover,
 
       /* Go back immediately after selecting a storage */
       gtk_stack_set_visible_child_name (GTK_STACK (priv->stack), "main");
-      gtk_widget_grab_focus (priv->new_list_name_entry);
+
+      if (gtk_widget_is_visible (GTK_WIDGET (popover)))
+        gtk_widget_grab_focus (priv->new_list_name_entry);
     }
 }
 
