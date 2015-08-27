@@ -1,0 +1,794 @@
+# Lithuanian translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Aurimas Černius <aurisc4@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-08-27 12:28+0000\n"
+"PO-Revision-Date: 2015-08-27 16:16+0300\n"
+"Last-Translator: Aurimas Černius <aurisc4@gmail.com>\n"
+"Language-Team: Lietuvių <gnome-lt@lists.akl.lt>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && (n"
+"%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Darbai"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Neatliktų darbų programa GNOME aplinkai"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Darbai yra paprasta užduočių tvarkymo programa, sukurta integracijai "
+"su GNOME aplinka."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Naujas sąrašas…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Keisti numatytąją saugyklos vietą…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Apie"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Išeiti"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Tvarkykite savo asmenines užduotis"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Užduotis;Darbas;Produktyvumas;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Langas išdidintas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Langas išdidinimo būsena"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Lango dydis"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Lango dydis (plotis ir aukštis)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Lango padėtis"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Lango padėtis (x ir y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Pirmas GNOME Darbų paleidimas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Ar tai yra pirmas GNOME Darbų paleidimas (vykdyti pradinį nustatymą), ar ne"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Numatytoji vieta naujoms užduotims pridėti"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Numatytosios vietos naujiems sąrašams pridėti identifikatorius"
+
+#: ../data/ui/edit-pane.ui.h:1
+msgid "Details"
+msgstr "Detali informacija"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Pastabos"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Atlikimo data"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritetas"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Nėra"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Žemas"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Vidutinis"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Aukštas"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Ištrinti"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Sveiki"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Prisijunkite prie internetinių paskyrų savo užduotims pasiekti"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:256
+msgid "Cancel"
+msgstr "Atsisakyti"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:288
+msgid "Done"
+msgstr "Atlikta"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Užduočių nerasta"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Galite pridėti užduotis prie sąrašų <b>Sąrašų</b> vaizde"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Rodyti ar slėpti užbaigtas užduotis"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+"Pasirinkite numatytąją saugyklos vietą naujiems užduočių sąrašams sukurti:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Numatytoji saugyklos vieta"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Sukurti"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Sąrašo pavadinimas"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Pasirinkite saugyklos vietą"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Išjungta"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Spauskite naujai Google paskyrai pridėti"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Spauskite naujai ownCloud paskyrai pridėti"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Spauskite naujai Microsoft Exchange paskyrai pridėti"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Arba galite tiesiog saugoti užduotis šiame kompiuteryje"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Naujas užduotis…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Sąrašai"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:459
+#: ../src/gtd-window.c:464
+msgid "Today"
+msgstr "Šiandien"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:459 ../src/gtd-window.c:464
+msgid "Scheduled"
+msgstr "Suplanuota"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Pervadinti"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Naujas sąrašas"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Naujo užduočių sąrašo pavadinimas"
+
+#: ../src/gtd-application.c:92
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Autorinės teisės © priklauso %d Darbų autoriams"
+
+#: ../src/gtd-application.c:97
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Autorinės teisės © priklauso %d-%d Darbų autoriams"
+
+#: ../src/gtd-application.c:102 ../src/gtd-application.c:128
+#: ../src/gtd-window.c:623 ../src/gtd-window.c:1159
+msgid "To Do"
+msgstr "Darbai"
+
+#: ../src/gtd-application.c:109
+msgid "translator-credits"
+msgstr ""
+"Išvertė:\n"
+"Aurimas Černius <aurisc4@gmail.com>"
+
+#: ../src/gtd-application.c:217
+msgid "Error loading CSS from resource"
+msgstr "Klaida įkeliant CSS iš ištekliaus"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:169
+msgid "No date set"
+msgstr "Data nenustatyta"
+
+#: ../src/gtd-edit-pane.c:263
+msgid "Manager of this application"
+msgstr "Šios programos vadovas"
+
+#: ../src/gtd-edit-pane.c:264
+msgid "The manager of the application"
+msgstr "Šios programos vadovas"
+
+#: ../src/gtd-edit-pane.c:277
+msgid "Task being edited"
+msgstr "Užduotis redaguojama"
+
+#: ../src/gtd-edit-pane.c:278
+msgid "The task that is actually being edited"
+msgstr "Realiai redaguojama užduotis"
+
+#: ../src/gtd-initial-setup-window.c:213
+msgid "Manager of the task"
+msgstr "Užduoties vadovas"
+
+#: ../src/gtd-initial-setup-window.c:214
+msgid "The singleton manager instance of the task"
+msgstr "Vienintelis užduoties vadovas"
+
+#: ../src/gtd-manager.c:373
+msgid "Error loading GNOME Online Accounts"
+msgstr "Klaida įkeliant GNOME internetines paskyras"
+
+#: ../src/gtd-manager.c:401 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Klaida įrašant užduočių sąrašą"
+
+#: ../src/gtd-manager.c:420
+msgid "Error removing task list"
+msgstr "Klaida pašalinant užduočių sąrašą"
+
+#: ../src/gtd-manager.c:444
+msgid "Error creating task list"
+msgstr "Klaida kuriant užduočių sąrašą"
+
+#: ../src/gtd-manager.c:505
+msgid "Error creating task"
+msgstr "Klaida kuriant užduotį"
+
+#: ../src/gtd-manager.c:568
+msgid "Error removing task"
+msgstr "Klaida šalinant užduotį"
+
+#: ../src/gtd-manager.c:620
+msgid "Error updating task"
+msgstr "Klaida atnaujinant užduotį"
+
+#: ../src/gtd-manager.c:649
+msgid "Failed to prompt for credentials"
+msgstr "Nepavyko paprašyti įgaliojimų"
+
+#: ../src/gtd-manager.c:672
+msgid "Failed to prompt for credentials for"
+msgstr "Nepavyko paprašyti įgaliojimų"
+
+#: ../src/gtd-manager.c:724
+msgid "Authentication failure"
+msgstr "Tapatybės patvirtinimo klaida"
+
+#: ../src/gtd-manager.c:788
+msgid "Error fetching tasks from list"
+msgstr "Klaida gaunant užduotis iš sąrašo"
+
+#: ../src/gtd-manager.c:854
+msgid "Task list source successfully connected"
+msgstr "Užduočių sąrašo šaltinis sėkmingai prijungtas"
+
+#: ../src/gtd-manager.c:861
+msgid "Failed to connect to task list source"
+msgstr "Nepavyko prijungti užduočių sąrašo šaltinio"
+
+#: ../src/gtd-manager.c:891
+msgid "Skipping already loaded task list "
+msgstr "Praleidžiamas jau įkeltas užduočių sąrašas"
+
+#: ../src/gtd-manager.c:929
+msgid "Error loading task manager"
+msgstr "Klaida įkeliant užduoties vadovą"
+
+#: ../src/gtd-manager.c:1090
+msgid "The online accounts client of the manager"
+msgstr "Vadovo internetinių paskyrų klientas"
+
+#: ../src/gtd-manager.c:1091
+msgid ""
+"The read-only GNOME online accounts client loaded and owned by the manager"
+msgstr ""
+"GNOMW internetinių paskyrų klientas tik skaitymui įkeltas ir priklauso "
+"vadovui"
+
+#: ../src/gtd-manager.c:1104
+msgid "Whether GNOME Online Accounts client is ready"
+msgstr "Ar GNOME internetinių paskyrų klientas pasiruošęs"
+
+#: ../src/gtd-manager.c:1105
+msgid "Whether the read-only GNOME online accounts client is loaded"
+msgstr "Ar įkeltas GNOME internetinių paskyrų klientas tik skaitymui"
+
+#: ../src/gtd-manager.c:1118
+msgid "The source registry of the manager"
+msgstr "Vadovo šaltinių registras"
+
+#: ../src/gtd-manager.c:1119
+msgid "The read-only source registry loaded and owned by the manager"
+msgstr "Vadovui priklausanti įkeltų šaltinių registras tik skaitymui"
+
+#: ../src/gtd-object.c:152
+msgid "Unique identifier of the object"
+msgstr "Unikalus objekto identifikatorius"
+
+#: ../src/gtd-object.c:153
+msgid "The unique identifier of the object, defined by the backend"
+msgstr "Unikalus objekto identifikatorius, apibrėžtas realizacijos"
+
+#: ../src/gtd-object.c:166
+msgid "Ready state of the object"
+msgstr "Objekto pasirengimo būsena"
+
+#: ../src/gtd-object.c:167
+msgid "Whether the object is marked as ready or not"
+msgstr "Ar objektas yra pažymėtas tik skaitymui"
+
+#: ../src/gtd-task.c:254
+msgid "Whether the task is completed or not"
+msgstr "Ar užduotis yra užbaigta"
+
+#: ../src/gtd-task.c:255
+msgid "Whether the task is marked as completed by the user"
+msgstr "Ar užduotis yra naudotojo pažymėta kaip baigta"
+
+#: ../src/gtd-task.c:268
+msgid "Component of the task"
+msgstr "Užduoties komponentas"
+
+#: ../src/gtd-task.c:269
+msgid "The #ECalComponent this task handles."
+msgstr "Šios užduoties apdorojama #ECalComponent."
+
+#: ../src/gtd-task.c:282
+msgid "Description of the task"
+msgstr "Užduoties aprašymas"
+
+#: ../src/gtd-task.c:283
+msgid "Optional string describing the task"
+msgstr "Nebūtina eilutės, aprašanti užduotį"
+
+#: ../src/gtd-task.c:297
+msgid "End date of the task"
+msgstr "Užduoties pabaigos data"
+
+#: ../src/gtd-task.c:298
+msgid "The day the task is supposed to be completed"
+msgstr "Diena, kada užduotis turėtų būti baigta"
+
+#: ../src/gtd-task.c:311
+msgid "List of the task"
+msgstr "Užduoties sąrašas"
+
+#: ../src/gtd-task.c:312
+msgid "The list that owns this task"
+msgstr "Sąrašas, kuriam priklauso šį užduotis"
+
+#: ../src/gtd-task.c:325
+msgid "Priority of the task"
+msgstr "Užduoties prioritetas"
+
+#: ../src/gtd-task.c:326
+msgid ""
+"The priority of the task. 0 means no priority set, and tasks will be sorted "
+"alphabetically."
+msgstr ""
+"Užduoties prioritetas. 0 reiškia nenustatytą prioritetą ir užduotys bus r"
+"\tikiuojamos abėcėlės tvarka."
+
+#: ../src/gtd-task.c:341
+msgid "Title of the task"
+msgstr "Užduoties pavadinimas"
+
+#: ../src/gtd-task.c:342
+msgid "The title of the task"
+msgstr "Užduoties pavadinimas"
+
+#: ../src/gtd-task-list.c:264
+msgid "Color of the list"
+msgstr "Užduočių sąrašo spalva"
+
+#: ../src/gtd-task-list.c:265
+msgid "The color of the list"
+msgstr "Užduočių sąrašo spalva"
+
+#: ../src/gtd-task-list.c:278
+msgid "Whether the task list is removable"
+msgstr "Ar užduočių sąrašą galima pašalinti"
+
+#: ../src/gtd-task-list.c:279
+msgid "Whether the task list can be removed from the system"
+msgstr "Ar užduočių sąrašą galima pašalinti iš sistemos"
+
+#: ../src/gtd-task-list.c:292
+msgid "Name of the list"
+msgstr "Sąrašo pavadinimas"
+
+#: ../src/gtd-task-list.c:293
+msgid "The name of the list"
+msgstr "Sąrašo pavadinimas"
+
+#: ../src/gtd-task-list.c:306
+msgid "Data origin of the list"
+msgstr "Sąrašo kilmės duomenys"
+
+#: ../src/gtd-task-list.c:307
+msgid "The data origin location of the list"
+msgstr "Sąrašo kilmės vietos duomenys"
+
+#: ../src/gtd-task-list.c:320
+msgid "Source of the list"
+msgstr "Sąrašo šaltinis"
+
+#: ../src/gtd-task-list.c:321
+msgid "The parent source that handles the list"
+msgstr "Sąrašą tvarkantis tėvinis šaltinis"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Nėra užduočių"
+
+#: ../src/gtd-task-list-item.c:477
+msgid "Mode of this item"
+msgstr "Šio elemento veiksena"
+
+#: ../src/gtd-task-list-item.c:478
+msgid "The mode of this item, inherited from the parent's mode"
+msgstr "Šio elemento veiksena, paveldėta iš tėvo veiksenos"
+
+#: ../src/gtd-task-list-item.c:492
+msgid "Whether the task list is selected"
+msgstr "Ar užduočių sąrašas yra pažymėtas"
+
+#: ../src/gtd-task-list-item.c:493
+msgid "Whether the task list is selected when in selection mode"
+msgstr "Ar užduočių sąrašas yra pažymėtas žymėjimo veiksenoje"
+
+#: ../src/gtd-task-list-item.c:506
+msgid "Task list of the item"
+msgstr "Elemento užduočių sąrašas"
+
+#: ../src/gtd-task-list-item.c:507
+msgid "The task list associated with this item"
+msgstr "Su šiuo elementų susietas užduočių sąrašas"
+
+#: ../src/gtd-task-list-view.c:201
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Užduotis <b>%s</b> pašalinta"
+
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "Atšaukti"
+
+#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:952
+#: ../src/storage/gtd-storage-dialog.c:150
+#: ../src/storage/gtd-storage-popover.c:288
+#: ../src/storage/gtd-storage-selector.c:516
+msgid "Manager of this window's application"
+msgstr "Šio lango programos vadovas"
+
+#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:953
+#: ../src/storage/gtd-storage-dialog.c:151
+#: ../src/storage/gtd-storage-popover.c:289
+#: ../src/storage/gtd-storage-selector.c:517
+msgid "The manager of the window's application"
+msgstr "Lango programos vadovas"
+
+#: ../src/gtd-task-list-view.c:670
+msgid "Whether the list is readonly"
+msgstr "Ar sąrašas yra tik skaitymui"
+
+#: ../src/gtd-task-list-view.c:671
+msgid ""
+"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+msgstr "Ar sąrašas yra tik skaitymui, pvz. nerodoma naujos užduoties eilutė"
+
+#: ../src/gtd-task-list-view.c:684
+msgid "Whether task rows show the list name"
+msgstr "Ar užduoties eilutės rodo sąrašo pavadinimą"
+
+#: ../src/gtd-task-list-view.c:685
+msgid "Whether task rows show the list name at the end of the row"
+msgstr "Ar užduočių eilutės rodo sąrašo pavadinimą eilutės pabaigoje"
+
+#: ../src/gtd-task-list-view.c:698
+msgid "Whether completed tasks are shown"
+msgstr "Ar rodomos užbaigtos užduotys"
+
+#: ../src/gtd-task-list-view.c:699
+msgid "Whether completed tasks are visible or not"
+msgstr "Ar rodomos užbaigtos užduotys"
+
+#: ../src/gtd-task-row.c:143
+msgid "Tomorrow"
+msgstr "Rytoj"
+
+#: ../src/gtd-task-row.c:147
+msgid "Yesterday"
+msgstr "Vakar"
+
+#: ../src/gtd-task-row.c:366
+msgid "If the row is used to add a new task"
+msgstr "Ar eilutė yra naudojama naujai užduočiai pridėti"
+
+#: ../src/gtd-task-row.c:367
+msgid "Whether the row is used to add a new task"
+msgstr "Ar eilutė yra naudojama naujai užduočiai pridėti"
+
+#: ../src/gtd-task-row.c:380
+msgid "Task of the row"
+msgstr "Eilutės užduotis"
+
+#: ../src/gtd-task-row.c:381
+msgid "The task that this row represents"
+msgstr "Šios eilutės vaizduojama užduotis"
+
+#: ../src/gtd-window.c:249
+msgid "Remove the selected task lists?"
+msgstr "Pašalinti pažymėtus užduočių sąrašus?"
+
+#: ../src/gtd-window.c:252
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Pašalinus, užduočių sąrašų nebebus galima atgauti."
+
+#: ../src/gtd-window.c:264
+msgid "Remove task lists"
+msgstr "Pašalinti užduočių sąrašus"
+
+#: ../src/gtd-window.c:507
+msgid "Setting new color for task list"
+msgstr "Nustatomas nauja spalva užduočių sąrašui"
+
+#: ../src/gtd-window.c:966
+msgid "Mode of this window"
+msgstr "Šio lango veiksena"
+
+#: ../src/gtd-window.c:967
+msgid "The interaction mode of the window"
+msgstr "Darbo su langu veiksena"
+
+#: ../src/gtd-window.c:1018
+msgid "Loading your task lists…"
+msgstr "Įkeliami jūsų užduočių sąrašai…"
+
+#: ../src/gtd-window.c:1146
+msgid "Click a task list to select"
+msgstr "Spauskite ant užduoties jai pažymėti"
+
+#: ../src/storage/gtd-storage.c:153
+msgid "Whether the storage is enabled"
+msgstr "Ar saugykla yra įjungta"
+
+#: ../src/storage/gtd-storage.c:154
+msgid "Whether the storage is available to be used."
+msgstr "Ar saugykla yra prieinama naudojimui."
+
+#: ../src/storage/gtd-storage.c:167
+msgid "Icon of the storage"
+msgstr "Saugyklos piktograma"
+
+#: ../src/storage/gtd-storage.c:168
+msgid "The icon representing the storage location."
+msgstr "Piktograma, pristatanti saugyklos vietą."
+
+#: ../src/storage/gtd-storage.c:181
+msgid "Identifier of the storage"
+msgstr "Saugyklos identifikatorius"
+
+#: ../src/storage/gtd-storage.c:182
+msgid "The unique identifier of the storage location."
+msgstr "Saugyklos vietos unikalus identifikatorius."
+
+#: ../src/storage/gtd-storage.c:195
+msgid "Whether the storage is the default"
+msgstr "Ar saugykla yra numatytoji"
+
+#: ../src/storage/gtd-storage.c:196
+msgid "Whether the storage is the default storage location to be used."
+msgstr "Ar saugykla yra numatytoji saugojimo vieta."
+
+#: ../src/storage/gtd-storage.c:209
+msgid "Name of the storage"
+msgstr "Saugyklos pavadinimas"
+
+#: ../src/storage/gtd-storage.c:210
+msgid "The user-visible name of the storage location."
+msgstr "Naudotojo matoma numatytoji saugyklos vieta."
+
+#: ../src/storage/gtd-storage.c:223
+msgid "Name of the data provider of the storage"
+msgstr "Saugyklos duomenų tiekėjo pavadinimas"
+
+#: ../src/storage/gtd-storage.c:224
+msgid "The user-visible name of the data provider of the storage location."
+msgstr "Naudotojo matomas saugyklos vietos duomenų tiekėjos pavadinimas."
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Klaida kuriant naują užduočių sąrašą"
+
+#: ../src/storage/gtd-storage-goa.c:222
+msgid "GoaObject of the storage"
+msgstr "Saugyklos GoaObjet"
+
+#: ../src/storage/gtd-storage-goa.c:223
+msgid "The GoaObject this storage location represents."
+msgstr "Šios saugyklos vietos GoaObjet."
+
+#: ../src/storage/gtd-storage-goa.c:236
+msgid "Parent of the storage"
+msgstr "Saugyklos tėvas"
+
+#: ../src/storage/gtd-storage-goa.c:237
+msgid "The parent source identifier of the storage location."
+msgstr "Saugyklos vietos tėvinio šaltinio identifikatorius."
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Šiame kompiuteryje"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Vietinė"
+
+#: ../src/storage/gtd-storage-row.c:148
+msgid "Storage of the row"
+msgstr "Eilutės saugykla"
+
+#: ../src/storage/gtd-storage-row.c:149
+msgid "The storage that this row holds"
+msgstr "Šios eilutės nusakoma saugykla"
+
+#: ../src/storage/gtd-storage-selector.c:530
+msgid "Show local storage row"
+msgstr "Rodyti vietinės saugyklos eilutę"
+
+#: ../src/storage/gtd-storage-selector.c:531
+msgid "Whether should show a local storage row instead of a checkbox"
+msgstr "Ar rodyti vietinės saugyklos eilutę vietoj žymimojo langelio"
+
+#: ../src/storage/gtd-storage-selector.c:544
+msgid "Show stub rows"
+msgstr "Rodyti nesamas eilutes"
+
+#: ../src/storage/gtd-storage-selector.c:545
+msgid "Whether should show stub rows for non-added accounts"
+msgstr "Ar rodyti eilutes nepridėtoms paskyroms"
+
+#: ../src/storage/gtd-storage-selector.c:558
+msgid "Selects default storage row"
+msgstr "Pažymi numatytąją saugyklos eilutę"
+
+#: ../src/storage/gtd-storage-selector.c:559
+msgid "Whether should select the default storage row"
+msgstr "Ar pažymėti numatytosios saugyklos eilutę"
+
+#: ../src/notification/gtd-notification.c:181
+msgid "Whether the notification has a primary action"
+msgstr "Ar pranešimas turi pirminį veiksmą"
+
+#: ../src/notification/gtd-notification.c:182
+msgid ""
+"Whether the notification has the primary action, activated on timeout or "
+"dismiss"
+msgstr ""
+"Ar pranešimas turi pirminį veiksmą, aktyvuojamą pasibaigus laikui ar atmetus"
+
+#: ../src/notification/gtd-notification.c:196
+msgid "Whether the notification has a secondary action"
+msgstr "Ar pranešimas turi antrinį veiksmą"
+
+#: ../src/notification/gtd-notification.c:197
+msgid ""
+"Whether the notification has the secondary action, activated by the user"
+msgstr "Ar pranešimas turi antrinį veiksmą, aktyvuojamą naudotojo"
+
+#: ../src/notification/gtd-notification.c:210
+msgid "Text of the secondary action button"
+msgstr "Antrinio veiksmo mygtuko tekstas"
+
+#: ../src/notification/gtd-notification.c:211
+msgid "The text of the secondary action button"
+msgstr "Antrinio veiksmo mygtuko tekstas"
+
+#: ../src/notification/gtd-notification.c:224
+msgid "Notification message"
+msgstr "Pranešimo tekstas"
+
+#: ../src/notification/gtd-notification.c:225
+msgid "The main message of the notification"
+msgstr "Pagrindinis pranešimo tekstas"
+
+#: ../src/notification/gtd-notification.c:238
+msgid "Notification timeout"
+msgstr "Pranešimo laikas baigėsi"
+
+#: ../src/notification/gtd-notification.c:239
+msgid "The time the notification is displayed"
+msgstr "Laikas, kada parodyti pranešimą"
