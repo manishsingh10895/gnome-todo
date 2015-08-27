@@ -102,6 +102,54 @@ enum {
   LAST_PROP
 };
 
+/* GtdManager's error notifications */
+typedef struct
+{
+  GtdWindow *window;
+  gchar     *primary_text;
+  gchar     *secondary_text;
+} ErrorData;
+
+static void
+error_data_free (ErrorData *error_data)
+{
+  g_free (error_data->primary_text);
+  g_free (error_data->secondary_text);
+  g_free (error_data);
+}
+
+static void
+error_message_notification_primary_action (GtdNotification *notification,
+                                           gpointer         user_data)
+{
+  error_data_free (user_data);
+}
+
+static void
+error_message_notification_secondary_action (GtdNotification *notification,
+                                             gpointer         user_data)
+{
+  GtkWidget *message_dialog;
+  ErrorData *data;
+
+  data = user_data;
+  message_dialog = gtk_message_dialog_new (GTK_WINDOW (data->window),
+                                           GTK_DIALOG_MODAL | GTK_DIALOG_DESTROY_WITH_PARENT,
+                                           GTK_MESSAGE_WARNING,
+                                           GTK_BUTTONS_CLOSE,
+                                           "%s",
+                                           data->primary_text);
+
+  gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (message_dialog),
+                                            "%s",
+                                            data->secondary_text);
+
+  gtk_dialog_run (GTK_DIALOG (message_dialog));
+  gtk_widget_destroy (message_dialog);
+
+  error_data_free (data);
+}
+
 static void
 gtd_window__load_geometry (GtdWindow *window)
 {
@@ -737,6 +785,33 @@ gtd_window__list_removed (GtdManager  *manager,
   g_list_free (children);
 }
 
+static void
+gtd_window__show_error_message (GtdManager  *manager,
+                                const gchar *primary_text,
+                                const gchar *secondary_text,
+                                GtdWindow   *window)
+{
+  GtdNotification *notification;
+  ErrorData *error_data;
+
+  error_data = g_new0 (ErrorData, 1);
+  notification = gtd_notification_new (primary_text, 0);
+
+  error_data->window = window;
+  error_data->primary_text = g_strdup (primary_text);
+  error_data->secondary_text = g_strdup (secondary_text);
+
+  gtd_notification_set_primary_action (notification,
+                                       error_message_notification_primary_action,
+                                       error_data);
+  gtd_notification_set_secondary_action (notification,
+                                         _("Details"),
+                                         error_message_notification_secondary_action,
+                                         error_data);
+
+  gtd_window_notify (window, notification);
+}
+
 static gboolean
 gtd_window_configure_event (GtkWidget         *widget,
                             GdkEventConfigure *event)
@@ -889,6 +964,10 @@ gtd_window_set_property (GObject      *object,
       g_signal_connect (self->priv->manager,
                         "list-removed",
                         G_CALLBACK (gtd_window__list_removed),
+                        self);
+      g_signal_connect (self->priv->manager,
+                        "show-error-message",
+                        G_CALLBACK (gtd_window__show_error_message),
                         self);
 
       /* Add already loaded lists */

@@ -85,6 +85,7 @@ enum
   LIST_ADDED,
   LIST_CHANGED,
   LIST_REMOVED,
+  SHOW_ERROR_MESSAGE,
   STORAGE_ADDED,
   STORAGE_CHANGED,
   STORAGE_REMOVED,
@@ -132,6 +133,18 @@ is_today (GDateTime *dt)
   g_date_time_unref (today);
 
   return FALSE;
+}
+
+static void
+emit_show_error_message (GtdManager  *manager,
+                         const gchar *primary_text,
+                         const gchar *secondary_text)
+{
+  g_signal_emit (manager,
+                 signals[SHOW_ERROR_MESSAGE],
+                 0,
+                 primary_text,
+                 secondary_text);
 }
 
 static void
@@ -373,6 +386,10 @@ gtd_manager__goa_client_finish_cb (GObject      *client,
                  _("Error loading GNOME Online Accounts"),
                  error->message);
 
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error loading GNOME Online Accounts"),
+                               error->message);
+
       g_clear_error (&error);
     }
 
@@ -401,6 +418,10 @@ gtd_manager__commit_source_finished (GObject      *registry,
                  _("Error saving task list"),
                  error->message);
 
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error saving task list"),
+                               error->message);
+
       g_error_free (error);
       return;
     }
@@ -419,6 +440,10 @@ task_list_removal_finished (GtdManager  *manager,
                  G_STRFUNC,
                  _("Error removing task list"),
                  (*error)->message);
+
+      emit_show_error_message (manager,
+                               _("Error removing task list"),
+                               (*error)->message);
 
       g_clear_error (error);
     }
@@ -443,6 +468,10 @@ gtd_manager__remote_create_source_finished (GObject      *source,
                  G_STRFUNC,
                  _("Error creating task list"),
                  error->message);
+
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error creating task list"),
+                               error->message);
 
       g_clear_error (&error);
     }
@@ -504,6 +533,10 @@ gtd_manager__create_task_finished (GObject      *client,
                  G_STRFUNC,
                  _("Error creating task"),
                  error->message);
+
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error creating task"),
+                               error->message);
 
       g_error_free (error);
       g_free (data);
@@ -568,6 +601,10 @@ gtd_manager__remove_task_finished (GObject      *client,
                  _("Error removing task"),
                  error->message);
 
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error removing task"),
+                               error->message);
+
       g_error_free (error);
       return;
     }
@@ -619,6 +656,10 @@ gtd_manager__update_task_finished (GObject      *client,
                  G_STRFUNC,
                  _("Error updating task"),
                  error->message);
+
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error updating task"),
+                               error->message);
 
       g_error_free (error);
       return;
@@ -788,6 +829,10 @@ gtd_manager__fill_task_list (GObject      *client,
                  _("Error fetching tasks from list"),
                  error->message);
 
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Error fetching tasks from list"),
+                               error->message);
+
       g_error_free (error);
       return;
     }
@@ -861,6 +906,10 @@ gtd_manager__on_client_connected (GObject      *source_object,
                _("Failed to connect to task list source"),
                e_source_get_uid (source),
                error->message);
+
+      emit_show_error_message (GTD_MANAGER (user_data),
+                               _("Failed to connect to task list source"),
+                               error->message);
 
       g_error_free (error);
       return;
@@ -1189,6 +1238,25 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                         G_TYPE_NONE,
                                         1,
                                         GTD_TYPE_TASK_LIST);
+
+  /**
+   * GtdManager::show-error-message:
+   *
+   * Notifies about errors, and sends the error message for widgets
+   * to display.
+   *
+   */
+  signals[SHOW_ERROR_MESSAGE] = g_signal_new ("show-error-message",
+                                              GTD_TYPE_MANAGER,
+                                              G_SIGNAL_RUN_LAST,
+                                              0,
+                                              NULL,
+                                              NULL,
+                                              NULL,
+                                              G_TYPE_NONE,
+                                              2,
+                                              G_TYPE_STRING,
+                                              G_TYPE_STRING);
 
   /**
    * GtdManager::storage-added:
