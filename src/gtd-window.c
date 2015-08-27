@@ -720,6 +720,32 @@ gtd_window__list_removed (GtdManager  *manager,
 }
 
 static gboolean
+gtd_window_configure_event (GtkWidget         *widget,
+                            GdkEventConfigure *event)
+{
+  GtdWindowPrivate *priv;
+  GtdWindow *window;
+  gboolean retval;
+
+  window = GTD_WINDOW (widget);
+  priv = window->priv;
+
+  if (priv->save_geometry_timeout_id != 0)
+    {
+      g_source_remove (priv->save_geometry_timeout_id);
+      priv->save_geometry_timeout_id = 0;
+    }
+
+  priv->save_geometry_timeout_id = g_timeout_add (SAVE_GEOMETRY_ID_TIMEOUT,
+                                                  gtd_window__save_geometry,
+                                                  window);
+
+  retval = GTK_WIDGET_CLASS (gtd_window_parent_class)->configure_event (widget, event);
+
+  return retval;
+}
+
+static gboolean
 gtd_window_state_event (GtkWidget           *widget,
                         GdkEventWindowState *event)
 {
@@ -911,6 +937,7 @@ gtd_window_class_init (GtdWindowClass *klass)
   object_class->get_property = gtd_window_get_property;
   object_class->set_property = gtd_window_set_property;
 
+  widget_class->configure_event = gtd_window_configure_event;
   widget_class->window_state_event = gtd_window_state_event;
 
   /**
