@@ -16,7 +16,6 @@
     <property name="default_width">800</property>
     <property name="default_height">600</property>
     <signal name="key-press-event" handler="gtd_window__on_key_press_event" object="search_bar" swapped="no" />
-    <signal name="window-state-event" handler="gtd_window__window_state_changed" object="GtdWindow" swapped="no"/>
     <child>
       <object class="GtkOverlay" id="overlay">
         <property name="visible">True</property>
