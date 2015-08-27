@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-24 15:08+0000\n"
-"PO-Revision-Date: 2015-08-24 17:21+0200\n"
+"POT-Creation-Date: 2015-08-27 01:59+0000\n"
+"PO-Revision-Date: 2015-08-27 21:46+0200\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: slovenčina <>\n"
 "Language: sk\n"
@@ -150,7 +150,7 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Prihlásením do účtov služieb získate prístup k vašim úlohám"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:147
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:256
 msgid "Cancel"
 msgstr "Zrušiť"
 
@@ -238,12 +238,12 @@ msgstr "Nová úloha…"
 msgid "Lists"
 msgstr "Zoznamy"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:350
-#: ../src/gtd-window.c:355
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:459
+#: ../src/gtd-window.c:464
 msgid "Today"
 msgstr "Dnes"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:350 ../src/gtd-window.c:355
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:459 ../src/gtd-window.c:464
 msgid "Scheduled"
 msgstr "Naplánované"
 
@@ -256,30 +256,29 @@ msgid "New List"
 msgstr "Nový zoznam"
 
 #: ../data/ui/window.ui.h:8
-#| msgid "Name of the list"
 msgid "Name of the task list"
 msgstr "Názov zoznamu úloh"
 
-#: ../src/gtd-application.c:90
+#: ../src/gtd-application.c:92
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Autorské práva © %d Autori aplikácie Úlohy"
 
-#: ../src/gtd-application.c:95
+#: ../src/gtd-application.c:97
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Autorské práva © %d–%d Autori aplikácie Úlohy"
 
-#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
-#: ../src/gtd-window.c:514 ../src/gtd-window.c:992
+#: ../src/gtd-application.c:102 ../src/gtd-application.c:128
+#: ../src/gtd-window.c:623 ../src/gtd-window.c:1132
 msgid "To Do"
 msgstr "Úlohy"
 
-#: ../src/gtd-application.c:107
+#: ../src/gtd-application.c:109
 msgid "translator-credits"
 msgstr "Dušan Kazik <prescott66@gmail.com>"
 
-#: ../src/gtd-application.c:215
+#: ../src/gtd-application.c:217
 msgid "Error loading CSS from resource"
 msgstr "Chyba pri načítavaní CSS zo zdroja"
 
@@ -311,87 +310,92 @@ msgstr "Správca úlohy"
 msgid "The singleton manager instance of the task"
 msgstr "Jediná inštancia správcu úlohy"
 
-#: ../src/gtd-manager.c:372
+#: ../src/gtd-manager.c:373
 msgid "Error loading GNOME Online Accounts"
 msgstr "Chyba pri načítavaní Účtov služieb prostredia GNOME"
 
-#: ../src/gtd-manager.c:400 ../src/gtd-task-list.c:87
+#: ../src/gtd-manager.c:401 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
 msgstr "Chyba pri ukladaní zoznamu úloh"
 
-#: ../src/gtd-manager.c:419
+#: ../src/gtd-manager.c:420
 msgid "Error removing task list"
 msgstr "Chyba pri odstraňovaní zoznamu úloh"
 
-#: ../src/gtd-manager.c:480
+#: ../src/gtd-manager.c:444
+#| msgid "Error creating new task list"
+msgid "Error creating task list"
+msgstr "Chyba pri vytváraní zoznamu úloh"
+
+#: ../src/gtd-manager.c:505
 msgid "Error creating task"
 msgstr "Chyba pri vytváraní zoznamu úloh"
 
-#: ../src/gtd-manager.c:543
+#: ../src/gtd-manager.c:568
 msgid "Error removing task"
 msgstr "Chyba pri odstraňovaní úlohy"
 
-#: ../src/gtd-manager.c:595
+#: ../src/gtd-manager.c:620
 msgid "Error updating task"
 msgstr "Chyba pri aktualizovaní úlohy"
 
-#: ../src/gtd-manager.c:624
+#: ../src/gtd-manager.c:649
 msgid "Failed to prompt for credentials"
 msgstr "Zlyhalo pýtanie poverení"
 
-#: ../src/gtd-manager.c:647
+#: ../src/gtd-manager.c:672
 msgid "Failed to prompt for credentials for"
 msgstr "Zlyhalo pýtanie poverení pre"
 
-#: ../src/gtd-manager.c:699
+#: ../src/gtd-manager.c:724
 msgid "Authentication failure"
 msgstr "Zlyhanie overenia totožnosti"
 
-#: ../src/gtd-manager.c:763
+#: ../src/gtd-manager.c:788
 msgid "Error fetching tasks from list"
 msgstr "Chyba pri získavaní úloh zo zoznamu"
 
-#: ../src/gtd-manager.c:829
+#: ../src/gtd-manager.c:854
 msgid "Task list source successfully connected"
 msgstr "Zdroj zoznamu úloh bol úspešne pripojený"
 
-#: ../src/gtd-manager.c:836
+#: ../src/gtd-manager.c:861
 msgid "Failed to connect to task list source"
 msgstr "Zlyhalo pripojenie k zdroju zoznamu úloh"
 
-#: ../src/gtd-manager.c:866
+#: ../src/gtd-manager.c:891
 msgid "Skipping already loaded task list "
 msgstr "Vynecháva sa už načítaný zoznam úloh "
 
-#: ../src/gtd-manager.c:904
+#: ../src/gtd-manager.c:929
 msgid "Error loading task manager"
 msgstr "Chyba pri načítavaní správcu úloh"
 
-#: ../src/gtd-manager.c:1065
+#: ../src/gtd-manager.c:1090
 msgid "The online accounts client of the manager"
 msgstr "Klient účtov služieb správcu"
 
-#: ../src/gtd-manager.c:1066
+#: ../src/gtd-manager.c:1091
 msgid ""
 "The read-only GNOME online accounts client loaded and owned by the manager"
 msgstr ""
 "Klient účtov služieb prostredia GNOME iba na čítanie, ktorý je načítaný a "
 "vlastnený správcom"
 
-#: ../src/gtd-manager.c:1079
+#: ../src/gtd-manager.c:1104
 msgid "Whether GNOME Online Accounts client is ready"
 msgstr "Či je klient účtov služieb prostredia GNOME pripravený"
 
-#: ../src/gtd-manager.c:1080
+#: ../src/gtd-manager.c:1105
 msgid "Whether the read-only GNOME online accounts client is loaded"
 msgstr ""
 "Určuje, či je načítaný klient účtov služieb prostredia GNOME iba na čítanie"
 
-#: ../src/gtd-manager.c:1093
+#: ../src/gtd-manager.c:1118
 msgid "The source registry of the manager"
 msgstr "Zdrojový register správcu"
 
-#: ../src/gtd-manager.c:1094
+#: ../src/gtd-manager.c:1119
 msgid "The read-only source registry loaded and owned by the manager"
 msgstr "Zdrojový registre iba na čítanie je načítaný a vlastnený správcom"
 
@@ -480,12 +484,10 @@ msgid "The color of the list"
 msgstr "Farba zoznamu"
 
 #: ../src/gtd-task-list.c:278
-#| msgid "Whether the list is readonly"
 msgid "Whether the task list is removable"
 msgstr "Či je možné odstrániť zoznam úloh"
 
 #: ../src/gtd-task-list.c:279
-#| msgid "Whether the task is marked as completed by the user"
 msgid "Whether the task list can be removed from the system"
 msgstr "Či je možné zoznam úloh odstrániť zo systému"
 
@@ -517,29 +519,27 @@ msgstr "Rodičovský zdroj, ktorý spravuje tento zoznam"
 msgid "No tasks"
 msgstr "Žiadne úlohy"
 
-#: ../src/gtd-task-list-item.c:466
+#: ../src/gtd-task-list-item.c:488
 msgid "Mode of this item"
 msgstr "Režim tejto položky"
 
-#: ../src/gtd-task-list-item.c:467
+#: ../src/gtd-task-list-item.c:489
 msgid "The mode of this item, inherited from the parent's mode"
 msgstr "Režim tejto položky, zdedený z režimu rodičov"
 
-#: ../src/gtd-task-list-item.c:481
-#| msgid "Whether the task is completed or not"
+#: ../src/gtd-task-list-item.c:503
 msgid "Whether the task list is selected"
 msgstr "Či je zoznam úloh vybratý"
 
-#: ../src/gtd-task-list-item.c:482
-#| msgid "Whether the task is completed or not"
+#: ../src/gtd-task-list-item.c:504
 msgid "Whether the task list is selected when in selection mode"
 msgstr "Či je zoznam úloh vybratý počas režimu výberu"
 
-#: ../src/gtd-task-list-item.c:495
+#: ../src/gtd-task-list-item.c:517
 msgid "Task list of the item"
 msgstr "Zoznam úloh položky"
 
-#: ../src/gtd-task-list-item.c:496
+#: ../src/gtd-task-list-item.c:518
 msgid "The task list associated with this item"
 msgstr "Zoznam úloh priradený k tejto položke"
 
@@ -552,14 +552,14 @@ msgstr "Úloha <b>%s</b> bola odstránená"
 msgid "Undo"
 msgstr "Vrátiť späť"
 
-#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:785
+#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:925
 #: ../src/storage/gtd-storage-dialog.c:150
 #: ../src/storage/gtd-storage-popover.c:269
 #: ../src/storage/gtd-storage-selector.c:516
 msgid "Manager of this window's application"
 msgstr "Správca aplikácie pre toto okno"
 
-#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:786
+#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:926
 #: ../src/storage/gtd-storage-dialog.c:151
 #: ../src/storage/gtd-storage-popover.c:270
 #: ../src/storage/gtd-storage-selector.c:517
@@ -618,38 +618,35 @@ msgstr "Úloha riadku"
 msgid "The task that this row represents"
 msgstr "Úloha, ktorú reprezentuje tento riadok"
 
-#: ../src/gtd-window.c:140
+#: ../src/gtd-window.c:249
 msgid "Remove the selected task lists?"
 msgstr "Odstrániť vybraté zoznamy úloh?"
 
-#: ../src/gtd-window.c:143
+#: ../src/gtd-window.c:252
 msgid "Once removed, the task lists cannot be recovered."
 msgstr "Po odstránení už nebude možné zoznamy úloh obnoviť."
 
-#: ../src/gtd-window.c:155
-#| msgid "Error removing task list"
+#: ../src/gtd-window.c:264
 msgid "Remove task lists"
 msgstr "Odstránenie zoznamov úloh"
 
-#: ../src/gtd-window.c:398
+#: ../src/gtd-window.c:507
 msgid "Setting new color for task list"
 msgstr "Nastavuje sa nová farba zoznamu úloh"
 
-#: ../src/gtd-window.c:799
-#| msgid "Mode of this item"
+#: ../src/gtd-window.c:939
 msgid "Mode of this window"
 msgstr "Režim tohto okna"
 
-#: ../src/gtd-window.c:800
-#| msgid "The name of the list"
+#: ../src/gtd-window.c:940
 msgid "The interaction mode of the window"
 msgstr "Režim interakcie okna"
 
-#: ../src/gtd-window.c:851
+#: ../src/gtd-window.c:991
 msgid "Loading your task lists…"
 msgstr "Načítavanie vašich zoznamov úloh…"
 
-#: ../src/gtd-window.c:979
+#: ../src/gtd-window.c:1119
 msgid "Click a task list to select"
 msgstr "Kliknutím na zoznam úloh ho vyberiete"
 
@@ -694,35 +691,34 @@ msgid "The user-visible name of the storage location."
 msgstr "Názov umiestnenia úložiska viditeľný pre používateľa."
 
 #: ../src/storage/gtd-storage.c:223
-#| msgid "The name of the provider of the storage location."
 msgid "Name of the data provider of the storage"
 msgstr "Názov poskytovateľa údajov umiestnenia úložiska"
 
 #: ../src/storage/gtd-storage.c:224
-#| msgid "The name of the provider of the storage location."
 msgid "The user-visible name of the data provider of the storage location."
 msgstr ""
 "Názov poskytovateľa údajov umiestnenia úložiska viditeľný pre používateľa."
 
-#: ../src/storage/gtd-storage-goa.c:72 ../src/storage/gtd-storage-local.c:69
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 msgid "Error creating new task list"
 msgstr "Chyba pri vytváraní nového zoznamu úloh"
 
+#: ../src/storage/gtd-storage-goa.c:222
+#| msgid "Parent of the storage"
+msgid "GoaObject of the storage"
+msgstr "Typ kontajneru GoaObject úložiska"
+
 #: ../src/storage/gtd-storage-goa.c:223
-#| msgid "Icon of the storage"
-msgid "Account of the storage"
-msgstr "Účet úložiska"
+#| msgid "The account of the storage location."
+msgid "The GoaObject this storage location represents."
+msgstr ""
+"Typ kontajneru GoaObject, ktorý reprezentuje toto umiestnenie úložiska."
 
-#: ../src/storage/gtd-storage-goa.c:224
-#| msgid "The provider type of the storage location."
-msgid "The account of the storage location."
-msgstr "Účet umiestnenia úložiska."
-
-#: ../src/storage/gtd-storage-goa.c:237
+#: ../src/storage/gtd-storage-goa.c:236
 msgid "Parent of the storage"
 msgstr "Rodič úložiska"
 
-#: ../src/storage/gtd-storage-goa.c:238
+#: ../src/storage/gtd-storage-goa.c:237
 msgid "The parent source identifier of the storage location."
 msgstr "Identifikátor rodičovského zdroja umiestnenia úložiska."
 
@@ -815,6 +811,10 @@ msgstr "Časový limit oznámenia"
 #: ../src/notification/gtd-notification.c:239
 msgid "The time the notification is displayed"
 msgstr "Doba, počas ktorej je zobrazené oznámenie"
+
+#~| msgid "Icon of the storage"
+#~ msgid "Account of the storage"
+#~ msgstr "Účet úložiska"
 
 #~ msgid "Provider type of the storage"
 #~ msgstr "Typ poskytovateľa úložiska"
