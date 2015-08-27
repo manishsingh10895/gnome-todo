@@ -69,6 +69,21 @@ static guint signals[NUM_SIGNALS] = { 0, };
 static void             gtd_edit_pane__date_selected              (GtkCalendar      *calendar,
                                                                    gpointer          user_data);
 
+static void             gtd_edit_pane_update_date                 (GtdEditPane      *pane);
+
+static void
+gtd_edit_pane__no_date_button_clicked (GtkButton *button,
+                                       GtdEditPane *pane)
+{
+  GtdEditPanePrivate *priv;
+
+  priv = pane->priv;
+
+  gtd_task_set_due_date (priv->task, NULL);
+  gtk_calendar_clear_marks (GTK_CALENDAR (priv->calendar));
+  gtd_edit_pane_update_date (pane);
+}
+
 static void
 gtd_edit_pane__delete_button_clicked (GtkButton *button,
                                       gpointer   user_data)
@@ -307,6 +322,7 @@ gtd_edit_pane_class_init (GtdEditPaneClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_edit_pane__close_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_edit_pane__date_selected);
   gtk_widget_class_bind_template_callback (widget_class, gtd_edit_pane__delete_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_edit_pane__no_date_button_clicked);
 }
 
 static void
