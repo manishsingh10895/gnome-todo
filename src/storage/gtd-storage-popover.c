@@ -92,6 +92,34 @@ gtd_storage_popover__closed (GtdStoragePopover *popover)
 }
 
 static void
+create_task_list (GtdStoragePopover *popover)
+{
+  GtdStoragePopoverPrivate *priv;
+  GtdTaskList *task_list;
+  GtdStorage *storage;
+  const gchar *name;
+
+  priv = popover->priv;
+  storage = gtd_storage_selector_get_selected_storage (GTD_STORAGE_SELECTOR (priv->storage_selector));
+  name = gtk_entry_get_text (GTK_ENTRY (priv->new_list_name_entry));
+
+  task_list = gtd_storage_create_task_list (storage, name);
+
+  gtd_manager_save_task_list (priv->manager, task_list);
+}
+
+static void
+gtd_storage_popover__entry_activate (GtdStoragePopover *popover,
+                                     GtkEntry          *entry)
+{
+  if (gtk_entry_get_text_length (entry) > 0)
+    {
+      create_task_list (popover);
+      clear_and_hide (popover);
+    }
+}
+
+static void
 gtd_storage_popover__action_button_clicked (GtdStoragePopover *popover,
                                             GtkWidget         *button)
 {
@@ -102,18 +130,7 @@ gtd_storage_popover__action_button_clicked (GtdStoragePopover *popover,
   priv = popover->priv;
 
   if (button == priv->new_list_create_button)
-    {
-      GtdTaskList *task_list;
-      const gchar *name;
-      GtdStorage *storage;
-
-      storage = gtd_storage_selector_get_selected_storage (GTD_STORAGE_SELECTOR (priv->storage_selector));
-      name = gtk_entry_get_text (GTK_ENTRY (priv->new_list_name_entry));
-
-      task_list = gtd_storage_create_task_list (storage, name);
-
-      gtd_manager_save_task_list (priv->manager, task_list);
-    }
+    create_task_list (popover);
 
   clear_and_hide (popover);
 }
@@ -285,6 +302,7 @@ gtd_storage_popover_class_init (GtdStoragePopoverClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__action_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__change_location_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__closed);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__entry_activate);
   gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__storage_selected);
   gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__text_changed_cb);
 }

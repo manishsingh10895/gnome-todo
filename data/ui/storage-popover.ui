@@ -76,6 +76,7 @@
                     <property name="hexpand">True</property>
                     <property name="width_chars">35</property>
                     <signal name="notify::text" handler="gtd_storage_popover__text_changed_cb" object="GtdStoragePopover" swapped="yes" />
+                    <signal name="activate" handler="gtd_storage_popover__entry_activate" object="GtdStoragePopover" swapped="yes" />
                   </object>
                   <packing>
                     <property name="expand">False</property>
