@@ -58,7 +58,6 @@ static void           gtd_application_quit                        (GSimpleAction
 G_DEFINE_TYPE_WITH_PRIVATE (GtdApplication, gtd_application, GTK_TYPE_APPLICATION)
 
 static const GActionEntry gtd_application_entries[] = {
-  /*{ "new",    gtd_application_create_new_list },*/
   { "about",  gtd_application_show_about },
   { "quit",   gtd_application_quit }
 };

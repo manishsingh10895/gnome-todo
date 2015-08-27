@@ -80,6 +80,10 @@ struct _GtdWindow
 
 #define              SAVE_GEOMETRY_ID_TIMEOUT                    100 /* ms */
 
+static void          gtd_window__create_new_list                 (GSimpleAction         *simple,
+                                                                  GVariant              *parameter,
+                                                                  gpointer               user_data);
+
 static void          gtd_window__change_storage_action           (GSimpleAction         *simple,
                                                                   GVariant              *parameter,
                                                                   gpointer               user_data);
@@ -87,7 +91,8 @@ static void          gtd_window__change_storage_action           (GSimpleAction 
 G_DEFINE_TYPE_WITH_PRIVATE (GtdWindow, gtd_window, GTK_TYPE_APPLICATION_WINDOW)
 
 static const GActionEntry gtd_window_entries[] = {
-  { "change-storage", gtd_window__change_storage_action }
+  { "change-storage", gtd_window__change_storage_action },
+  { "new-list", gtd_window__create_new_list }
 };
 
 enum {
@@ -474,6 +479,19 @@ gtd_window_update_list_counters (GtdTaskList *list,
   g_free (new_title);
 }
 
+static void
+gtd_window__create_new_list (GSimpleAction *simple,
+                             GVariant      *parameter,
+                             gpointer       user_data)
+{
+  GtdWindowPrivate *priv;
+
+  g_return_if_fail (GTD_IS_WINDOW (user_data));
+
+  priv = GTD_WINDOW (user_data)->priv;
+
+  gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (priv->new_list_button), TRUE);
+}
 
 static void
 gtd_window__change_storage_action (GSimpleAction *simple,

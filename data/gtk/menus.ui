@@ -5,7 +5,7 @@
     <section>
       <item>
         <attribute name="label" translatable="yes">New List…</attribute>
-        <attribute name="action">app.new</attribute>
+        <attribute name="action">win.new-list</attribute>
         <attribute name="accel">&lt;Primary&gt;n</attribute>
       </item>
       <item>
