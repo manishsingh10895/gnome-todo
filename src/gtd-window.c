@@ -144,8 +144,12 @@ error_message_notification_secondary_action (GtdNotification *notification,
                                             "%s",
                                             data->secondary_text);
 
-  gtk_dialog_run (GTK_DIALOG (message_dialog));
-  gtk_widget_destroy (message_dialog);
+  g_signal_connect (message_dialog,
+                    "response",
+                    G_CALLBACK (gtk_widget_destroy),
+                    NULL);
+
+  gtk_widget_show (message_dialog);
 
   error_data_free (data);
 }
