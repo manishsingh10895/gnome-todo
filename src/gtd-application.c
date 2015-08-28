@@ -147,6 +147,7 @@ run_window (GtdApplication *application)
   gtk_widget_show (priv->window);
 }
 
+/*
 static void
 finish_initial_setup (GtdApplication *application)
 {
@@ -185,14 +186,12 @@ run_initial_setup (GtdApplication *application)
 
   gtk_widget_show (priv->initial_setup);
 }
+*/
 
 static void
 gtd_application_activate (GApplication *application)
 {
   GtdApplicationPrivate *priv = GTD_APPLICATION (application)->priv;
-  gboolean first_run;
-
-  first_run = gtd_manager_get_is_first_run (priv->manager);
 
   if (!priv->provider)
    {
@@ -224,11 +223,10 @@ gtd_application_activate (GApplication *application)
        }
    }
 
-  /* If it's the first run of To Do, it should run the initial setup window */
-  if (first_run)
-    run_initial_setup (GTD_APPLICATION (application));
-  else
-    run_window (GTD_APPLICATION (application));
+  /* FIXME: the initial setup is disabled for the 3.18 release because
+   * we can't create tasklists on GOA accounts.
+   */
+  run_window (GTD_APPLICATION (application));
 }
 
 static void
