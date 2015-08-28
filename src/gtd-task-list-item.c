@@ -319,16 +319,25 @@ gtd_task_list_item__button_press_event_cb (GtkWidget *widget,
                                            GdkEvent  *event,
                                            gpointer   user_data)
 {
+  GtdTaskListItemPrivate *priv;
   GdkEventButton *button_ev;
 
   button_ev = (GdkEventButton*) event;
+  priv = GTD_TASK_LIST_ITEM (user_data)->priv;
 
   if (button_ev->button == 3)
     {
-      g_object_set (user_data,
-                    "mode", GTD_WINDOW_MODE_SELECTION,
-                    "selected", TRUE,
-                    NULL);
+      if (priv->mode == GTD_WINDOW_MODE_NORMAL)
+        {
+          g_object_set (user_data,
+                        "mode", GTD_WINDOW_MODE_SELECTION,
+                        "selected", TRUE,
+                        NULL);
+        }
+      else
+        {
+          gtd_task_list_item_set_selected (GTD_TASK_LIST_ITEM (user_data), !priv->selected);
+        }
 
       return GDK_EVENT_STOP;
     }
