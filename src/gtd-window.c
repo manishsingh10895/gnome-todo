@@ -799,7 +799,7 @@ gtd_window__show_error_message (GtdManager  *manager,
   ErrorData *error_data;
 
   error_data = g_new0 (ErrorData, 1);
-  notification = gtd_notification_new (primary_text, 0);
+  notification = gtd_notification_new (primary_text, 7500);
 
   error_data->window = window;
   error_data->primary_text = g_strdup (primary_text);
