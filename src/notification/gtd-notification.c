@@ -457,11 +457,9 @@ gtd_notification_execute_primary_action (GtdNotification *notification)
   priv = notification->priv;
 
   if (priv->primary_action)
-    {
-      priv->primary_action (notification, priv->primary_action_data);
+    priv->primary_action (notification, priv->primary_action_data);
 
-      g_signal_emit (notification, signals[EXECUTED], 0);
-    }
+  g_signal_emit (notification, signals[EXECUTED], 0);
 }
 
 /**
@@ -483,6 +481,8 @@ gtd_notification_execute_secondary_action (GtdNotification *notification)
   if (priv->secondary_action)
     {
       priv->secondary_action (notification, priv->secondary_action_data);
+
+      gtd_notification_stop (notification);
 
       g_signal_emit (notification, signals[EXECUTED], 0);
     }
