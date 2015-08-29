@@ -56,6 +56,10 @@ GtkLabel.main-title {
 }
 
 /* priority icons */
+GtdTaskRow {
+    background-color: @transparent;
+}
+
 GtdTaskRow.priority-low {
     background-color: alpha(#3465a4, 0.2);
 }
