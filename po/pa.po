@@ -1,0 +1,786 @@
+# Punjabi translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+#
+# A S Alam <aalam@fedoraproject.org>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-08-30 09:15+0000\n"
+"PO-Revision-Date: 2015-08-30 11:05UTC-0600\n"
+"Last-Translator: A S Alam <aalam@fedoraproject.org>\n"
+"Language-Team: Punjabi <punjabi-users@lists.sf.net>\n"
+"Language: pa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "ਟੂ-ਡੂ"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "ਗਨੋਮ ਲਈ ਟੂ-ਡੂ ਮੈਨੇਜਰ"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"ਗਨੋਮ ਟੂ-ਡੂ ਗਨੋਮ ਨਾਲ ਏਕੀਕ੍ਰਿਤ ਰੂਪ ਵਿੱਚ ਡਿਵਾਇਨ ਕੀਤੀ ਸਰਲ ਕੰਮ ਪ੍ਰਬੰਧ ਐਪਲੀਕੇਸ਼ਨ ਹੈ।"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "...ਨਵੀਂ ਲਿਸਟ"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "...ਡਿਫਾਲਟ ਸਟੋਰੇਜ਼ ਟਿਕਾਣਾ ਬਦਲੋ"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "ਇਸ ਬਾਰੇ(_A)"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "ਬੰਦ ਕਰੋ(_Q)"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "ਆਪਣੇ ਨਿੱਜੀ ਕੰਮਾਂ ਦਾ ਪਰਬੰਧ ਕਰੋ"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "ਕੰਮ;ਉਤਪਾਦਕ;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਕੀਤੀ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "ਵਿੰਡੋ ਵੱਧੋ-ਵੱਧ ਆਕਾਰ ਸਥਿਤੀ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "ਵਿੰਡੋ ਆਕਾਰ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "ਵਿੰਡੋ ਆਕਾਰ (ਚੌੜਾਈ ਅਤੇ ਉਚਾਈ)।"
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "ਵਿੰਡੋ ਸਥਿਤੀ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "ਵਿੰਡੋ ਸਥਿਤੀ (x ਤੇ y)।"
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "ਗਨੋਮ ਟੂ ਡੂ ਨੂੰ ਪਹਿਲੀ ਵਾਰ ਚਲਾਉਣਾ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr "ਕੀ ਗਨੋਮ ਟੂ ਡੂ ਪਹਿਲੀ ਵਾਰ ਚਲਾਇਆ ਹੈ (ਸ਼ੁਰੂਆਤੀ ਸੈਟਅਪ ਪੂਰਾ ਕਰਨ ਲਈ) ਜਾਂ ਨਹੀਂ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "ਨਵੀਆਂ ਲਿਸਟਾਂ ਜੋੜਨ ਲਈ ਡਿਫਾਲਟ ਟਿਕਾਣਾ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "ਨਵੀਆਂ ਲਿਸਟਾਂ ਜੋੜਨ ਲਈ ਡਿਫਾਲਟ ਟਿਕਾਣੇ ਦਾ ਪਛਾਣਕਰਤਾ"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:812
+msgid "Details"
+msgstr "ਵੇਰਵੇ"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "ਨੋਟਿਸ"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "ਪੂਰਾ ਕਰਨ ਮਿਤੀ"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "ਤਰਜੀਹ"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "ਕੋਈ ਨਹੀਂ"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "ਘੱਟ"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "ਮੱਧਮ"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "ਉੱਚ"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "ਹਟਾਓ"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "ਜੀ ਆਇਆਂ ਨੂੰ"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "ਆਪਣੇ ਕੰਮਾਂ ਲਈ ਪਹੁੰਚ ਵਾਸਤੇ ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਲਈ ਲਾਗਇਨ ਕਰੋ"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:313
+msgid "Cancel"
+msgstr "ਰੱਦ ਕਰੋ"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:288
+msgid "Done"
+msgstr "ਮੁਕੰਮਲ"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "ਕੋਈ ਕੰਮ ਨਹੀਂ ਲੱਭਿਆ"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "ਤੁਸੀਂ <b>ਲਿਸਟਾਂ</b> ਝਲਕ ਵਿੱਚ ਲਿਸਟਾਂ ਵਿੱਚ ਕੰਮ ਜੋੜ ਸਕਦੇ ਹੋ"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "ਪੂਰੇ ਹੋਏ ਕੰਮ ਵੇਖਾਓ ਜਾਂ ਓਹਲੇ ਕਰੋ"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "ਮੂਲ ਸਟੋਰੇਜ਼ ਟਿਕਾਣਾ"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "ਬਣਾਓ"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "ਲਿਸਟ ਨਾਂ"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "ਸਟੋਰੇਜ਼ ਟਿਕਾਣਾ ਚੁਣੋ"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "ਬੰਦ"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "ਨਵਾਂ ਗੂਗਲ ਅਕਾਊਂਟ ਜੋੜਨ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "ਗੂਗਲ"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr ""
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "ਨਵਾਂ ਮਾਈਕਰੋਸਾਫਟ ਐਕਸਚੇਜ਼ ਅਕਾਊਂਟ ਜੋੜਨ ਲਈ ਕਲਿੱਕ ਕਰੋ"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "ਮਾਈਕਰੋਸਾਫਟ ਐਕਸਚੇਜ਼"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "ਜਾਂ ਤੁਸੀਂ ਆਪਣੇ ਕੰਮਾਂ ਨੂੰ ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ ਸੰਭਾਲ ਸਕਦੇ ਹੋ"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "...ਨਵਾਂ ਕੰਮ"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "ਲਿਸਟਾਂ"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:516
+#: ../src/gtd-window.c:521
+msgid "Today"
+msgstr "ਅੱਜ"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:516 ../src/gtd-window.c:521
+msgid "Scheduled"
+msgstr "ਸੈਡਿਊਲ ਕੀਤੇ"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "ਨਾਂ-ਬਦਲੋ"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "ਨਵੀਂ ਲਿਸਟ"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "ਕੰਮ ਲਿਸਟ ਦਾ ਨਾਂ"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d To Do ਲੇਖਕ"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d ਟੂ ਡੂ ਲੇਖਕ"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:693 ../src/gtd-window.c:1260
+msgid "To Do"
+msgstr "ਟੂ ਡੂ"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr ""
+"ਅਮਨਪਰੀਤ ਸਿੰਘ ਆਲਮ\n"
+"ਪੰਜਾਬੀ ਓਪਨਸੋਰਸ ਟੀਮ (POST)"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr ""
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "ਕੋਈ ਮਿਤੀ ਨਹੀਂ ਸੈਟ ਹੈ"
+
+#: ../src/gtd-edit-pane.c:263
+msgid "Manager of this application"
+msgstr "ਇਹ ਐਪਲੀਕੇਸ਼ਨ ਦੇ ਮੈਨੇਜਰ"
+
+#: ../src/gtd-edit-pane.c:264
+msgid "The manager of the application"
+msgstr ""
+
+#: ../src/gtd-edit-pane.c:277
+msgid "Task being edited"
+msgstr "ਕੰਮ ਸੋਧਿਆ ਜਾ ਰਿਹਾ ਹੈ"
+
+#: ../src/gtd-edit-pane.c:278
+msgid "The task that is actually being edited"
+msgstr ""
+
+#: ../src/gtd-initial-setup-window.c:213
+msgid "Manager of the task"
+msgstr "ਕੰਮ ਦਾ ਮੈਨੇਜਰ"
+
+#: ../src/gtd-initial-setup-window.c:214
+msgid "The singleton manager instance of the task"
+msgstr ""
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "ਗਨੋਮ ਆਨਲਾਈਨ ਅਕਾਊਂਟ ਲੋਡ ਕਰਨ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "ਕੰਮ ਲਿਸਟ ਸੰਭਾਲਣ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "ਕੰਮ ਲਿਸਟ ਹਟਾਉਣ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "ਕੰਮ ਲਿਸਟ ਬਣਾਉਣ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "ਕੰਮ ਬਣਾਉਣ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "ਕੰਮ ਹਟਾਉਣ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:657 ../src/gtd-manager.c:661
+msgid "Error updating task"
+msgstr "ਕੰਮ ਅੱਪਡੇਟ ਕਰਨ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:690
+msgid "Failed to prompt for credentials"
+msgstr ""
+
+#: ../src/gtd-manager.c:713
+msgid "Failed to prompt for credentials for"
+msgstr ""
+
+#: ../src/gtd-manager.c:765
+msgid "Authentication failure"
+msgstr "ਪਰਮਾਣਕਿਤਾ ਫੇਲ੍ਹ ਹੈ"
+
+#: ../src/gtd-manager.c:829 ../src/gtd-manager.c:833
+msgid "Error fetching tasks from list"
+msgstr ""
+
+#: ../src/gtd-manager.c:899
+msgid "Task list source successfully connected"
+msgstr "ਕੰਮ ਸੂਚੀ ਸਰੋਤ ਕਾਮਯਾਬੀ ਨਾਲ ਕਨੈਕਟ ਹੈ"
+
+#: ../src/gtd-manager.c:906 ../src/gtd-manager.c:911
+msgid "Failed to connect to task list source"
+msgstr ""
+
+#: ../src/gtd-manager.c:940
+msgid "Skipping already loaded task list "
+msgstr ""
+
+#: ../src/gtd-manager.c:978
+msgid "Error loading task manager"
+msgstr "ਕੰਮ ਮੈਨੇਜਰ ਲੋਡ ਕਰਨ ਦੌਰਾਨ ਗਲਤੀ"
+
+#: ../src/gtd-manager.c:1139
+msgid "The online accounts client of the manager"
+msgstr ""
+
+#: ../src/gtd-manager.c:1140
+msgid ""
+"The read-only GNOME online accounts client loaded and owned by the manager"
+msgstr ""
+
+#: ../src/gtd-manager.c:1153
+msgid "Whether GNOME Online Accounts client is ready"
+msgstr ""
+
+#: ../src/gtd-manager.c:1154
+msgid "Whether the read-only GNOME online accounts client is loaded"
+msgstr ""
+
+#: ../src/gtd-manager.c:1167
+msgid "The source registry of the manager"
+msgstr ""
+
+#: ../src/gtd-manager.c:1168
+msgid "The read-only source registry loaded and owned by the manager"
+msgstr ""
+
+#: ../src/gtd-object.c:152
+msgid "Unique identifier of the object"
+msgstr ""
+
+#: ../src/gtd-object.c:153
+msgid "The unique identifier of the object, defined by the backend"
+msgstr ""
+
+#: ../src/gtd-object.c:166
+msgid "Ready state of the object"
+msgstr ""
+
+#: ../src/gtd-object.c:167
+msgid "Whether the object is marked as ready or not"
+msgstr ""
+
+#: ../src/gtd-task.c:254
+msgid "Whether the task is completed or not"
+msgstr ""
+
+#: ../src/gtd-task.c:255
+msgid "Whether the task is marked as completed by the user"
+msgstr ""
+
+#: ../src/gtd-task.c:268
+msgid "Component of the task"
+msgstr "ਕੰਮ ਦੇ ਭਾਗ"
+
+#: ../src/gtd-task.c:269
+msgid "The #ECalComponent this task handles."
+msgstr ""
+
+#: ../src/gtd-task.c:282
+msgid "Description of the task"
+msgstr "ਕੰਮ ਦਾ ਵੇਰਵਾ"
+
+#: ../src/gtd-task.c:283
+msgid "Optional string describing the task"
+msgstr ""
+
+#: ../src/gtd-task.c:297
+msgid "End date of the task"
+msgstr "ਕੰਮ ਦੇ ਖਤਮ ਕਰਨ ਦੀ ਮਿਤੀ"
+
+#: ../src/gtd-task.c:298
+msgid "The day the task is supposed to be completed"
+msgstr ""
+
+#: ../src/gtd-task.c:311
+msgid "List of the task"
+msgstr "ਕੰਮ ਦੀ ਲਿਸਟ"
+
+#: ../src/gtd-task.c:312
+msgid "The list that owns this task"
+msgstr ""
+
+#: ../src/gtd-task.c:325
+msgid "Priority of the task"
+msgstr "ਕੰਮ ਦੀ ਤਰਜੀਹ"
+
+#: ../src/gtd-task.c:326
+msgid ""
+"The priority of the task. 0 means no priority set, and tasks will be sorted "
+"alphabetically."
+msgstr ""
+
+#: ../src/gtd-task.c:341
+msgid "Title of the task"
+msgstr "ਕੰਮ ਦਾ ਨਾਂ"
+
+#: ../src/gtd-task.c:342
+msgid "The title of the task"
+msgstr "ਕੰਮ ਦਾ ਨਾਂ"
+
+#: ../src/gtd-task-list.c:264
+msgid "Color of the list"
+msgstr "ਲਿਸਟ ਦਾ ਰੰਗ"
+
+#: ../src/gtd-task-list.c:265
+msgid "The color of the list"
+msgstr "ਲਿਸਟ ਦਾ ਰੰਗ"
+
+#: ../src/gtd-task-list.c:278
+msgid "Whether the task list is removable"
+msgstr "ਕੀ ਕੰਮ ਲਿਸਟ ਹਟਾਉਣ ਯੋਗ ਹੈ"
+
+#: ../src/gtd-task-list.c:279
+msgid "Whether the task list can be removed from the system"
+msgstr ""
+
+#: ../src/gtd-task-list.c:292
+msgid "Name of the list"
+msgstr "ਲਿਸਟ ਦਾ ਨਾਂ"
+
+#: ../src/gtd-task-list.c:293
+msgid "The name of the list"
+msgstr "ਲਿਸਟ ਦਾ ਨਾਂ ਹੈ"
+
+#: ../src/gtd-task-list.c:306
+msgid "Data origin of the list"
+msgstr ""
+
+#: ../src/gtd-task-list.c:307
+msgid "The data origin location of the list"
+msgstr ""
+
+#: ../src/gtd-task-list.c:320
+msgid "Source of the list"
+msgstr "ਲਿਸਟ ਦਾ ਸਰੋਤ"
+
+#: ../src/gtd-task-list.c:321
+msgid "The parent source that handles the list"
+msgstr ""
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "ਕੋਈ ਕੰਮ ਨਹੀਂ"
+
+#: ../src/gtd-task-list-item.c:486
+msgid "Mode of this item"
+msgstr "ਇਹ ਆਈਟਮ ਦਾ ਮੋਡ"
+
+#: ../src/gtd-task-list-item.c:487
+msgid "The mode of this item, inherited from the parent's mode"
+msgstr ""
+
+#: ../src/gtd-task-list-item.c:501
+msgid "Whether the task list is selected"
+msgstr ""
+
+#: ../src/gtd-task-list-item.c:502
+msgid "Whether the task list is selected when in selection mode"
+msgstr ""
+
+#: ../src/gtd-task-list-item.c:515
+msgid "Task list of the item"
+msgstr "ਆਈਟਮ ਦੀ ਕੰਮ ਲਿਸਟ"
+
+#: ../src/gtd-task-list-item.c:516
+msgid "The task list associated with this item"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:201
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "ਕੰਮ <b>%s</b> ਹਟਾਇਆ"
+
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "ਵਾਪਸ"
+
+#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:1053
+#: ../src/storage/gtd-storage-dialog.c:150
+#: ../src/storage/gtd-storage-popover.c:288
+#: ../src/storage/gtd-storage-selector.c:516
+msgid "Manager of this window's application"
+msgstr "ਇਹ ਵਿੰਡੋ ਦੀ ਐਪਲੀਕੇਸ਼ਨ ਦਾ ਮੈਨੇਜਰ"
+
+#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:1054
+#: ../src/storage/gtd-storage-dialog.c:151
+#: ../src/storage/gtd-storage-popover.c:289
+#: ../src/storage/gtd-storage-selector.c:517
+msgid "The manager of the window's application"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:670
+msgid "Whether the list is readonly"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:671
+msgid ""
+"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:684
+msgid "Whether task rows show the list name"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:685
+msgid "Whether task rows show the list name at the end of the row"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:698
+msgid "Whether completed tasks are shown"
+msgstr ""
+
+#: ../src/gtd-task-list-view.c:699
+msgid "Whether completed tasks are visible or not"
+msgstr ""
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "ਭਲਕੇ"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "ਕੱਲ੍ਹ"
+
+#: ../src/gtd-task-row.c:372
+msgid "If the row is used to add a new task"
+msgstr ""
+
+#: ../src/gtd-task-row.c:373
+msgid "Whether the row is used to add a new task"
+msgstr ""
+
+#: ../src/gtd-task-row.c:386
+msgid "Task of the row"
+msgstr "ਕਤਾਰ ਦਾ ਕੰਮ"
+
+#: ../src/gtd-task-row.c:387
+msgid "The task that this row represents"
+msgstr ""
+
+#: ../src/gtd-window.c:306
+msgid "Remove the selected task lists?"
+msgstr "ਕੀ ਚੁਣੀਆਂ ਲਿਸਟਾਂ ਨੂੰ ਹਟਾਉਣਾ ਹੈ?"
+
+#: ../src/gtd-window.c:309
+msgid "Once removed, the task lists cannot be recovered."
+msgstr ""
+
+#: ../src/gtd-window.c:321
+msgid "Remove task lists"
+msgstr "ਕੰਮ ਲਿਸਟਾਂ ਹਟਾਓ"
+
+#: ../src/gtd-window.c:577
+msgid "Setting new color for task list"
+msgstr ""
+
+#: ../src/gtd-window.c:1067
+msgid "Mode of this window"
+msgstr ""
+
+#: ../src/gtd-window.c:1068
+msgid "The interaction mode of the window"
+msgstr ""
+
+#: ../src/gtd-window.c:1119
+msgid "Loading your task lists…"
+msgstr ""
+
+#: ../src/gtd-window.c:1247
+msgid "Click a task list to select"
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:153
+msgid "Whether the storage is enabled"
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:154
+msgid "Whether the storage is available to be used."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:167
+msgid "Icon of the storage"
+msgstr "ਸਟੋਰੇਜ਼ ਦਾ ਆਈਕਾਨ"
+
+#: ../src/storage/gtd-storage.c:168
+msgid "The icon representing the storage location."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:181
+msgid "Identifier of the storage"
+msgstr "ਸਟੋਰੇਜ਼ ਦਾ ਪਛਾਣਕਰਤਾ"
+
+#: ../src/storage/gtd-storage.c:182
+msgid "The unique identifier of the storage location."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:195
+msgid "Whether the storage is the default"
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:196
+msgid "Whether the storage is the default storage location to be used."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:209
+msgid "Name of the storage"
+msgstr "ਸਟੋਰੇਜ਼ ਦਾ ਨਾਂ"
+
+#: ../src/storage/gtd-storage.c:210
+msgid "The user-visible name of the storage location."
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:223
+msgid "Name of the data provider of the storage"
+msgstr ""
+
+#: ../src/storage/gtd-storage.c:224
+msgid "The user-visible name of the data provider of the storage location."
+msgstr ""
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr ""
+
+#: ../src/storage/gtd-storage-goa.c:222
+msgid "GoaObject of the storage"
+msgstr ""
+
+#: ../src/storage/gtd-storage-goa.c:223
+msgid "The GoaObject this storage location represents."
+msgstr ""
+
+#: ../src/storage/gtd-storage-goa.c:236
+msgid "Parent of the storage"
+msgstr "ਸਟੋਰੇਜ਼ ਦਾ ਮੂਲ"
+
+#: ../src/storage/gtd-storage-goa.c:237
+msgid "The parent source identifier of the storage location."
+msgstr ""
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "ਇਸ ਕੰਪਿਊਟਰ ਉੱਤੇ"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "ਲੋਕਲ"
+
+#: ../src/storage/gtd-storage-row.c:148
+msgid "Storage of the row"
+msgstr "ਕਤਾਰ ਦਾ ਸਟੋਰੇਜ਼"
+
+#: ../src/storage/gtd-storage-row.c:149
+msgid "The storage that this row holds"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:530
+msgid "Show local storage row"
+msgstr "ਲੋਕਲ ਸਟੋਰੇਜ਼ ਕਤਾਰ ਵੇਖਾਓ"
+
+#: ../src/storage/gtd-storage-selector.c:531
+msgid "Whether should show a local storage row instead of a checkbox"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:544
+msgid "Show stub rows"
+msgstr "ਸਟਬ ਕਤਾਰ ਵੇਖੋ"
+
+#: ../src/storage/gtd-storage-selector.c:545
+msgid "Whether should show stub rows for non-added accounts"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:558
+msgid "Selects default storage row"
+msgstr ""
+
+#: ../src/storage/gtd-storage-selector.c:559
+msgid "Whether should select the default storage row"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:181
+msgid "Whether the notification has a primary action"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:182
+msgid ""
+"Whether the notification has the primary action, activated on timeout or "
+"dismiss"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:196
+msgid "Whether the notification has a secondary action"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:197
+msgid ""
+"Whether the notification has the secondary action, activated by the user"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:210
+msgid "Text of the secondary action button"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:211
+msgid "The text of the secondary action button"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:224
+msgid "Notification message"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਸੁਨੇਹਾ"
+
+#: ../src/notification/gtd-notification.c:225
+msgid "The main message of the notification"
+msgstr ""
+
+#: ../src/notification/gtd-notification.c:238
+msgid "Notification timeout"
+msgstr "ਨੋਟੀਫਿਕੇਸ਼ਨ ਸਮਾਂ-ਸਮਾਪਤੀ"
+
+#: ../src/notification/gtd-notification.c:239
+msgid "The time the notification is displayed"
+msgstr ""
+
