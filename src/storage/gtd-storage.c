@@ -150,8 +150,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_ENABLED,
         g_param_spec_boolean ("enabled",
-                              _("Whether the storage is enabled"),
-                              _("Whether the storage is available to be used."),
+                              "Whether the storage is enabled",
+                              "Whether the storage is available to be used.",
                               FALSE,
                               G_PARAM_READWRITE));
 
