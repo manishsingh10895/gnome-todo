@@ -219,8 +219,8 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
         object_class,
         PROP_GOA_OBJECT,
         g_param_spec_object ("goa-object",
-                             _("GoaObject of the storage"),
-                             _("The GoaObject this storage location represents."),
+                             "GoaObject of the storage",
+                             "The GoaObject this storage location represents.",
                              GOA_TYPE_OBJECT,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
@@ -233,8 +233,8 @@ gtd_storage_goa_class_init (GtdStorageGoaClass *klass)
         object_class,
         PROP_PARENT,
         g_param_spec_string ("parent",
-                             _("Parent of the storage"),
-                             _("The parent source identifier of the storage location."),
+                             "Parent of the storage",
+                             "The parent source identifier of the storage location.",
                              NULL,
                              G_PARAM_READWRITE));
 }

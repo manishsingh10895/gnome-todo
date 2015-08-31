@@ -251,8 +251,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_COMPLETE,
         g_param_spec_boolean ("complete",
-                              _("Whether the task is completed or not"),
-                              _("Whether the task is marked as completed by the user"),
+                              "Whether the task is completed or not",
+                              "Whether the task is marked as completed by the user",
                               FALSE,
                               G_PARAM_READWRITE));
 
@@ -265,8 +265,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_COMPONENT,
         g_param_spec_object ("component",
-                              _("Component of the task"),
-                              _("The #ECalComponent this task handles."),
+                              "Component of the task",
+                              "The #ECalComponent this task handles.",
                               E_TYPE_CAL_COMPONENT,
                               G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
@@ -279,8 +279,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_DESCRIPTION,
         g_param_spec_string ("description",
-                             _("Description of the task"),
-                             _("Optional string describing the task"),
+                             "Description of the task",
+                             "Optional string describing the task",
                              NULL,
                              G_PARAM_READWRITE));
 
@@ -294,8 +294,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_DUE_DATE,
         g_param_spec_boxed ("due-date",
-                            _("End date of the task"),
-                            _("The day the task is supposed to be completed"),
+                            "End date of the task",
+                            "The day the task is supposed to be completed",
                             G_TYPE_DATE_TIME,
                             G_PARAM_READWRITE));
 
@@ -308,8 +308,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_LIST,
         g_param_spec_object ("list",
-                             _("List of the task"),
-                             _("The list that owns this task"),
+                             "List of the task",
+                             "The list that owns this task",
                              GTD_TYPE_TASK_LIST,
                              G_PARAM_READWRITE));
 
@@ -322,8 +322,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_PRIORITY,
         g_param_spec_int ("priority",
-                          _("Priority of the task"),
-                          _("The priority of the task. 0 means no priority set, and tasks will be sorted alphabetically."),
+                          "Priority of the task",
+                          "The priority of the task. 0 means no priority set, and tasks will be sorted alphabetically.",
                           0,
                           G_MAXINT,
                           0,
@@ -338,8 +338,8 @@ gtd_task_class_init (GtdTaskClass *klass)
         object_class,
         PROP_TITLE,
         g_param_spec_string ("title",
-                             _("Title of the task"),
-                             _("The title of the task"),
+                             "Title of the task",
+                             "The title of the task",
                              NULL,
                              G_PARAM_READWRITE));
 }

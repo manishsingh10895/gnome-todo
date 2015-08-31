@@ -210,8 +210,8 @@ gtd_initial_setup_window_class_init (GtdInitialSetupWindowClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of the task"),
-                             _("The singleton manager instance of the task"),
+                             "Manager of the task",
+                             "The singleton manager instance of the task",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 

@@ -653,8 +653,8 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of this window's application"),
-                             _("The manager of the window's application"),
+                             "Manager of this window's application",
+                             "The manager of the window's application",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE));
 
@@ -667,8 +667,8 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
         object_class,
         PROP_READONLY,
         g_param_spec_boolean ("readonly",
-                              _("Whether the list is readonly"),
-                              _("Whether the list is readonly, i.e. doesn't show the New Task row, or not"),
+                              "Whether the list is readonly",
+                              "Whether the list is readonly, i.e. doesn't show the New Task row, or not",
                               TRUE,
                               G_PARAM_READWRITE));
 
@@ -681,8 +681,8 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
         object_class,
         PROP_SHOW_LIST_NAME,
         g_param_spec_boolean ("show-list-name",
-                              _("Whether task rows show the list name"),
-                              _("Whether task rows show the list name at the end of the row"),
+                              "Whether task rows show the list name",
+                              "Whether task rows show the list name at the end of the row",
                               FALSE,
                               G_PARAM_READWRITE));
 
@@ -695,8 +695,8 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
         object_class,
         PROP_SHOW_COMPLETED,
         g_param_spec_boolean ("show-completed",
-                              _("Whether completed tasks are shown"),
-                              _("Whether completed tasks are visible or not"),
+                              "Whether completed tasks are shown",
+                              "Whether completed tasks are visible or not",
                               FALSE,
                               G_PARAM_READWRITE));
 

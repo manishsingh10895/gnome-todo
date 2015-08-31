@@ -260,8 +260,8 @@ gtd_edit_pane_class_init (GtdEditPaneClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of this application"),
-                             _("The manager of the application"),
+                             "Manager of this application",
+                             "The manager of the application",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
@@ -274,8 +274,8 @@ gtd_edit_pane_class_init (GtdEditPaneClass *klass)
         object_class,
         PROP_TASK,
         g_param_spec_object ("task",
-                             _("Task being edited"),
-                             _("The task that is actually being edited"),
+                             "Task being edited",
+                             "The task that is actually being edited",
                              GTD_TYPE_TASK,
                              G_PARAM_READWRITE));
 

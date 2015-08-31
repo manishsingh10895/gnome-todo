@@ -261,8 +261,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         object_class,
         PROP_COLOR,
         g_param_spec_boxed ("color",
-                            _("Color of the list"),
-                            _("The color of the list"),
+                            "Color of the list",
+                            "The color of the list",
                             GDK_TYPE_RGBA,
                             G_PARAM_READWRITE));
 
@@ -275,8 +275,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         object_class,
         PROP_IS_REMOVABLE,
         g_param_spec_boolean ("is-removable",
-                              _("Whether the task list is removable"),
-                              _("Whether the task list can be removed from the system"),
+                              "Whether the task list is removable",
+                              "Whether the task list can be removed from the system",
                               TRUE,
                               G_PARAM_READABLE));
 
@@ -289,8 +289,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         object_class,
         PROP_NAME,
         g_param_spec_string ("name",
-                             _("Name of the list"),
-                             _("The name of the list"),
+                             "Name of the list",
+                             "The name of the list",
                              NULL,
                              G_PARAM_READWRITE));
 
@@ -303,8 +303,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         object_class,
         PROP_ORIGIN,
         g_param_spec_string ("origin",
-                             _("Data origin of the list"),
-                             _("The data origin location of the list"),
+                             "Data origin of the list",
+                             "The data origin location of the list",
                              NULL,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
@@ -317,8 +317,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         object_class,
         PROP_SOURCE,
         g_param_spec_object ("source",
-                             _("Source of the list"),
-                             _("The parent source that handles the list"),
+                             "Source of the list",
+                             "The parent source that handles the list",
                              E_TYPE_SOURCE,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 

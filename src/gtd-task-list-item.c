@@ -483,8 +483,8 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
         object_class,
         PROP_MODE,
         g_param_spec_enum ("mode",
-                           _("Mode of this item"),
-                           _("The mode of this item, inherited from the parent's mode"),
+                           "Mode of this item",
+                           "The mode of this item, inherited from the parent's mode",
                            GTD_TYPE_WINDOW_MODE,
                            GTD_WINDOW_MODE_NORMAL,
                            G_PARAM_READWRITE));
@@ -498,8 +498,8 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
         object_class,
         PROP_SELECTED,
         g_param_spec_boolean ("selected",
-                              _("Whether the task list is selected"),
-                              _("Whether the task list is selected when in selection mode"),
+                              "Whether the task list is selected",
+                              "Whether the task list is selected when in selection mode",
                               FALSE,
                               G_PARAM_READWRITE));
 
@@ -512,8 +512,8 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
         object_class,
         PROP_TASK_LIST,
         g_param_spec_object ("task-list",
-                             _("Task list of the item"),
-                             _("The task list associated with this item"),
+                             "Task list of the item",
+                             "The task list associated with this item",
                              GTD_TYPE_TASK_LIST,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 

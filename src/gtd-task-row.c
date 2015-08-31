@@ -369,8 +369,8 @@ gtd_task_row_class_init (GtdTaskRowClass *klass)
           object_class,
           PROP_NEW_TASK_MODE,
           g_param_spec_boolean ("new-task-mode",
-                                _("If the row is used to add a new task"),
-                                _("Whether the row is used to add a new task"),
+                                "If the row is used to add a new task",
+                                "Whether the row is used to add a new task",
                                 FALSE,
                                 G_PARAM_READWRITE));
 
@@ -383,8 +383,8 @@ gtd_task_row_class_init (GtdTaskRowClass *klass)
           object_class,
           PROP_TASK,
           g_param_spec_object ("task",
-                               _("Task of the row"),
-                               _("The task that this row represents"),
+                               "Task of the row",
+                               "The task that this row represents",
                                GTD_TYPE_TASK,
                                G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 

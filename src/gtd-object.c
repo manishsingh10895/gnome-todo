@@ -149,8 +149,8 @@ gtd_object_class_init (GtdObjectClass *klass)
         object_class,
         PROP_UID,
         g_param_spec_string ("uid",
-                             _("Unique identifier of the object"),
-                             _("The unique identifier of the object, defined by the backend"),
+                             "Unique identifier of the object",
+                             "The unique identifier of the object, defined by the backend",
                              NULL,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
@@ -163,8 +163,8 @@ gtd_object_class_init (GtdObjectClass *klass)
         object_class,
         PROP_READY,
         g_param_spec_boolean ("ready",
-                              _("Ready state of the object"),
-                              _("Whether the object is marked as ready or not"),
+                              "Ready state of the object",
+                              "Whether the object is marked as ready or not",
                               TRUE,
                               G_PARAM_READWRITE));
 }

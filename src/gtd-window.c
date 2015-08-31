@@ -1050,8 +1050,8 @@ gtd_window_class_init (GtdWindowClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of this window's application"),
-                             _("The manager of the window's application"),
+                             "Manager of this window's application",
+                             "The manager of the window's application",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
@@ -1064,8 +1064,8 @@ gtd_window_class_init (GtdWindowClass *klass)
         object_class,
         PROP_MODE,
         g_param_spec_enum ("mode",
-                           _("Mode of this window"),
-                           _("The interaction mode of the window"),
+                           "Mode of this window",
+                           "The interaction mode of the window",
                            GTD_TYPE_WINDOW_MODE,
                            GTD_WINDOW_MODE_NORMAL,
                            G_PARAM_READWRITE));

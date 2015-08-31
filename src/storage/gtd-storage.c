@@ -164,8 +164,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_ICON,
         g_param_spec_object ("icon",
-                             _("Icon of the storage"),
-                             _("The icon representing the storage location."),
+                             "Icon of the storage",
+                             "The icon representing the storage location.",
                              G_TYPE_ICON,
                              G_PARAM_READABLE));
 
@@ -178,8 +178,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_ID,
         g_param_spec_string ("id",
-                             _("Identifier of the storage"),
-                             _("The unique identifier of the storage location."),
+                             "Identifier of the storage",
+                             "The unique identifier of the storage location.",
                              NULL,
                              G_PARAM_READWRITE));
 
@@ -192,8 +192,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_IS_DEFAULT,
         g_param_spec_boolean ("is-default",
-                              _("Whether the storage is the default"),
-                              _("Whether the storage is the default storage location to be used."),
+                              "Whether the storage is the default",
+                              "Whether the storage is the default storage location to be used.",
                               FALSE,
                               G_PARAM_READWRITE));
 
@@ -206,8 +206,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_NAME,
         g_param_spec_string ("name",
-                             _("Name of the storage"),
-                             _("The user-visible name of the storage location."),
+                             "Name of the storage",
+                             "The user-visible name of the storage location.",
                              NULL,
                              G_PARAM_READWRITE));
 
@@ -220,8 +220,8 @@ gtd_storage_class_init (GtdStorageClass *klass)
         object_class,
         PROP_PROVIDER,
         g_param_spec_string ("provider",
-                             _("Name of the data provider of the storage"),
-                             _("The user-visible name of the data provider of the storage location."),
+                             "Name of the data provider of the storage",
+                             "The user-visible name of the data provider of the storage location.",
                              NULL,
                              G_PARAM_READWRITE));
 }

@@ -285,8 +285,8 @@ gtd_storage_popover_class_init (GtdStoragePopoverClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of this window's application"),
-                             _("The manager of the window's application"),
+                             "Manager of this window's application",
+                             "The manager of the window's application",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 

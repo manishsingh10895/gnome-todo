@@ -513,8 +513,8 @@ gtd_storage_selector_class_init (GtdStorageSelectorClass *klass)
         object_class,
         PROP_MANAGER,
         g_param_spec_object ("manager",
-                             _("Manager of this window's application"),
-                             _("The manager of the window's application"),
+                             "Manager of this window's application",
+                             "The manager of the window's application",
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE));
 
@@ -527,8 +527,8 @@ gtd_storage_selector_class_init (GtdStorageSelectorClass *klass)
         object_class,
         PROP_SHOW_LOCAL,
         g_param_spec_boolean ("show-local",
-                              _("Show local storage row"),
-                              _("Whether should show a local storage row instead of a checkbox"),
+                              "Show local storage row",
+                              "Whether should show a local storage row instead of a checkbox",
                               FALSE,
                               G_PARAM_READWRITE));
 
@@ -541,8 +541,8 @@ gtd_storage_selector_class_init (GtdStorageSelectorClass *klass)
         object_class,
         PROP_SHOW_STUB_ROWS,
         g_param_spec_boolean ("show-stub-rows",
-                              _("Show stub rows"),
-                              _("Whether should show stub rows for non-added accounts"),
+                              "Show stub rows",
+                              "Whether should show stub rows for non-added accounts",
                               TRUE,
                               G_PARAM_READWRITE));
 
@@ -555,8 +555,8 @@ gtd_storage_selector_class_init (GtdStorageSelectorClass *klass)
         object_class,
         PROP_SELECT_DEFAULT,
         g_param_spec_boolean ("select-default",
-                              _("Selects default storage row"),
-                              _("Whether should select the default storage row"),
+                              "Selects default storage row",
+                              "Whether should select the default storage row",
                               FALSE,
                               G_PARAM_READWRITE));
 

@@ -145,8 +145,8 @@ gtd_storage_row_class_init (GtdStorageRowClass *klass)
         object_class,
         PROP_STORAGE,
         g_param_spec_object ("storage",
-                             _("Storage of the row"),
-                             _("The storage that this row holds"),
+                             "Storage of the row",
+                             "The storage that this row holds",
                              GTD_TYPE_STORAGE,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 

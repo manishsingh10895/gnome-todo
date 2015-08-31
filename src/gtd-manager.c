@@ -1136,8 +1136,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
         object_class,
         PROP_GOA_CLIENT,
         g_param_spec_object ("goa-client",
-                            _("The online accounts client of the manager"),
-                            _("The read-only GNOME online accounts client loaded and owned by the manager"),
+                            "The online accounts client of the manager",
+                            "The read-only GNOME online accounts client loaded and owned by the manager",
                             GOA_TYPE_CLIENT,
                             G_PARAM_READABLE));
 
@@ -1150,8 +1150,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
         object_class,
         PROP_GOA_CLIENT_READY,
         g_param_spec_boolean ("goa-client-ready",
-                              _("Whether GNOME Online Accounts client is ready"),
-                              _("Whether the read-only GNOME online accounts client is loaded"),
+                              "Whether GNOME Online Accounts client is ready",
+                              "Whether the read-only GNOME online accounts client is loaded",
                               FALSE,
                               G_PARAM_READABLE));
 
@@ -1164,8 +1164,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
         object_class,
         PROP_SOURCE_REGISTRY,
         g_param_spec_object ("source-registry",
-                            _("The source registry of the manager"),
-                            _("The read-only source registry loaded and owned by the manager"),
+                            "The source registry of the manager",
+                            "The read-only source registry loaded and owned by the manager",
                             E_TYPE_SOURCE_REGISTRY,
                             G_PARAM_READABLE));
 

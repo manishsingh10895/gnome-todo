@@ -178,8 +178,8 @@ gtd_notification_class_init (GtdNotificationClass *klass)
         object_class,
         PROP_HAS_PRIMARY_ACTION,
         g_param_spec_boolean ("has-primary-action",
-                              _("Whether the notification has a primary action"),
-                              _("Whether the notification has the primary action, activated on timeout or dismiss"),
+                              "Whether the notification has a primary action",
+                              "Whether the notification has the primary action, activated on timeout or dismiss",
                               FALSE,
                               G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY));
 
@@ -193,8 +193,8 @@ gtd_notification_class_init (GtdNotificationClass *klass)
         object_class,
         PROP_HAS_SECONDARY_ACTION,
         g_param_spec_boolean ("has-secondary-action",
-                              _("Whether the notification has a secondary action"),
-                              _("Whether the notification has the secondary action, activated by the user"),
+                              "Whether the notification has a secondary action",
+                              "Whether the notification has the secondary action, activated by the user",
                               FALSE,
                               G_PARAM_READABLE | G_PARAM_EXPLICIT_NOTIFY));
 
@@ -207,8 +207,8 @@ gtd_notification_class_init (GtdNotificationClass *klass)
         object_class,
         PROP_SECONDARY_ACTION_NAME,
         g_param_spec_string ("secondary-action-name",
-                             _("Text of the secondary action button"),
-                             _("The text of the secondary action button"),
+                             "Text of the secondary action button",
+                             "The text of the secondary action button",
                              "",
                              G_PARAM_READWRITE));
 
@@ -221,8 +221,8 @@ gtd_notification_class_init (GtdNotificationClass *klass)
         object_class,
         PROP_TEXT,
         g_param_spec_string ("text",
-                             _("Notification message"),
-                             _("The main message of the notification"),
+                             "Notification message",
+                             "The main message of the notification",
                              "",
                              G_PARAM_READWRITE));
 
