@@ -1,0 +1,395 @@
+# Hungarian translation for gnome-todo.
+# Copyright (C) 2015. Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-todo package.
+# Balázs Meskó <meskobalazs at gmail dot com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-01 14:49+0000\n"
+"PO-Revision-Date: 2015-09-01 07:31+0200\n"
+"Last-Translator: Meskó Balázs <meskobalazs at gmail dot com>\n"
+"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Tennivalók"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Tennivaló-kezelő a GNOME-hoz"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"A GNOME Todo egy egyszerű tennivaló-kezelő alkalmazás, amely a GNOME-hoz "
+"lett tervezve."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Új lista…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Alapértelmezett tárhely módosítása…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Névjegy"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Kilépés"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Személyes feladatainak kezelése"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Feladat;Teendő;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Ablak teljes méretű"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Az ablak maximalizált állapota"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Ablakméret"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Ablak mérete (szélesség és magasság)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Ablakpozíció"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Ablakpozíció (x és y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "A Tennivalók első indítása"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr "Ez-e a Tennivalók első indítása (a kezdeti telepítés futtatása miatt)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Alapértelmezett hely, ahová az új listák kerülnek"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Az alapértelmezett hely azonosítója, ahová az új listák kerülnek"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:812
+msgid "Details"
+msgstr "Részletek"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Jegyzetek"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Esedékesség"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Fontosság"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Nincs"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Alacsony"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Közepes"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Magas"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Törlés"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Üdvözöljük"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Bejelentkezés online fiókba a feladatai eléréséhez"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:313
+msgid "Cancel"
+msgstr "Mégse"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:288
+msgid "Done"
+msgstr "Kész"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Nincsenek feladatok"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "A listákhoz feladatokat a <b>Listák</b> nézetben adhat hozzá."
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Befejezett feladatok mutatása vagy elrejtése"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Válassza ki az alapértelmezett helyet az új listákhoz:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Alapértelmezett tárhely"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Létrehozás"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Listanév"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Válassza ki a tárolási helyet"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Ki"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Kattintson egy új Google fiók hozzáadásához"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Kattintson egy új ownCloud fiók hozzáadásához"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Kattintson egy új Microsoft Exchange fiók hozzáadásához"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Vagy tárolhatja a feladatait ezen a számítógépen"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Új feladat…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Listák"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:516
+#: ../src/gtd-window.c:521
+msgid "Today"
+msgstr "Ma"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:516 ../src/gtd-window.c:521
+msgid "Scheduled"
+msgstr "Ütemezett"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Átnevezés"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Új lista"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Feladatlista neve"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d A Tennivalók szerzői"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d-%d A Tennivalók szerzői"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:693 ../src/gtd-window.c:1260
+msgid "To Do"
+msgstr "Teendő"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Hiba a CSS, erőforrásból történő betöltése során"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nincs dátum beállítva"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Hiba a GNOME Online fiókok betöltése során"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Hiba a feladatlista mentésekor"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Hiba a feladatlista eltávolításakor"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Hiba a feladatlista létrehozásakor"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Hiba a feladat létrehozásakor"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Hiba a feladat eltávolításakor"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Hiba a feladat módosításakor"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Nem sikerült a hitelesítő adatok bekérése"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Nem sikerült a hitelesítési adatok bekérése a következőnél:"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Hitelesítési hiba"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Nem sikerült a feladatok lekérése a listából"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Sikeres kapcsolódás a feladatlista-forráshoz"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Nem sikerült a kapcsolódás a feladatlista-forráshoz"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "A már betöltött feladatlista kihagyása "
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Nem sikerült a feladatkezelő betöltése"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Nincsenek feladatok"
+
+#: ../src/gtd-task-list-view.c:201
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "A(z) <b>%s</b> feladat törölve"
+
+#: ../src/gtd-task-list-view.c:221
+msgid "Undo"
+msgstr "Visszavonás"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Holnap"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Tegnap"
+
+#: ../src/gtd-window.c:306
+msgid "Remove the selected task lists?"
+msgstr "Törli a kiválasztott feladatlistákat?"
+
+#: ../src/gtd-window.c:309
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
+
+#: ../src/gtd-window.c:321
+msgid "Remove task lists"
+msgstr "Feladatlisták törlése"
+
+#: ../src/gtd-window.c:577
+msgid "Setting new color for task list"
+msgstr "Új szín beállítása a feladatlistához"
+
+#: ../src/gtd-window.c:1119
+msgid "Loading your task lists…"
+msgstr "Feladatlisták betöltése…"
+
+#: ../src/gtd-window.c:1247
+msgid "Click a task list to select"
+msgstr "Válasszon egy feladatlistát"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Hiba a feladatlista létrehozásakor"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Ezen a számítógépen"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Helyi"
