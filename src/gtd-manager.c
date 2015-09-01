@@ -645,11 +645,6 @@ gtd_manager__update_task_finished (GObject      *client,
       gtd_task_list_remove_task (priv->today_tasks_list, task);
     }
 
-  g_clear_pointer (&dt, g_date_time_unref);
-  g_free (data);
-
-  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
-
   if (error)
     {
       g_warning ("%s: %s: %s",
@@ -657,13 +652,17 @@ gtd_manager__update_task_finished (GObject      *client,
                  _("Error updating task"),
                  error->message);
 
-      emit_show_error_message (GTD_MANAGER (user_data),
+      emit_show_error_message (data->manager,
                                _("Error updating task"),
                                error->message);
 
       g_error_free (error);
-      return;
     }
+
+  g_clear_pointer (&dt, g_date_time_unref);
+  g_free (data);
+
+  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
 }
 
 static void
