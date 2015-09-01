@@ -1,23 +1,24 @@
 # Hungarian translation for gnome-todo.
 # Copyright (C) 2015. Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-todo package.
-# Balázs Meskó <meskobalazs at gmail dot com>, 2015.
 #
+# Balázs Meskó <meskobalazs at gmail dot com>, 2015.
+# Gabor Kelemen <kelemeng at ubuntu dot com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
 "POT-Creation-Date: 2015-09-01 14:49+0000\n"
-"PO-Revision-Date: 2015-09-01 07:31+0200\n"
-"Last-Translator: Meskó Balázs <meskobalazs at gmail dot com>\n"
+"PO-Revision-Date: 2015-09-01 21:30+0200\n"
+"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
 "Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -33,8 +34,7 @@ msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"A GNOME Todo egy egyszerű tennivaló-kezelő alkalmazás, amely a GNOME-hoz "
-"lett tervezve."
+"A GNOME Tennivalók egy egyszerű tennivaló-kezelő alkalmazás a GNOME-hoz."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -54,11 +54,11 @@ msgstr "_Kilépés"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
-msgstr "Személyes feladatainak kezelése"
+msgstr "Személyes feladatok kezelése"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Feladat;Teendő;"
+msgstr "Feladat;Teendő;Tennivaló;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -91,7 +91,7 @@ msgstr "A Tennivalók első indítása"
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr "Ez-e a Tennivalók első indítása (a kezdeti telepítés futtatása miatt)"
+msgstr "Ez-e a Tennivalók első indítása (a kezdeti beállítás futtatása miatt)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
@@ -143,7 +143,7 @@ msgstr "Üdvözöljük"
 
 #: ../data/ui/initial-setup.ui.h:2
 msgid "Login to online accounts to access your tasks"
-msgstr "Bejelentkezés online fiókba a feladatai eléréséhez"
+msgstr "Jelentkezzen be online fiókokba a feladatai eléréséhez"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
 #: ../data/ui/window.ui.h:7 ../src/gtd-window.c:313
@@ -261,7 +261,7 @@ msgstr "Copyright © %d-%d A Tennivalók szerzői"
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
 #: ../src/gtd-window.c:693 ../src/gtd-window.c:1260
 msgid "To Do"
-msgstr "Teendő"
+msgstr "Tennivaló"
 
 #: ../src/gtd-application.c:108
 msgid "translator-credits"
@@ -269,7 +269,7 @@ msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
 
 #: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
-msgstr "Hiba a CSS, erőforrásból történő betöltése során"
+msgstr "Hiba a CSS erőforrásból történő betöltése során"
 
 #: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
@@ -305,11 +305,11 @@ msgstr "Hiba a feladat módosításakor"
 
 #: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
-msgstr "Nem sikerült a hitelesítő adatok bekérése"
+msgstr "Nem sikerült a hitelesítési adatok bekérése"
 
 #: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
-msgstr "Nem sikerült a hitelesítési adatok bekérése a következőnél:"
+msgstr "Nem sikerült a hitelesítési adatok bekérése a következőhöz:"
 
 #: ../src/gtd-manager.c:764
 msgid "Authentication failure"
@@ -342,7 +342,7 @@ msgstr "Nincsenek feladatok"
 #: ../src/gtd-task-list-view.c:201
 #, c-format
 msgid "Task <b>%s</b> removed"
-msgstr "A(z) <b>%s</b> feladat törölve"
+msgstr "A feladat (<b>%s</b>) törölve"
 
 #: ../src/gtd-task-list-view.c:221
 msgid "Undo"
@@ -393,3 +393,4 @@ msgstr "Ezen a számítógépen"
 #: ../src/storage/gtd-storage-local.c:133
 msgid "Local"
 msgstr "Helyi"
+
