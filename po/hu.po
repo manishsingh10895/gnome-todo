@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-01 14:49+0000\n"
-"PO-Revision-Date: 2015-09-01 21:30+0200\n"
-"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
-"Language-Team: Hungarian <gnome-hu-list@gnome.org>\n"
+"POT-Creation-Date: 2015-09-02 00:19+0000\n"
+"PO-Revision-Date: 2015-09-02 08:19+0200\n"
+"Last-Translator: Balázs Úr <urbalazs at gmail dot com>\n"
+"Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,6 +51,10 @@ msgstr "_Névjegy"
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "_Kilépés"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Befejezett feladat törlése…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -101,7 +105,7 @@ msgstr "Alapértelmezett hely, ahová az új listák kerülnek"
 msgid "The identifier of the default location to add new lists to"
 msgstr "Az alapértelmezett hely azonosítója, ahová az új listák kerülnek"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:812
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "Részletek"
 
@@ -146,12 +150,12 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Jelentkezzen be online fiókokba a feladatai eléréséhez"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:313
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "Mégse"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:340
 msgid "Done"
 msgstr "Kész"
 
@@ -165,7 +169,7 @@ msgstr "A listákhoz feladatokat a <b>Listák</b> nézetben adhat hozzá."
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
-msgstr "Befejezett feladatok mutatása vagy elrejtése"
+msgstr "Befejezett feladatok megjelenítése vagy elrejtése"
 
 #: ../data/ui/storage-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
@@ -227,12 +231,12 @@ msgstr "Új feladat…"
 msgid "Lists"
 msgstr "Listák"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:516
-#: ../src/gtd-window.c:521
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "Ma"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:516 ../src/gtd-window.c:521
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
 msgstr "Ütemezett"
 
@@ -259,7 +263,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d A Tennivalók szerzői"
 
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:693 ../src/gtd-window.c:1260
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "Tennivaló"
 
@@ -339,12 +343,12 @@ msgstr "Nem sikerült a feladatkezelő betöltése"
 msgid "No tasks"
 msgstr "Nincsenek feladatok"
 
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:251
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "A feladat (<b>%s</b>) törölve"
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:271
 msgid "Undo"
 msgstr "Visszavonás"
 
@@ -356,27 +360,27 @@ msgstr "Holnap"
 msgid "Yesterday"
 msgstr "Tegnap"
 
-#: ../src/gtd-window.c:306
+#: ../src/gtd-window.c:307
 msgid "Remove the selected task lists?"
 msgstr "Törli a kiválasztott feladatlistákat?"
 
-#: ../src/gtd-window.c:309
+#: ../src/gtd-window.c:310
 msgid "Once removed, the task lists cannot be recovered."
 msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
 
-#: ../src/gtd-window.c:321
+#: ../src/gtd-window.c:322
 msgid "Remove task lists"
 msgstr "Feladatlisták törlése"
 
-#: ../src/gtd-window.c:577
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
 msgstr "Új szín beállítása a feladatlistához"
 
-#: ../src/gtd-window.c:1119
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
 msgstr "Feladatlisták betöltése…"
 
-#: ../src/gtd-window.c:1247
+#: ../src/gtd-window.c:1256
 msgid "Click a task list to select"
 msgstr "Válasszon egy feladatlistát"
 
@@ -393,4 +397,3 @@ msgstr "Ezen a számítógépen"
 #: ../src/storage/gtd-storage-local.c:133
 msgid "Local"
 msgstr "Helyi"
-
