@@ -78,6 +78,9 @@ static void             gtd_task_list_view__clear_completed_tasks    (GSimpleAct
                                                                       GVariant          *parameter,
                                                                       gpointer           user_data);
 
+static void             gtd_task_list_view__remove_row_for_task      (GtdTaskListView   *view,
+                                                                      GtdTask           *task);
+
 static void             gtd_task_list_view__remove_task              (GtdTaskListView   *view,
                                                                       GtdTask           *task);
 
@@ -123,14 +126,22 @@ static void
 undo_remove_task_action (GtdNotification *notification,
                          gpointer         user_data)
 {
-  RemoveTaskData  *data = user_data;
-  GtdTaskList *list = gtd_task_get_list (data->task);
+  GtdTaskListViewPrivate *priv;
+  RemoveTaskData  *data;
+  GtdTaskList *list;
+
+  data = user_data;
+  priv = data->view->priv;
+  list = gtd_task_get_list (data->task);
 
   /*
    * This will emit GtdTaskList::task-added and we'll readd
    * to the list.
    */
   gtd_task_list_save_task (list, data->task);
+
+  if (priv->task_list != list)
+    gtd_task_list_save_task (priv->task_list, data->task);
 
   g_free (data);
 }
@@ -242,6 +253,7 @@ gtd_task_list_view__remove_task_cb (GtdEditPane *pane,
   GtdTaskListViewPrivate *priv;
   GtdNotification *notification;
   RemoveTaskData *data;
+  GtdTaskList *list;
   GtdWindow *window;
   gchar *text;
 
@@ -250,13 +262,24 @@ gtd_task_list_view__remove_task_cb (GtdEditPane *pane,
   priv = GTD_TASK_LIST_VIEW (user_data)->priv;
   text = g_strdup_printf (_("Task <b>%s</b> removed"), gtd_task_get_title (task));
   window = GTD_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (user_data)));
+  list = gtd_task_get_list (task);
 
   data = g_new0 (RemoveTaskData, 1);
   data->view = user_data;
   data->task = task;
 
   /* Remove the task from the list */
-  gtd_task_list_remove_task (gtd_task_get_list (task), task);
+  gtd_task_list_remove_task (list, task);
+
+  /*
+   * When we're dealing with the special lists (Today & Scheduled),
+   * the task's list is different from the current list. We want to
+   * remove the task from ~both~ lists.
+   */
+  if (priv->task_list != list)
+    gtd_task_list_remove_task (priv->task_list, task);
+
+  gtd_task_list_view__remove_row_for_task (GTD_TASK_LIST_VIEW (user_data), task);
 
   gtk_revealer_set_reveal_child (priv->edit_revealer, FALSE);
 
