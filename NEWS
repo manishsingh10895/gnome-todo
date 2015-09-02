@@ -1,4 +1,30 @@
 ================
+Version 3.17.91
+================
+
+Project:
+        * Add selection mode, which allows renaming and removing lists
+        * Add a "Clear completed tasks..." item in gear menu
+        * Update build system (Emmanuele Bassi)
+        * Lots of bugfixes and cleanups
+
+Translations:
+        * Catalan (Jordi Mas)
+        * Esperanto (Kristjan Schmidt)
+        * Galician (Fran Dieguez)
+        * Greek (Dimitris Spingos)
+        * Hebrew (Yosef Or Boczko)
+        * Hungarian (Balázs Meskó)
+        * Lithuanian (Aurimas Černius)
+        * Norwegian bokmal (Kjartan Maraas)
+        * Portuguese (Pedro Albuquerque)
+        * Polish (Pedro Albuquerque)
+        * Punjabi (A S Alam)
+        * Spanish (Daniel Mustieles)
+        * Slovak (Dušan Kazik)
+        * Turkish (Muhammet Kara)
+
+================
 Version 3.17.4
 ================
 

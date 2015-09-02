@@ -98,4 +98,9 @@ gtd-enum-types.h: gtd-enum-types.h.template $(ENUM_TYPES) $(GLIB_MKENUMS)
 CLEANFILES = \
 	$(BUILT_SOURCES)
 
+EXTRA_DIST = \
+    $(resource_files) \
+    gtd-enum-types.h.template \
+    gtd-enum-types.c.template
+
 -include $(top_srcdir)/git.mk
