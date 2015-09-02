@@ -5,7 +5,7 @@
 *.tab.c
 *~
 .*.sw[nop]
-*.deps
+.deps
 .dirstamp
 .gitignore
 GPATH
