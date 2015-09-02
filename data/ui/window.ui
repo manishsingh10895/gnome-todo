@@ -252,6 +252,23 @@
           </packing>
         </child>
         <child>
+          <object class="GtkMenuButton" id="gear_menu_button">
+            <property name="can_focus">True</property>
+            <style>
+              <class name="image-button" />
+            </style>
+            <child>
+              <object class="GtkImage">
+                <property name="visible">True</property>
+                <property name="icon_name">open-menu-symbolic</property>
+              </object>
+            </child>
+          </object>
+          <packing>
+            <property name="pack_type">end</property>
+          </packing>
+        </child>
+        <child>
           <object class="GtkToggleButton" id="select_button">
             <property name="visible" bind-source="back_button" bind-property="visible" bind-flags="default|invert-boolean|sync-create"/>
             <property name="can_focus">True</property>
@@ -267,7 +284,6 @@
           </object>
           <packing>
             <property name="pack_type">end</property>
-            <property name="position">3</property>
           </packing>
         </child>
         <child>
@@ -285,7 +301,6 @@
           </object>
           <packing>
             <property name="pack_type">end</property>
-            <property name="position">4</property>
           </packing>
         </child>
         <child>
@@ -296,7 +311,6 @@
           </object>
           <packing>
             <property name="pack_type">end</property>
-            <property name="position">4</property>
           </packing>
         </child>
       </object>

@@ -36,6 +36,7 @@ typedef struct
   GtkButton                     *back_button;
   GtkWidget                     *cancel_selection_button;
   GtkColorButton                *color_button;
+  GtkWidget                     *gear_menu_button;
   GtkHeaderBar                  *headerbar;
   GtkFlowBox                    *lists_flowbox;
   GtkStack                      *main_stack;
@@ -428,7 +429,7 @@ gtd_window__stack_visible_child_cb (GtdWindow *window)
 
   gtk_widget_set_visible (GTK_WIDGET (priv->search_button), is_list_view);
   gtk_widget_set_visible (GTK_WIDGET (priv->select_button), is_list_view);
-
+  gtk_widget_set_visible (priv->gear_menu_button, !is_list_view);
 }
 
 static void
@@ -872,11 +873,18 @@ static void
 gtd_window_constructed (GObject *object)
 {
   GtdWindowPrivate *priv = GTD_WINDOW (object)->priv;
+  GtkApplication *app;
+  GMenu *menu;
 
   G_OBJECT_CLASS (gtd_window_parent_class)->constructed (object);
 
   /* load stored size */
   gtd_window__load_geometry (GTD_WINDOW (object));
+
+  /* gear menu */
+  app = GTK_APPLICATION (g_application_get_default ());
+  menu = gtk_application_get_menu_by_id (app, "gear-menu");
+  gtk_menu_button_set_menu_model (GTK_MENU_BUTTON (priv->gear_menu_button), G_MENU_MODEL (menu));
 
   gtk_flow_box_set_sort_func (priv->lists_flowbox,
                               (GtkFlowBoxSortFunc) gtd_window__flowbox_sort_func,
@@ -1076,6 +1084,7 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, back_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, cancel_selection_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, color_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, gear_menu_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, headerbar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, lists_flowbox);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, list_view);
