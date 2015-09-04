@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-27 01:59+0000\n"
-"PO-Revision-Date: 2015-08-30 11:55+0300\n"
+"POT-Creation-Date: 2015-09-02 00:19+0000\n"
+"PO-Revision-Date: 2015-09-04 16:51+0300\n"
 "Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
 "Language-Team: www.gnome.gr\n"
 "Language: el\n"
@@ -52,6 +52,10 @@ msgstr "_Περί"
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "Έ_ξοδος"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Εκκαθάριση ολοκληρωμένων εργασιών…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -104,7 +108,7 @@ msgstr "Προεπιλεγμένη θέση για προσθήκη νέων λ�
 msgid "The identifier of the default location to add new lists to"
 msgstr "Το αναγνωριστικό της προεπιλεγμένης θέσης για προσθήκη νέων λιστών"
 
-#: ../data/ui/edit-pane.ui.h:1
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "Λεπτομέρειες"
 
@@ -151,12 +155,12 @@ msgstr ""
 "σας"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:256
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "Άκυρο"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:340
 msgid "Done"
 msgstr "Έτοιμο"
 
@@ -235,12 +239,12 @@ msgstr "Νέα εργασία…"
 msgid "Lists"
 msgstr "Λίστες"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:459
-#: ../src/gtd-window.c:464
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "Σήμερα"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:459 ../src/gtd-window.c:464
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
 msgstr "Προγραμματισμένο"
 
@@ -256,22 +260,22 @@ msgstr "Νέα λίστα"
 msgid "Name of the task list"
 msgstr "Όνομα της λίστας εργασιών"
 
-#: ../src/gtd-application.c:92
+#: ../src/gtd-application.c:91
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Πνευματικά δικαιώματα © %d Οι συγγραφείς του Εργασίες"
 
-#: ../src/gtd-application.c:97
+#: ../src/gtd-application.c:96
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Πνευματικά δικαιώματα © %d–%d Οι συγγραφείς του Εργασίες"
 
-#: ../src/gtd-application.c:102 ../src/gtd-application.c:128
-#: ../src/gtd-window.c:623 ../src/gtd-window.c:1132
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "Εργασίες"
 
-#: ../src/gtd-application.c:109
+#: ../src/gtd-application.c:108
 msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα του GNOME\n"
@@ -281,454 +285,122 @@ msgstr ""
 "Για περισσότερες πληροφορίες, επισκεφθείτε τη σελίδα\n"
 "http://gnome.gr/"
 
-#: ../src/gtd-application.c:217
+#: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
 msgstr "Σφάλμα κατά τη φόρτωση CSS από την πηγή"
 
-#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Δεν ορίστηκε ημερομηνία"
 
-#: ../src/gtd-edit-pane.c:248
-msgid "Manager of this application"
-msgstr "Διαχειριστής αυτής της εφαρμογής"
-
-#: ../src/gtd-edit-pane.c:249
-msgid "The manager of the application"
-msgstr "Ο διαχειριστής της εφαρμογής"
-
-#: ../src/gtd-edit-pane.c:262
-msgid "Task being edited"
-msgstr "Η εργασία προστέθηκε"
-
-#: ../src/gtd-edit-pane.c:263
-msgid "The task that is actually being edited"
-msgstr "Η εργασία που επεξεργάστηκε στην πραγματικότητα"
-
-#: ../src/gtd-initial-setup-window.c:213
-msgid "Manager of the task"
-msgstr "Ο διαχειριστής της εργασίας"
-
-#: ../src/gtd-initial-setup-window.c:214
-msgid "The singleton manager instance of the task"
-msgstr "Το μοναδικό στιγμιότυπο διαχειριστή της εργασίας"
-
-#: ../src/gtd-manager.c:373
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
 msgid "Error loading GNOME Online Accounts"
 msgstr "Σφάλμα κατά τη φόρτωση των διαδικτυακών λογαριασμών του GNOME"
 
-#: ../src/gtd-manager.c:401 ../src/gtd-task-list.c:87
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
 msgstr "Σφάλμα κατά την αποθήκευση της λίστας εργασιών"
 
-#: ../src/gtd-manager.c:420
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
 msgid "Error removing task list"
 msgstr "Σφάλμα κατά την αφαίρεση της λίστας εργασιών"
 
-#: ../src/gtd-manager.c:444
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
 msgid "Error creating task list"
 msgstr "Σφάλμα κατά τη δημιουργία λίστας εργασιών"
 
-#: ../src/gtd-manager.c:505
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
 msgid "Error creating task"
 msgstr "Σφάλμα κατά τη δημιουργία εργασίας"
 
-#: ../src/gtd-manager.c:568
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
 msgid "Error removing task"
 msgstr "Σφάλμα κατά την αφαίρεση εργασίας"
 
-#: ../src/gtd-manager.c:620
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
 msgstr "Σφάλμα κατά την ενημέρωση εργασίας"
 
-#: ../src/gtd-manager.c:649
+#: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
 msgstr "Αποτυχία προτροπής για διαπιστευτήρια"
 
-#: ../src/gtd-manager.c:672
+#: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
 msgstr "Αποτυχία προτροπής για διαπιστευτήρια για"
 
-#: ../src/gtd-manager.c:724
+#: ../src/gtd-manager.c:764
 msgid "Authentication failure"
 msgstr "Αποτυχία πιστοποίησης"
 
-#: ../src/gtd-manager.c:788
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
 msgstr "Σφάλμα κατά την προσκόμιση εργασιών από την λίστα"
 
-#: ../src/gtd-manager.c:854
+#: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
 msgstr "Η λίστα εργασιών συνδέθηκε με επιτυχία"
 
-#: ../src/gtd-manager.c:861
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
 msgstr "Αποτυχία σύνδεσης με την πηγή της λίστας εργασιών"
 
-#: ../src/gtd-manager.c:891
+#: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
 msgstr "Παράλειψη της ήδη φορτωμένης λίστας εργασιών "
 
-#: ../src/gtd-manager.c:929
+#: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
 msgstr "Σφάλμα κατά τη φόρτωση του διαχειριστή εργασιών"
 
-#: ../src/gtd-manager.c:1090
-msgid "The online accounts client of the manager"
-msgstr "Ο πελάτης διαδικτυακών λογαριασμών για τον διαχειριστή"
-
-#: ../src/gtd-manager.c:1091
-msgid ""
-"The read-only GNOME online accounts client loaded and owned by the manager"
-msgstr ""
-"Ο μόνο για ανάγνωση πελάτης διαδικτυακών λογαριασμών του GNOME φορτώθηκε και "
-"κατέχεται από τον διαχειριστή"
-
-#: ../src/gtd-manager.c:1104
-msgid "Whether GNOME Online Accounts client is ready"
-msgstr "Αν είναι έτοιμος ο πελάτης διαδικτυακών λογαριασμών του GNOME"
-
-#: ../src/gtd-manager.c:1105
-msgid "Whether the read-only GNOME online accounts client is loaded"
-msgstr ""
-"Αν ο μόνο για ανάγνωση πελάτης διαδικτυακών λογαριασμών του GNOME είναι "
-"φορτωμένος"
-
-#: ../src/gtd-manager.c:1118
-msgid "The source registry of the manager"
-msgstr "Το μητρώο προέλευσης του διαχειριστή"
-
-#: ../src/gtd-manager.c:1119
-msgid "The read-only source registry loaded and owned by the manager"
-msgstr ""
-"Το μητρώο προέλευσης μόνο για ανάγνωση φορτώθηκε και κατέχεται από τον "
-"διαχειριστή"
-
-#: ../src/gtd-object.c:152
-msgid "Unique identifier of the object"
-msgstr "Μοναδικό αναγνωριστικό του αντικειμένου"
-
-#: ../src/gtd-object.c:153
-msgid "The unique identifier of the object, defined by the backend"
-msgstr ""
-"Το μοναδικό αναγνωριστικό του αντικειμένου, ορίστηκε από το σύστημα "
-"υποστήριξης"
-
-#: ../src/gtd-object.c:166
-msgid "Ready state of the object"
-msgstr "Κατάσταση ετοιμότητας του αντικειμένου"
-
-#: ../src/gtd-object.c:167
-msgid "Whether the object is marked as ready or not"
-msgstr "Αν το αντικείμενο είναι σημειωμένο ως έτοιμο ή όχι"
-
-#: ../src/gtd-task.c:254
-msgid "Whether the task is completed or not"
-msgstr "Αν η εργασία είναι ολοκληρωμένη ή όχι"
-
-#: ../src/gtd-task.c:255
-msgid "Whether the task is marked as completed by the user"
-msgstr "Αν η εργασία είναι σημειωμένη ως ολοκληρωμένη από τον χρήστη"
-
-#: ../src/gtd-task.c:268
-msgid "Component of the task"
-msgstr "Συστατικό στοιχείο της εργασίας"
-
-#: ../src/gtd-task.c:269
-msgid "The #ECalComponent this task handles."
-msgstr "Το #ECalComponent που χειρίζεται αυτή η εργασία."
-
-#: ../src/gtd-task.c:282
-msgid "Description of the task"
-msgstr "Περιγραφή της εργασίας"
-
-#: ../src/gtd-task.c:283
-msgid "Optional string describing the task"
-msgstr "Προαιρετική συμβολοσειρά που περιγράφει την εργασία"
-
-#: ../src/gtd-task.c:297
-msgid "End date of the task"
-msgstr "Τελευταία ημερομηνία της εργασίας"
-
-#: ../src/gtd-task.c:298
-msgid "The day the task is supposed to be completed"
-msgstr "Η ημέρα που υποτίθεται ότι η εργασία θα ολοκληρωθεί"
-
-#: ../src/gtd-task.c:311
-msgid "List of the task"
-msgstr "Λίστα των εργασιών"
-
-#: ../src/gtd-task.c:312
-msgid "The list that owns this task"
-msgstr "Η λίστα που περιλαμβάνει αυτήν την εργασία"
-
-#: ../src/gtd-task.c:325
-msgid "Priority of the task"
-msgstr "Προτεραιότητα της εργασίας"
-
-#: ../src/gtd-task.c:326
-msgid ""
-"The priority of the task. 0 means no priority set, and tasks will be sorted "
-"alphabetically."
-msgstr ""
-"Η προτεραιότητα της εργασίας. 0 σημαίνει χωρίς ορισμένη προτεραιότητα και οι "
-"εργασίες θα ταξινομηθούν αλφαβητικά."
-
-#: ../src/gtd-task.c:341
-msgid "Title of the task"
-msgstr "Τίτλος της εργασίας"
-
-#: ../src/gtd-task.c:342
-msgid "The title of the task"
-msgstr "Ο τίτλος της εργασίας"
-
-#: ../src/gtd-task-list.c:264
-msgid "Color of the list"
-msgstr "Χρώμα της λίστας"
-
-#: ../src/gtd-task-list.c:265
-msgid "The color of the list"
-msgstr "Το χρώμα της λίστας"
-
-#: ../src/gtd-task-list.c:278
-msgid "Whether the task list is removable"
-msgstr "Αν η λίστα εργασιών είναι αφαιρούμενη"
-
-#: ../src/gtd-task-list.c:279
-msgid "Whether the task list can be removed from the system"
-msgstr "Αν η λίστα εργασιών μπορεί να αφαιρεθεί από το σύστημα"
-
-#: ../src/gtd-task-list.c:292
-msgid "Name of the list"
-msgstr "Όνομα της λίστας"
-
-#: ../src/gtd-task-list.c:293
-msgid "The name of the list"
-msgstr "Το όνομα της λίστας"
-
-#: ../src/gtd-task-list.c:306
-msgid "Data origin of the list"
-msgstr "Τα αρχικά δεδομένα της λίστας"
-
-#: ../src/gtd-task-list.c:307
-msgid "The data origin location of the list"
-msgstr "Η θέση των αρχικών δεδομένων της λίστας"
-
-#: ../src/gtd-task-list.c:320
-msgid "Source of the list"
-msgstr "Η προέλευση της λίστας"
-
-#: ../src/gtd-task-list.c:321
-msgid "The parent source that handles the list"
-msgstr "Η γονική προέλευση που διαχειρίζεται την λίστα"
-
-#: ../src/gtd-task-list-item.c:236
+#: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
 msgstr "Χωρίς εργασίες"
 
-#: ../src/gtd-task-list-item.c:488
-msgid "Mode of this item"
-msgstr "Κατάσταση αυτού του στοιχείου"
-
-#: ../src/gtd-task-list-item.c:489
-msgid "The mode of this item, inherited from the parent's mode"
-msgstr ""
-"Η κατάσταση αυτού του στοιχείου, που κληρονομήθηκε από την γονική κατάσταση"
-
-#: ../src/gtd-task-list-item.c:503
-msgid "Whether the task list is selected"
-msgstr "Αν η λίστα εργασιών είναι επιλεγμένη"
-
-#: ../src/gtd-task-list-item.c:504
-msgid "Whether the task list is selected when in selection mode"
-msgstr "Αν η λίστα εργασιών είναι επιλεγμένη στην λειτουργία επιλογής"
-
-#: ../src/gtd-task-list-item.c:517
-msgid "Task list of the item"
-msgstr "Η λίστα εργασιών αυτού του αντικειμένου"
-
-#: ../src/gtd-task-list-item.c:518
-msgid "The task list associated with this item"
-msgstr "Η λίστα εργασιών που συσχετίζεται με αυτό το αντικείμενο"
-
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:251
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Η εργασία <b>%s</b> αφαιρέθηκε"
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:271
 msgid "Undo"
 msgstr "Αναίρεση"
 
-#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:925
-#: ../src/storage/gtd-storage-dialog.c:150
-#: ../src/storage/gtd-storage-popover.c:269
-#: ../src/storage/gtd-storage-selector.c:516
-msgid "Manager of this window's application"
-msgstr "Ο διαχειριστής αυτής της εφαρμογής του παραθύρου"
-
-#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:926
-#: ../src/storage/gtd-storage-dialog.c:151
-#: ../src/storage/gtd-storage-popover.c:270
-#: ../src/storage/gtd-storage-selector.c:517
-msgid "The manager of the window's application"
-msgstr "Ο διαχειριστής της εφαρμογής του παραθύρου"
-
-#: ../src/gtd-task-list-view.c:670
-msgid "Whether the list is readonly"
-msgstr "Αν η λίστα είναι μόνο για ανάγνωση"
-
-#: ../src/gtd-task-list-view.c:671
-msgid ""
-"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
-msgstr ""
-"Αν η λίστα είναι μόνο για ανάγνωση, π.χ. δεν εμφανίζεται στη νέα σειρά "
-"εργασιών, ή όχι"
-
-#: ../src/gtd-task-list-view.c:684
-msgid "Whether task rows show the list name"
-msgstr "Εάν οι σειρές εργασιών εμφανίζουν το όνομα της λίστας"
-
-#: ../src/gtd-task-list-view.c:685
-msgid "Whether task rows show the list name at the end of the row"
-msgstr ""
-"Αν οι σειρές εργασιών εμφανίζουν το όνομα της λίστας στο τέλος της σειράς"
-
-#: ../src/gtd-task-list-view.c:698
-msgid "Whether completed tasks are shown"
-msgstr "Αν θα εμφανίζονται οι ολοκληρωμένες εργασίες"
-
-#: ../src/gtd-task-list-view.c:699
-msgid "Whether completed tasks are visible or not"
-msgstr "Αν οι ολοκληρωμένες εργασίες είναι ορατές ή όχι"
-
-#: ../src/gtd-task-row.c:143
+#: ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "Αύριο"
 
-#: ../src/gtd-task-row.c:147
+#: ../src/gtd-task-row.c:148
 msgid "Yesterday"
 msgstr "Χθές"
 
-#: ../src/gtd-task-row.c:366
-msgid "If the row is used to add a new task"
-msgstr "Αν η σειρά χρησιμοποιείται για την προσθήκη μιας νέας εργασίας"
-
-#: ../src/gtd-task-row.c:367
-msgid "Whether the row is used to add a new task"
-msgstr "Αν η σειρά χρησιμοποιείται για την προσθήκη μιας νέας εργασίας"
-
-#: ../src/gtd-task-row.c:380
-msgid "Task of the row"
-msgstr "Εργασία της σειράς"
-
-#: ../src/gtd-task-row.c:381
-msgid "The task that this row represents"
-msgstr "Η εργασία που αυτή η σειρά απεικονίζει"
-
-#: ../src/gtd-window.c:249
+#: ../src/gtd-window.c:307
 msgid "Remove the selected task lists?"
 msgstr "Αφαίρεση των επιλεγμένων εργασιών;"
 
-#: ../src/gtd-window.c:252
+#: ../src/gtd-window.c:310
 msgid "Once removed, the task lists cannot be recovered."
 msgstr "Όταν αφαιρεθεί, οι λίστες εργασιών δεν μπορούν να ανακτηθούν."
 
-#: ../src/gtd-window.c:264
+#: ../src/gtd-window.c:322
 msgid "Remove task lists"
 msgstr "Αφαίρεση λιστών εργασιών"
 
-#: ../src/gtd-window.c:507
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
 msgstr "Ρύθμιση νέου χρώματος για την λίστα εργασιών"
 
-#: ../src/gtd-window.c:939
-msgid "Mode of this window"
-msgstr "Κατάσταση αυτού του παραθύρου"
-
-#: ../src/gtd-window.c:940
-msgid "The interaction mode of the window"
-msgstr "Η λειτουργία αλληλεπίδρασης του παραθύρου"
-
-#: ../src/gtd-window.c:991
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
 msgstr "Φορτώνονται οι λίστες εργασιών…"
 
-#: ../src/gtd-window.c:1119
+#: ../src/gtd-window.c:1256
 msgid "Click a task list to select"
 msgstr "Κάντε κλικ σε μια λίστα εργασιών για να την επιλέξετε"
-
-#: ../src/storage/gtd-storage.c:153
-msgid "Whether the storage is enabled"
-msgstr "Αν η αποθήκευση είναι ενεργή"
-
-#: ../src/storage/gtd-storage.c:154
-msgid "Whether the storage is available to be used."
-msgstr "Αν η αποθήκευση είναι διαθέσιμη να χρησιμοποιηθεί."
-
-#: ../src/storage/gtd-storage.c:167
-msgid "Icon of the storage"
-msgstr "Το εικονίδιο της αποθήκευσης"
-
-#: ../src/storage/gtd-storage.c:168
-msgid "The icon representing the storage location."
-msgstr "Το εικονίδιο αναπαριστά τη θέση αποθήκευσης."
-
-#: ../src/storage/gtd-storage.c:181
-msgid "Identifier of the storage"
-msgstr "Το αναγνωριστικό της αποθήκευσης"
-
-#: ../src/storage/gtd-storage.c:182
-msgid "The unique identifier of the storage location."
-msgstr "Το μοναδικό αναγνωριστικό της θέσης αποθήκευσης."
-
-#: ../src/storage/gtd-storage.c:195
-msgid "Whether the storage is the default"
-msgstr "Αν η αποθήκευση είναι η προεπιλογή"
-
-#: ../src/storage/gtd-storage.c:196
-msgid "Whether the storage is the default storage location to be used."
-msgstr ""
-"Αν η αποθήκευση είναι στην προεπιλεγμένη θέση αποθήκευσης που θα "
-"χρησιμοποιηθεί."
-
-#: ../src/storage/gtd-storage.c:209
-msgid "Name of the storage"
-msgstr "Όνομα της αποθήκευσης"
-
-#: ../src/storage/gtd-storage.c:210
-msgid "The user-visible name of the storage location."
-msgstr "Το όνομα που είναι ορατό από τον χρήστη της θέσης αποθήκευσης."
-
-#: ../src/storage/gtd-storage.c:223
-msgid "Name of the data provider of the storage"
-msgstr "Το όνομα του παρόχου δεδομένων της αποθήκευσης"
-
-#: ../src/storage/gtd-storage.c:224
-msgid "The user-visible name of the data provider of the storage location."
-msgstr "Το εμφανές όνομα του παρόχου δεδομένων της θέσης αποθήκευσης."
 
 #: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 msgid "Error creating new task list"
 msgstr "Σφάλμα κατά τη δημιουργία νέας λίστας εργασιών"
-
-#: ../src/storage/gtd-storage-goa.c:222
-#| msgid "Parent of the storage"
-msgid "GoaObject of the storage"
-msgstr "GoaObject της αποθήκευσης"
-
-#: ../src/storage/gtd-storage-goa.c:223
-#| msgid "The provider type of the storage location."
-msgid "The GoaObject this storage location represents."
-msgstr "Το GoaObject που αντιπροσωπεύει αυτή η θέση αποθήκευσης."
-
-#: ../src/storage/gtd-storage-goa.c:236
-msgid "Parent of the storage"
-msgstr "Γονικό της αποθήκευσης"
-
-#: ../src/storage/gtd-storage-goa.c:237
-msgid "The parent source identifier of the storage location."
-msgstr "Το γονικό αναγνωριστικό πηγής της θέσης αποθήκευσης."
 
 #. Create task list
 #: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
@@ -739,87 +411,321 @@ msgstr "Σε αυτό τον υπολογιστή"
 msgid "Local"
 msgstr "Τοπικά"
 
-#: ../src/storage/gtd-storage-row.c:148
-msgid "Storage of the row"
-msgstr "Αποθήκευση της σειράς"
+#~ msgid "Manager of this application"
+#~ msgstr "Διαχειριστής αυτής της εφαρμογής"
 
-#: ../src/storage/gtd-storage-row.c:149
-msgid "The storage that this row holds"
-msgstr "Η αποθήκευση που κρατά αυτή η σειρά"
+#~ msgid "The manager of the application"
+#~ msgstr "Ο διαχειριστής της εφαρμογής"
 
-#: ../src/storage/gtd-storage-selector.c:530
-msgid "Show local storage row"
-msgstr "Εμφάνιση της τοπικής σειράς αποθήκευσης"
+#~ msgid "Task being edited"
+#~ msgstr "Η εργασία προστέθηκε"
 
-#: ../src/storage/gtd-storage-selector.c:531
-msgid "Whether should show a local storage row instead of a checkbox"
-msgstr ""
-"Αν θα πρέπει να εμφανιστεί μια σειρά τοπικής αποθήκευσης αντί για ένα "
-"πλαίσιο επιλογής"
+#~ msgid "The task that is actually being edited"
+#~ msgstr "Η εργασία που επεξεργάστηκε στην πραγματικότητα"
 
-#: ../src/storage/gtd-storage-selector.c:544
-msgid "Show stub rows"
-msgstr "Εμφάνιση σειρών στελέχους"
+#~ msgid "Manager of the task"
+#~ msgstr "Ο διαχειριστής της εργασίας"
 
-#: ../src/storage/gtd-storage-selector.c:545
-msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
-"Αν θα πρέπει να εμφανιστούν οι σειρές στελέχους για λογαριασμούς που δεν "
-"προστέθηκαν"
+#~ msgid "The singleton manager instance of the task"
+#~ msgstr "Το μοναδικό στιγμιότυπο διαχειριστή της εργασίας"
 
-#: ../src/storage/gtd-storage-selector.c:558
-msgid "Selects default storage row"
-msgstr "Επιλέγει την προεπιλεγμένη σειρά αποθήκευσης"
+#~ msgid "The online accounts client of the manager"
+#~ msgstr "Ο πελάτης διαδικτυακών λογαριασμών για τον διαχειριστή"
 
-#: ../src/storage/gtd-storage-selector.c:559
-msgid "Whether should select the default storage row"
-msgstr "Αν θα πρέπει να επιλέξει την προεπιλεγμένη σειρά αποθήκευσης"
+#~ msgid ""
+#~ "The read-only GNOME online accounts client loaded and owned by the manager"
+#~ msgstr ""
+#~ "Ο μόνο για ανάγνωση πελάτης διαδικτυακών λογαριασμών του GNOME φορτώθηκε "
+#~ "και κατέχεται από τον διαχειριστή"
 
-#: ../src/notification/gtd-notification.c:181
-msgid "Whether the notification has a primary action"
-msgstr "Αν η ειδοποίηση έχει μια πρωτεύουσα ενέργεια"
+#~ msgid "Whether GNOME Online Accounts client is ready"
+#~ msgstr "Αν είναι έτοιμος ο πελάτης διαδικτυακών λογαριασμών του GNOME"
 
-#: ../src/notification/gtd-notification.c:182
-msgid ""
-"Whether the notification has the primary action, activated on timeout or "
-"dismiss"
-msgstr ""
-"Αν η ειδοποίηση έχει την πρωτεύουσα ενέργεια, ενεργοποιημένη στο όριο χρόνου "
-"ή απόρριψη"
+#~ msgid "Whether the read-only GNOME online accounts client is loaded"
+#~ msgstr ""
+#~ "Αν ο μόνο για ανάγνωση πελάτης διαδικτυακών λογαριασμών του GNOME είναι "
+#~ "φορτωμένος"
 
-#: ../src/notification/gtd-notification.c:196
-msgid "Whether the notification has a secondary action"
-msgstr "Αν η ειδοποίηση έχει μια δευτερεύουσα ενέργεια"
+#~ msgid "The source registry of the manager"
+#~ msgstr "Το μητρώο προέλευσης του διαχειριστή"
 
-#: ../src/notification/gtd-notification.c:197
-msgid ""
-"Whether the notification has the secondary action, activated by the user"
-msgstr ""
-"Αν η ειδοποίηση έχει τη δευτερεύουσα ενέργεια, ενεργοποιημένη από τον χρήστη"
+#~ msgid "The read-only source registry loaded and owned by the manager"
+#~ msgstr ""
+#~ "Το μητρώο προέλευσης μόνο για ανάγνωση φορτώθηκε και κατέχεται από τον "
+#~ "διαχειριστή"
 
-#: ../src/notification/gtd-notification.c:210
-msgid "Text of the secondary action button"
-msgstr "Κείμενο του κουμπιού της δευτερεύουσας ενέργειας"
+#~ msgid "Unique identifier of the object"
+#~ msgstr "Μοναδικό αναγνωριστικό του αντικειμένου"
 
-#: ../src/notification/gtd-notification.c:211
-msgid "The text of the secondary action button"
-msgstr "Το κείμενο του κουμπιού της δευτερεύουσας ενέργειας"
+#~ msgid "The unique identifier of the object, defined by the backend"
+#~ msgstr ""
+#~ "Το μοναδικό αναγνωριστικό του αντικειμένου, ορίστηκε από το σύστημα "
+#~ "υποστήριξης"
 
-#: ../src/notification/gtd-notification.c:224
-msgid "Notification message"
-msgstr "Μήνυμα ειδοποίησης"
+#~ msgid "Ready state of the object"
+#~ msgstr "Κατάσταση ετοιμότητας του αντικειμένου"
 
-#: ../src/notification/gtd-notification.c:225
-msgid "The main message of the notification"
-msgstr "Το κύριο μήνυμα της ειδοποίησης"
+#~ msgid "Whether the object is marked as ready or not"
+#~ msgstr "Αν το αντικείμενο είναι σημειωμένο ως έτοιμο ή όχι"
 
-#: ../src/notification/gtd-notification.c:238
-msgid "Notification timeout"
-msgstr "Το όριο χρόνου της ειδοποίησης"
+#~ msgid "Whether the task is completed or not"
+#~ msgstr "Αν η εργασία είναι ολοκληρωμένη ή όχι"
 
-#: ../src/notification/gtd-notification.c:239
-msgid "The time the notification is displayed"
-msgstr "Ο χρόνος που εμφανίζεται η ειδοποίηση"
+#~ msgid "Whether the task is marked as completed by the user"
+#~ msgstr "Αν η εργασία είναι σημειωμένη ως ολοκληρωμένη από τον χρήστη"
+
+#~ msgid "Component of the task"
+#~ msgstr "Συστατικό στοιχείο της εργασίας"
+
+#~ msgid "The #ECalComponent this task handles."
+#~ msgstr "Το #ECalComponent που χειρίζεται αυτή η εργασία."
+
+#~ msgid "Description of the task"
+#~ msgstr "Περιγραφή της εργασίας"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "Προαιρετική συμβολοσειρά που περιγράφει την εργασία"
+
+#~ msgid "End date of the task"
+#~ msgstr "Τελευταία ημερομηνία της εργασίας"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "Η ημέρα που υποτίθεται ότι η εργασία θα ολοκληρωθεί"
+
+#~ msgid "List of the task"
+#~ msgstr "Λίστα των εργασιών"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "Η λίστα που περιλαμβάνει αυτήν την εργασία"
+
+#~ msgid "Priority of the task"
+#~ msgstr "Προτεραιότητα της εργασίας"
+
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "Η προτεραιότητα της εργασίας. 0 σημαίνει χωρίς ορισμένη προτεραιότητα και "
+#~ "οι εργασίες θα ταξινομηθούν αλφαβητικά."
+
+#~ msgid "Title of the task"
+#~ msgstr "Τίτλος της εργασίας"
+
+#~ msgid "The title of the task"
+#~ msgstr "Ο τίτλος της εργασίας"
+
+#~ msgid "Color of the list"
+#~ msgstr "Χρώμα της λίστας"
+
+#~ msgid "The color of the list"
+#~ msgstr "Το χρώμα της λίστας"
+
+#~ msgid "Whether the task list is removable"
+#~ msgstr "Αν η λίστα εργασιών είναι αφαιρούμενη"
+
+#~ msgid "Whether the task list can be removed from the system"
+#~ msgstr "Αν η λίστα εργασιών μπορεί να αφαιρεθεί από το σύστημα"
+
+#~ msgid "Name of the list"
+#~ msgstr "Όνομα της λίστας"
+
+#~ msgid "The name of the list"
+#~ msgstr "Το όνομα της λίστας"
+
+#~ msgid "Data origin of the list"
+#~ msgstr "Τα αρχικά δεδομένα της λίστας"
+
+#~ msgid "The data origin location of the list"
+#~ msgstr "Η θέση των αρχικών δεδομένων της λίστας"
+
+#~ msgid "Source of the list"
+#~ msgstr "Η προέλευση της λίστας"
+
+#~ msgid "The parent source that handles the list"
+#~ msgstr "Η γονική προέλευση που διαχειρίζεται την λίστα"
+
+#~ msgid "Mode of this item"
+#~ msgstr "Κατάσταση αυτού του στοιχείου"
+
+#~ msgid "The mode of this item, inherited from the parent's mode"
+#~ msgstr ""
+#~ "Η κατάσταση αυτού του στοιχείου, που κληρονομήθηκε από την γονική "
+#~ "κατάσταση"
+
+#~ msgid "Whether the task list is selected"
+#~ msgstr "Αν η λίστα εργασιών είναι επιλεγμένη"
+
+#~ msgid "Whether the task list is selected when in selection mode"
+#~ msgstr "Αν η λίστα εργασιών είναι επιλεγμένη στην λειτουργία επιλογής"
+
+#~ msgid "Task list of the item"
+#~ msgstr "Η λίστα εργασιών αυτού του αντικειμένου"
+
+#~ msgid "The task list associated with this item"
+#~ msgstr "Η λίστα εργασιών που συσχετίζεται με αυτό το αντικείμενο"
+
+#~ msgid "Manager of this window's application"
+#~ msgstr "Ο διαχειριστής αυτής της εφαρμογής του παραθύρου"
+
+#~ msgid "The manager of the window's application"
+#~ msgstr "Ο διαχειριστής της εφαρμογής του παραθύρου"
+
+#~ msgid "Whether the list is readonly"
+#~ msgstr "Αν η λίστα είναι μόνο για ανάγνωση"
+
+#~ msgid ""
+#~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr ""
+#~ "Αν η λίστα είναι μόνο για ανάγνωση, π.χ. δεν εμφανίζεται στη νέα σειρά "
+#~ "εργασιών, ή όχι"
+
+#~ msgid "Whether task rows show the list name"
+#~ msgstr "Εάν οι σειρές εργασιών εμφανίζουν το όνομα της λίστας"
+
+#~ msgid "Whether task rows show the list name at the end of the row"
+#~ msgstr ""
+#~ "Αν οι σειρές εργασιών εμφανίζουν το όνομα της λίστας στο τέλος της σειράς"
+
+#~ msgid "Whether completed tasks are shown"
+#~ msgstr "Αν θα εμφανίζονται οι ολοκληρωμένες εργασίες"
+
+#~ msgid "Whether completed tasks are visible or not"
+#~ msgstr "Αν οι ολοκληρωμένες εργασίες είναι ορατές ή όχι"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "Αν η σειρά χρησιμοποιείται για την προσθήκη μιας νέας εργασίας"
+
+#~ msgid "Whether the row is used to add a new task"
+#~ msgstr "Αν η σειρά χρησιμοποιείται για την προσθήκη μιας νέας εργασίας"
+
+#~ msgid "Task of the row"
+#~ msgstr "Εργασία της σειράς"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "Η εργασία που αυτή η σειρά απεικονίζει"
+
+#~ msgid "Mode of this window"
+#~ msgstr "Κατάσταση αυτού του παραθύρου"
+
+#~ msgid "The interaction mode of the window"
+#~ msgstr "Η λειτουργία αλληλεπίδρασης του παραθύρου"
+
+#~ msgid "Whether the storage is enabled"
+#~ msgstr "Αν η αποθήκευση είναι ενεργή"
+
+#~ msgid "Whether the storage is available to be used."
+#~ msgstr "Αν η αποθήκευση είναι διαθέσιμη να χρησιμοποιηθεί."
+
+#~ msgid "Icon of the storage"
+#~ msgstr "Το εικονίδιο της αποθήκευσης"
+
+#~ msgid "The icon representing the storage location."
+#~ msgstr "Το εικονίδιο αναπαριστά τη θέση αποθήκευσης."
+
+#~ msgid "Identifier of the storage"
+#~ msgstr "Το αναγνωριστικό της αποθήκευσης"
+
+#~ msgid "The unique identifier of the storage location."
+#~ msgstr "Το μοναδικό αναγνωριστικό της θέσης αποθήκευσης."
+
+#~ msgid "Whether the storage is the default"
+#~ msgstr "Αν η αποθήκευση είναι η προεπιλογή"
+
+#~ msgid "Whether the storage is the default storage location to be used."
+#~ msgstr ""
+#~ "Αν η αποθήκευση είναι στην προεπιλεγμένη θέση αποθήκευσης που θα "
+#~ "χρησιμοποιηθεί."
+
+#~ msgid "Name of the storage"
+#~ msgstr "Όνομα της αποθήκευσης"
+
+#~ msgid "The user-visible name of the storage location."
+#~ msgstr "Το όνομα που είναι ορατό από τον χρήστη της θέσης αποθήκευσης."
+
+#~ msgid "Name of the data provider of the storage"
+#~ msgstr "Το όνομα του παρόχου δεδομένων της αποθήκευσης"
+
+#~ msgid "The user-visible name of the data provider of the storage location."
+#~ msgstr "Το εμφανές όνομα του παρόχου δεδομένων της θέσης αποθήκευσης."
+
+#~| msgid "Parent of the storage"
+#~ msgid "GoaObject of the storage"
+#~ msgstr "GoaObject της αποθήκευσης"
+
+#~| msgid "The provider type of the storage location."
+#~ msgid "The GoaObject this storage location represents."
+#~ msgstr "Το GoaObject που αντιπροσωπεύει αυτή η θέση αποθήκευσης."
+
+#~ msgid "Parent of the storage"
+#~ msgstr "Γονικό της αποθήκευσης"
+
+#~ msgid "The parent source identifier of the storage location."
+#~ msgstr "Το γονικό αναγνωριστικό πηγής της θέσης αποθήκευσης."
+
+#~ msgid "Storage of the row"
+#~ msgstr "Αποθήκευση της σειράς"
+
+#~ msgid "The storage that this row holds"
+#~ msgstr "Η αποθήκευση που κρατά αυτή η σειρά"
+
+#~ msgid "Show local storage row"
+#~ msgstr "Εμφάνιση της τοπικής σειράς αποθήκευσης"
+
+#~ msgid "Whether should show a local storage row instead of a checkbox"
+#~ msgstr ""
+#~ "Αν θα πρέπει να εμφανιστεί μια σειρά τοπικής αποθήκευσης αντί για ένα "
+#~ "πλαίσιο επιλογής"
+
+#~ msgid "Show stub rows"
+#~ msgstr "Εμφάνιση σειρών στελέχους"
+
+#~ msgid "Whether should show stub rows for non-added accounts"
+#~ msgstr ""
+#~ "Αν θα πρέπει να εμφανιστούν οι σειρές στελέχους για λογαριασμούς που δεν "
+#~ "προστέθηκαν"
+
+#~ msgid "Selects default storage row"
+#~ msgstr "Επιλέγει την προεπιλεγμένη σειρά αποθήκευσης"
+
+#~ msgid "Whether should select the default storage row"
+#~ msgstr "Αν θα πρέπει να επιλέξει την προεπιλεγμένη σειρά αποθήκευσης"
+
+#~ msgid "Whether the notification has a primary action"
+#~ msgstr "Αν η ειδοποίηση έχει μια πρωτεύουσα ενέργεια"
+
+#~ msgid ""
+#~ "Whether the notification has the primary action, activated on timeout or "
+#~ "dismiss"
+#~ msgstr ""
+#~ "Αν η ειδοποίηση έχει την πρωτεύουσα ενέργεια, ενεργοποιημένη στο όριο "
+#~ "χρόνου ή απόρριψη"
+
+#~ msgid "Whether the notification has a secondary action"
+#~ msgstr "Αν η ειδοποίηση έχει μια δευτερεύουσα ενέργεια"
+
+#~ msgid ""
+#~ "Whether the notification has the secondary action, activated by the user"
+#~ msgstr ""
+#~ "Αν η ειδοποίηση έχει τη δευτερεύουσα ενέργεια, ενεργοποιημένη από τον "
+#~ "χρήστη"
+
+#~ msgid "Text of the secondary action button"
+#~ msgstr "Κείμενο του κουμπιού της δευτερεύουσας ενέργειας"
+
+#~ msgid "The text of the secondary action button"
+#~ msgstr "Το κείμενο του κουμπιού της δευτερεύουσας ενέργειας"
+
+#~ msgid "Notification message"
+#~ msgstr "Μήνυμα ειδοποίησης"
+
+#~ msgid "The main message of the notification"
+#~ msgstr "Το κύριο μήνυμα της ειδοποίησης"
+
+#~ msgid "Notification timeout"
+#~ msgstr "Το όριο χρόνου της ειδοποίησης"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "Ο χρόνος που εμφανίζεται η ειδοποίηση"
 
 #~ msgid "Provider type of the storage"
 #~ msgstr "Ο τύπος παρόχου της αποθήκευσης"
