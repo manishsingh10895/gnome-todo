@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-06 16:01+0200\n"
-"PO-Revision-Date: 2015-08-06 16:08+0200\n"
+"POT-Creation-Date: 2015-09-07 20:16+0200\n"
+"PO-Revision-Date: 2015-09-07 20:21+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -21,17 +21,17 @@ msgstr ""
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
 msgid "Todo"
-msgstr ""
+msgstr "Oppgaver"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
 msgid "Todo manager for GNOME"
-msgstr ""
+msgstr "Oppgaveliste for GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
-msgstr ""
+msgstr "GNOME oppgaver er et enkelt oppgavehåndteringsprogram som er integrert med GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -39,7 +39,7 @@ msgstr "Ny liste …"
 
 #: ../data/gtk/menus.ui.h:2
 msgid "Change default storage location…"
-msgstr ""
+msgstr "Endre forvalgt lagringslokasjon …"
 
 #: ../data/gtk/menus.ui.h:3
 msgid "_About"
@@ -48,6 +48,10 @@ msgstr "_Om"
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "A_vslutt"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Fjern fullført oppgave …"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -62,14 +66,12 @@ msgid "Window maximized"
 msgstr "Vinduet er maksimert"
 
 #: ../data/org.gnome.todo.gschema.xml.h:2
-#, fuzzy
 msgid "Window maximized state"
-msgstr "Om vinduet er maksimert"
+msgstr ""
 
 #: ../data/org.gnome.todo.gschema.xml.h:3
-#, fuzzy
 msgid "Window size"
-msgstr "Delt Windows-ressurs"
+msgstr "Vindustørrelse"
 
 #: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
@@ -100,7 +102,7 @@ msgstr ""
 msgid "The identifier of the default location to add new lists to"
 msgstr ""
 
-#: ../data/ui/edit-pane.ui.h:1
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "Detaljer"
 
@@ -132,7 +134,7 @@ msgstr "Middels"
 msgid "High"
 msgstr "Høy"
 
-#: ../data/ui/edit-pane.ui.h:9
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Slett"
 
@@ -145,11 +147,12 @@ msgid "Login to online accounts to access your tasks"
 msgstr ""
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Ferdig"
 
@@ -170,9 +173,8 @@ msgid "Select the default storage location to create task lists:"
 msgstr ""
 
 #: ../data/ui/storage-dialog.ui.h:2
-#, fuzzy
 msgid "Default storage location"
-msgstr "Meldingsadresse"
+msgstr "Forvalgt lagringslokasjon"
 
 #: ../data/ui/storage-popover.ui.h:1
 msgid "Create"
@@ -183,9 +185,8 @@ msgid "List Name"
 msgstr "Listenavn"
 
 #: ../data/ui/storage-popover.ui.h:4
-#, fuzzy
 msgid "Select a storage location"
-msgstr "Velg mål"
+msgstr "Velg en lagringslokasjon"
 
 #: ../data/ui/storage-row.ui.h:1
 msgid "Off"
@@ -200,9 +201,8 @@ msgid "Google"
 msgstr "Google"
 
 #: ../data/ui/storage-selector.ui.h:3
-#, fuzzy
 msgid "Click to add a new ownCloud account"
-msgstr "Klikk for å legge til et notat"
+msgstr "Klikk for å legge til en ny ownCloud-konto"
 
 #: ../data/ui/storage-selector.ui.h:4
 msgid "ownCloud"
@@ -210,7 +210,7 @@ msgstr "ownCloud"
 
 #: ../data/ui/storage-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
-msgstr ""
+msgstr "Klikk for å legge til en ny Microsoft Exchange-konto"
 
 #: ../data/ui/storage-selector.ui.h:6
 msgid "Microsoft Exchange"
@@ -218,7 +218,7 @@ msgstr "Microsoft Exchange"
 
 #: ../data/ui/storage-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
-msgstr ""
+msgstr "Eller du kan bare lagre dine oppgaver på denne datamaskinen"
 
 #: ../data/ui/task-row.ui.h:1
 msgid "New task…"
@@ -228,37 +228,43 @@ msgstr "Ny oppgave …"
 msgid "Lists"
 msgstr "Lister"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:133
-#: ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "I dag"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
-msgstr ""
+msgstr "Planlagt"
 
 #: ../data/ui/window.ui.h:4
 msgid "Rename"
 msgstr "Endre navn"
 
-#: ../data/ui/window.ui.h:5
+#: ../data/ui/window.ui.h:6
 msgid "New List"
 msgstr "Ny liste"
 
-#: ../src/gtd-application.c:90
-msgid "Copyright © %Id The To Do authors"
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Navn på oppgavelisten"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Opphavsrett © %d Oppgaveforfatterene"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
 msgstr ""
 
-#: ../src/gtd-application.c:95
-msgid "Copyright © %Id–%Id The To Do authors"
-msgstr ""
-
-#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
-#: ../src/gtd-window.c:297
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "Oppgaver"
 
-#: ../src/gtd-application.c:107
+#: ../src/gtd-application.c:108
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
@@ -266,511 +272,136 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 msgid "Error loading CSS from resource"
 msgstr ""
 
-#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Ingen dato satt"
 
-#: ../src/gtd-edit-pane.c:248
-msgid "Manager of this application"
-msgstr ""
-
-#: ../src/gtd-edit-pane.c:249
-#, fuzzy
-msgid "The manager of the application"
-msgstr "Br_uk samme skrifter som andre programmer"
-
-#: ../src/gtd-edit-pane.c:262
-msgid "Task being edited"
-msgstr ""
-
-#: ../src/gtd-edit-pane.c:263
-#, fuzzy
-msgid "The task that is actually being edited"
-msgstr "Denne oppgaven er slettet."
-
-#: ../src/gtd-initial-setup-window.c:213
-msgid "Manager of the task"
-msgstr ""
-
-#: ../src/gtd-initial-setup-window.c:214
-msgid "The singleton manager instance of the task"
-msgstr ""
-
-#: ../src/gtd-manager.c:375
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
 #, fuzzy
 msgid "Error loading GNOME Online Accounts"
 msgstr "Åpne k_ontoer på nettet"
 
-#: ../src/gtd-manager.c:403
-#, fuzzy
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
-msgstr "Feil ved lasting av oppgaveliste «{0}»"
+msgstr "Feil ved lagring av oppgaveliste"
 
-#: ../src/gtd-manager.c:430
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
 #, fuzzy
 msgid "Error removing task list"
 msgstr "Feil under fjerning av liste"
 
-#: ../src/gtd-manager.c:464
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+#, fuzzy
+msgid "Error creating task list"
+msgstr "Feil ved opretting av visning for oppgaveliste «{0}»"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
 #, fuzzy
 msgid "Error creating task"
 msgstr "Lager en oppgave"
 
-#: ../src/gtd-manager.c:527
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
 #, fuzzy
 msgid "Error removing task"
 msgstr "Feil under fjerning av liste"
 
-#: ../src/gtd-manager.c:579
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 #, fuzzy
 msgid "Error updating task"
 msgstr "Oppdaterer en oppgave"
 
-#: ../src/gtd-manager.c:608
+#: ../src/gtd-manager.c:689
 #, fuzzy
 msgid "Failed to prompt for credentials"
 msgstr "Klarte ikke å spørre etter påloggingsinformasjon for «{0}»"
 
-#: ../src/gtd-manager.c:631
+#: ../src/gtd-manager.c:712
 #, fuzzy
 msgid "Failed to prompt for credentials for"
 msgstr "Klarte ikke å spørre etter påloggingsinformasjon for «{0}»"
 
-#: ../src/gtd-manager.c:683
+#: ../src/gtd-manager.c:764
 msgid "Authentication failure"
 msgstr "Autentisering feilet"
 
-#: ../src/gtd-manager.c:747
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 #, fuzzy
 msgid "Error fetching tasks from list"
 msgstr "Feil ved lasting av oppgaveliste «{0}»"
 
-#: ../src/gtd-manager.c:813
+#: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
 msgstr ""
 
-#: ../src/gtd-manager.c:820
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 #, fuzzy
 msgid "Failed to connect to task list source"
 msgstr "Klarte ikke å koble til oppgaveliste «{0}»"
 
-#: ../src/gtd-manager.c:850
+#: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
 msgstr ""
 
-#: ../src/gtd-manager.c:888
+#: ../src/gtd-manager.c:977
 #, fuzzy
 msgid "Error loading task manager"
 msgstr "Feil ved lasting av oppgaveliste «{0}»"
 
-#: ../src/gtd-manager.c:1018
-msgid "Local"
-msgstr "Lokal"
-
-#: ../src/gtd-manager.c:1019
-msgid "On This Computer"
-msgstr "På denne datamaskinen"
-
-#: ../src/gtd-manager.c:1052
-msgid "The online accounts client of the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1053
-msgid ""
-"The read-only GNOME online accounts client loaded and owned by the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1066
-msgid "Whether GNOME Online Accounts client is ready"
-msgstr ""
-
-#: ../src/gtd-manager.c:1067
-msgid "Whether the read-only GNOME online accounts client is loaded"
-msgstr ""
-
-#: ../src/gtd-manager.c:1080
-msgid "The source registry of the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1081
-msgid "The read-only source registry loaded and owned by the manager"
-msgstr ""
-
-#: ../src/gtd-object.c:152
-msgid "Unique identifier of the object"
-msgstr ""
-
-#: ../src/gtd-object.c:153
-msgid "The unique identifier of the object, defined by the backend"
-msgstr ""
-
-#: ../src/gtd-object.c:166
-msgid "Ready state of the object"
-msgstr ""
-
-#: ../src/gtd-object.c:167
-msgid "Whether the object is marked as ready or not"
-msgstr ""
-
-#: ../src/gtd-task.c:254
-msgid "Whether the task is completed or not"
-msgstr ""
-
-#: ../src/gtd-task.c:255
-#, fuzzy
-msgid "Whether the task is marked as completed by the user"
-msgstr "Om statuslinjen skal være synlig."
-
-#: ../src/gtd-task.c:268
-#, fuzzy
-msgid "Component of the task"
-msgstr "Fullførte oppgaver"
-
-#: ../src/gtd-task.c:269
-msgid "The #ECalComponent this task handles."
-msgstr ""
-
-#: ../src/gtd-task.c:282
-#, fuzzy
-msgid "Description of the task"
-msgstr "Beskrivelse inneholder"
-
-#: ../src/gtd-task.c:283
-msgid "Optional string describing the task"
-msgstr ""
-
-#: ../src/gtd-task.c:297
-msgid "End date of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:298
-msgid "The day the task is supposed to be completed"
-msgstr ""
-
-#: ../src/gtd-task.c:311
-#, fuzzy
-msgid "List of the task"
-msgstr "Første dagen i uken"
-
-#: ../src/gtd-task.c:312
-msgid "The list that owns this task"
-msgstr ""
-
-#: ../src/gtd-task.c:325
-#, fuzzy
-msgid "Priority of the task"
-msgstr "Skriv ut denne oppgaven"
-
-#: ../src/gtd-task.c:326
-msgid ""
-"The priority of the task. 0 means no priority set, and tasks will be sorted "
-"alphabetically."
-msgstr ""
-
-#: ../src/gtd-task.c:341
-#, fuzzy
-msgid "Title of the task"
-msgstr "Skriv ut denne oppgaven"
-
-#: ../src/gtd-task.c:342
-msgid "The title of the task"
-msgstr ""
-
-#: ../src/gtd-task-list.c:152
-#, fuzzy
-msgid "Color of the list"
-msgstr "Kunne ikke åpne lenken."
-
-#: ../src/gtd-task-list.c:153
-msgid "The color of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:166
-msgid "Name of the list"
-msgstr "Navn på listen"
-
-#: ../src/gtd-task-list.c:167
-msgid "The name of the list"
-msgstr "Navnet på denne listen"
-
-#: ../src/gtd-task-list.c:180
-msgid "Data origin of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:181
-msgid "The data origin location of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:194
-msgid "Source of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:195
-msgid "The parent source that handles the list"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:231
+#: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
 msgstr "Ingen oppgaver"
 
-#: ../src/gtd-task-list-item.c:433
-msgid "Mode of this item"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:434
-msgid "The mode of this item, inherited from the parent's mode"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:449
-#, fuzzy
-msgid "Task list of the item"
-msgstr "Egenskaper for oppgaveliste"
-
-#: ../src/gtd-task-list-item.c:450
-msgid "The task list associated with this item"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr ""
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Angre"
 
-#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:516
-#: ../src/storage/gtd-storage-dialog.c:150
-#: ../src/storage/gtd-storage-popover.c:269
-#: ../src/storage/gtd-storage-selector.c:515
-msgid "Manager of this window's application"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:517
-#: ../src/storage/gtd-storage-dialog.c:151
-#: ../src/storage/gtd-storage-popover.c:270
-#: ../src/storage/gtd-storage-selector.c:516
-msgid "The manager of the window's application"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:670
-#, fuzzy
-msgid "Whether the list is readonly"
-msgstr "Om vinduet er maksimert"
-
-#: ../src/gtd-task-list-view.c:671
-msgid ""
-"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:684
-#, fuzzy
-msgid "Whether task rows show the list name"
-msgstr "Om forhåndsvisningsområdet skal vises."
-
-#: ../src/gtd-task-list-view.c:685
-#, fuzzy
-msgid "Whether task rows show the list name at the end of the row"
-msgstr "Hvorvidt notater skal vises ved redigering"
-
-#: ../src/gtd-task-list-view.c:698
-#, fuzzy
-msgid "Whether completed tasks are shown"
-msgstr "Slett fullførte oppgaver"
-
-#: ../src/gtd-task-list-view.c:699
-#, fuzzy
-msgid "Whether completed tasks are visible or not"
-msgstr "Om fullførte oppgaver skal skjules i oppgavevisningen"
-
-#: ../src/gtd-task-row.c:143
+#: ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "I morgen"
 
-#: ../src/gtd-task-row.c:147
+#: ../src/gtd-task-row.c:148
 msgid "Yesterday"
 msgstr "I går"
 
-#: ../src/gtd-task-row.c:366
-#, fuzzy
-msgid "If the row is used to add a new task"
-msgstr "%s forespør å legge til informasjon i eksisterende oppgave gjennom %s:"
-
-#: ../src/gtd-task-row.c:367
-msgid "Whether the row is used to add a new task"
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
 msgstr ""
 
-#: ../src/gtd-task-row.c:380
-msgid "Task of the row"
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
 msgstr ""
 
-#: ../src/gtd-task-row.c:381
-msgid "The task that this row represents"
-msgstr ""
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Fjern oppgavelister"
 
-#: ../src/gtd-window.c:181
-#, fuzzy
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
-msgstr "Lager visning for oppgaveliste «%s»"
+msgstr "Setter ny farge for oppgaveliste"
 
-#: ../src/gtd-window.c:552
-#, fuzzy
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
-msgstr "Lager visning for oppgaveliste «%s»"
+msgstr "Laster dine oppgavelister …"
 
-#: ../src/storage/gtd-storage.c:189
-#, fuzzy
-msgid "Whether the storage is enabled"
-msgstr "Om vinduet er maksimert"
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Klikk på en oppgaveliste for å velge den"
 
-#: ../src/storage/gtd-storage.c:190
-#, fuzzy
-msgid "Whether the storage is available to be used."
-msgstr "Om statuslinjen skal være synlig."
-
-#: ../src/storage/gtd-storage.c:203
-msgid "Icon of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:204
-msgid "The icon representing the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:217
-msgid "Identifier of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:218
-msgid "The unique identifier of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:231
-#, fuzzy
-msgid "Whether the storage is the default"
-msgstr "Hvorvidt notater skal vises ved redigering"
-
-#: ../src/storage/gtd-storage.c:232
-msgid "Whether the storage is the default storage location to be used."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:245
-msgid "Name of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:246
-msgid "The user-visible name of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:259
-msgid "Parent of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:260
-msgid "The parent source identifier of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:273
-msgid "Provider type of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:274
-#, fuzzy
-msgid "The provider type of the storage location."
-msgstr "Velg mapper meldingen skal postes til."
-
-#: ../src/storage/gtd-storage.c:287
-msgid "Provider name of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:288
-msgid "The name of the provider of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:680
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 #, fuzzy
 msgid "Error creating new task list"
 msgstr "Feil ved opretting av visning for oppgaveliste «{0}»"
 
-#: ../src/storage/gtd-storage-row.c:148
-msgid "Storage of the row"
-msgstr ""
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "På denne datamaskinen"
 
-#: ../src/storage/gtd-storage-row.c:149
-msgid "The storage that this row holds"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:529
-#, fuzzy
-msgid "Show local storage row"
-msgstr "Vis alle meldingshoder"
-
-#: ../src/storage/gtd-storage-selector.c:530
-msgid "Whether should show a local storage row instead of a checkbox"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:543
-#, fuzzy
-msgid "Show stub rows"
-msgstr "Vis som liste"
-
-#: ../src/storage/gtd-storage-selector.c:544
-msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:557
-msgid "Selects default storage row"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:558
-#, fuzzy
-msgid "Whether should select the default storage row"
-msgstr "Undersøk om Evolution er den forvalgte e-postklienten"
-
-#: ../src/notification/gtd-notification.c:181
-#, fuzzy
-msgid "Whether the notification has a primary action"
-msgstr "Hvorvidt varslingsfeltet skal brukes for påminnelser på skjermen"
-
-#: ../src/notification/gtd-notification.c:182
-msgid ""
-"Whether the notification has the primary action, activated on timeout or "
-"dismiss"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:196
-#, fuzzy
-msgid "Whether the notification has a secondary action"
-msgstr "Hvorvidt varslingsfeltet skal brukes for påminnelser på skjermen"
-
-#: ../src/notification/gtd-notification.c:197
-msgid ""
-"Whether the notification has the secondary action, activated by the user"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:210
-#, fuzzy
-msgid "Text of the secondary action button"
-msgstr "Vis den andre tidssonen"
-
-#: ../src/notification/gtd-notification.c:211
-msgid "The text of the secondary action button"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:224
-#, fuzzy
-msgid "Notification message"
-msgstr "Varsling om ny e-post"
-
-#: ../src/notification/gtd-notification.c:225
-msgid "The main message of the notification"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:238
-#, fuzzy
-msgid "Notification timeout"
-msgstr "Varsling om ny e-post"
-
-#: ../src/notification/gtd-notification.c:239
-#, fuzzy
-msgid "The time the notification is displayed"
-msgstr "Slår av/på visning av tidssone"
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Lokal"
