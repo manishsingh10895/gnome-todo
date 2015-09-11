@@ -1,0 +1,401 @@
+# Finnish translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Jiri Grönroos <jiri.gronroos+l10n@iki.fi>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-05 08:33+0000\n"
+"PO-Revision-Date: 2015-09-06 13:58+0300\n"
+"Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
+"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Gtranslator 2.91.6\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Tehtävälista"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Tehtävien hallinta Gnomelle"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"Gnomen tehtäväsovellus on helppokäyttöinen työkalu tehtävien hallintaan."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Uusi lista…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Muuta tallennustilan oletussijaintia…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Tietoja"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Lopeta"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Tyhjennä valmistunut tehtävä…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Hallitse omia tehtäviäsi"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Task;Productivity;tehtävä;tuottavuus;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Ikkuna suurennettu"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Ikkunan suurennettu tila"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Ikkunan koko"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Ikkunan koko (leveys ja korkeus)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Ikkunan sijainti"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Ikkunan sijainti (x ja y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Gnomen tehtävien ensimmäinen käynnistyskerta"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Käynnistetäänkö Gnomen tehtäväsovellus ensimmäistä kertaa vai ei (eli "
+"käynnistetäänkö ensikerran toimenpiteet)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Oletussijainti, johon uudet listat lisätään"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Tunniste oletussijainnille, johon uudet listat lisätään"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Tiedot"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Huomautukset"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Eräpäivä"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioriteetti"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Ei mitään"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Matala"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Normaali"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Korkea"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Poista"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Tervetuloa"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Kirjaudu verkkotileihisi käyttääksesi tehtävälistoja"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Peru"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Valmis"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Tehtäviä ei löytynyt"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Voit lisätä tehtäviä listoihin <b>Listat</b>-näkymässä"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Näytä tai piilota valmistuneet tehtävät"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Valitse tallennustilan oletussijainti luodaksesi tehtävälistoja:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Tallennustilan oletussijainti"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Luo"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Listan nimi"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Valitse tallennustilan sijainti"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Pois"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Napsauta lisätäksesi Google-tilin"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Napsauta lisätäksesi ownCloud-tilin"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Napsauta lisätäksesi Microsoft Exchange -tilin"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Tai halutessasi voit tallettaa tehtäväsi tälle tietokoneelle"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Uusi tehtävä…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Listat"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "Tänään"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Ajastetut"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Nimeä uudelleen"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Uusi lista"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Tehtävälistan nimi"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Tekijänoikeus © %d The To Do -sovelluksen tekijät"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Tekijänoikeus © %d–%d The To Do -sovelluksen tekijät"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "Tehtävät"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "Jiri Grönroos"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Virhe ladatessa CSS:ää resurssista"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Päivää ei ole asetettu"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Virhe ladatessa Gnomen verkkotilejä"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Virhe tehtävälistaa tallennettaessa"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Virhe tehtävälistaa poistaessa"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Virhe tehtävälistaa luotaessa"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Virhe tehtävää luotaessa"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Virhe tehtävää poistaessa"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Virhe tehtävää päivittäessä"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Käyttäjätunnuksen kysely epäonnistui"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Käyttäjätunnuksen kysely epäonnistui käyttäjälle"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Tunnistautumisvirhe"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Virhe hakiessa tehtäviä listalta"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Tehtävälistan lähde yhdistetty onnistuneesti"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Yhteys tehtävälistan lähteeseen epäonnistui"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Ohitetaan jo ladattu tehtävälista"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Virhe tehtävähallintaa ladatessa"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Ei tehtäviä"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Tehtävä <b>%s<b> poistettu"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Kumoa"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Huomenna"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Eilen"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Poistetaanko valitut tehtävälistat?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Kun tehtävälistat on poistettu, niitä ei voi palauttaa."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Poista tehtävälistat"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Asetetaan uusi väri tehtävälistalle"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Ladataan tehtävälistoja…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Napsauta tehtävälistaa valitaksesi"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Virhe luotaessa uutta tehtävälistaa"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Tällä tietokoneella"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Paikallinen"
