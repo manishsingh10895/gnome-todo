@@ -1,0 +1,399 @@
+# Korean translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Seong-ho Cho <shcho@gnome.org>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-04 08:34+0000\n"
+"PO-Revision-Date: 2015-09-04 23:52+0900\n"
+"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"Language-Team: Korean <gnome-kr@googlegroups.com>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.5.5\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "할 일 목록"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "그놈용 할 일 목록 관리자"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"그놈 할 일 목록은 그놈에 통합하도록 설계한 단순한 할 일 관리자 프로그램입니"
+"다."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "새 목록…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "기본 저장소 위치 바꾸기…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "정보(_A)"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "끝내기(_Q)"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "끝낸 일 지우기…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "개인 할 일을 관리합니다"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Task;할 일;Productivity;생산성;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "창 최대화"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "창 최대화 상태"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "창 크기"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "창 크기(너비 및 높이)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "창 위치"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "창 위치(가로 및 세로)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "그놈 할 일 목록 첫 실행"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr "그놈 할 일 목록을 처음 실행하든 아니든(초기 설정을 실행합니다)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "새 목록을 추가할 기본 위치"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "새 목록을 추가할 기본 위치 식별자입니다"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "세부 내용"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "참고"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "기한"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "우선순위"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "없음"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "낮음"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "보통"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "높음"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "삭제"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "반갑습니다"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "할 일 목록을 보려면 온라인 계정에 로그인하십시오"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "취소"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "완료"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "할 일 없음"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "<b>목록</b> 보기에서 할 일을 목록에 추가할 수 있습니다"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "완료 일정 표시하거나 숨기기"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "할 일 목록을 만들 기본 저장소 위치를 선택하십시오:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "기본 저장소 위치"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "만들기"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "목록 이름"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "저장소 위치 선택"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "끔"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "새 구글 계정을 추가하려면 누르십시오"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "구글"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "새 ownCloud 계정을 추가하려면 누르십시오"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "새 마이크로소프트 익스체인지 계정을 추가하려면 누르십시오"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "마이크로소프트 익스체인지"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "또는 이 컴퓨터에 할 일을 저장할 수 있습니다."
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "새 할 일…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "목록"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "오늘"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "일정"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "이름 바꾸기"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "새 목록"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "할 일 목록의 이름"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d 할 일 목록 작성자"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d 할 일 목록 작성자"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "할 일 목록"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "조성호 <shcho@gnome.org>"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "CSS 자원을 불러오는 중 오류 발생"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "날짜를 설정하지 않았습니다"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "그놈 온라인 계정을 불러오는 중 오류 발생"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "할 일 목록 저장 중 오류 발생"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "할 일 목록 제거 중 오류 발생"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "할 일 목록 만드는 중 오류 발생"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "할 일을 만드는 중 오류 발생"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "할 일을 제거하는 중 오류 발생"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "할 일을 업데이트하는 중 오류 발생"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "인증 질의 처리에 실패했습니다"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "인증 대상의 질의 처리에 실패했습니다"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "인증에 실패했습니다"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "목록에서 할 일을 가져오는 중 오류 발생"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "할 일 목록 원본에 성공적으로 연결했습니다"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "할 일 목록 원본 연결에 실패했습니다"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "이미 불러온 할 일 목록 건너뛰는 중"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "할 일 관리자를 불러오는 중 오류 발생"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "할 일 없음"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "<b>%s</b> 할 일을 제거했습니다"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "실행 취소"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "내일"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "어제"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "선택한 할 일 목록을 제거하시겠습니까?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "한 번 제거하면 할 일 목록을 되살릴 수 없습니다."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "할 일 목록 제거"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "할 일 목록 색상 설정"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "할 일 목록 불러오는 중…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "할 일 목록을 선택하려면 누르십시오"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "새 할 일 목록을 만드는 중 오류 발생"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "이 컴퓨터에서"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "로컬"
