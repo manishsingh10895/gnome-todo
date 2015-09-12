@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-01 08:33+0000\n"
-"PO-Revision-Date: 2015-09-01 17:13+0000\n"
+"POT-Creation-Date: 2015-09-12 08:40+0000\n"
+"PO-Revision-Date: 2015-09-06 03:48+0000\n"
 "Last-Translator: Muhammet Kara <muhammetk@gmail.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "Language: tr\n"
@@ -48,6 +48,10 @@ msgstr "_Hakkında"
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "_Çıkış"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Tamamlanan görevi temizle…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -98,7 +102,7 @@ msgstr "Yeni listelerin ekleneceği öntanımlı konum"
 msgid "The identifier of the default location to add new lists to"
 msgstr "Yeni listelerin ekleneceği öntanımlı konumu gösteren belirteç"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:812
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "Ayrıntılar"
 
@@ -143,12 +147,12 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Görevlerinize erişmek için çevrimiçi hesaplarda oturum açın"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:313
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "İptal"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Tamamlandı"
 
@@ -224,12 +228,12 @@ msgstr "Yeni görev…"
 msgid "Lists"
 msgstr "Listeler"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:516
-#: ../src/gtd-window.c:521
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "Bugün"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:516 ../src/gtd-window.c:521
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
 msgstr "Zamanlanmış"
 
@@ -256,7 +260,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Telif Hakları © %d–%d To Do Yazarları"
 
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:693 ../src/gtd-window.c:1260
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "To Do"
 
@@ -296,39 +300,39 @@ msgstr "Görev oluştururken hata"
 msgid "Error removing task"
 msgstr "Görev kaldırırken hata"
 
-#: ../src/gtd-manager.c:657 ../src/gtd-manager.c:661
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
 msgstr "Görev güncellerken hata"
 
-#: ../src/gtd-manager.c:690
+#: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
 msgstr "Kimlik bilgilerini isteme başarısız"
 
-#: ../src/gtd-manager.c:713
+#: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
 msgstr "Şunun için kimlik bilgilerini isteme başarısız:"
 
-#: ../src/gtd-manager.c:765
+#: ../src/gtd-manager.c:764
 msgid "Authentication failure"
 msgstr "Kimlik denetimi başarısız"
 
-#: ../src/gtd-manager.c:829 ../src/gtd-manager.c:833
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
 msgstr "Listeden görevleri getirirken hata"
 
-#: ../src/gtd-manager.c:899
+#: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
 msgstr "Görev listesi kaynağı başarıyla bağlandı"
 
-#: ../src/gtd-manager.c:906 ../src/gtd-manager.c:911
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
 msgstr "Görev listesi kaynağına bağlanma başarısız oldu"
 
-#: ../src/gtd-manager.c:940
+#: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
 msgstr "Zaten yüklenmiş görev listesi atlanıyor"
 
-#: ../src/gtd-manager.c:978
+#: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
 msgstr "Görev yöneticisi yüklenirken hata"
 
@@ -336,12 +340,12 @@ msgstr "Görev yöneticisi yüklenirken hata"
 msgid "No tasks"
 msgstr "Görev yok"
 
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "<b>%s</b> görevi kaldırıldı"
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Geri Al"
 
@@ -353,27 +357,27 @@ msgstr "Yarın"
 msgid "Yesterday"
 msgstr "Dün"
 
-#: ../src/gtd-window.c:306
+#: ../src/gtd-window.c:307
 msgid "Remove the selected task lists?"
 msgstr "Seçili görev listeleri kaldırılsın mı?"
 
-#: ../src/gtd-window.c:309
+#: ../src/gtd-window.c:310
 msgid "Once removed, the task lists cannot be recovered."
 msgstr "Görev listeleri bir kez kaldırıldığında tekrar geri getirilemez."
 
-#: ../src/gtd-window.c:321
+#: ../src/gtd-window.c:322
 msgid "Remove task lists"
 msgstr "Görev listelerini kaldır"
 
-#: ../src/gtd-window.c:577
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
 msgstr "Görev listesi için yeni renk ayarlanıyor"
 
-#: ../src/gtd-window.c:1119
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
 msgstr "Görev listeleriniz yükleniyor…"
 
-#: ../src/gtd-window.c:1247
+#: ../src/gtd-window.c:1256
 msgid "Click a task list to select"
 msgstr "Seçmek için bir görev listesine tıklayın"
 
