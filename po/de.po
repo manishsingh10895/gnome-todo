@@ -62,7 +62,7 @@ msgstr "Verwalten von persönlichen Aufgaben"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Aufgaben;Produktivität"
+msgstr "Aufgaben;Produktivität;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
