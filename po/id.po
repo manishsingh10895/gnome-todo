@@ -1,0 +1,600 @@
+# Indonesian translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Ade Malsasa Akbar <teknoloid@gmail.com>, 2015.
+# Andika Triwidada <andika@gmail.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-02 12:40+0000\n"
+"PO-Revision-Date: 2015-09-15 10:04+0700\n"
+"Last-Translator: Andika Triwidada <andika@gmail.com>\n"
+"Language-Team: Indonesian\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Poedit 1.8.4\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Todo"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Manajer todo untuk GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Todo adalah aplikasi manajemen tugas sederhana yang didesain untuk "
+"berintegrasi dengan GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Daftar Baru…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Ubah lokasi penyimpanan baku"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "Tent_ang"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Keluar"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Bersihkan tugas yang telah selesai…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Kelola tugas pribadi Anda"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Tugas;Produktivitas;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Jendela termaksimalkan"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Keadaan jendela termaksimalkan"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Ukuran jendela"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Ukuran jendela (panjang dan lebar)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Posisi jendela"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Posisi jendela (x dan y)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Pertama kali menjalankan GNOME To Do"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Apakah ini pertama kalinya GNOME To Do dijalankan (untuk menjalankan "
+"pengaturan awal) atau bukan"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Lokasi baku untuk menambahkan daftar baru"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Tanda pengenal lokasi baku untuk menambahkan daftar baru"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Rincian"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Catatan"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Jatuh Tempo "
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritas"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Nihil"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Rendah"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Menengah"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Tinggi"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Hapus"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Selamat Datang"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Login ke akun daring untuk mengakses tugas Anda"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Batal"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Berhasil"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Tidak ada tugas ditemukan"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Anda bisa menambahkan tugas pada daftar dalam tampilan <b>Daftar</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Tampilkan atau sembunyikan tugas selesai"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Pilih lokasi penyimpanan baku untuk membuat daftar tugas:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Lokasi penyimpanan baku"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Buat"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Nama Daftar"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Pilih lokasi penyimpanan"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Mati"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "klik untuk menambahkan Google account baru"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Klik untuk menambahkan akun ownCloud baru"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Klik untuk menambahkan akun Microsoft Exchange baru"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Atau Anda bisa menyimpan tugas Anda pada komputer ini"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Tugas baru…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Daftar"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "Hari Ini"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Terjadwal"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Rename"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Daftar Baru"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Nama untuk daftar tugas"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Hak Cipta © %d The To Do authors"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Hak Cipta © %d–%d The To Do authors"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "To Do"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr ""
+"Ade Malsasa Akbar <teknoloid@gmail.com>, 2015.\n"
+"Andika Triwidada <andika@gmail.com>, 2015"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Galat saat memuat CSS dari sumber"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Tidak ada tanggal ditentukan"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Galat saat memuat Akun Daring GNOME"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Galat menyimpan daftar tugas"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Galat menghapus daftar tugas"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Galat saat membuat daftar tugas"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Galat membuat tugas"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Galat menghapus tugas"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Galat memutakhirkan tugas"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Gagal meminta kredensial"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Gagal meminta kredensial untuk"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Otentikasi gagal"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Galat mengambil tugas dari daftar"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Berhasil terhubung dengan sumber daftar tugas"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Gagal terhubung ke sumber daftar tugas"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Melompati daftar tugas yang sudah dimuat"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Galat memuat pengelola tugas"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Tidak ada tugas"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Tugas <b>%s</b> dihapus"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Undo"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Besok"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Kemarin"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Hapus daftar tugas ini?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Jika dihapus, daftar tugas tidak bisa dikembalikan."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Hapus daftar tugas"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Mengatur warna baru untuk daftar tugas"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Memuat daftar tugas Anda…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Klik sebuah daftar tugas untuk memilih"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Galat membuat daftar tugas baru"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Pada Komputer Ini"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Lokal"
+
+#~ msgid "Manager of this application"
+#~ msgstr "Pengelola aplikasi ini"
+
+#~ msgid "The manager of the application"
+#~ msgstr "Pengelola aplikasi ini"
+
+#~ msgid "Task being edited"
+#~ msgstr "Tugas yang sedang disunting"
+
+#~ msgid "The task that is actually being edited"
+#~ msgstr "Tugas yang sedang disunting"
+
+#~ msgid "Manager of the task"
+#~ msgstr "Pengelola tugas"
+
+#~ msgid ""
+#~ "The read-only GNOME online accounts client loaded and owned by the manager"
+#~ msgstr ""
+#~ "Klien akun daring GNOME read-only telah dimuat dan dimiliki oleh pengelola"
+
+#~ msgid "The source registry of the manager"
+#~ msgstr "Sumber registry dari pengelola"
+
+#~ msgid "The read-only source registry loaded and owned by the manager"
+#~ msgstr "Sumber registry read-only telah dimuat dan dimiliki oleh pengelola"
+
+#~ msgid "Unique identifier of the object"
+#~ msgstr "Tanda pengenal unik untuk objek"
+
+#~ msgid "The unique identifier of the object, defined by the backend"
+#~ msgstr "Tanda pengenal unik untuk objek, didefinisikan oleh backend"
+
+#~ msgid "Ready state of the object"
+#~ msgstr "Keadaan siap untuk objek"
+
+#~ msgid "Component of the task"
+#~ msgstr "Komponen dari tugas"
+
+#~ msgid "The #ECalComponent this task handles."
+#~ msgstr "#ECalComponent yang ditangani tugas ini."
+
+#~ msgid "Description of the task"
+#~ msgstr "Deskripsi dari tugas"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "String lain yang menggambarkan tugas"
+
+#~ msgid "End date of the task"
+#~ msgstr "Tanggal akhir dari tugas"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "Hari tugas harus selesai"
+
+#~ msgid "List of the task"
+#~ msgstr "Daftar tugas"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "Daftar yang memiliki tugas ini"
+
+#~ msgid "Priority of the task"
+#~ msgstr "Prioritas tugas"
+
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "Prioritas tugas. 0 berarti tanpa prioritas, dan tugas akan diurutkan "
+#~ "secara alfabetis."
+
+#~ msgid "Title of the task"
+#~ msgstr "Judul tugas"
+
+#~ msgid "The title of the task"
+#~ msgstr "Judul dari tugas"
+
+#~ msgid "Color of the list"
+#~ msgstr "Warna daftar"
+
+#~ msgid "The color of the list"
+#~ msgstr "Warna dari daftar"
+
+#~ msgid "Name of the list"
+#~ msgstr "Nama daftar"
+
+#~ msgid "The name of the list"
+#~ msgstr "Nama dari daftar"
+
+#~ msgid "Data origin of the list"
+#~ msgstr "Sumber data dari daftar"
+
+#~ msgid "The data origin location of the list"
+#~ msgstr "Lokasi asal data untuk daftar"
+
+#~ msgid "Source of the list"
+#~ msgstr "Sumber daftar"
+
+#~ msgid "The parent source that handles the list"
+#~ msgstr "Sumber parent yang memiliki daftar ini"
+
+#~ msgid "Mode of this item"
+#~ msgstr "Mode dari item ini"
+
+#~ msgid "The mode of this item, inherited from the parent's mode"
+#~ msgstr "Mode dari item ini, diwarisi dari mode parent-nya"
+
+#~ msgid "Task list of the item"
+#~ msgstr "Daftar tugas dari item"
+
+#~ msgid "The task list associated with this item"
+#~ msgstr "Daftar tugas yang berhubungan dengan item ini"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "Jika baris digunakan untuk menambahkan tugas baru"
+
+#~ msgid "Task of the row"
+#~ msgstr "Tugas baris"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "Tugas yang ditayangkan baris ini"
+
+#~ msgid "Mode of this window"
+#~ msgstr "Mode untuk jendela ini"
+
+#~ msgid "The interaction mode of the window"
+#~ msgstr "Mode interaksi jendela"
+
+#~ msgid "Icon of the storage"
+#~ msgstr "Ikon penyimpanan"
+
+#~ msgid "The icon representing the storage location."
+#~ msgstr "Ikon yang menggambarkan lokasi penyimpanan."
+
+#~ msgid "Identifier of the storage"
+#~ msgstr "Tanda pengenal penyimpanan"
+
+#~ msgid "The unique identifier of the storage location."
+#~ msgstr "Tanda pengenal unik dari lokasi penyimpanan."
+
+#~ msgid "Name of the storage"
+#~ msgstr "Nama penyimpanan"
+
+#~ msgid "The user-visible name of the storage location."
+#~ msgstr "Nama yang user-visible untuk lokasi penyimpanan"
+
+#~ msgid "Parent of the storage"
+#~ msgstr "Parent dari penyimpanan"
+
+#~ msgid "The parent source identifier of the storage location."
+#~ msgstr "Tanda pengenal sumber parent dari lokasi penyimpanan."
+
+#~ msgid "Provider type of the storage"
+#~ msgstr "Jenis penyedia penyimpanan"
+
+#~ msgid "The provider type of the storage location."
+#~ msgstr "Jenis penyedia lokasi penyimpanan."
+
+#~ msgid "Provider name of the storage"
+#~ msgstr "Nama penyedia penyimpanan"
+
+#~ msgid "The name of the provider of the storage location."
+#~ msgstr "Nama dari penyedia lokasi penyimpanan."
+
+#, fuzzy
+#~ msgid "Storage of the row"
+#~ msgstr "Penyimpanan dari baris"
+
+#, fuzzy
+#~ msgid "The storage that this row holds"
+#~ msgstr "Penyimpanan yang dipegang baris ini"
+
+#~ msgid "Show local storage row"
+#~ msgstr "Tampilkan baris penyimpanan lokal"
+
+#~ msgid "Show stub rows"
+#~ msgstr "Tayangkan baris-baris rintisan"
+
+#~ msgid "Selects default storage row"
+#~ msgstr "Pilih baris penyimpanan baku"
+
+#~ msgid "Text of the secondary action button"
+#~ msgstr "Teks dari tombol aksi sekunder"
+
+#~ msgid "The text of the secondary action button"
+#~ msgstr "Teks dari tombol aksi sekunder"
+
+#~ msgid "Notification message"
+#~ msgstr "Pesan notifikasi"
+
+#~ msgid "The main message of the notification"
+#~ msgstr "Pesan utama notifikasi"
+
+#~ msgid "Notification timeout"
+#~ msgstr "Timeout notifikasi"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "Seberapa lama notifikasi ditampilkan"
