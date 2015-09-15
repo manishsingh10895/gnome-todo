@@ -1,0 +1,401 @@
+# Persian translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Arash Mousavi <mousavi.arash@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-11 08:38+0000\n"
+"PO-Revision-Date: 2015-09-15 23:58+0430\n"
+"Language-Team: Persian <fa@li.org>\n"
+"Language: fa\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "فعالیت‌ها"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "مدیریت فعالیت‌ها برای گنوم"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"«فعالیت‌های گنوم» یک برنامه مدیریت وظایف است که برای یکپارچگی با گنوم طراحی "
+"شده است."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "فهرست جدید..."
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "تغییر محل ذخیره پیش‌فرض..."
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_درباره"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_خروج"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "پاک کردن فعالیت تکمیل شده..."
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "فعالیت‌های شخصی خود را مدیریت کنید"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Task;Productivity;فعالیت;کارایی;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "پنجره بیشینه شد"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "وضعیت بیشینه‌ی پنجره"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "اندازه پنجره"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "اندازه پنجره (عرض و ارتفاع)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "مکان پنجره"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "مکان پنجره (x و y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "اولین اجرای «فعالیت‌های گنوم»"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"اینکه آیا این اولین اجرای برنامه‌ی فعالیت‌هام گنوم است ( برای اجرای تنظیمات "
+"اولیه) یا خیر"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "مکان پیش‌فرض برای اضافه کردن فهرست‌ها"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "شناسه مکان پیش‌فرض برای اضافه کردن فهرست‌های جدید"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "جزئیات"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "نوشته‌ها"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "تاریخ پایان"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "الویت"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "هیچکدام"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "پایین"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "متوسط"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "بالا"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "حذف"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "خوش آمدید"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "ورود به حساب‌های برخط برای دسترسی به فعالیت‌ها خود"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "لغو"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "اعمال"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "هیچ فعالیتی پیدا نشد"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr ""
+"شما می‌توانید فعالیت‌ها را به فهرست‌ها از طریق نمای <b>فهرست‌ها</b> اضافه کنید"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "نمایش یا مخفی کردن فعالیت‌های تکمیل شده"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "مکان پیش‌فرض برای ساخت فهرست فعالیت‌ها:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "مکان پیش‌فرض ذخیره"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "ساخت"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "نام فهرست"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "انتخاب یک مکان ذخیره"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "خاموش"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "برای اضافه کردن یک حساب گوگل جدید کلیک کنید"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "گوگل"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "برای اضافه کردن یک حساب جدید ownCloud کلیک کنید"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "برای اضافه کردن یک حسال جدید مایکروسافت Exchange کلیک کنید"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "مایکروسافت Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "یا اینکه می‌توانید فعالیت‌های خود را روی همین رایانه ذخیره کنید"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "فعالیت جدید..."
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "فهرست‌ها"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "امروز"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "برنامه‌ریزی شده"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "تغییر نام"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "فهرست جدید"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "نام فهرست فعالیت‌ها"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "حق رونوشت © %Id توسعه‌دهندگان فعالیت‌ها"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "حق رونوشت © %Id-%Id توسعه‌دهندگان فعالیت‌ها"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "فعالیت"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "آرش موسوی <mousavi.arash@gmail.com>"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "خطا در بارگیری CSS از منبع"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "هیچ تاریخی ثبت نشده"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "خطا در هنگام بارگیری حساب‌های برخط گنوم"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "خطا در ذخیره فهرست فعالیت‌ها"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "خطا در حذف فهرست فعالیت‌ها"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "خطا در حذف فهرست فعالیت‌ها"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "خطا در هنگام ساخت فعالیت"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "خطا در هنگام حذف فعالیت"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "خطا در بروزرسانی فعالیت"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "درخواست برای اطلاعات گذرواژه شکست خورد"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "درخواست برای اطلاعات گذرواژه شکست خورد:"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "تصدیق هویت شکست خورد"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "خطا در هنگام گرفتن فعالیت‌ها از فهرست"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "منبع فهرست فعالیت‌ها بطور موفقیت‌آمیزی متصل شد"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "اتصال به منبع فهرست فعالیت‌ها شکست خورد"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "رد شدن از فهرست فعالیتی که پیشتر بارگیری شده"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "خطا در هنگام بارگیری مدیر فعالیت‌ها"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "بدون فعالیت"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "فعالیت <b>%s</b> حذف شد"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "برگردان"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "فردا"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "دیروز"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "حذف فهرست‌های فعالیت انتخاب شده؟"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "بعد از حذف کردن، دیگر امکان برگرداندن فهرست فعالیت‌ها نیست."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "حذف فهرست فعالیت"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "انتخاب رنگ جدید برای فهرست فعالیت"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "بارگیری فهرست‌های فعالیت شما..."
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "برای انتخاب روی یک فهرست فعالیت کلیک کنید"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "خطا در هنگام ساخت یک فهرست فعالیت"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "بر روی این رایانه"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "محلی"
