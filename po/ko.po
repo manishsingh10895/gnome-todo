@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-04 08:34+0000\n"
-"PO-Revision-Date: 2015-09-04 23:52+0900\n"
+"POT-Creation-Date: 2015-09-14 08:42+0000\n"
+"PO-Revision-Date: 2015-09-14 21:01+0900\n"
 "Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
 "Language-Team: Korean <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
@@ -22,19 +22,18 @@ msgstr ""
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
 msgid "Todo"
-msgstr "할 일 목록"
+msgstr "일정 관리"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
 msgid "Todo manager for GNOME"
-msgstr "그놈용 할 일 목록 관리자"
+msgstr "그놈용 일정 관리 프로그램"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"그놈 할 일 목록은 그놈에 통합하도록 설계한 단순한 할 일 관리자 프로그램입니"
-"다."
+"그놈 일정 관리는 그놈에 통합하도록 설계한 단순한 일정 관리 프로그램입니다."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -54,15 +53,15 @@ msgstr "끝내기(_Q)"
 
 #: ../data/gtk/menus.ui.h:5
 msgid "Clear completed task…"
-msgstr "끝낸 일 지우기…"
+msgstr "끝낸 일정 지우기…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
-msgstr "개인 할 일을 관리합니다"
+msgstr "개인 일정을 관리합니다"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Task;할 일;Productivity;생산성;"
+msgstr "Task;일정;Productivity;생산성;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -90,12 +89,12 @@ msgstr "창 위치(가로 및 세로)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
-msgstr "그놈 할 일 목록 첫 실행"
+msgstr "그놈 일정 관리 첫 실행"
 
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr "그놈 할 일 목록을 처음 실행하든 아니든(초기 설정을 실행합니다)"
+msgstr "(초기 설정을 진행하려) 그놈 일정 관리를 처음으로 실행했는지 여부"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
@@ -147,7 +146,7 @@ msgstr "반갑습니다"
 
 #: ../data/ui/initial-setup.ui.h:2
 msgid "Login to online accounts to access your tasks"
-msgstr "할 일 목록을 보려면 온라인 계정에 로그인하십시오"
+msgstr "일정 목록을 보려면 온라인 계정에 로그인하십시오"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
 #: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
@@ -161,11 +160,11 @@ msgstr "완료"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
-msgstr "할 일 없음"
+msgstr "일정 없음"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr "<b>목록</b> 보기에서 할 일을 목록에 추가할 수 있습니다"
+msgstr "<b>목록</b> 보기에서 일정을 목록에 추가할 수 있습니다"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
@@ -173,7 +172,7 @@ msgstr "완료 일정 표시하거나 숨기기"
 
 #: ../data/ui/storage-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
-msgstr "할 일 목록을 만들 기본 저장소 위치를 선택하십시오:"
+msgstr "일정 목록을 만들 기본 저장소 위치를 선택하십시오:"
 
 #: ../data/ui/storage-dialog.ui.h:2
 msgid "Default storage location"
@@ -221,11 +220,11 @@ msgstr "마이크로소프트 익스체인지"
 
 #: ../data/ui/storage-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
-msgstr "또는 이 컴퓨터에 할 일을 저장할 수 있습니다."
+msgstr "또는 이 컴퓨터에 일정을 저장할 수 있습니다."
 
 #: ../data/ui/task-row.ui.h:1
 msgid "New task…"
-msgstr "새 할 일…"
+msgstr "새 일정…"
 
 #: ../data/ui/window.ui.h:1
 msgid "Lists"
@@ -250,22 +249,22 @@ msgstr "새 목록"
 
 #: ../data/ui/window.ui.h:8
 msgid "Name of the task list"
-msgstr "할 일 목록의 이름"
+msgstr "일정 목록의 이름"
 
 #: ../src/gtd-application.c:91
 #, c-format
 msgid "Copyright © %d The To Do authors"
-msgstr "Copyright © %d 할 일 목록 작성자"
+msgstr "Copyright © %d 일정 관리 개발자"
 
 #: ../src/gtd-application.c:96
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
-msgstr "Copyright © %d–%d 할 일 목록 작성자"
+msgstr "Copyright © %d–%d 일정 관리 개발자"
 
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
 #: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
-msgstr "할 일 목록"
+msgstr "일정 목록"
 
 #: ../src/gtd-application.c:108
 msgid "translator-credits"
@@ -285,27 +284,27 @@ msgstr "그놈 온라인 계정을 불러오는 중 오류 발생"
 
 #: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
-msgstr "할 일 목록 저장 중 오류 발생"
+msgstr "일정 목록 저장 중 오류 발생"
 
 #: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
 msgid "Error removing task list"
-msgstr "할 일 목록 제거 중 오류 발생"
+msgstr "일정 목록 제거 중 오류 발생"
 
 #: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
 msgid "Error creating task list"
-msgstr "할 일 목록 만드는 중 오류 발생"
+msgstr "일정 목록 만드는 중 오류 발생"
 
 #: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
 msgid "Error creating task"
-msgstr "할 일을 만드는 중 오류 발생"
+msgstr "일정을 만드는 중 오류 발생"
 
 #: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
 msgid "Error removing task"
-msgstr "할 일을 제거하는 중 오류 발생"
+msgstr "일정을 제거하는 중 오류 발생"
 
 #: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
-msgstr "할 일을 업데이트하는 중 오류 발생"
+msgstr "일정을 업데이트하는 중 오류 발생"
 
 #: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
@@ -321,32 +320,32 @@ msgstr "인증에 실패했습니다"
 
 #: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
-msgstr "목록에서 할 일을 가져오는 중 오류 발생"
+msgstr "목록에서 일정을 가져오는 중 오류 발생"
 
 #: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
-msgstr "할 일 목록 원본에 성공적으로 연결했습니다"
+msgstr "일정 목록 원본에 성공적으로 연결했습니다"
 
 #: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
-msgstr "할 일 목록 원본 연결에 실패했습니다"
+msgstr "일정 목록 원본 연결에 실패했습니다"
 
 #: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
-msgstr "이미 불러온 할 일 목록 건너뛰는 중"
+msgstr "이미 불러온 일정 목록 건너뛰는 중"
 
 #: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
-msgstr "할 일 관리자를 불러오는 중 오류 발생"
+msgstr "일정 관리자를 불러오는 중 오류 발생"
 
 #: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
-msgstr "할 일 없음"
+msgstr "일정 없음"
 
 #: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
-msgstr "<b>%s</b> 할 일을 제거했습니다"
+msgstr "<b>%s</b> 일정을 제거했습니다"
 
 #: ../src/gtd-task-list-view.c:294
 msgid "Undo"
@@ -362,37 +361,37 @@ msgstr "어제"
 
 #: ../src/gtd-window.c:307
 msgid "Remove the selected task lists?"
-msgstr "선택한 할 일 목록을 제거하시겠습니까?"
+msgstr "선택한 일정 목록을 제거하시겠습니까?"
 
 #: ../src/gtd-window.c:310
 msgid "Once removed, the task lists cannot be recovered."
-msgstr "한 번 제거하면 할 일 목록을 되살릴 수 없습니다."
+msgstr "한 번 제거하면 일정 목록을 되살릴 수 없습니다."
 
 #: ../src/gtd-window.c:322
 msgid "Remove task lists"
-msgstr "할 일 목록 제거"
+msgstr "일정 목록 제거"
 
 #: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
-msgstr "할 일 목록 색상 설정"
+msgstr "일정 목록 색상 설정"
 
 #: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
-msgstr "할 일 목록 불러오는 중…"
+msgstr "일정 목록 불러오는 중…"
 
 #: ../src/gtd-window.c:1256
 msgid "Click a task list to select"
-msgstr "할 일 목록을 선택하려면 누르십시오"
+msgstr "일정 목록을 선택하려면 누르십시오"
 
 #: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 msgid "Error creating new task list"
-msgstr "새 할 일 목록을 만드는 중 오류 발생"
+msgstr "새 일정 목록을 만드는 중 오류 발생"
 
 #. Create task list
 #: ../src/storage/gtd-storage-local.c:86
 #: ../src/storage/gtd-storage-local.c:134
 msgid "On This Computer"
-msgstr "이 컴퓨터에서"
+msgstr "이 컴퓨터"
 
 #: ../src/storage/gtd-storage-local.c:133
 msgid "Local"
