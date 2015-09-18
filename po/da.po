@@ -1,0 +1,706 @@
+# Danish translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's developers
+# This file is distributed under the same license as the gnome-todo package.
+#
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-18 20:15+0200\n"
+"PO-Revision-Date: 2015-09-18 20:09+0200\n"
+"Last-Translator: Ask Hjorth Larsen <asklarsen@gmail.com>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
+"Language: da\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Todo"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Todo-håndtering til GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Todo er et simpelt program til opgavehåndtering, designet integreret "
+"med GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Ny liste…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Ændr standardplacering af lager…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Afslut"
+
+#: ../data/gtk/menus.ui.h:5
+#, fuzzy
+msgid "Clear completed task…"
+msgstr "Vis eller skjul færdiggjorte opgaver"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Håndtér dine personlige opgaver"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Opgave;Produktivitet;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Vindue maksimeret"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Maksimeret tilstand for vindue"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Vinduesstørrelse"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Vinduesstørrelse (bredde og højde)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Vinduesposition"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Vinduesposition (x og y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Først kørsel af GNOME To Do"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Om det er første kørsel af GNOME To Do (så startkonfigurationen skal køres) "
+"eller ikke"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Standardplacering for tilføjelse af nye lister"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Identifikation på standardplaceringen for tilføjelse af nye lister"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Detaljer"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Noter"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Forfaldsdato"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritet"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Ingen"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Lav"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Middel"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Høj"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Slet"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Velkommen"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Log ind på onlinekonti og tilgå dine opgaver"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Annullér"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Færdig"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Ingen opgaver fundet"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Du kan føje opgaver til lister i oversigten <b>Lister</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Vis eller skjul færdiggjorte opgaver"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Vælg standardplaceringen for oprettelse af opgavelister:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Standardlagerplacering"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Opret"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Listenavn"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Vælg en lagerplacering"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Slået fra"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Klik for at tilføje en ny Google-konto"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Klik for at tilføje en ny ownCloud-konto"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Klik for at tilføje en ny Microsoft Exchange-konto"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Eller du kan blot gemme dine opgaver på denne computer"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Ny opgave…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Lister"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "I dag"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Planlagt"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Omdøb"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Ny liste"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Navnet på opgavelisten"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Ophavsret © %d Forfatterne af To Do"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Ophavsret © %d–%d Forfatterne af To Do"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "To Do"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr ""
+"Ask Hjorth Larsen\n"
+"\n"
+"Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
+"Mere info: http://www.dansk-gruppen.dk"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Fejl ved indlæsning af CSS fra ressource"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Ingen dato angivet"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Fejl ved indlæsning af GNOME Onlinekonti"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Fejl ved gemning af opgaveliste"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Fejl ved fjernelse af opgaveliste"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+#, fuzzy
+msgid "Error creating task list"
+msgstr "Fejl ved oprettelse af ny opgaveliste"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Fejl ved oprettelse af opgave"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Fejl ved fjernelse af opgave"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Fejl ved opdatering af opgave"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Kunne ikke forespørge om akkreditiver"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Kunne ikke forespørge om akkreditiver for"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Fejl ved autentifikation"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Fejl ved hentning af opgaver fra liste"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Opgavelistekilde tilsluttet"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Kunne ikke forbinde til opgavelistekilde"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Overspringer allerede indlæst opgaveliste "
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Fejl ved indlæsning af opgavehåndtering"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Ingen opgaver"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Opgaven <b>%s</b> fjernet"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Fortryd"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "I morgen"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "I går"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Fjern de valgte opgavelister?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Når de er fjernet, kan de ikke gendannes."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Fjern opgavelister"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Sætter ny farve for opgavelisten"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Indlæser dine opgavelister…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Klik på en opgaveliste for at markere"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Fejl ved oprettelse af ny opgaveliste"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "På denne computer"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Lokal"
+
+#~ msgid "Manager of this application"
+#~ msgstr "Håndtering for dette program"
+
+#~ msgid "The manager of the application"
+#~ msgstr "Håndteringen for dette program"
+
+#~ msgid "Task being edited"
+#~ msgstr "Opgaven som redigeres"
+
+#~ msgid "The task that is actually being edited"
+#~ msgstr "Opgaven som i øjeblikket redigeres"
+
+#~ msgid "Manager of the task"
+#~ msgstr "Håndtering for opgaven"
+
+#~ msgid "The singleton manager instance of the task"
+#~ msgstr "Singleton-håndteringsinstansen for opgaven"
+
+#~ msgid "The online accounts client of the manager"
+#~ msgstr "Onlinekonti-klienten for håndteringen"
+
+#~ msgid ""
+#~ "The read-only GNOME online accounts client loaded and owned by the manager"
+#~ msgstr ""
+#~ "Den skrivebeskyttede GNOME Onlinekonti-klient som er indlæst og ejes af "
+#~ "håndteringen"
+
+#~ msgid "Whether GNOME Online Accounts client is ready"
+#~ msgstr "Om GNOME Onlinekonti-klienten er klar"
+
+#~ msgid "Whether the read-only GNOME online accounts client is loaded"
+#~ msgstr "Om den skrivebeskyttede GNOME Onlinekonti-klient er indlæst"
+
+#~ msgid "The source registry of the manager"
+#~ msgstr "Kilderegistret for håndteringen"
+
+#~ msgid "The read-only source registry loaded and owned by the manager"
+#~ msgstr ""
+#~ "Det skrivebeskyttede kilderegister som er indlæst og ejes af håndteringen"
+
+#~ msgid "Unique identifier of the object"
+#~ msgstr "Unik identifikation af objektet"
+
+#~ msgid "The unique identifier of the object, defined by the backend"
+#~ msgstr "Den unikke identifikation af objektet defineret af motoren"
+
+#~ msgid "Ready state of the object"
+#~ msgstr "Klarhedstilstanden for objektet"
+
+#~ msgid "Whether the object is marked as ready or not"
+#~ msgstr "Om objektet er markeret som klart eller ikke"
+
+#~ msgid "Whether the task is completed or not"
+#~ msgstr "Om opgaven er færdig eller ikke"
+
+#~ msgid "Whether the task is marked as completed by the user"
+#~ msgstr "Om opgaven er markeret som færdiggjort af brugeren"
+
+#~ msgid "Component of the task"
+#~ msgstr "Komponent af opgaven"
+
+#~ msgid "The #ECalComponent this task handles."
+#~ msgstr "Den #ECalComponent, som denne opgave håndterer."
+
+#~ msgid "Description of the task"
+#~ msgstr "Beskrivelse af opgaven"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "Valgfri streng som beskriver opgaven"
+
+#~ msgid "End date of the task"
+#~ msgstr "Slutdato for opgaven"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "Dagen, hvorpå opgaven bør være færdiggjort"
+
+#~ msgid "List of the task"
+#~ msgstr "Opgavens liste"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "Listen, som ejer denne opgave"
+
+#~ msgid "Priority of the task"
+#~ msgstr "Prioritet for opgaven"
+
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "Opgavens prioritet. 0 betyder ingen prioritet givet, og opgaver sorteres "
+#~ "alfabetisk."
+
+#~ msgid "Title of the task"
+#~ msgstr "Opgavens titel"
+
+#~ msgid "The title of the task"
+#~ msgstr "Opgavens titel"
+
+#~ msgid "Color of the list"
+#~ msgstr "Listens farve"
+
+#~ msgid "The color of the list"
+#~ msgstr "Listens farve"
+
+#~ msgid "Whether the task list is removable"
+#~ msgstr "Om opgavelisten kan fjernes"
+
+#~ msgid "Whether the task list can be removed from the system"
+#~ msgstr "Om opgavelisten kan fjernes fra systemet"
+
+#~ msgid "Name of the list"
+#~ msgstr "Listens navn"
+
+#~ msgid "The name of the list"
+#~ msgstr "Listens navn"
+
+#~ msgid "Data origin of the list"
+#~ msgstr "Dataophavssted for listen"
+
+#~ msgid "The data origin location of the list"
+#~ msgstr "Ophavsstedet for listens data"
+
+#~ msgid "Source of the list"
+#~ msgstr "Listens kilde"
+
+#~ msgid "The parent source that handles the list"
+#~ msgstr "Ophavskilden, som håndterer listen"
+
+#~ msgid "Mode of this item"
+#~ msgstr "Tilstand for dette punkt"
+
+#~ msgid "The mode of this item, inherited from the parent's mode"
+#~ msgstr ""
+#~ "Tilstanden for dette punkt, som nedarves fra ophavspunktets tilstand"
+
+#~ msgid "Whether the task list is selected"
+#~ msgstr "Om opgavelisten er markeret"
+
+#~ msgid "Whether the task list is selected when in selection mode"
+#~ msgstr "Om opgavelisten er markeret i markeringstilstand"
+
+#~ msgid "Task list of the item"
+#~ msgstr "Opgaveliste for punktet"
+
+#~ msgid "The task list associated with this item"
+#~ msgstr "Opgavelisten tilknyttet dette punkt"
+
+#~ msgid "Manager of this window's application"
+#~ msgstr "Håndtering af dette vindues program"
+
+#~ msgid "The manager of the window's application"
+#~ msgstr "Håndteringen for dette vindues program"
+
+#~ msgid "Whether the list is readonly"
+#~ msgstr "Om listen er skrivebeskyttet"
+
+#~ msgid ""
+#~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr ""
+#~ "Om listen er skrivebeskyttet eller ikke, dvs. om den viser Ny opgave-"
+#~ "rækken"
+
+#~ msgid "Whether task rows show the list name"
+#~ msgstr "Om opgaverækker viser listenavnet"
+
+#~ msgid "Whether task rows show the list name at the end of the row"
+#~ msgstr "Om opgaverækker viser listenavnet sidst i rækken"
+
+#~ msgid "Whether completed tasks are shown"
+#~ msgstr "Om færdiggjorte opgaver vises"
+
+#~ msgid "Whether completed tasks are visible or not"
+#~ msgstr "Om færdiggjorte opgaver er synlige eller ikke"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "Om rækken bruges til at tilføje en ny opgave"
+
+#~ msgid "Whether the row is used to add a new task"
+#~ msgstr "Om rækken bruges til at tilføje en ny opgave"
+
+#~ msgid "Task of the row"
+#~ msgstr "Opgave for rækken"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "Opgaven, som denne række repræsenterer"
+
+#~ msgid "Mode of this window"
+#~ msgstr "Tilstand for dette vindue"
+
+#~ msgid "The interaction mode of the window"
+#~ msgstr "Interaktionstilstanden for vinduet"
+
+#~ msgid "Whether the storage is enabled"
+#~ msgstr "Om lageret er slået til"
+
+#~ msgid "Whether the storage is available to be used."
+#~ msgstr "Om lageret er tilgængeligt til brug."
+
+#~ msgid "Icon of the storage"
+#~ msgstr "Ikon for lageret"
+
+#~ msgid "The icon representing the storage location."
+#~ msgstr "Ikonet som repræsenterer lagerstedet."
+
+#~ msgid "Identifier of the storage"
+#~ msgstr "Identifikation af lageret"
+
+#~ msgid "The unique identifier of the storage location."
+#~ msgstr "Den unikke identifikation af lagerstedet."
+
+#~ msgid "Whether the storage is the default"
+#~ msgstr "Om lageret er standardlagerstedet"
+
+#~ msgid "Whether the storage is the default storage location to be used."
+#~ msgstr "Om lageret er standardlagerstedet."
+
+#~ msgid "Name of the storage"
+#~ msgstr "Navn på lageret"
+
+#~ msgid "The user-visible name of the storage location."
+#~ msgstr "Det for brugeren synlige navn på lagerstedet."
+
+#~ msgid "Parent of the storage"
+#~ msgstr "Ophav for lageret"
+
+#~ msgid "The parent source identifier of the storage location."
+#~ msgstr "Identifikation af ophavskilde for lagerstedet."
+
+#~ msgid "Provider type of the storage"
+#~ msgstr "Udbydertype for lageret"
+
+#~ msgid "The provider type of the storage location."
+#~ msgstr "Udbydertype for lagerstedet."
+
+#~ msgid "Provider name of the storage"
+#~ msgstr "Udbydernavn for lageret"
+
+#~ msgid "The name of the provider of the storage location."
+#~ msgstr "Navnet på udbyderen for lagerstedet."
+
+#~ msgid "Storage of the row"
+#~ msgstr "Lagring af rækken"
+
+#~ msgid "The storage that this row holds"
+#~ msgstr "Lageret, som denne række indeholder"
+
+#~ msgid "Show local storage row"
+#~ msgstr "Vis række for lokalt lager"
+
+#~ msgid "Whether should show a local storage row instead of a checkbox"
+#~ msgstr "Om der skal vises række for lokalt lager frem for afkrydsningsfelt"
+
+#~ msgid "Show stub rows"
+#~ msgstr "Vis rækker med stubbe"
+
+#~ msgid "Whether should show stub rows for non-added accounts"
+#~ msgstr "Om der skal vises rækker med stubbe for ikke-tilføjede konti"
+
+#~ msgid "Selects default storage row"
+#~ msgstr "Vælger standardlagerrækken"
+
+#~ msgid "Whether should select the default storage row"
+#~ msgstr "Om standardlagerrækken skal vælges"
+
+#~ msgid "Whether the notification has a primary action"
+#~ msgstr "Om påmindelsen af en primær handling"
+
+# Jeg tror 'dismiss' er når man lukker påmindelsesvinduet
+#~ msgid ""
+#~ "Whether the notification has the primary action, activated on timeout or "
+#~ "dismiss"
+#~ msgstr ""
+#~ "Om påmindelsen har den primære handling, som aktiveres ved tidsudløb "
+#~ "eller lukning"
+
+#~ msgid "Whether the notification has a secondary action"
+#~ msgstr "Om påmindelsen har en sekundær handling"
+
+#~ msgid ""
+#~ "Whether the notification has the secondary action, activated by the user"
+#~ msgstr "Om påmindelsen har en sekundær handling, som aktiveres af brugeren"
+
+#~ msgid "Text of the secondary action button"
+#~ msgstr "Teksten for den sekundære handlingsknap"
+
+#~ msgid "The text of the secondary action button"
+#~ msgstr "Teksten for den sekundære handlingsknap"
+
+#~ msgid "Notification message"
+#~ msgstr "Påmindelsesmeddelelse"
+
+#~ msgid "The main message of the notification"
+#~ msgstr "Hovedmeddelelsen for påmindelsen"
+
+#~ msgid "Notification timeout"
+#~ msgstr "Tidsudløb for påmindelse"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "Varighed for visning af påmindelsen"
