@@ -1,0 +1,512 @@
+# Swedish translation for gnome-todo.
+# Copyright © 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Marcus Gisslen <marcus.gisslen@gmail.com>, 2015.
+# Anders Jonsson <anders.jonsson@norsjovallen.se>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-09 20:38+0000\n"
+"PO-Revision-Date: 2015-09-16 22:43+0200\n"
+"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.4\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1 ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Uppgifter"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Uppgiftshanterare för GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid "GNOME Todo is a simple task management application designed to integrate with GNOME."
+msgstr "GNOME Uppgifter är en enkel ”att göra”-lista som är designad att integrera med GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Ny lista…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Ändra standardlagringsplats…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Om"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Avsluta"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Rensa utförd uppgift…"
+
+# Ändrat ordval eftersom "personliga uppgifter" låter integritetsrelaterat på svenska.
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Hantera dina uppgifter som ska göras"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Uppgift;Produktivitet;Effektivitet"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Fönster maximerat"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Fönster maximerat läge"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Fönsterstorlek"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Fönsterstorlek (bredd och höjd)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Fönsterposition"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Fönsterposition (x och y)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Första körningen av GNOME Uppgifter"
+
+# initierande utformningen... Kanske 'grundinställningarna' låter bättre...
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr "Huruvida det är den första körningen av GNOME Uppgifter (för att göra den initierande utformningen) eller inte"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Standardplats att lägga till nya listor till"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Identifieraren för standardplatsen att lägga till nya listor till"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Detaljer"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Anteckningar"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Slutdatum"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritet"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Ingen"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Låg"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Mellan"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Hög"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Ta bort"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Välkommen"
+
+# Nätkonto (direkt från Empathy)
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Logga in på nätkonton för att komma åt dina uppgifter"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2 ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Ångra"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4 ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Färdig"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Inga uppgifter funna"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Du kan lägga till uppgifter till listor i vyn <b>Listor</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Visa eller dölj utförda uppgifter"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Välj standardlagringsplats för att skapa uppgiftslistor:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Standardlagringsplats"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Skapa"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Listnamn"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Välj en lagringsplats"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Av"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Klicka för att lägga till ett nytt Google-konto"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Klicka för att lägga till ett nytt ownCloud-konto"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Klicka för att lägga till ett nytt Microsoft Exchange-konto"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Eller spara dina uppgifter på den här datorn"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Ny uppgift…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Listor"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Today"
+msgstr "Idag"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Schemalagd"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Byt namn"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Ny lista"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Namn på uppgiftslistan"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d Uppgifter-upphovsmännen"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d Uppgifter-upphovsmännen"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127 ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "Uppgifter"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr ""
+"Marcus Gisslén <marcus.gisslen@gmail.com>\n"
+"Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"\n"
+"Skicka synpunkter på översättningen till\n"
+"<tp-sv@listor.tp-sv.se>."
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Fel vid inläsning av CSS från resurs"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Inget datum angivet"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Fel vid inläsning av GNOME Nätkonton"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Fel vid sparning av uppgiftslista"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Fel vid borttagning av uppgiftslista"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Fel vid skapandet av uppgiftslista"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Fel vid skapandet av uppgift"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Fel vid borttagning av uppgift"
+
+# uppdatering/korrigering
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Fel vid uppdatering av uppgift"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Misslyckades med att fråga efter användaruppgifter"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Misslyckades med att fråga efter användaruppgifter för"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Kunde ej autentiseras"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Fel vid hämtning av uppgifter från lista"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Källa för uppgiftslistor ansluten"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Kunde ej ansluta till källa för uppgiftslistor"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Hoppar över redan inläst uppgiftslista "
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Fel vid läsning av uppgiftshanterare"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Inga uppgifter"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Uppgiften <b>%s</b> togs bort"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Ångra"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Imorgon"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Igår"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Ta bort de markerade uppgiftslistorna?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Då de väl tagits bort kan uppgiftslistorna inte återfås."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Ta bort uppgiftslistor"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Väljer ny färg för uppgiftslistan"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Läser in dina uppgiftslistor…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Klicka på en uppgiftslista för att markera"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Fel vid skapandet av en ny uppgiftslista"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "På den här datorn"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Lokal"
+
+#~ msgid "Task being edited"
+#~ msgstr "Uppgiften redigeras"
+
+#~ msgid "The task that is actually being edited"
+#~ msgstr "Uppgiften som just nu blir redigerad"
+
+#~ msgid "Whether the task is completed or not"
+#~ msgstr "Huruvida uppgiften är utförd eller inte"
+
+#~ msgid "Whether the task is marked as completed by the user"
+#~ msgstr "Huruvida uppgiften är markerad som utförd av användaren"
+
+#, fuzzy
+#~ msgid "Component of the task"
+#~ msgstr "Namnet på uppgiften"
+
+#~ msgid "Description of the task"
+#~ msgstr "Beskrivning av uppgiften"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "Valbar sträng som beskriver uppgiften"
+
+#~ msgid "End date of the task"
+#~ msgstr "Slutdatum för uppgiften"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "Dagen då uppgiften är tänkt att vara utförd"
+
+#~ msgid "List of the task"
+#~ msgstr "Uppgiftslista"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "Listan som uppgiften tillhör"
+
+#~ msgid "Priority of the task"
+#~ msgstr "Prioritet"
+
+#~ msgid "The priority of the task. 0 means no priority set, and tasks will be sorted alphabetically."
+#~ msgstr "Uppgiftens prioritet. 0 betyder att ingen prioritet är satt och uppgifterna kommer sorteras i alfabetisk ordning."
+
+#~ msgid "Title of the task"
+#~ msgstr "Titel på uppgiften"
+
+#~ msgid "The title of the task"
+#~ msgstr "Namnet på uppgiften"
+
+#~ msgid "Color of the list"
+#~ msgstr "Färg på listan"
+
+#~ msgid "The color of the list"
+#~ msgstr "Färgen på listan"
+
+#~ msgid "The name of the list"
+#~ msgstr "Namnet på listan"
+
+#, fuzzy
+#~ msgid "The parent source that handles the list"
+#~ msgstr "Göromålskällan ansluten"
+
+#, fuzzy
+#~ msgid "Manager of this window's application"
+#~ msgstr "Fönster maximerat"
+
+#, fuzzy
+#~ msgid "The manager of the window's application"
+#~ msgstr "Fönster maximerat"
+
+#~ msgid "Whether the list is readonly"
+#~ msgstr "Huruvida listan endast läsbar"
+
+#~ msgid "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr "Huruvida listan endast är läsbar, d.v.s. ska visa Ny Uppgift, eller inte"
+
+#~ msgid "Whether task rows show the list name"
+#~ msgstr "Huruvida uppgiftsrader ska visa listnamn"
+
+#~ msgid "Whether task rows show the list name at the end of the row"
+#~ msgstr "Huruvida uppgiftsrader ska visa listnamn vid slutet av raden"
+
+#~ msgid "Whether completed tasks are shown"
+#~ msgstr "Huruvida utförda uppgifter visas"
+
+#~ msgid "Whether completed tasks are visible or not"
+#~ msgstr "Huruvida utförda uppgifter visas eller inte"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "Om raden används för att lägga till en ny uppgift"
+
+#~ msgid "Whether the row is used to add a new task"
+#~ msgstr "Huruvida raden används för att lägga till en ny uppgift"
+
+#~ msgid "Task of the row"
+#~ msgstr "Radens uppgift"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "Uppgiften denna rad representerar"
+
+#, fuzzy
+#~ msgid "Identifier of the storage"
+#~ msgstr "Välj målmapp"
+
+#, fuzzy
+#~ msgid "Provider type of the storage"
+#~ msgstr "Skriv meddelande"
+
+#~ msgid "Notification message"
+#~ msgstr "Aviseringsmeddelande"
+
+#, fuzzy
+#~ msgid "Notification timeout"
+#~ msgstr "Aviseringsmeddelande"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "Tiden som aviseringen visas"
