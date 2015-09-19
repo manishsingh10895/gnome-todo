@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-17 20:30+0000\n"
-"PO-Revision-Date: 2015-08-19 14:36+0800\n"
+"POT-Creation-Date: 2015-09-02 12:40+0000\n"
+"PO-Revision-Date: 2015-09-19 23:48+0800\n"
+"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <chinese-l10n@googlegroups.com>\n"
 "Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>\n"
 "X-Generator: Poedit 1.8.4\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -31,7 +31,7 @@ msgstr "GNOME 待辦事項管理員"
 msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
-msgstr "GNOME Todo 是一個整合 GNOME 的簡單工作管理應用程式。"
+msgstr "GNOME《待辦事項》是一個整合 GNOME 的簡單工作管理應用程式。"
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -49,13 +49,17 @@ msgstr "關於(_A)"
 msgid "_Quit"
 msgstr "結束(_Q)"
 
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "清除已完成的工作…"
+
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
 msgstr "管理您的個人工作"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Task;Productivity;工作;生產力;"
+msgstr "Task;Productivity;工作;生產力;事項;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -83,12 +87,12 @@ msgstr "視窗位置 (x 與 y)。"
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
-msgstr "初次執行 GNOME To Do"
+msgstr "初次執行 GNOME 待辦事項"
 
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr "這是不是第一次執行 GNOME To Do (執行初始化設定)"
+msgstr "這是不是第一次執行 GNOME 待辦事項 (執行初始化設定)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
@@ -98,7 +102,7 @@ msgstr "要加入新列表的預設位置"
 msgid "The identifier of the default location to add new lists to"
 msgstr "要加入新列表的預設位置識別符"
 
-#: ../data/ui/edit-pane.ui.h:1
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "詳細資料"
 
@@ -130,7 +134,7 @@ msgstr "中"
 msgid "High"
 msgstr "高"
 
-#: ../data/ui/edit-pane.ui.h:9
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "刪除"
 
@@ -143,11 +147,12 @@ msgid "Login to online accounts to access your tasks"
 msgstr "登入線上帳號以存取您的工作"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "取消"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "完成"
 
@@ -223,12 +228,12 @@ msgstr "新增工作…"
 msgid "Lists"
 msgstr "列表"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:133
-#: ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "今天"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
 msgstr "已有行程"
 
@@ -236,26 +241,30 @@ msgstr "已有行程"
 msgid "Rename"
 msgstr "重新命名"
 
-#: ../data/ui/window.ui.h:5
+#: ../data/ui/window.ui.h:6
 msgid "New List"
 msgstr "新增列表"
 
-#: ../src/gtd-application.c:90
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "工作列表名稱"
+
+#: ../src/gtd-application.c:91
 #, c-format
 msgid "Copyright © %d The To Do authors"
-msgstr "版權所有 © %d The To Do 開發團隊"
+msgstr "版權所有 © %d To Do 開發團隊"
 
-#: ../src/gtd-application.c:95
+#: ../src/gtd-application.c:96
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
-msgstr "版權所有 © %d–%d The To Do 開發團隊"
+msgstr "版權所有 © %d–%d To Do 開發團隊"
 
-#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
-#: ../src/gtd-window.c:297
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "待辦事項"
 
-#: ../src/gtd-application.c:107
+#: ../src/gtd-application.c:108
 msgid "translator-credits"
 msgstr "Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2015"
 
@@ -263,470 +272,427 @@ msgstr "Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>, 2015"
 msgid "Error loading CSS from resource"
 msgstr "從資源載入 CSS 時發生錯誤"
 
-#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "尚未設定日期"
 
-#: ../src/gtd-edit-pane.c:248
-msgid "Manager of this application"
-msgstr "這個應用程式的管理員"
-
-#: ../src/gtd-edit-pane.c:249
-msgid "The manager of the application"
-msgstr "這個應用程式的管理員"
-
-#: ../src/gtd-edit-pane.c:262
-msgid "Task being edited"
-msgstr "工作已被編輯"
-
-#: ../src/gtd-edit-pane.c:263
-msgid "The task that is actually being edited"
-msgstr "工作已確實被編輯"
-
-#: ../src/gtd-initial-setup-window.c:213
-msgid "Manager of the task"
-msgstr "工作的管理員"
-
-#: ../src/gtd-initial-setup-window.c:214
-#, fuzzy
-msgid "The singleton manager instance of the task"
-msgstr "裝置管理程式實體"
-
-#: ../src/gtd-manager.c:375
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
 msgid "Error loading GNOME Online Accounts"
 msgstr "載入 GNOME Online Accounts 時發生錯誤"
 
-#: ../src/gtd-manager.c:403
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
 msgstr "儲存工作列表時發生錯誤"
 
-#: ../src/gtd-manager.c:430
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
 msgid "Error removing task list"
 msgstr "移除工作列表時發生錯誤"
 
-#: ../src/gtd-manager.c:464
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "建立工作列表時發生錯誤"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
 msgid "Error creating task"
 msgstr "建立工作時發生錯誤"
 
-#: ../src/gtd-manager.c:527
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
 msgid "Error removing task"
 msgstr "移除工作時發生錯誤"
 
-#: ../src/gtd-manager.c:579
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
 msgstr "更新工作時發生錯誤"
 
-#: ../src/gtd-manager.c:608
+#: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
 msgstr "無法提示憑證"
 
-#: ../src/gtd-manager.c:631
+#: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
 msgstr "無法提示憑證給"
 
-#: ../src/gtd-manager.c:683
+#: ../src/gtd-manager.c:764
 msgid "Authentication failure"
 msgstr "核對失敗"
 
-#: ../src/gtd-manager.c:747
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
 msgstr "從列表取得工作時發生錯誤"
 
-#: ../src/gtd-manager.c:813
+#: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
 msgstr "工作列表來源已成功連線"
 
-#: ../src/gtd-manager.c:820
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
 msgstr "無法連線至工作列表來源"
 
-#: ../src/gtd-manager.c:850
+#: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
 msgstr "略過已載入的工作列表"
 
-#: ../src/gtd-manager.c:888
+#: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
 msgstr "載入工作管理員時發生錯誤"
 
-#: ../src/gtd-manager.c:1018
-msgid "Local"
-msgstr "本地端"
-
-#: ../src/gtd-manager.c:1019
-msgid "On This Computer"
-msgstr "在這臺電腦"
-
-#: ../src/gtd-manager.c:1052
-msgid "The online accounts client of the manager"
-msgstr "管理員的線上帳號客戶端"
-
-#: ../src/gtd-manager.c:1053
-msgid ""
-"The read-only GNOME online accounts client loaded and owned by the manager"
-msgstr "載入唯讀的 GNOME 線上帳號客戶端，由管理員擁有"
-
-#: ../src/gtd-manager.c:1066
-msgid "Whether GNOME Online Accounts client is ready"
-msgstr "GNOME Online Accounts 客戶端是否已準備完成"
-
-#: ../src/gtd-manager.c:1067
-msgid "Whether the read-only GNOME online accounts client is loaded"
-msgstr "唯讀的 GNOME 線上帳號客戶端是否已載入"
-
-#: ../src/gtd-manager.c:1080
-msgid "The source registry of the manager"
-msgstr "管理員的來源註冊表"
-
-#: ../src/gtd-manager.c:1081
-msgid "The read-only source registry loaded and owned by the manager"
-msgstr "已載入唯讀的來源註冊表，由管理員擁有"
-
-#: ../src/gtd-object.c:152
-msgid "Unique identifier of the object"
-msgstr "物件的唯一識別符"
-
-#: ../src/gtd-object.c:153
-msgid "The unique identifier of the object, defined by the backend"
-msgstr "物件的唯一識別符，由後端定義"
-
-#: ../src/gtd-object.c:166
-msgid "Ready state of the object"
-msgstr "物件的妥善狀態"
-
-#: ../src/gtd-object.c:167
-msgid "Whether the object is marked as ready or not"
-msgstr "物件是否被標記為準備完成"
-
-#: ../src/gtd-task.c:254
-msgid "Whether the task is completed or not"
-msgstr "這項工作是否被標記為已完成"
-
-#: ../src/gtd-task.c:255
-msgid "Whether the task is marked as completed by the user"
-msgstr "這項工作是否由使用者標記為已完成"
-
-#: ../src/gtd-task.c:268
-msgid "Component of the task"
-msgstr "這項工作的元件"
-
-#: ../src/gtd-task.c:269
-msgid "The #ECalComponent this task handles."
-msgstr "這項工作處理的 #ECalComponent 。"
-
-#: ../src/gtd-task.c:282
-msgid "Description of the task"
-msgstr "這項工作的描述"
-
-#: ../src/gtd-task.c:283
-msgid "Optional string describing the task"
-msgstr "描述這項工作的額外字串"
-
-#: ../src/gtd-task.c:297
-msgid "End date of the task"
-msgstr "這項工作的結束日期"
-
-#: ../src/gtd-task.c:298
-msgid "The day the task is supposed to be completed"
-msgstr "這項工作的日期應為已完成"
-
-#: ../src/gtd-task.c:311
-msgid "List of the task"
-msgstr "工作的列表"
-
-#: ../src/gtd-task.c:312
-msgid "The list that owns this task"
-msgstr "擁有這項工作的列表"
-
-#: ../src/gtd-task.c:325
-msgid "Priority of the task"
-msgstr "工作的優先等級"
-
-#: ../src/gtd-task.c:326
-msgid ""
-"The priority of the task. 0 means no priority set, and tasks will be sorted "
-"alphabetically."
-msgstr "這項工作的優先等級。0 表示沒有設定優先等級，而工作會以字母順序排列。"
-
-#: ../src/gtd-task.c:341
-msgid "Title of the task"
-msgstr "工作標題"
-
-#: ../src/gtd-task.c:342
-msgid "The title of the task"
-msgstr "這項工作的標題"
-
-#: ../src/gtd-task-list.c:152
-msgid "Color of the list"
-msgstr "列表顏色"
-
-#: ../src/gtd-task-list.c:153
-msgid "The color of the list"
-msgstr "列表的顏色"
-
-#: ../src/gtd-task-list.c:166
-msgid "Name of the list"
-msgstr "列表名稱"
-
-#: ../src/gtd-task-list.c:167
-msgid "The name of the list"
-msgstr "列表的名稱"
-
-#: ../src/gtd-task-list.c:180
-msgid "Data origin of the list"
-msgstr "列表的資料來源"
-
-#: ../src/gtd-task-list.c:181
-msgid "The data origin location of the list"
-msgstr "列表的資料來源位置"
-
-#: ../src/gtd-task-list.c:194
-msgid "Source of the list"
-msgstr "列表來源"
-
-#: ../src/gtd-task-list.c:195
-msgid "The parent source that handles the list"
-msgstr "處理此列表的母來源"
-
-#: ../src/gtd-task-list-item.c:231
+#: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
 msgstr "沒有工作"
 
-#: ../src/gtd-task-list-item.c:433
-msgid "Mode of this item"
-msgstr "這個項目的模式"
-
-#: ../src/gtd-task-list-item.c:434
-msgid "The mode of this item, inherited from the parent's mode"
-msgstr "這個系統的模式，從母元件的模式繼承"
-
-#: ../src/gtd-task-list-item.c:449
-msgid "Task list of the item"
-msgstr "這個項目的工作列表"
-
-#: ../src/gtd-task-list-item.c:450
-msgid "The task list associated with this item"
-msgstr "與此項目關聯的工作列表"
-
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "工作 <b>%s</b> 已被移除"
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "復原"
 
-#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:516
-#: ../src/storage/gtd-storage-dialog.c:150
-#: ../src/storage/gtd-storage-popover.c:269
-#: ../src/storage/gtd-storage-selector.c:515
-msgid "Manager of this window's application"
-msgstr "這個視窗的應用程式管理員"
-
-#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:517
-#: ../src/storage/gtd-storage-dialog.c:151
-#: ../src/storage/gtd-storage-popover.c:270
-#: ../src/storage/gtd-storage-selector.c:516
-msgid "The manager of the window's application"
-msgstr "這個視窗的應用程式管理員"
-
-#: ../src/gtd-task-list-view.c:670
-msgid "Whether the list is readonly"
-msgstr "列表是否是唯讀"
-
-#: ../src/gtd-task-list-view.c:671
-msgid ""
-"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
-msgstr "列表是否為唯讀，例如：不要顯示新增工作列位功能"
-
-#: ../src/gtd-task-list-view.c:684
-msgid "Whether task rows show the list name"
-msgstr "工作列位是否顯示列表名稱"
-
-#: ../src/gtd-task-list-view.c:685
-msgid "Whether task rows show the list name at the end of the row"
-msgstr "工作列位是否在列位結尾顯示列表名稱"
-
-#: ../src/gtd-task-list-view.c:698
-msgid "Whether completed tasks are shown"
-msgstr "是否顯示已完成的工作"
-
-#: ../src/gtd-task-list-view.c:699
-msgid "Whether completed tasks are visible or not"
-msgstr "已完成的工作是否為可視"
-
-#: ../src/gtd-task-row.c:143
+#: ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "明天"
 
-#: ../src/gtd-task-row.c:147
+#: ../src/gtd-task-row.c:148
 msgid "Yesterday"
 msgstr "昨天"
 
-#: ../src/gtd-task-row.c:366
-msgid "If the row is used to add a new task"
-msgstr "該列位是否用來加入新工作"
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "是否移除選取的工作列表？"
 
-#: ../src/gtd-task-row.c:367
-msgid "Whether the row is used to add a new task"
-msgstr "該列位是否用來加入新工作"
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "一旦移除，這些工作列表便無法再還原。"
 
-#: ../src/gtd-task-row.c:380
-msgid "Task of the row"
-msgstr "列位的工作"
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "移除工作列表"
 
-#: ../src/gtd-task-row.c:381
-msgid "The task that this row represents"
-msgstr "這個列位代表的工作"
-
-#: ../src/gtd-window.c:181
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
 msgstr "設定工作列表的新顏色"
 
-#: ../src/gtd-window.c:552
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
 msgstr "載入您的工作列表…"
 
-#: ../src/storage/gtd-storage.c:189
-msgid "Whether the storage is enabled"
-msgstr "該儲存區是否啟用"
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "點選工作列表來選取"
 
-#: ../src/storage/gtd-storage.c:190
-msgid "Whether the storage is available to be used."
-msgstr "儲存區是否是可以使用。"
-
-#: ../src/storage/gtd-storage.c:203
-msgid "Icon of the storage"
-msgstr "儲存區的圖示"
-
-#: ../src/storage/gtd-storage.c:204
-msgid "The icon representing the storage location."
-msgstr "代表儲存區位置的圖示。"
-
-#: ../src/storage/gtd-storage.c:217
-msgid "Identifier of the storage"
-msgstr "儲存區識別符"
-
-#: ../src/storage/gtd-storage.c:218
-msgid "The unique identifier of the storage location."
-msgstr "儲存區位置的獨特識別符。"
-
-#: ../src/storage/gtd-storage.c:231
-msgid "Whether the storage is the default"
-msgstr "該儲存區是否為預設"
-
-#: ../src/storage/gtd-storage.c:232
-msgid "Whether the storage is the default storage location to be used."
-msgstr "儲存區是否是預設使用的儲存區位置。"
-
-#: ../src/storage/gtd-storage.c:245
-msgid "Name of the storage"
-msgstr "儲存區的名稱"
-
-#: ../src/storage/gtd-storage.c:246
-msgid "The user-visible name of the storage location."
-msgstr "使用者可見的儲存區位置名稱。"
-
-#: ../src/storage/gtd-storage.c:259
-msgid "Parent of the storage"
-msgstr "儲存區母元件"
-
-#: ../src/storage/gtd-storage.c:260
-msgid "The parent source identifier of the storage location."
-msgstr "儲存區位置的母來源識別符。"
-
-#: ../src/storage/gtd-storage.c:273
-msgid "Provider type of the storage"
-msgstr "儲存區的提供者類型"
-
-#: ../src/storage/gtd-storage.c:274
-msgid "The provider type of the storage location."
-msgstr "儲存區位置的提供者類型、"
-
-#: ../src/storage/gtd-storage.c:287
-msgid "Provider name of the storage"
-msgstr "儲存區的提供者名稱"
-
-#: ../src/storage/gtd-storage.c:288
-msgid "The name of the provider of the storage location."
-msgstr "儲存區位置的提供者名稱、"
-
-#: ../src/storage/gtd-storage.c:680
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 msgid "Error creating new task list"
 msgstr "建立新工作列表時發生錯誤"
 
-#: ../src/storage/gtd-storage-row.c:148
-msgid "Storage of the row"
-msgstr "這個列位的儲存區"
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "在這臺電腦"
 
-#: ../src/storage/gtd-storage-row.c:149
-msgid "The storage that this row holds"
-msgstr "這個列位所保存的儲存區"
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "本地端"
 
-#: ../src/storage/gtd-storage-selector.c:529
-msgid "Show local storage row"
-msgstr "顯示本地端儲存區列位"
+#~ msgid "Manager of this application"
+#~ msgstr "這個應用程式的管理員"
 
-#: ../src/storage/gtd-storage-selector.c:530
-msgid "Whether should show a local storage row instead of a checkbox"
-msgstr "是否應顯示本地端儲存區列代替勾選盒"
+#~ msgid "The manager of the application"
+#~ msgstr "這個應用程式的管理員"
 
-#: ../src/storage/gtd-storage-selector.c:543
+#~ msgid "Task being edited"
+#~ msgstr "工作已被編輯"
+
+#~ msgid "The task that is actually being edited"
+#~ msgstr "工作已確實被編輯"
+
+#~ msgid "Manager of the task"
+#~ msgstr "工作的管理員"
+
 #, fuzzy
-msgid "Show stub rows"
-msgstr "存根"
+#~ msgid "The singleton manager instance of the task"
+#~ msgstr "裝置管理程式實體"
 
-#: ../src/storage/gtd-storage-selector.c:544
-msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
+#~ msgid "The online accounts client of the manager"
+#~ msgstr "管理員的線上帳號客戶端"
 
-#: ../src/storage/gtd-storage-selector.c:557
-msgid "Selects default storage row"
-msgstr "選擇預設儲存區列位"
+#~ msgid ""
+#~ "The read-only GNOME online accounts client loaded and owned by the manager"
+#~ msgstr "載入唯讀的 GNOME 線上帳號客戶端，由管理員擁有"
 
-#: ../src/storage/gtd-storage-selector.c:558
-msgid "Whether should select the default storage row"
-msgstr "是否應選擇預設儲存區列位"
+#~ msgid "Whether GNOME Online Accounts client is ready"
+#~ msgstr "GNOME Online Accounts 客戶端是否已準備完成"
 
-#: ../src/notification/gtd-notification.c:181
-msgid "Whether the notification has a primary action"
-msgstr "通知是否有主要動作"
+#~ msgid "Whether the read-only GNOME online accounts client is loaded"
+#~ msgstr "唯讀的 GNOME 線上帳號客戶端是否已載入"
 
-#: ../src/notification/gtd-notification.c:182
-msgid ""
-"Whether the notification has the primary action, activated on timeout or "
-"dismiss"
-msgstr "通知是否有主要動作，在逾時或解除時作用"
+#~ msgid "The source registry of the manager"
+#~ msgstr "管理員的來源註冊表"
 
-#: ../src/notification/gtd-notification.c:196
-msgid "Whether the notification has a secondary action"
-msgstr "通知是否有次要動作"
+#~ msgid "The read-only source registry loaded and owned by the manager"
+#~ msgstr "已載入唯讀的來源註冊表，由管理員擁有"
 
-#: ../src/notification/gtd-notification.c:197
-msgid ""
-"Whether the notification has the secondary action, activated by the user"
-msgstr "通知是否有次要動作，由使用者作用"
+#~ msgid "Unique identifier of the object"
+#~ msgstr "物件的唯一識別符"
 
-#: ../src/notification/gtd-notification.c:210
-msgid "Text of the secondary action button"
-msgstr "次要動作按鈕的文字"
+#~ msgid "The unique identifier of the object, defined by the backend"
+#~ msgstr "物件的唯一識別符，由後端定義"
 
-#: ../src/notification/gtd-notification.c:211
-msgid "The text of the secondary action button"
-msgstr "次要動作按鈕的文字"
+#~ msgid "Ready state of the object"
+#~ msgstr "物件的妥善狀態"
 
-#: ../src/notification/gtd-notification.c:224
-msgid "Notification message"
-msgstr "通知訊息"
+#~ msgid "Whether the object is marked as ready or not"
+#~ msgstr "物件是否被標記為準備完成"
 
-#: ../src/notification/gtd-notification.c:225
-msgid "The main message of the notification"
-msgstr "通知的主要訊息"
+#~ msgid "Whether the task is completed or not"
+#~ msgstr "這項工作是否被標記為已完成"
 
-#: ../src/notification/gtd-notification.c:238
-msgid "Notification timeout"
-msgstr "通知逾時"
+#~ msgid "Whether the task is marked as completed by the user"
+#~ msgstr "這項工作是否由使用者標記為已完成"
 
-#: ../src/notification/gtd-notification.c:239
-msgid "The time the notification is displayed"
-msgstr "顯示通知的時間"
+#~ msgid "Component of the task"
+#~ msgstr "這項工作的元件"
+
+#~ msgid "The #ECalComponent this task handles."
+#~ msgstr "這項工作處理的 #ECalComponent 。"
+
+#~ msgid "Description of the task"
+#~ msgstr "這項工作的描述"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "描述這項工作的額外字串"
+
+#~ msgid "End date of the task"
+#~ msgstr "這項工作的結束日期"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "這項工作的日期應為已完成"
+
+#~ msgid "List of the task"
+#~ msgstr "工作的列表"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "擁有這項工作的列表"
+
+#~ msgid "Priority of the task"
+#~ msgstr "工作的優先等級"
+
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "這項工作的優先等級。0 表示沒有設定優先等級，而工作會以字母順序排列。"
+
+#~ msgid "Title of the task"
+#~ msgstr "工作標題"
+
+#~ msgid "The title of the task"
+#~ msgstr "這項工作的標題"
+
+#~ msgid "Color of the list"
+#~ msgstr "列表顏色"
+
+#~ msgid "The color of the list"
+#~ msgstr "列表的顏色"
+
+#~ msgid "Whether the task list is removable"
+#~ msgstr "工作列表是否可以移除"
+
+#~ msgid "Whether the task list can be removed from the system"
+#~ msgstr "工作列表是否可以從系統中移除"
+
+#~ msgid "Name of the list"
+#~ msgstr "列表名稱"
+
+#~ msgid "The name of the list"
+#~ msgstr "列表的名稱"
+
+#~ msgid "Data origin of the list"
+#~ msgstr "列表的資料來源"
+
+#~ msgid "The data origin location of the list"
+#~ msgstr "列表的資料來源位置"
+
+#~ msgid "Source of the list"
+#~ msgstr "列表來源"
+
+#~ msgid "The parent source that handles the list"
+#~ msgstr "處理此列表的母來源"
+
+#~ msgid "Mode of this item"
+#~ msgstr "這個項目的模式"
+
+#~ msgid "The mode of this item, inherited from the parent's mode"
+#~ msgstr "這個系統的模式，從母元件的模式繼承"
+
+#~ msgid "Whether the task list is selected"
+#~ msgstr "工作列表是否選取"
+
+#~ msgid "Whether the task list is selected when in selection mode"
+#~ msgstr "工作列表在選取模式下是否被選取"
+
+#~ msgid "Task list of the item"
+#~ msgstr "這個項目的工作列表"
+
+#~ msgid "The task list associated with this item"
+#~ msgstr "與此項目關聯的工作列表"
+
+#~ msgid "Manager of this window's application"
+#~ msgstr "這個視窗的應用程式管理員"
+
+#~ msgid "The manager of the window's application"
+#~ msgstr "這個視窗的應用程式管理員"
+
+#~ msgid "Whether the list is readonly"
+#~ msgstr "列表是否是唯讀"
+
+#~ msgid ""
+#~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr "列表是否為唯讀，例如：不要顯示新增工作列位功能"
+
+#~ msgid "Whether task rows show the list name"
+#~ msgstr "工作列位是否顯示列表名稱"
+
+#~ msgid "Whether task rows show the list name at the end of the row"
+#~ msgstr "工作列位是否在列位結尾顯示列表名稱"
+
+#~ msgid "Whether completed tasks are shown"
+#~ msgstr "是否顯示已完成的工作"
+
+#~ msgid "Whether completed tasks are visible or not"
+#~ msgstr "已完成的工作是否為可視"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "該列位是否用來加入新工作"
+
+#~ msgid "Whether the row is used to add a new task"
+#~ msgstr "該列位是否用來加入新工作"
+
+#~ msgid "Task of the row"
+#~ msgstr "列位的工作"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "這個列位代表的工作"
+
+#~ msgid "Mode of this window"
+#~ msgstr "這個視窗的模式"
+
+#~ msgid "The interaction mode of the window"
+#~ msgstr "視窗的互動模式"
+
+#~ msgid "Whether the storage is enabled"
+#~ msgstr "該儲存區是否啟用"
+
+#~ msgid "Whether the storage is available to be used."
+#~ msgstr "儲存區是否是可以使用。"
+
+#~ msgid "Icon of the storage"
+#~ msgstr "儲存區的圖示"
+
+#~ msgid "The icon representing the storage location."
+#~ msgstr "代表儲存區位置的圖示。"
+
+#~ msgid "Identifier of the storage"
+#~ msgstr "儲存區識別符"
+
+#~ msgid "The unique identifier of the storage location."
+#~ msgstr "儲存區位置的獨特識別符。"
+
+#~ msgid "Whether the storage is the default"
+#~ msgstr "該儲存區是否為預設"
+
+#~ msgid "Whether the storage is the default storage location to be used."
+#~ msgstr "儲存區是否是預設使用的儲存區位置。"
+
+#~ msgid "Name of the storage"
+#~ msgstr "儲存區的名稱"
+
+#~ msgid "The user-visible name of the storage location."
+#~ msgstr "使用者可見的儲存區位置名稱。"
+
+#, fuzzy
+#~ msgid "Name of the data provider of the storage"
+#~ msgstr "儲存區位置的資料提供者名稱"
+
+#, fuzzy
+#~| msgid "The name of the provider of the storage location."
+#~ msgid "The user-visible name of the data provider of the storage location."
+#~ msgstr "儲存區位置的提供者名稱、"
+
+#, fuzzy
+#~| msgid "Parent of the storage"
+#~ msgid "GoaObject of the storage"
+#~ msgstr "儲存區母元件"
+
+#, fuzzy
+#~| msgid "The provider type of the storage location."
+#~ msgid "The GoaObject this storage location represents."
+#~ msgstr "儲存區位置的提供者類型、"
+
+#~ msgid "Parent of the storage"
+#~ msgstr "儲存區母元件"
+
+#~ msgid "The parent source identifier of the storage location."
+#~ msgstr "儲存區位置的母來源識別符。"
+
+#~ msgid "Storage of the row"
+#~ msgstr "這個列位的儲存區"
+
+#~ msgid "The storage that this row holds"
+#~ msgstr "這個列位所保存的儲存區"
+
+#~ msgid "Show local storage row"
+#~ msgstr "顯示本地端儲存區列位"
+
+#~ msgid "Whether should show a local storage row instead of a checkbox"
+#~ msgstr "是否應顯示本地端儲存區列代替勾選盒"
+
+#, fuzzy
+#~ msgid "Show stub rows"
+#~ msgstr "存根"
+
+#~ msgid "Selects default storage row"
+#~ msgstr "選擇預設儲存區列位"
+
+#~ msgid "Whether should select the default storage row"
+#~ msgstr "是否應選擇預設儲存區列位"
+
+#~ msgid "Whether the notification has a primary action"
+#~ msgstr "通知是否有主要動作"
+
+#~ msgid ""
+#~ "Whether the notification has the primary action, activated on timeout or "
+#~ "dismiss"
+#~ msgstr "通知是否有主要動作，在逾時或解除時作用"
+
+#~ msgid "Whether the notification has a secondary action"
+#~ msgstr "通知是否有次要動作"
+
+#~ msgid ""
+#~ "Whether the notification has the secondary action, activated by the user"
+#~ msgstr "通知是否有次要動作，由使用者作用"
+
+#~ msgid "Text of the secondary action button"
+#~ msgstr "次要動作按鈕的文字"
+
+#~ msgid "The text of the secondary action button"
+#~ msgstr "次要動作按鈕的文字"
+
+#~ msgid "Notification message"
+#~ msgstr "通知訊息"
+
+#~ msgid "The main message of the notification"
+#~ msgstr "通知的主要訊息"
+
+#~ msgid "Notification timeout"
+#~ msgstr "通知逾時"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "顯示通知的時間"
+
+#~ msgid "Provider type of the storage"
+#~ msgstr "儲存區的提供者類型"
+
+#~ msgid "Provider name of the storage"
+#~ msgstr "儲存區的提供者名稱"
