@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo 3.17.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 20:16+0200\n"
-"PO-Revision-Date: 2015-09-07 20:21+0200\n"
+"POT-Creation-Date: 2015-09-20 12:31+0200\n"
+"PO-Revision-Date: 2015-09-20 12:36+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -31,7 +31,9 @@ msgstr "Oppgaveliste for GNOME"
 msgid ""
 "GNOME Todo is a simple task management application designed to integrate "
 "with GNOME."
-msgstr "GNOME oppgaver er et enkelt oppgavehåndteringsprogram som er integrert med GNOME."
+msgstr ""
+"GNOME oppgaver er et enkelt oppgavehåndteringsprogram som er integrert med "
+"GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -144,7 +146,7 @@ msgstr "Velkommen"
 
 #: ../data/ui/initial-setup.ui.h:2
 msgid "Login to online accounts to access your tasks"
-msgstr ""
+msgstr "Logg inn i kontoer på nettet for å aksessere dine oppgaver"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
 #: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
@@ -162,7 +164,7 @@ msgstr "Ingen oppgaver funnet"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr ""
+msgstr "Du kan legge til oppgaver i listene i visningen <b>Lister</b>"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
@@ -170,7 +172,7 @@ msgstr "Vis eller skjul fullførte oppgaver"
 
 #: ../data/ui/storage-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
-msgstr ""
+msgstr "Velg forvalgt lagringslokasjon ved oppretting av oppgavelister:"
 
 #: ../data/ui/storage-dialog.ui.h:2
 msgid "Default storage location"
@@ -257,7 +259,7 @@ msgstr "Opphavsrett © %d Oppgaveforfatterene"
 #: ../src/gtd-application.c:96
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
-msgstr ""
+msgstr "Opphavsrett © %d-%d Oppgavelisteutviklerene"
 
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
 #: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
@@ -270,64 +272,55 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
 #: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
-msgstr ""
+msgstr "Feil ved lasting av CSS fra ressurs"
 
 #: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Ingen dato satt"
 
 #: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-#, fuzzy
 msgid "Error loading GNOME Online Accounts"
-msgstr "Åpne k_ontoer på nettet"
+msgstr "Feil ved lasting av kontoer på nettet"
 
 #: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
 msgstr "Feil ved lagring av oppgaveliste"
 
 #: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-#, fuzzy
 msgid "Error removing task list"
-msgstr "Feil under fjerning av liste"
+msgstr "Feil under fjerning av oppgaveliste"
 
 #: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-#, fuzzy
 msgid "Error creating task list"
-msgstr "Feil ved opretting av visning for oppgaveliste «{0}»"
+msgstr "Feil ved opretting oppgaveliste"
 
 #: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-#, fuzzy
 msgid "Error creating task"
-msgstr "Lager en oppgave"
+msgstr "Feil ved oppretting av oppgave"
 
 #: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-#, fuzzy
 msgid "Error removing task"
-msgstr "Feil under fjerning av liste"
+msgstr "Feil under fjerning av oppgave"
 
 #: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-#, fuzzy
 msgid "Error updating task"
-msgstr "Oppdaterer en oppgave"
+msgstr "Feil ved oppdatering av oppgave"
 
 #: ../src/gtd-manager.c:689
-#, fuzzy
 msgid "Failed to prompt for credentials"
-msgstr "Klarte ikke å spørre etter påloggingsinformasjon for «{0}»"
+msgstr "Klarte ikke å spørre etter påloggingsinformasjon"
 
 #: ../src/gtd-manager.c:712
-#, fuzzy
 msgid "Failed to prompt for credentials for"
-msgstr "Klarte ikke å spørre etter påloggingsinformasjon for «{0}»"
+msgstr "Klarte ikke å spørre etter påloggingsinformasjon for"
 
 #: ../src/gtd-manager.c:764
 msgid "Authentication failure"
 msgstr "Autentisering feilet"
 
 #: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-#, fuzzy
 msgid "Error fetching tasks from list"
-msgstr "Feil ved lasting av oppgaveliste «{0}»"
+msgstr "Feil ved henting av oppgave fra liste"
 
 #: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
@@ -340,12 +333,11 @@ msgstr "Klarte ikke å koble til oppgaveliste «{0}»"
 
 #: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
-msgstr ""
+msgstr "Hopper over oppgaveliste som allerede er lastet "
 
 #: ../src/gtd-manager.c:977
-#, fuzzy
 msgid "Error loading task manager"
-msgstr "Feil ved lasting av oppgaveliste «{0}»"
+msgstr "Feil ved lasting av oppgavehåndterer"
 
 #: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
@@ -354,7 +346,7 @@ msgstr "Ingen oppgaver"
 #: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
-msgstr ""
+msgstr "Oppgave <b>%s</b> fjernet"
 
 #: ../src/gtd-task-list-view.c:294
 msgid "Undo"
@@ -370,11 +362,11 @@ msgstr "I går"
 
 #: ../src/gtd-window.c:307
 msgid "Remove the selected task lists?"
-msgstr ""
+msgstr "Fjerne valgte oppgavelister?"
 
 #: ../src/gtd-window.c:310
 msgid "Once removed, the task lists cannot be recovered."
-msgstr ""
+msgstr "Når oppgavelistne blir fjernet kan de ikke gjenopprettes."
 
 #: ../src/gtd-window.c:322
 msgid "Remove task lists"
@@ -393,9 +385,8 @@ msgid "Click a task list to select"
 msgstr "Klikk på en oppgaveliste for å velge den"
 
 #: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-#, fuzzy
 msgid "Error creating new task list"
-msgstr "Feil ved opretting av visning for oppgaveliste «{0}»"
+msgstr "Feil ved opretting av ny oppgaveliste"
 
 #. Create task list
 #: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
