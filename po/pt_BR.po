@@ -1,25 +1,25 @@
 # Brazilian Portuguese translation for gnome-todo.
 # Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-todo package.
-# Georges Neto <georges.stavracas@gmail.com>, 2015.
 # Georges Basile Stavracas Neto <georges.stavracas@gmail.com>, 2015.
+# Rafael Fontenelle <rffontenelle@gmail.com>, 2015.
+# Enrico Nicoletto <liverig@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-19 21:30+0000\n"
-"PO-Revision-Date: 2015-09-19 18:39-0300\n"
-"Last-Translator: Georges Basile Stavracas Neto <georges.stavracas@gmail."
-"com>\n"
-"Language-Team: Português <>\n"
+"POT-Creation-Date: 2015-09-21 17:46+0000\n"
+"PO-Revision-Date: 2015-09-21 15:07-0300\n"
+"Last-Translator: Enrico Nicoletto <liverig@gmail.com>\n"
+"Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.7.3\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -55,7 +55,7 @@ msgid "_Quit"
 msgstr "_Sair"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
+msgid "Clear completed tasks…"
 msgstr "Limpar tarefas completadas…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
@@ -143,7 +143,7 @@ msgstr "Alta"
 
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
-msgstr "Deletar"
+msgstr "Excluir"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -165,7 +165,7 @@ msgstr "Concluído"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
-msgstr "Nenhuma tarefa encontrada"
+msgstr "Nenhuma tarefa localizada"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
@@ -243,7 +243,7 @@ msgstr "Hoje"
 
 #: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
-msgstr "Programado"
+msgstr "Agendado"
 
 #: ../data/ui/window.ui.h:4
 msgid "Rename"
@@ -276,8 +276,8 @@ msgstr "Tarefas"
 msgid "translator-credits"
 msgstr ""
 "Georges Basile Stavracas Neto <georges.stavracas@gmail.com>\n"
-",\n"
-"Rafael Fontenelle <rffontenelle@gmail.com>"
+"Rafael Fontenelle <rffontenelle@gmail.com>\n"
+"Enrico Nicoletto <liverig@gmail.com>"
 
 #: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
@@ -313,15 +313,15 @@ msgstr "Erro ao remover tarefa"
 
 #: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
-msgstr "Erro atualizando tarefa"
+msgstr "Erro ao atualizar tarefa"
 
 #: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
-msgstr "Falhou em solicitar credenciais"
+msgstr "Ocorreu falha ao solicitar credenciais"
 
 #: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
-msgstr "Falhou em solicitar credenciais para"
+msgstr "Ocorreu falha ao solicitar credenciais para"
 
 #: ../src/gtd-manager.c:764
 msgid "Authentication failure"
@@ -329,7 +329,7 @@ msgstr "Falha de autenticação"
 
 #: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
-msgstr "Erro a obter tarefas da lista"
+msgstr "Erro ao obter tarefas da lista"
 
 #: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
@@ -337,7 +337,7 @@ msgstr "Fonte da lista de tarefas conectada com sucesso"
 
 #: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
-msgstr "Falha ao conectar com fonte da lista de tarefas"
+msgstr "Ocorreu falha ao conectar com fonte da lista de tarefas"
 
 #: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
@@ -345,7 +345,7 @@ msgstr "Pulando lista de tarefas já carregada"
 
 #: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
-msgstr "Erro ao carregar gerenciador de tarefas"
+msgstr "Erro ao carregar o gerenciador de tarefas"
 
 #: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
