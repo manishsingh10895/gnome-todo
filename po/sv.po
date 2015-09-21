@@ -58,7 +58,7 @@ msgstr "Hantera dina uppgifter som ska göras"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Uppgift;Produktivitet;Effektivitet"
+msgstr "Uppgift;Produktivitet;Effektivitet;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
