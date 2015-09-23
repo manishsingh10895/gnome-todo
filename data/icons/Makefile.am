@@ -11,7 +11,9 @@ hicolor_icon48_DATA = hicolor/48x48/apps/gnome-todo.png
 hicolor_icon256dir = $(datadir)/icons/hicolor/256x256/apps
 hicolor_icon256_DATA = hicolor/256x256/apps/gnome-todo.png
 hicolor_icon512dir = $(datadir)/icons/hicolor/512x512/apps
-hicolor_icon512_DATA = hicolor/256x256/apps/gnome-todo.png
+hicolor_icon512_DATA = hicolor/512x512/apps/gnome-todo.png
+hicolor_iconsymbolicdir = $(datadir)/icons/hicolor/symbolic/apps
+hicolor_iconsymbolic_DATA = hicolor/symbolic/apps/gnome-todo-symbolic.svg
 hicolor_icon_files = \
 	$(hicolor_icon16_DATA) \
 	$(hicolor_icon22_DATA) \
@@ -19,6 +21,7 @@ hicolor_icon_files = \
 	$(hicolor_icon48_DATA) \
 	$(hicolor_icon256_DATA) \
 	$(hicolor_icon512_DATA) \
+	$(hicolor_iconsymbolic_DATA) \
 	hicolor/gnome-todo.svg
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
