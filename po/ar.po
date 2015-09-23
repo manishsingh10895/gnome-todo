@@ -1,0 +1,397 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Khaled Hosny <khaledhosny@eglug.org>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-23 22:34+0200\n"
+"PO-Revision-Date: 2015-09-23 22:34+0200\n"
+"Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
+"Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.7.1\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "المهام"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "مدير مهام لجنوم"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr "مدير مهام جنوم هو تطبيق بسيط مصمم للتكامل مع جنوم"
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "قائمة جديدة…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "غيّر مكان الحفظ المبدئي…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_عن"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "أ_نهِ"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed tasks…"
+msgstr "امسح المهام المُنجزة…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "أدر مهامك الشخصية"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Task;Productivity;مهمة;مهام;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "النافذة مُكبّرة"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "حالة تكبير النافذة"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "حجم النافذة"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "حجم النافذة (العرض و الارتفاع)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "موضع النافذة"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "موضع النافذة (س و ص)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "أول تشغيل لمهام جنوم"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr "ما إذا كان هذا أول تشغيل لهام جنوم (لتشغيل الإعداد الأولي)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "المكان المبدئي لإضافة القوائم الجديدة"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "معرّف المكان المبدئي لإضافة القوائم الجديدة"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "التفاصيل"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "ملاحظات"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "الموعد"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "الأولويّة"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "بلا أولوية"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "منخفضة"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "متوسطة"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "مرتفعة"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "احذف"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "مرحبًا"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "لِج إلى حسابات الإنترنت للوصول إلى مهامك"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "ألغِ"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "تمّ"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "لم يعثر على أي مهام"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "يمكنك إضافة مهام إلى القوائم في منظور <b>القوائم</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "أظهر أو أخفِ المهام المنجزة"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "اختر مكان الحفظ المبدئي لإنشاء المهام:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "مكان الحفظ المبدئي"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "أنشئ"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "اسم القائمة"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "اختر مكان الحفظ"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "معطل"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "انقر لإضافة حساب جوجل جديد"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "جوجل"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "انقر لإضافة حساب ownCloud جديد"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "انقر لإضافة حساب ميكروسوفت إكستشينج جديد"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "ميكروسوفت إكستشينج"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "أو يمكنك حفظ المهام على هذا الحاسوب"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "مهمة جديدة…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "القوائم"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "اليوم"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "مُجدوَل"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "غيّر الاسم"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "قائمة جديدة"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "اسم قائمة المهام"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "حقوق النشر © %Id لمؤلفي «المهام»"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "حقوق النشر © %Id–%Id لمؤلفي «المهام»"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "المهام"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr ""
+"فريق عربآيز للترجمة http://www.arabeyes.org:\n"
+"خالد حسني <khaledhosny@eglug.org>"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "عُطل في تحميل ملف الطرز المتراصة"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "لم يحدد أي تاريخ"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "عُطل في تحميل حسابات إنترنت جنوم"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "عُطل في حفظ قائمة المهام"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "عُطل في حذف قائمة المهام"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "عُطل في إنشاء قائمة المهام"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "عُطل في إنشاء المهمة"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "عُطل في حذف المهمة"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "عُطل في تحديث المهمة"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "فشل السؤال عن الاعتماديات"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "فشل السؤال عن اعتماديات"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "فشل في الاستيثاق"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "عُطل في جلب المهام من القائمة"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "تم توصيل قائمة المهام بنجاح"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "فشل الاتصال بمصدر قائمة المهام"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "تخطى قائمة مهام سبق تحميلها"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "عطل في تحميل مدير المهام"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "لا مهام"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "أزيلت المهمة <b>%s</b>"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "تراجع"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "غدًا"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "أمس"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "أأحذف قوائم المهام المُحددة؟"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "بمجرد إزالة قوائم المهام لن يمكن استعادتها."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "أزل قوائم المهام"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "يحدد لونًا جديدًا لقائمة المهام"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "يحمل قائمة مهامك…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "انقر على قائمة مهام لاختيارها"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "عُطل في إنشاء قائمة مهام جديدة"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "على هذا الحاسوب"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "محليًا"
