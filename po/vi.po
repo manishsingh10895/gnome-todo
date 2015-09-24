@@ -1,0 +1,402 @@
+# Vietnamese translations for gnome-todo package
+# Bản dịch Tiếng Việt dành cho gói gnome-todo.
+# This file is distributed under the same license as the gnome-todo package.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo GNOME-3.18\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-23 21:03+0000\n"
+"PO-Revision-Date: 2015-09-24 14:20+0700\n"
+"Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
+"Language-Team: Vietnamese <gnome-vi-list@gnome.org>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Gtranslator 2.91.7\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Cần làm"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Ứng dụng quản lý các công việc cần làm cho môi trường GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Todo là ứng dụng quản lý công việc đơn giản được thiết kế để hợp nhất "
+"với GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Danh sách mới…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Đổi vị trí lưu trữ mặc định…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "_Giới thiệu"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Thoát"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "Clear completed task…"
+msgstr "Xóa công việc đã hoàn tất…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Quản lý các công việc cá nhân của bạn"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Task;Công việc;công tác;tác vụ;Productivity;năng suất;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Cửa sổ phóng to"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Cửa sổ ở trạng thái phóng to hết cỡ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Kích cỡ cửa sổ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Kích thước cửa sổ (rộng và cao)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Vị trí cửa sổ"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Vị trí cửa sổ (x và y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Lần đầu chạy GNOME To Do"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Hoặc đây là lần đầu chạy GNOME To Do (để chạy cài đặt lần đầu) hoặc không"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Vị trí mặc định để thêm các danh sách mới vào"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr "Định danh của vị trí mặc định để thêm các danh sách mới vào"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Chi tiết"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Ghi chú"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Ngày tới hạn"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Độ ưu tiên"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Không"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Thấp"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Trung bình"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Cao"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Xóa"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Chào mừng"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr ""
+"Đăng nhập vào các tài khoản trực tuyến để truy cập các công tác của bạn"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Thôi"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Xong"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Không tìm thấy công việc nào"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr ""
+"Bạn có thể thêm các công việc vào danh sách trong phần trình bày <b>Danh "
+"sách</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Hiện hay ẩn các công việc đã hoàn thành"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Chọn vị trí lưu mặc định để tạo danh sách công việc:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Vị trí lưu mặc định"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Tạo"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Tên danh sách"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Chọn vị trí lưu trữ"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Tắt"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Bấm vào để thêm tài khoản Google mới"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Bấm vào để thêm tài khoản ownCloud mới"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Bấm vào để thêm tài khoản Microsoft Exchange mới"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Hoặc là bạn chỉ lưu các công việc trên máy tính này"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Công việc mới…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Danh sách"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "Hôm nay"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Lịch trình"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Đổi tên"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Danh sách mới"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Tên của danh sách công việc"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Tác quyền © %d Các tác giả To Do"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Tác quyền © %d–%d Các tác giả To Do"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "To Do"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "Nhóm Việt hóa GNOME"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Có lỗi khi đang tải CSS từ nguồn"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Chưa đặt ngày"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Có lỗi khi tải GNOME Online Accounts"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Có lỗi khi ghi danh sách công việc"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Có lỗi khi gỡ bỏ danh sách công việc"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Có lỗi khi tạo danh sách công việc"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Có lỗi khi tạo công việc"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Có lỗi khi xóa bỏ công việc"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Có lỗi khi cập nhật công việc"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Gặp lỗi khi hỏi đáp cho chứng thư"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Gặp lỗi khi hỏi đáp cho chứng thư cho"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Việc xác thực gặp lỗi nghiêm trọng"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Gặp lỗi khi lấy các công việc từ danh sách"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr "Việc kết nối nguồn danh sách công việc đã thành công"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Gặp lỗi khi kết nối đến nguồn danh sách công việc"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Bỏ qua danh sách công việc đã được tải"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Có lỗi xảy ra khi đang tải bộ quản lý công việc"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Không có công việc nào"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Công việc <b>%s</b> đã bị xóa bỏ"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Hoàn lại"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Ngày mai"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Hôm qua"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Xóa bỏ các danh sách công việc đã chọn?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Một khi đã xóa, danh sách công việc sẽ không thể phục hồi được."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Xóa bỏ danh sách công việc"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Cài đặt màu mới cho danh sách công việc"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Đang tải các danh sách công việc…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Bấm vào danh sách công việc để chọn"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Có lỗi xảy ra khi đang tạo danh sách công việc"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Trên máy này"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Nội bộ"
