@@ -1,0 +1,409 @@
+# Italian translation for gnome-todo.
+# Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Claudio Arseni <claudio.arseni@gmail.com>, 2015.
+# Claudio Arseni <claudio.arseni@ubuntu.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo master\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-09-23 09:03+0000\n"
+"PO-Revision-Date: 2015-09-23 17:01+0200\n"
+"Last-Translator: Claudio Arseni <claudio.arseni@ubuntu.com>\n"
+"Language-Team: tp@lists.linux.it\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "ToDo"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "Gestore delle cose da fare per GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME ToDo è una semplice applicazione di gestione delle attività progettata "
+"per integrarsi con l'ambiente GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Nuovo elenco…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Modifica posizione di archiviazione predefinita…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "_About"
+msgstr "I_nformazioni"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_Quit"
+msgstr "_Esci"
+
+#: ../data/gtk/menus.ui.h:5
+#| msgid "Clear completed task…"
+msgid "Clear completed tasks…"
+msgstr "Nascondi attività competate…"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Gestione delle proprie attività"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Attività;Produttività;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Finestra massimizzata"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Stato finestra massimizzata"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Dimensione finestra"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Dimensione della finestra (larghezza e altezza)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Posizione finestra"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Posizione della finestra (x e y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Prima esecuzione di GNOME ToDo"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Indica se è la prima volta che viene avviato GNOME ToDo (per eseguire la "
+"configurazione iniziale)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default location to add new lists to"
+msgstr "Posizione predefinita per l'aggiunta dei nuovi elenchi"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default location to add new lists to"
+msgstr ""
+"L'identificatore della posizione predefinita per l'aggiunta dei nuovi elenchi"
+
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+msgid "Details"
+msgstr "Dettagli"
+
+#: ../data/ui/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Note"
+
+#: ../data/ui/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Data di scadenza"
+
+#: ../data/ui/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Priorità"
+
+#: ../data/ui/edit-pane.ui.h:5
+msgid "None"
+msgstr "Nessuna"
+
+#: ../data/ui/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Bassa"
+
+#: ../data/ui/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Media"
+
+#: ../data/ui/edit-pane.ui.h:8
+msgid "High"
+msgstr "Alta"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+msgid "Delete"
+msgstr "Elimina"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Benvenuti"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Accedere agli account online per gestire le proprie attività"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+msgid "Cancel"
+msgstr "Annulla"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
+msgid "Done"
+msgstr "Fatto"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Nessuna attività trovata"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr ""
+"È possibile aggiungere attività agli elenchi nella visualizzazione "
+"<b>Elenchi</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Mostra o nasconde le attività completate"
+
+#: ../data/ui/storage-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+"Selezionare la posizione predefinita di archiviazione per creare gli elenchi "
+"di attività:"
+
+#: ../data/ui/storage-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Posizione di archiviazione predefinita"
+
+#: ../data/ui/storage-popover.ui.h:1
+msgid "Create"
+msgstr "Crea"
+
+#: ../data/ui/storage-popover.ui.h:3
+msgid "List Name"
+msgstr "Nome elenco"
+
+#: ../data/ui/storage-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Seleziona una posizione di archiviazione"
+
+#: ../data/ui/storage-row.ui.h:1
+msgid "Off"
+msgstr "Spento"
+
+#: ../data/ui/storage-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Fare clic per aggiungere un nuovo account Google"
+
+#: ../data/ui/storage-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/storage-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Fare clic per aggiungere un nuovo account ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/storage-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Fare clic per aggiungere un nuovo account Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/storage-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "O archiviare semplicemente la attività su questo computer"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Nuova attività…"
+
+#: ../data/ui/window.ui.h:1
+msgid "Lists"
+msgstr "Elenchi"
+
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
+msgid "Today"
+msgstr "Oggi"
+
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+msgid "Scheduled"
+msgstr "Pianificate"
+
+#: ../data/ui/window.ui.h:4
+msgid "Rename"
+msgstr "Rinomina"
+
+#: ../data/ui/window.ui.h:6
+msgid "New List"
+msgstr "Nuovo elenco"
+
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Nome dell'elenco di attività"
+
+#: ../src/gtd-application.c:91
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d gli autori di ToDo"
+
+#: ../src/gtd-application.c:96
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d–%d gli autori di ToDo"
+
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+msgid "To Do"
+msgstr "ToDo"
+
+#: ../src/gtd-application.c:108
+msgid "translator-credits"
+msgstr "Claudio Arseni <claudio.arseni@ubuntu.com>"
+
+#: ../src/gtd-application.c:215
+msgid "Error loading CSS from resource"
+msgstr "Errore nel caricamento del CSS dalla sorgente"
+
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Data non impostata"
+
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
+msgid "Error loading GNOME Online Accounts"
+msgstr "Errore nel caricamento di Account online GNOME"
+
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
+msgid "Error saving task list"
+msgstr "Errore nel salvataggio dell'elenco attività"
+
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
+msgid "Error removing task list"
+msgstr "Errore nella rimozione dell'elenco attività"
+
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Errore nella creazione dell'elenco attività"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
+msgid "Error creating task"
+msgstr "Errore nella creazione dell'attività"
+
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
+msgid "Error removing task"
+msgstr "Errore nella rimozione dell'attività"
+
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
+msgid "Error updating task"
+msgstr "Errore nell'aggiornamento dell'attività"
+
+#: ../src/gtd-manager.c:689
+msgid "Failed to prompt for credentials"
+msgstr "Richiesta delle credenziali non riuscita"
+
+#: ../src/gtd-manager.c:712
+msgid "Failed to prompt for credentials for"
+msgstr "Richiesta non riuscita delle credenziali per"
+
+#: ../src/gtd-manager.c:764
+msgid "Authentication failure"
+msgstr "Autenticazione non riuscita"
+
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
+msgid "Error fetching tasks from list"
+msgstr "Errore nel recupero delle attività dall'elenco"
+
+#: ../src/gtd-manager.c:898
+msgid "Task list source successfully connected"
+msgstr ""
+"Connessione alla sorgente degli elenchi di attività avvenuta con successo"
+
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
+msgid "Failed to connect to task list source"
+msgstr "Connessione alla sorgente degli elenchi di attività non riuscita"
+
+#: ../src/gtd-manager.c:939
+msgid "Skipping already loaded task list "
+msgstr "Saltato elenco di attività già caricato"
+
+#: ../src/gtd-manager.c:977
+msgid "Error loading task manager"
+msgstr "Errore nel caricamento del gestore attività"
+
+#: ../src/gtd-task-list-item.c:233
+msgid "No tasks"
+msgstr "Nessuna attività"
+
+#: ../src/gtd-task-list-view.c:263
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Attività <b>%s</b> rimossa"
+
+#: ../src/gtd-task-list-view.c:294
+msgid "Undo"
+msgstr "Annulla"
+
+#: ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Domani"
+
+#: ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Ieri"
+
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Rimuovere gli elenchi di attività selezionati?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
+msgstr ""
+"Una volta rimossi, gli elenchi di attività non potranno essere recuperati."
+
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Rimuovi elenchi di attività"
+
+#: ../src/gtd-window.c:578
+msgid "Setting new color for task list"
+msgstr "Impostazione nuovo colore per elenco attività"
+
+#: ../src/gtd-window.c:1128
+msgid "Loading your task lists…"
+msgstr "Caricamento elenchi delle attività…"
+
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Fare clic su un elenco attività per selezionarlo"
+
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
+msgid "Error creating new task list"
+msgstr "Errore nella creazione del nuovo elenco di attività"
+
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "Su questo computer"
+
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Locale"
