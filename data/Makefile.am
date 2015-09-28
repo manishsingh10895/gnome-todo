@@ -18,6 +18,13 @@ gsettings_SCHEMAS = org.gnome.todo.gschema.xml
 
 @GSETTINGS_RULES@
 
+%.service: %.service.in
+	$(AM_V_GEN)$(SED) -e "s|[@]bindir[@]|$(bindir)|" $< > $@
+
+servicedir = $(datadir)/dbus-1/services
+service_DATA = $(service_in_files:.service.in=.service)
+service_in_files = org.gnome.Todo.service.in
+
 EXTRA_DIST=                     \
   appdata/org.gnome.Todo.appdata.xml \
   org.gnome.Todo.desktop \
@@ -39,7 +46,8 @@ EXTRA_DIST=                     \
   theme/bg.svg \
   $(appdata_in_files) \
   $(desktop_in_files) \
-  $(gsettings_SCHEMAS)
+  $(gsettings_SCHEMAS) \
+  $(service_in_files)
 
 CLEANFILES =                    \
   $(service_DATA)               \
