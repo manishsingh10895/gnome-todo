@@ -122,6 +122,7 @@
                             <property name="left-margin">6</property>
                             <property name="right-margin">6</property>
                             <property name="pixels-above-lines">6</property>
+                            <property name="wrap-mode">word-char</property>
                           </object>
                         </child>
                       </object>
