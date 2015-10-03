@@ -2,13 +2,14 @@
 # Copyright (C) 2015 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-todo package.
 # Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2015.
+# Daniel PUENTES <blatberk@openmailbox.org>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-08-14 20:32+0000\n"
-"PO-Revision-Date: 2015-08-15 01:42+0200\n"
+"POT-Creation-Date: 2015-09-25 09:03+0000\n"
+"PO-Revision-Date: 2015-10-04 00:54+0200\n"
 "Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
 "Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
 "Language: eo\n"
@@ -22,11 +23,11 @@ msgstr ""
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
 msgid "Todo"
-msgstr ""
+msgstr "Taskolisto"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
 msgid "Todo manager for GNOME"
-msgstr ""
+msgstr "Administrilo de taskolistoj por GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
@@ -50,6 +51,11 @@ msgstr "_Pri"
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "Ĉ_esi"
+
+#: ../data/gtk/menus.ui.h:5
+#| msgid "Show or hide completed tasks"
+msgid "Clear completed task…"
+msgstr "Forigi plenumitajn taskojn…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -85,7 +91,7 @@ msgstr "Fenestra pozicio (x kaj y)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
-msgstr ""
+msgstr "Unua starto de GNOME Taskolisto"
 
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
@@ -100,7 +106,7 @@ msgstr ""
 msgid "The identifier of the default location to add new lists to"
 msgstr ""
 
-#: ../data/ui/edit-pane.ui.h:1
+#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
 msgstr "Detaloj"
 
@@ -132,7 +138,7 @@ msgstr "Meze"
 msgid "High"
 msgstr "Alte"
 
-#: ../data/ui/edit-pane.ui.h:9
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Forigi"
 
@@ -145,11 +151,12 @@ msgid "Login to online accounts to access your tasks"
 msgstr ""
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "Nuligi"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:288
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Farite"
 
@@ -191,7 +198,7 @@ msgstr "Elŝaltite"
 
 #: ../data/ui/storage-selector.ui.h:1
 msgid "Click to add a new Google account"
-msgstr ""
+msgstr "Alklaku por aldoni novan Google-konton"
 
 #: ../data/ui/storage-selector.ui.h:2
 msgid "Google"
@@ -225,508 +232,168 @@ msgstr "Nova tasko…"
 msgid "Lists"
 msgstr "Listoj"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:139 ../src/gtd-window.c:133
-#: ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "Hodiaŭ"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:133 ../src/gtd-window.c:138
+#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
 msgid "Scheduled"
-msgstr ""
+msgstr "Planitaj"
 
 #: ../data/ui/window.ui.h:4
 msgid "Rename"
 msgstr "Alinomi"
 
-#: ../data/ui/window.ui.h:5
+#: ../data/ui/window.ui.h:6
 msgid "New List"
 msgstr "Nova listo"
 
-#: ../src/gtd-application.c:90
+#: ../data/ui/window.ui.h:8
+msgid "Name of the task list"
+msgstr "Nomo de la taskolisto"
+
+#: ../src/gtd-application.c:91
 #, c-format
 msgid "Copyright © %d The To Do authors"
-msgstr ""
+msgstr "Kopirajto © %Id La aŭtoroj de Taskolisto"
 
-#: ../src/gtd-application.c:95
+#: ../src/gtd-application.c:96
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
-msgstr ""
+msgstr "Kopirajto © %d–%d La aŭtoroj de Taskolisto"
 
-#: ../src/gtd-application.c:100 ../src/gtd-application.c:126
-#: ../src/gtd-window.c:297
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
-msgstr ""
+msgstr "Taskoj"
 
-#: ../src/gtd-application.c:107
+#: ../src/gtd-application.c:108
 msgid "translator-credits"
-msgstr "Kristjan SCHMIDT"
+msgstr "Kristjan SCHMIDT, Daniel PUENTES"
 
 #: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
 msgstr ""
 
-#: ../src/gtd-edit-pane.c:136 ../src/gtd-task-row.c:169
+#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr ""
 
-#: ../src/gtd-edit-pane.c:248
-msgid "Manager of this application"
-msgstr ""
-
-#: ../src/gtd-edit-pane.c:249
-msgid "The manager of the application"
-msgstr ""
-
-#: ../src/gtd-edit-pane.c:262
-msgid "Task being edited"
-msgstr ""
-
-#: ../src/gtd-edit-pane.c:263
-msgid "The task that is actually being edited"
-msgstr ""
-
-#: ../src/gtd-initial-setup-window.c:213
-msgid "Manager of the task"
-msgstr ""
-
-#: ../src/gtd-initial-setup-window.c:214
-msgid "The singleton manager instance of the task"
-msgstr ""
-
-#: ../src/gtd-manager.c:375
+#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
 msgid "Error loading GNOME Online Accounts"
 msgstr ""
 
-#: ../src/gtd-manager.c:403
+#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
-msgstr ""
+msgstr "Eraro dum konservado de taskolisto"
 
-#: ../src/gtd-manager.c:430
+#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
 msgid "Error removing task list"
-msgstr ""
+msgstr "Eraro dum forigo de taskolisto"
 
-#: ../src/gtd-manager.c:464
+#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
+msgid "Error creating task list"
+msgstr "Eraro dum kreado de taskolisto"
+
+#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
 msgid "Error creating task"
-msgstr ""
+msgstr "Eraro dum kreado de tasko"
 
-#: ../src/gtd-manager.c:527
+#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
 msgid "Error removing task"
-msgstr ""
+msgstr "Eraro dum forigo de tasko"
 
-#: ../src/gtd-manager.c:579
+#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
 msgid "Error updating task"
-msgstr ""
+msgstr "Eraro dum ĝisdatigo de tasko"
 
-#: ../src/gtd-manager.c:608
+#: ../src/gtd-manager.c:689
 msgid "Failed to prompt for credentials"
 msgstr ""
 
-#: ../src/gtd-manager.c:631
+#: ../src/gtd-manager.c:712
 msgid "Failed to prompt for credentials for"
 msgstr ""
 
-#: ../src/gtd-manager.c:683
+#: ../src/gtd-manager.c:764
 msgid "Authentication failure"
-msgstr ""
+msgstr "Malsukcesis aŭtentigo"
 
-#: ../src/gtd-manager.c:747
+#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
 msgid "Error fetching tasks from list"
 msgstr ""
 
-#: ../src/gtd-manager.c:813
+#: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
 msgstr ""
 
-#: ../src/gtd-manager.c:820
+#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
-msgstr ""
+msgstr "Malsukcesis konekti al fonto de taskolisto"
 
-#: ../src/gtd-manager.c:850
+#: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
 msgstr ""
 
-#: ../src/gtd-manager.c:888
+#: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
-msgstr ""
+msgstr "Eraro dum ŝarĝado de administrilo de taskolistoj"
 
-#: ../src/gtd-manager.c:1018
-msgid "Local"
-msgstr "Loke"
-
-#: ../src/gtd-manager.c:1019
-msgid "On This Computer"
-msgstr "En ĉi tiu komputilo"
-
-#: ../src/gtd-manager.c:1052
-msgid "The online accounts client of the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1053
-msgid ""
-"The read-only GNOME online accounts client loaded and owned by the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1066
-msgid "Whether GNOME Online Accounts client is ready"
-msgstr ""
-
-#: ../src/gtd-manager.c:1067
-msgid "Whether the read-only GNOME online accounts client is loaded"
-msgstr ""
-
-#: ../src/gtd-manager.c:1080
-msgid "The source registry of the manager"
-msgstr ""
-
-#: ../src/gtd-manager.c:1081
-msgid "The read-only source registry loaded and owned by the manager"
-msgstr ""
-
-#: ../src/gtd-object.c:152
-msgid "Unique identifier of the object"
-msgstr ""
-
-#: ../src/gtd-object.c:153
-msgid "The unique identifier of the object, defined by the backend"
-msgstr ""
-
-#: ../src/gtd-object.c:166
-msgid "Ready state of the object"
-msgstr ""
-
-#: ../src/gtd-object.c:167
-msgid "Whether the object is marked as ready or not"
-msgstr ""
-
-#: ../src/gtd-task.c:254
-msgid "Whether the task is completed or not"
-msgstr ""
-
-#: ../src/gtd-task.c:255
-msgid "Whether the task is marked as completed by the user"
-msgstr ""
-
-#: ../src/gtd-task.c:268
-msgid "Component of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:269
-msgid "The #ECalComponent this task handles."
-msgstr ""
-
-#: ../src/gtd-task.c:282
-msgid "Description of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:283
-msgid "Optional string describing the task"
-msgstr ""
-
-#: ../src/gtd-task.c:297
-msgid "End date of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:298
-msgid "The day the task is supposed to be completed"
-msgstr ""
-
-#: ../src/gtd-task.c:311
-msgid "List of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:312
-msgid "The list that owns this task"
-msgstr ""
-
-#: ../src/gtd-task.c:325
-msgid "Priority of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:326
-msgid ""
-"The priority of the task. 0 means no priority set, and tasks will be sorted "
-"alphabetically."
-msgstr ""
-
-#: ../src/gtd-task.c:341
-msgid "Title of the task"
-msgstr ""
-
-#: ../src/gtd-task.c:342
-msgid "The title of the task"
-msgstr ""
-
-#: ../src/gtd-task-list.c:152
-msgid "Color of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:153
-msgid "The color of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:166
-msgid "Name of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:167
-msgid "The name of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:180
-msgid "Data origin of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:181
-msgid "The data origin location of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:194
-msgid "Source of the list"
-msgstr ""
-
-#: ../src/gtd-task-list.c:195
-msgid "The parent source that handles the list"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:231
+#: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
-msgstr ""
+msgstr "Neniu tasko"
 
-#: ../src/gtd-task-list-item.c:433
-msgid "Mode of this item"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:434
-msgid "The mode of this item, inherited from the parent's mode"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:449
-msgid "Task list of the item"
-msgstr ""
-
-#: ../src/gtd-task-list-item.c:450
-msgid "The task list associated with this item"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:201
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
-msgstr ""
+msgstr "Taskolisto <b>%s</b> forigita"
 
-#: ../src/gtd-task-list-view.c:221
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Malfari"
 
-#: ../src/gtd-task-list-view.c:656 ../src/gtd-window.c:516
-#: ../src/storage/gtd-storage-dialog.c:150
-#: ../src/storage/gtd-storage-popover.c:269
-#: ../src/storage/gtd-storage-selector.c:515
-msgid "Manager of this window's application"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:657 ../src/gtd-window.c:517
-#: ../src/storage/gtd-storage-dialog.c:151
-#: ../src/storage/gtd-storage-popover.c:270
-#: ../src/storage/gtd-storage-selector.c:516
-msgid "The manager of the window's application"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:670
-msgid "Whether the list is readonly"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:671
-msgid ""
-"Whether the list is readonly, i.e. doesn't show the New Task row, or not"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:684
-msgid "Whether task rows show the list name"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:685
-msgid "Whether task rows show the list name at the end of the row"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:698
-msgid "Whether completed tasks are shown"
-msgstr ""
-
-#: ../src/gtd-task-list-view.c:699
-msgid "Whether completed tasks are visible or not"
-msgstr ""
-
-#: ../src/gtd-task-row.c:143
+#: ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "Morgaŭ"
 
-#: ../src/gtd-task-row.c:147
+#: ../src/gtd-task-row.c:148
 msgid "Yesterday"
 msgstr "Hieraŭ"
 
-#: ../src/gtd-task-row.c:366
-msgid "If the row is used to add a new task"
+#: ../src/gtd-window.c:307
+msgid "Remove the selected task lists?"
+msgstr "Ĉu forigi la elektatajn taskolistojn?"
+
+#: ../src/gtd-window.c:310
+msgid "Once removed, the task lists cannot be recovered."
 msgstr ""
 
-#: ../src/gtd-task-row.c:367
-msgid "Whether the row is used to add a new task"
-msgstr ""
+#: ../src/gtd-window.c:322
+msgid "Remove task lists"
+msgstr "Forigi taskolistojn"
 
-#: ../src/gtd-task-row.c:380
-msgid "Task of the row"
-msgstr ""
-
-#: ../src/gtd-task-row.c:381
-msgid "The task that this row represents"
-msgstr ""
-
-#: ../src/gtd-window.c:181
+#: ../src/gtd-window.c:578
 msgid "Setting new color for task list"
 msgstr ""
 
-#: ../src/gtd-window.c:552
+#: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
-msgstr ""
+msgstr "Ŝarĝante viajn taskolistojn…"
 
-#: ../src/storage/gtd-storage.c:189
-msgid "Whether the storage is enabled"
-msgstr ""
+#: ../src/gtd-window.c:1256
+msgid "Click a task list to select"
+msgstr "Alklaku elektotan taskoliston"
 
-#: ../src/storage/gtd-storage.c:190
-msgid "Whether the storage is available to be used."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:203
-msgid "Icon of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:204
-msgid "The icon representing the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:217
-msgid "Identifier of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:218
-msgid "The unique identifier of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:231
-msgid "Whether the storage is the default"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:232
-msgid "Whether the storage is the default storage location to be used."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:245
-msgid "Name of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:246
-msgid "The user-visible name of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:259
-msgid "Parent of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:260
-msgid "The parent source identifier of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:273
-msgid "Provider type of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:274
-msgid "The provider type of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:287
-msgid "Provider name of the storage"
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:288
-msgid "The name of the provider of the storage location."
-msgstr ""
-
-#: ../src/storage/gtd-storage.c:680
+#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
 msgid "Error creating new task list"
-msgstr ""
+msgstr "Eraro dum kreado de nova taskolisto"
 
-#: ../src/storage/gtd-storage-row.c:148
-msgid "Storage of the row"
-msgstr ""
+#. Create task list
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+msgid "On This Computer"
+msgstr "En ĉi tiu komputilo"
 
-#: ../src/storage/gtd-storage-row.c:149
-msgid "The storage that this row holds"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:529
-msgid "Show local storage row"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:530
-msgid "Whether should show a local storage row instead of a checkbox"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:543
-msgid "Show stub rows"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:544
-msgid "Whether should show stub rows for non-added accounts"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:557
-msgid "Selects default storage row"
-msgstr ""
-
-#: ../src/storage/gtd-storage-selector.c:558
-msgid "Whether should select the default storage row"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:181
-msgid "Whether the notification has a primary action"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:182
-msgid ""
-"Whether the notification has the primary action, activated on timeout or "
-"dismiss"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:196
-msgid "Whether the notification has a secondary action"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:197
-msgid ""
-"Whether the notification has the secondary action, activated by the user"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:210
-msgid "Text of the secondary action button"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:211
-msgid "The text of the secondary action button"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:224
-msgid "Notification message"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:225
-msgid "The main message of the notification"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:238
-msgid "Notification timeout"
-msgstr ""
-
-#: ../src/notification/gtd-notification.c:239
-msgid "The time the notification is displayed"
-msgstr ""
+#: ../src/storage/gtd-storage-local.c:133
+msgid "Local"
+msgstr "Loke"
