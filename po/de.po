@@ -2,22 +2,23 @@
 # Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-todo package.
 # Friedrich Herbst <friedrich-herbst@gmx.de>, 2015.
-#
+# Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-03 20:27+0000\n"
-"PO-Revision-Date: 2015-09-07 20:43+0200\n"
-"Last-Translator: Bernd Homuth <dev@hmt.im>\n"
-"Language-Team: German <gnome-de@gnome.org>\n"
+"POT-Creation-Date: 2015-10-09 09:10+0000\n"
+"PO-Revision-Date: 2015-10-09 19:49+0200\n"
+"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -53,8 +54,8 @@ msgid "_Quit"
 msgstr "_Beenden"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
-msgstr "Abgeschlossene Aufgabe entfernen …"
+msgid "Clear completed tasks…"
+msgstr "Abgeschlossene Aufgaben entfernen …"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -78,7 +79,7 @@ msgstr "Fenstergröße"
 
 #: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
-msgstr "Fenstergröße (Breite und Höhe)"
+msgstr "Fenstergröße (Breite und Höhe)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:5
 msgid "Window position"
@@ -86,7 +87,7 @@ msgstr "Fensterposition"
 
 #: ../data/org.gnome.todo.gschema.xml.h:6
 msgid "Window position (x and y)."
-msgstr "Fensterposition (x und y)"
+msgstr "Fensterposition (x und y)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
