@@ -1,4 +1,23 @@
 ==============
+Version 3.18.1
+==============
+
+Project:
+        * Fix 256x256 icons being installed as 512x512 (Jakub Steiner)
+        * Add a symbolic variant (Jakub Steiner)
+        * Install a DBus service file (David King)
+        * Wrap notes text (Felipe Borges)
+
+Translations:
+        * Arabic (Khaled Hosny)
+        * Basque (Inaki Larranaga Murgoitio)
+        * Esperanto (Kristjan Schmidt)
+        * Friulan (Fabio Tomat)
+        * Italian (Claudio Arseni)
+        * Serbian (Милош Поповић)
+        * Vietnamese (Trần Ngọc Quân)
+
+==============
 Version 3.18.0
 ==============
 
