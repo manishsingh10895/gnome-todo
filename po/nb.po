@@ -6,10 +6,10 @@
 # Alexander Strand <godsetalex@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-todo 3.17.x\n"
+"Project-Id-Version: gnome-todo 3.18.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-20 12:31+0200\n"
-"PO-Revision-Date: 2015-09-20 12:36+0200\n"
+"POT-Creation-Date: 2015-10-18 19:02+0200\n"
+"PO-Revision-Date: 2015-10-18 19:04+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -52,8 +52,8 @@ msgid "_Quit"
 msgstr "A_vslutt"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
-msgstr "Fjern fullført oppgave …"
+msgid "Clear completed tasks…"
+msgstr "Fjern fullførte oppgaver …"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -69,7 +69,7 @@ msgstr "Vinduet er maksimert"
 
 #: ../data/org.gnome.todo.gschema.xml.h:2
 msgid "Window maximized state"
-msgstr ""
+msgstr "Maksimert tilstand for vindu"
 
 #: ../data/org.gnome.todo.gschema.xml.h:3
 msgid "Window size"
@@ -77,7 +77,7 @@ msgstr "Vindustørrelse"
 
 #: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
-msgstr ""
+msgstr "Vindustørrelse (bredde og høyde)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:5
 msgid "Window position"
@@ -85,24 +85,24 @@ msgstr "Vindusposisjon"
 
 #: ../data/org.gnome.todo.gschema.xml.h:6
 msgid "Window position (x and y)."
-msgstr ""
+msgstr "Vinduposisjon (x og y)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
-msgstr ""
+msgstr "Første kjøring av GNOME oppgaveliste"
 
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr ""
+msgstr "Hvorvidt dette er første gang GNOME oppgaveliste kjøres (for å kjøre initielt oppsett)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
-msgstr ""
+msgstr "Forvalgt plassering nye lister skal legges til"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
 msgid "The identifier of the default location to add new lists to"
-msgstr ""
+msgstr "Identifikator for forvalgt plassering for nye lister"
 
 #: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
 msgid "Details"
@@ -324,12 +324,11 @@ msgstr "Feil ved henting av oppgave fra liste"
 
 #: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
-msgstr ""
+msgstr "Fullførte tilkobling til oppgavelistelistekilde"
 
 #: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-#, fuzzy
 msgid "Failed to connect to task list source"
-msgstr "Klarte ikke å koble til oppgaveliste «{0}»"
+msgstr "Klarte ikke å koble til oppgavelistekilde"
 
 #: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
