@@ -2,23 +2,24 @@
 # Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-todo package.
 # Zdeněk Hataš <zdenek.hatas@gmail.com>, 2015.
-# Marek Černocký <marek@manet.cz>, 2015.
 # Petr Kovar <pknbe@volny.cz>, 2015.
+# Marek Černocký <marek@manet.cz>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-21 14:43+0000\n"
-"PO-Revision-Date: 2015-09-21 19:45+0200\n"
-"Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
+"POT-Creation-Date: 2015-09-21 17:46+0000\n"
+"PO-Revision-Date: 2015-10-24 23:31+0200\n"
+"Last-Translator: Marek Černocký <marek@manet.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -28,7 +29,7 @@ msgstr "Úkoly"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
 msgid "Todo manager for GNOME"
-msgstr "Správce úkolů pro GNOME"
+msgstr "Správa úkolů pro GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
@@ -48,16 +49,15 @@ msgstr "Změnit výchozí místo uložení…"
 
 #: ../data/gtk/menus.ui.h:3
 msgid "_About"
-msgstr "_O programu"
+msgstr "O _aplikaci"
 
 #: ../data/gtk/menus.ui.h:4
 msgid "_Quit"
 msgstr "U_končit"
 
 #: ../data/gtk/menus.ui.h:5
-#| msgid "Show or hide completed tasks"
-msgid "Clear completed task…"
-msgstr "Vymazat splněný úkol…"
+msgid "Clear completed tasks…"
+msgstr "Vymazat splněné úkoly…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -93,7 +93,7 @@ msgstr "Umístění okna (x a y)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
-msgstr "První spuštění Úkolů GNOME"
+msgstr "Prvotní spuštění Úkolů GNOME"
 
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
@@ -128,19 +128,19 @@ msgstr "Priorita"
 
 #: ../data/ui/edit-pane.ui.h:5
 msgid "None"
-msgstr "Žádná"
+msgstr "žádná"
 
 #: ../data/ui/edit-pane.ui.h:6
 msgid "Low"
-msgstr "Nízká"
+msgstr "nízká"
 
 #: ../data/ui/edit-pane.ui.h:7
 msgid "Medium"
-msgstr "Střední"
+msgstr "střední"
 
 #: ../data/ui/edit-pane.ui.h:8
 msgid "High"
-msgstr "Vysoká"
+msgstr "vysoká"
 
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
@@ -165,13 +165,12 @@ msgid "Done"
 msgstr "Hotovo"
 
 #: ../data/ui/list-view.ui.h:1
-#| msgid "No tasks"
 msgid "No tasks found"
 msgstr "Žádné úkoly nenalezeny"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr "Úkoly do těchto seznamů je možné přidat v zobrazení <b>Seznamy</b>"
+msgstr "Úkoly do seznamů je možné přidat v zobrazení <b>Seznamy</b>"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
@@ -182,7 +181,6 @@ msgid "Select the default storage location to create task lists:"
 msgstr "Vybrat umístění výchozího úložiště pro vytváření seznamů úkolů:"
 
 #: ../data/ui/storage-dialog.ui.h:2
-#| msgid "Select a storage location"
 msgid "Default storage location"
 msgstr "Umístění výchozího úložiště"
 
@@ -200,7 +198,7 @@ msgstr "Vyberte místo uložení"
 
 #: ../data/ui/storage-row.ui.h:1
 msgid "Off"
-msgstr "Vyp"
+msgstr "Vypnuto"
 
 #: ../data/ui/storage-selector.ui.h:1
 msgid "Click to add a new Google account"
@@ -232,7 +230,7 @@ msgstr "Nebo můžete své úkoly jednoduše ukládat na tomto počítači."
 
 #: ../data/ui/task-row.ui.h:1
 msgid "New task…"
-msgstr "Nový úkol..."
+msgstr "Nový úkol…"
 
 #: ../data/ui/window.ui.h:1
 msgid "Lists"
@@ -256,21 +254,18 @@ msgid "New List"
 msgstr "Nový seznam"
 
 #: ../data/ui/window.ui.h:8
-#| msgid "Name of the list"
 msgid "Name of the task list"
 msgstr "Název seznamu úkolů"
 
 #: ../src/gtd-application.c:91
 #, c-format
-#| msgid "Copyright © %Id The Todo authors"
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d autoři programu Úkoly"
 
 #: ../src/gtd-application.c:96
 #, c-format
-#| msgid "Copyright © %Id–%Id The Todo authors"
 msgid "Copyright © %d–%d The To Do authors"
-msgstr "Copyright © %d – %d autoři programu Úkoly"
+msgstr "Copyright © %d – %d autoři programu Úkoly"
 
 #: ../src/gtd-application.c:101 ../src/gtd-application.c:127
 #: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
@@ -279,11 +274,13 @@ msgstr "Úkoly"
 
 #: ../src/gtd-application.c:108
 msgid "translator-credits"
-msgstr "Zdeněk Hataš <zdenek.hatas@gmail.com>"
+msgstr ""
+"Zdeněk Hataš <zdenek.hatas@gmail.com>\n"
+"Marek Černocký <marek@manet.cz>"
 
 #: ../src/gtd-application.c:215
 msgid "Error loading CSS from resource"
-msgstr "Chyba při načítání CSS ze zdroje"
+msgstr "Chyba při načítání CSS z prostředku"
 
 #: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
 msgid "No date set"
@@ -291,7 +288,7 @@ msgstr "Nebylo nastaveno datum"
 
 #: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
 msgid "Error loading GNOME Online Accounts"
-msgstr "Chyba při nahrávání GNOME Online Accounts"
+msgstr "Chyba při načítání Účtů on-line GNOME"
 
 #: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
 msgid "Error saving task list"
@@ -302,7 +299,6 @@ msgid "Error removing task list"
 msgstr "Chyba při odstraňování seznamu úkolů"
 
 #: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-#| msgid "Error creating new task list"
 msgid "Error creating task list"
 msgstr "Chyba při vytváření seznamu úkolů"
 
@@ -336,7 +332,7 @@ msgstr "Chyba při získávání úkolů ze seznamu"
 
 #: ../src/gtd-manager.c:898
 msgid "Task list source successfully connected"
-msgstr "Zdroj seznamu úkolů úspěšně připojen"
+msgstr "Zdroj seznamu úkolů byl úspěšně připojen"
 
 #: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
 msgid "Failed to connect to task list source"
@@ -344,11 +340,11 @@ msgstr "Připojení ke zdroji seznamu úkolů selhalo"
 
 #: ../src/gtd-manager.c:939
 msgid "Skipping already loaded task list "
-msgstr "Přeskakuje se dříve nahraný seznam úkolů"
+msgstr "Přeskakuje se již dříve načtený seznam úkolů"
 
 #: ../src/gtd-manager.c:977
 msgid "Error loading task manager"
-msgstr "Chyba při načítaní správce úkolů"
+msgstr "Chyba při načítaní správy úkolů"
 
 #: ../src/gtd-task-list-item.c:233
 msgid "No tasks"
@@ -380,7 +376,6 @@ msgid "Once removed, the task lists cannot be recovered."
 msgstr "Jakmile seznamy úkolů odstraníte, již je nelze obnovit."
 
 #: ../src/gtd-window.c:322
-#| msgid "Error removing task list"
 msgid "Remove task lists"
 msgstr "Odstranit seznamy úkolů"
 
@@ -390,7 +385,7 @@ msgstr "Nastavování nové barvy pro seznam úkolů"
 
 #: ../src/gtd-window.c:1128
 msgid "Loading your task lists…"
-msgstr "Vaše seznamy úkolů jsou nahrávány…"
+msgstr "Načítají se vaše seznamy úkolů…"
 
 #: ../src/gtd-window.c:1256
 msgid "Click a task list to select"
@@ -401,127 +396,11 @@ msgid "Error creating new task list"
 msgstr "Chyba při vytváření nového seznamu úkolů"
 
 #. Create task list
-#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
+#: ../src/storage/gtd-storage-local.c:86
+#: ../src/storage/gtd-storage-local.c:134
 msgid "On This Computer"
 msgstr "Na tomto počítači"
 
 #: ../src/storage/gtd-storage-local.c:133
 msgid "Local"
 msgstr "Místní"
-
-#~ msgid "Manager of this application"
-#~ msgstr "Správce této aplikace"
-
-#~ msgid "The manager of the application"
-#~ msgstr "Správce dané aplikace"
-
-#~ msgid "Task being edited"
-#~ msgstr "Právě upravovaný úkol"
-
-#~ msgid "Manager of the task"
-#~ msgstr "Správce tohoto úkolu"
-
-#~ msgid "Manager of this window's application"
-#~ msgstr "Správce aplikace tohoto okna"
-
-#~ msgid "The manager of the window's application"
-#~ msgstr "Správce aplikace daného okna"
-
-#~ msgid "Whether the list is readonly"
-#~ msgstr "Zda je daný seznam pouze pro čtení"
-
-#~ msgid "Whether completed tasks are shown"
-#~ msgstr "Zda jsou zobrazeny splněné úkoly."
-
-#~ msgid "The online accounts client of the manager"
-#~ msgstr "Online účet klienta daného správce"
-
-#~ msgid "Unique identifier of the object"
-#~ msgstr "Unikátní identifikátor daného objektu"
-
-#~ msgid "Whether the storage is enabled"
-#~ msgstr "Zda je dané úložiště aktivní"
-
-#~ msgid "Icon of the storage"
-#~ msgstr "Ikona úložiště"
-
-#~ msgid "The icon representing the storage location."
-#~ msgstr "Ikona reprezentující místo uložení."
-
-#~ msgid "Identifier of the storage"
-#~ msgstr "Identifikátor úložiště"
-
-#~ msgid "The unique identifier of the storage location."
-#~ msgstr "Unikátní identifikátor místa uložení."
-
-#~ msgid "Whether the storage is the default"
-#~ msgstr "Zda je dané úložiště výchozí"
-
-#~ msgid "Name of the storage"
-#~ msgstr "Název daného úložiště"
-
-#~ msgid "Provider type of the storage"
-#~ msgstr "Typ poskytovatele daného úložiště"
-
-#~ msgid "The provider type of the storage location."
-#~ msgstr "Typ poskytovatele daného místa uložení."
-
-#~ msgid "Provider name of the storage"
-#~ msgstr "Název poskytovatele daného úložiště"
-
-#~ msgid "The name of the provider of the storage location."
-#~ msgstr "Název poskytovatele daného místa uložení."
-
-#~ msgid "Description of the task"
-#~ msgstr "Popis úkolu"
-
-#~ msgid "End date of the task"
-#~ msgstr "Datum ukončení úkolu"
-
-#~ msgid "List of the task"
-#~ msgstr "Seznam úkolu"
-
-#~ msgid "Priority of the task"
-#~ msgstr "Priorita úkolu"
-
-#~ msgid "Title of the task"
-#~ msgstr "Titulek úkolu"
-
-#~ msgid "The title of the task"
-#~ msgstr "Titulek daného úkolu"
-
-#~ msgid "Color of the list"
-#~ msgstr "Barva seznamu"
-
-#~ msgid "The color of the list"
-#~ msgstr "Barva daného seznamu"
-
-#~ msgid "The name of the list"
-#~ msgstr "Název daného seznamu"
-
-#~ msgid "Data origin of the list"
-#~ msgstr "Zdroj dat tohoto seznamu"
-
-#~ msgid "The data origin location of the list"
-#~ msgstr "Zdroj dat daného seznamu"
-
-#~ msgid "Source of the list"
-#~ msgstr "Zdroj seznamu"
-
-#~ msgid "Mode of this item"
-#~ msgstr "Režim této položky"
-
-#~ msgid "Task list of the item"
-#~ msgstr "Seznam úkolů položky"
-
-#~ msgid "The task list associated with this item"
-#~ msgstr "Seznam úkolů spojený s touto položkou"
-
-#~ msgid "If the row is used to add a new task"
-#~ msgstr "Jestli je řádek použit pro přidání nového úkolu"
-
-#~ msgid "Whether the row is used to add a new task"
-#~ msgstr "Zda je řádek použit pro přidání nového úkolu"
-
-#~ msgid "Task of the row"
-#~ msgstr "Úkol daného řádku"
