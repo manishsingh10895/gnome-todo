@@ -214,7 +214,7 @@
                         <property name="can_focus">False</property>
                         <property name="active">0</property>
                         <items>
-                          <item translatable="yes">None</item>
+                          <item translatable="yes" context="taskpriority">None</item>
                           <item translatable="yes">Low</item>
                           <item translatable="yes">Medium</item>
                           <item translatable="yes">High</item>
@@ -288,7 +288,7 @@
         </child>
         <child>
           <object class="GtkButton" id="no_date_button">
-            <property name="label" translatable="yes">None</property>
+            <property name="label" translatable="yes" context="taskdate">None</property>
             <property name="visible">True</property>
             <property name="can_focus">True</property>
             <property name="receives_default">False</property>
