@@ -110,8 +110,6 @@ gtd_edit_pane__close_button_clicked (GtkButton *button,
 
   priv = GTD_EDIT_PANE (user_data)->priv;
 
-  g_signal_emit (user_data, signals[EDIT_FINISHED], 0, priv->task);
-
   priv->should_save_task = TRUE;
   gtd_edit_pane_set_task (GTD_EDIT_PANE (user_data), NULL);
 }
@@ -425,6 +423,7 @@ gtd_edit_pane_set_task (GtdEditPane *pane,
         }
 
       priv->task = task;
+      priv->should_save_task = FALSE;
 
       if (task)
         {
