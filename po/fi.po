@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-05 08:33+0000\n"
-"PO-Revision-Date: 2015-09-06 13:58+0300\n"
+"POT-Creation-Date: 2015-10-25 07:20+0000\n"
+"PO-Revision-Date: 2015-10-31 13:24+0200\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
 "Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
 "Language: fi\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -53,8 +53,9 @@ msgid "_Quit"
 msgstr "_Lopeta"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
-msgstr "Tyhjennä valmistunut tehtävä…"
+#| msgid "Clear completed task…"
+msgid "Clear completed tasks…"
+msgstr "Tyhjennä valmistuneet tehtävät…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -124,8 +125,10 @@ msgid "Priority"
 msgstr "Prioriteetti"
 
 #: ../data/ui/edit-pane.ui.h:5
+#| msgid "None"
+msgctxt "taskpriority"
 msgid "None"
-msgstr "Ei mitään"
+msgstr "Ei prioriteettia"
 
 #: ../data/ui/edit-pane.ui.h:6
 msgid "Low"
@@ -142,6 +145,12 @@ msgstr "Korkea"
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Poista"
+
+#: ../data/ui/edit-pane.ui.h:10
+#| msgid "None"
+msgctxt "taskdate"
+msgid "None"
+msgstr "Ei päiväystä"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
