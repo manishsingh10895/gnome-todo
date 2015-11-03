@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo gnome-3-18\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-09 09:10+0000\n"
-"PO-Revision-Date: 2015-11-03 22:56+0300\n"
+"POT-Creation-Date: 2015-11-03 20:00+0000\n"
+"PO-Revision-Date: 2015-11-03 23:04+0300\n"
 "Last-Translator: Stas Solovey <whats_up@tut.by>\n"
 "Language-Team: русский <gnome-cyr@gnome.org>\n"
 "Language: ru\n"
@@ -54,7 +54,8 @@ msgid "_Quit"
 msgstr "_Завершить"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
+#| msgid "Clear completed task…"
+msgid "Clear completed tasks…"
 msgstr "Очистить завершённые задачи…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
@@ -124,6 +125,8 @@ msgid "Priority"
 msgstr "Приоритет"
 
 #: ../data/ui/edit-pane.ui.h:5
+#| msgid "None"
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Нет"
 
@@ -142,6 +145,12 @@ msgstr "Высокий"
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Удалить"
+
+#: ../data/ui/edit-pane.ui.h:10
+#| msgid "None"
+msgctxt "taskdate"
+msgid "None"
+msgstr "Нет"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -279,7 +288,7 @@ msgstr ""
 msgid "Error loading CSS from resource"
 msgstr "Ошибка загрузки CSS из источника"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Дата не установлена"
 
