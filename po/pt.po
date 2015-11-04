@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-02 00:19+0000\n"
-"PO-Revision-Date: 2015-09-02 07:45+0100\n"
-"Last-Translator: Pedro Albuquerque <palbuquerque73@gmail.com>\n"
+"POT-Creation-Date: 2015-10-27 17:20+0000\n"
+"PO-Revision-Date: 2015-11-04 07:00+0000\n"
+"Last-Translator:  <>\n"
 "Language-Team: Português <palbuquerque73@gmail.com>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Gtranslator 2.91.6\n"
+"X-Generator: Poedit 1.5.4\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -54,9 +54,8 @@ msgid "_Quit"
 msgstr "_Sair"
 
 #: ../data/gtk/menus.ui.h:5
-#| msgid "Show or hide completed tasks"
-msgid "Clear completed task…"
-msgstr "Limpar tarefa terminada…"
+msgid "Clear completed tasks…"
+msgstr "Limpar tarefas terminadas…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -126,6 +125,8 @@ msgid "Priority"
 msgstr "Prioridade"
 
 #: ../data/ui/edit-pane.ui.h:5
+#| msgid "None"
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Nenhuma"
 
@@ -145,6 +146,12 @@ msgstr "Alta"
 msgid "Delete"
 msgstr "Eliminar"
 
+#: ../data/ui/edit-pane.ui.h:10
+#| msgid "None"
+msgctxt "taskdate"
+msgid "None"
+msgstr "Nenhuma"
+
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
 msgstr "Boas vindas"
@@ -159,7 +166,7 @@ msgid "Cancel"
 msgstr "Cancelar"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:340
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Terminado"
 
@@ -279,7 +286,7 @@ msgstr "Pedro Albuquerque <palbuquerque73@gmail.com>"
 msgid "Error loading CSS from resource"
 msgstr "Erro ao carregar a CSS do recurso"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Sem data definida"
 
@@ -347,12 +354,12 @@ msgstr "Erro ao carregar gestor de tarefas"
 msgid "No tasks"
 msgstr "Sem tarefas"
 
-#: ../src/gtd-task-list-view.c:251
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Tarefa <b>%s</b> removida"
 
-#: ../src/gtd-task-list-view.c:271
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Desfazer"
 
@@ -393,8 +400,7 @@ msgid "Error creating new task list"
 msgstr "Erro ao criar a nova lista de tarefas"
 
 #. Create task list
-#: ../src/storage/gtd-storage-local.c:86
-#: ../src/storage/gtd-storage-local.c:134
+#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
 msgid "On This Computer"
 msgstr "Neste computador"
 
@@ -626,89 +632,3 @@ msgstr "Local"
 
 #~ msgid "The user-visible name of the data provider of the storage location."
 #~ msgstr "O nome visível do fornecedor de dados do local de armazenamento."
-
-#~| msgid "Parent of the storage"
-#~ msgid "GoaObject of the storage"
-#~ msgstr "GoaObject do armazenamento"
-
-#~| msgid "The account of the storage location."
-#~ msgid "The GoaObject this storage location represents."
-#~ msgstr "O GoaObject que esta localização de armazenamento representa."
-
-#~ msgid "Parent of the storage"
-#~ msgstr "Pai do armazenamento"
-
-#~ msgid "The parent source identifier of the storage location."
-#~ msgstr "O identificador origem da localização do armazenamento."
-
-#~ msgid "Storage of the row"
-#~ msgstr "Armazenamento da linha"
-
-#~ msgid "The storage that this row holds"
-#~ msgstr "O armazenamento que esta linha detém"
-
-#~ msgid "Show local storage row"
-#~ msgstr "Mostrar linha de armazenamento local"
-
-#~ msgid "Whether should show a local storage row instead of a checkbox"
-#~ msgstr ""
-#~ "Se mostrar linha de armazenamento local em vez de uma caixa de verificação"
-
-#~ msgid "Show stub rows"
-#~ msgstr "Mostrar linhas registo"
-
-#~ msgid "Whether should show stub rows for non-added accounts"
-#~ msgstr "Se mostrar linhas para contas não adicionadas"
-
-#~ msgid "Selects default storage row"
-#~ msgstr "Seleciona linha predefinida de armazenamento"
-
-#~ msgid "Whether should select the default storage row"
-#~ msgstr "Se deve selecionar a linha predefinida de armazenamento"
-
-#~ msgid "Whether the notification has a primary action"
-#~ msgstr "Se a notificação tem uma ação primária"
-
-#~ msgid ""
-#~ "Whether the notification has the primary action, activated on timeout or "
-#~ "dismiss"
-#~ msgstr ""
-#~ "Se a notificação tem uma ação primária, ativada na expiração ou descarte"
-
-#~ msgid "Whether the notification has a secondary action"
-#~ msgstr "Se a notificação tem uma ação secundária"
-
-#~ msgid ""
-#~ "Whether the notification has the secondary action, activated by the user"
-#~ msgstr "Se a notificação tem uma ação secundária, ativada pelo utilizador"
-
-#~ msgid "Text of the secondary action button"
-#~ msgstr "Texto do botão da ação secundária"
-
-#~ msgid "The text of the secondary action button"
-#~ msgstr "O texto do botão da ação secundária"
-
-#~ msgid "Notification message"
-#~ msgstr "Mensagem de notificação"
-
-#~ msgid "The main message of the notification"
-#~ msgstr "A mensagem principal de notificação"
-
-#~ msgid "Notification timeout"
-#~ msgstr "Expiração da notificação"
-
-#~ msgid "The time the notification is displayed"
-#~ msgstr "O tempo que a notificação é mostrada"
-
-#~| msgid "Icon of the storage"
-#~ msgid "Account of the storage"
-#~ msgstr "Conta do armazenamento"
-
-#~ msgid "Provider type of the storage"
-#~ msgstr "Tipo de fornecedor do armazenamento"
-
-#~ msgid "Provider name of the storage"
-#~ msgstr "Nome do fornecedor do armazenamento"
-
-#~ msgid "New Listâ€¦"
-#~ msgstr "Nova lista..."
