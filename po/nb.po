@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo 3.18.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-18 19:02+0200\n"
-"PO-Revision-Date: 2015-10-18 19:04+0200\n"
+"POT-Creation-Date: 2015-11-14 19:51+0100\n"
+"PO-Revision-Date: 2015-11-14 19:52+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -94,7 +94,9 @@ msgstr "Første kjøring av GNOME oppgaveliste"
 #: ../data/org.gnome.todo.gschema.xml.h:8
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr "Hvorvidt dette er første gang GNOME oppgaveliste kjøres (for å kjøre initielt oppsett)"
+msgstr ""
+"Hvorvidt dette er første gang GNOME oppgaveliste kjøres (for å kjøre "
+"initielt oppsett)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
@@ -121,6 +123,7 @@ msgid "Priority"
 msgstr "Prioritet"
 
 #: ../data/ui/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Ingen"
 
@@ -139,6 +142,11 @@ msgstr "Høy"
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Slett"
+
+#: ../data/ui/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Ingen"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -274,7 +282,7 @@ msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 msgid "Error loading CSS from resource"
 msgstr "Feil ved lasting av CSS fra ressurs"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Ingen dato satt"
 
