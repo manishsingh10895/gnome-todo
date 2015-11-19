@@ -7,19 +7,21 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-09 20:38+0000\n"
-"PO-Revision-Date: 2015-09-16 22:43+0200\n"
-"Last-Translator: Anders Jonsson <anders.jonsson@norsjovallen.se>\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2015-10-31 11:25+0000\n"
+"PO-Revision-Date: 2015-11-01 00:25+0100\n"
+"Last-Translator: Sebastian Rasmussen <sebras@gmail.com>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.6\n"
 
-#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1 ../data/org.gnome.Todo.desktop.in.in.h:1
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
 msgid "Todo"
 msgstr "Uppgifter"
 
@@ -28,8 +30,12 @@ msgid "Todo manager for GNOME"
 msgstr "Uppgiftshanterare för GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
-msgid "GNOME Todo is a simple task management application designed to integrate with GNOME."
-msgstr "GNOME Uppgifter är en enkel ”att göra”-lista som är designad att integrera med GNOME."
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Uppgifter är en enkel ”att göra”-lista som är designad att integrera "
+"med GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -48,8 +54,8 @@ msgid "_Quit"
 msgstr "_Avsluta"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
-msgstr "Rensa utförd uppgift…"
+msgid "Clear completed tasks…"
+msgstr "Rensa utförda uppgifter…"
 
 # Ändrat ordval eftersom "personliga uppgifter" låter integritetsrelaterat på svenska.
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
@@ -90,8 +96,11 @@ msgstr "Första körningen av GNOME Uppgifter"
 
 # initierande utformningen... Kanske 'grundinställningarna' låter bättre...
 #: ../data/org.gnome.todo.gschema.xml.h:8
-msgid "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
-msgstr "Huruvida det är den första körningen av GNOME Uppgifter (för att göra den initierande utformningen) eller inte"
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Huruvida det är den första körningen av GNOME Uppgifter (för att göra den "
+"initierande utformningen) eller inte"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default location to add new lists to"
@@ -118,6 +127,7 @@ msgid "Priority"
 msgstr "Prioritet"
 
 #: ../data/ui/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Ingen"
 
@@ -137,6 +147,11 @@ msgstr "Hög"
 msgid "Delete"
 msgstr "Ta bort"
 
+#: ../data/ui/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Inget"
+
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
 msgstr "Välkommen"
@@ -146,11 +161,13 @@ msgstr "Välkommen"
 msgid "Login to online accounts to access your tasks"
 msgstr "Logga in på nätkonton för att komma åt dina uppgifter"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2 ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
+#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
 msgid "Cancel"
 msgstr "Ångra"
 
-#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4 ../src/gtd-task-list-view.c:363
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Färdig"
 
@@ -226,7 +243,8 @@ msgstr "Ny uppgift…"
 msgid "Lists"
 msgstr "Listor"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
+#: ../src/gtd-window.c:522
 msgid "Today"
 msgstr "Idag"
 
@@ -256,7 +274,8 @@ msgstr "Copyright © %d Uppgifter-upphovsmännen"
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d Uppgifter-upphovsmännen"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127 ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
+#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
 msgid "To Do"
 msgstr "Uppgifter"
 
@@ -273,7 +292,7 @@ msgstr ""
 msgid "Error loading CSS from resource"
 msgstr "Fel vid inläsning av CSS från resurs"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Inget datum angivet"
 
@@ -433,8 +452,12 @@ msgstr "Lokal"
 #~ msgid "Priority of the task"
 #~ msgstr "Prioritet"
 
-#~ msgid "The priority of the task. 0 means no priority set, and tasks will be sorted alphabetically."
-#~ msgstr "Uppgiftens prioritet. 0 betyder att ingen prioritet är satt och uppgifterna kommer sorteras i alfabetisk ordning."
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "Uppgiftens prioritet. 0 betyder att ingen prioritet är satt och "
+#~ "uppgifterna kommer sorteras i alfabetisk ordning."
 
 #~ msgid "Title of the task"
 #~ msgstr "Titel på uppgiften"
@@ -466,8 +489,10 @@ msgstr "Lokal"
 #~ msgid "Whether the list is readonly"
 #~ msgstr "Huruvida listan endast läsbar"
 
-#~ msgid "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
-#~ msgstr "Huruvida listan endast är läsbar, d.v.s. ska visa Ny Uppgift, eller inte"
+#~ msgid ""
+#~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr ""
+#~ "Huruvida listan endast är läsbar, d.v.s. ska visa Ny Uppgift, eller inte"
 
 #~ msgid "Whether task rows show the list name"
 #~ msgstr "Huruvida uppgiftsrader ska visa listnamn"
