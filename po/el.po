@@ -3,21 +3,23 @@
 # This file is distributed under the same license as the gnome-todo package.
 # Dimitris Spingos <dmtrs32@gmail.com>, 2015.
 # Dimitris Spingos (Δημήτρης Σπίγγος) <dmtrs32@gmail.com>, 2015.
+# Efstathios Iosifidis <iosifidis@opensuse.org>, 2015.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-02 00:19+0000\n"
-"PO-Revision-Date: 2015-09-04 16:51+0300\n"
-"Last-Translator: Tom Tryfonidis <tomtryf@gmail.com>\n"
-"Language-Team: www.gnome.gr\n"
+"POT-Creation-Date: 2015-10-25 07:20+0000\n"
+"PO-Revision-Date: 2015-11-20 19:05+0200\n"
+"Last-Translator: Efstathios Iosifidis <iosifidis@opensuse.org>\n"
+"Language-Team: Ελληνικά <opensuse-translation-el@opensuse.org>\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Gtranslator 2.91.7\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -54,7 +56,8 @@ msgid "_Quit"
 msgstr "Έ_ξοδος"
 
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
+#| msgid "Clear completed task…"
+msgid "Clear completed tasks…"
 msgstr "Εκκαθάριση ολοκληρωμένων εργασιών…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
@@ -125,6 +128,8 @@ msgid "Priority"
 msgstr "Προτεραιότητα"
 
 #: ../data/ui/edit-pane.ui.h:5
+#| msgid "None"
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Kαμία"
 
@@ -144,6 +149,12 @@ msgstr "Υψηλή"
 msgid "Delete"
 msgstr "Διαγραφή"
 
+#: ../data/ui/edit-pane.ui.h:10
+#| msgid "None"
+msgctxt "taskdate"
+msgid "None"
+msgstr "Kαμία"
+
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
 msgstr "Καλώς ήλθατε"
@@ -160,7 +171,7 @@ msgid "Cancel"
 msgstr "Άκυρο"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:340
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Έτοιμο"
 
@@ -357,12 +368,12 @@ msgstr "Σφάλμα κατά τη φόρτωση του διαχειριστή 
 msgid "No tasks"
 msgstr "Χωρίς εργασίες"
 
-#: ../src/gtd-task-list-view.c:251
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Η εργασία <b>%s</b> αφαιρέθηκε"
 
-#: ../src/gtd-task-list-view.c:271
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Αναίρεση"
 
