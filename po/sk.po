@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-09-02 00:19+0000\n"
-"PO-Revision-Date: 2015-09-02 07:41+0200\n"
+"POT-Creation-Date: 2015-10-25 07:20+0000\n"
+"PO-Revision-Date: 2015-12-05 20:39+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: slovenčina <>\n"
 "Language: sk\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 1 : (n>=2 && n<=4) ? 2 : 0;\n"
-"X-Generator: Poedit 1.8.4\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -54,7 +54,7 @@ msgstr "_Ukončiť"
 
 # tooltip
 #: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
+msgid "Clear completed tasks…"
 msgstr "Vymazať dokončené úlohy…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
@@ -127,6 +127,7 @@ msgid "Priority"
 msgstr "Priorita"
 
 #: ../data/ui/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Žiadna"
 
@@ -146,6 +147,11 @@ msgstr "Vysoká"
 msgid "Delete"
 msgstr "Odstrániť"
 
+#: ../data/ui/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Žiadny"
+
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
 msgstr "Vitajte"
@@ -160,7 +166,7 @@ msgid "Cancel"
 msgstr "Zrušiť"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:340
+#: ../src/gtd-task-list-view.c:363
 msgid "Done"
 msgstr "Dokončiť"
 
@@ -355,12 +361,12 @@ msgstr "Chyba pri načítavaní správcu úloh"
 msgid "No tasks"
 msgstr "Žiadne úlohy"
 
-#: ../src/gtd-task-list-view.c:251
+#: ../src/gtd-task-list-view.c:263
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Úloha <b>%s</b> bola odstránená"
 
-#: ../src/gtd-task-list-view.c:271
+#: ../src/gtd-task-list-view.c:294
 msgid "Undo"
 msgstr "Vrátiť späť"
 
