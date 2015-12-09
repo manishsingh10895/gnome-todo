@@ -92,7 +92,7 @@ gtd_task_list_item__render_thumbnail (GtdTaskListItem *item)
    * other themes.
    */
   context = gtk_widget_get_style_context (GTK_WIDGET (item));
-  state = gtk_widget_get_state_flags (GTK_WIDGET (item));
+  state = gtk_style_context_get_state (context);
 
   gtk_style_context_save (context);
   gtk_style_context_add_class (context, "thumbnail");
