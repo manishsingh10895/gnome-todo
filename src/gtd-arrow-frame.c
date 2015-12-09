@@ -592,6 +592,8 @@ gtd_arrow_frame_class_init (GtdArrowFrameClass *klass)
   widget_class->size_allocate = gtd_arrow_frame_size_allocate;
 
   frame_class->compute_child_allocation = gtd_arrow_frame_compute_child_allocation;
+
+  gtk_widget_class_set_css_name (widget_class, "arrow-frame");
 }
 
 static void

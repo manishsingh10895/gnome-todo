@@ -36,18 +36,18 @@ task-list-view.dark task-row:hover {
     background-color: alpha(#393f3f, 0.4);
 }
 
-GtdArrowFrame {
+arrow-frame {
     border-bottom-width: 0px;
     border-top-width: 0px;
     background-color: @theme_bg_color;
     border-color: @borders;
 }
 
-GtdArrowFrame:dir(ltr) {
+arrow-frame:dir(ltr) {
     border-right-width: 0px;
 }
 
-GtdArrowFrame:dir(rtl) {
+arrow-frame:dir(rtl) {
     border-left-width: 0px;
 }
 
