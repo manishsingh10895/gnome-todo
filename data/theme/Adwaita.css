@@ -2,7 +2,7 @@
     background-color: transparent;
 }
 
-GtdTaskRow {
+task-row {
     border-bottom: 1px solid alpha(@borders, 0.4);
 }
 
@@ -19,20 +19,20 @@ GtdTaskListItem {
 }
 
 GtdTaskListItem,
-GtdTaskListView GtdTaskRow {
+GtdTaskListView task-row {
     color: #000003;
 }
 
-GtdTaskListView GtdTaskRow:hover {
+GtdTaskListView task-row:hover {
     background-color: alpha(#ededed, 0.4);
 }
 
 GtdTaskListItem.dark,
-GtdTaskListView.dark GtdTaskRow {
+GtdTaskListView.dark task-row {
     color: #eeeeec;
 }
 
-GtdTaskListView.dark GtdTaskRow:hover {
+GtdTaskListView.dark task-row:hover {
     background-color: alpha(#393f3f, 0.4);
 }
 
@@ -56,32 +56,31 @@ GtkLabel.main-title {
 }
 
 /* priority icons */
-GtdTaskRow {
+task-row {
     background-color: @transparent;
 }
 
-GtdTaskRow.priority-low {
+task-row.priority-low {
     background-color: alpha(#3465a4, 0.2);
 }
 
-GtdTaskRow.priority-low:hover {
+task-row.priority-low:hover {
     background-color: alpha(#3465a4, 0.4);
 }
 
 
-GtdTaskRow.priority-medium {
+task-row.priority-medium {
     background-color: alpha(#f57900, 0.2);
 }
 
-GtdTaskRow.priority-medium:hover {
+task-row.priority-medium:hover {
     background-color: alpha(#f57900, 0.4);
 }
 
-
-GtdTaskRow.priority-hight {
+task-row.priority-hight {
     background-color: alpha(#cc0000, 0.2);
 }
 
-GtdTaskRow.priority-hight:hover {
+task-row.priority-hight:hover {
     background-color: alpha(#cc0000, 0.4);
 }

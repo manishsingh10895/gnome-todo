@@ -465,6 +465,8 @@ gtd_task_row_class_init (GtdTaskRowClass *klass)
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_row__entry_activated);
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_row__entry_focus_out);
+
+  gtk_widget_class_set_css_name (widget_class, "task-row");
 }
 
 static void
