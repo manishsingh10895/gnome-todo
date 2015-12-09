@@ -37,6 +37,7 @@ task-list-view.dark task-row:hover {
 }
 
 arrow-frame {
+    border: solid 1px;
     border-bottom-width: 0px;
     border-top-width: 0px;
     background-color: @theme_bg_color;

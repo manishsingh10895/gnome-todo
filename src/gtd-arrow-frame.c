@@ -220,7 +220,7 @@ gtd_arrow_frame__draw_arrow (GtdArrowFrame    *frame,
   gint end_y;
 
   context = gtk_widget_get_style_context (widget);
-  state = gtk_widget_get_state_flags (widget);
+  state = gtk_style_context_get_state (context);
 
   gtk_style_context_get_border (context,
                                 state,
@@ -344,7 +344,7 @@ gtd_arrow_frame__draw_background (GtdArrowFrame    *frame,
   gint end_gap;
 
   context = gtk_widget_get_style_context (widget);
-  state = gtk_widget_get_state_flags (widget);
+  state = gtk_style_context_get_state (context);
 
   /* widget size */
   gtk_widget_get_allocation (widget, &alloc);
