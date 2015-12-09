@@ -68,7 +68,7 @@ struct _GtdTaskListView
   GtdTaskListViewPrivate *priv;
 };
 
-#define COLOR_TEMPLATE "GtkViewport {background-color: %s;}"
+#define COLOR_TEMPLATE "viewport {background-color: %s;}"
 #define LUMINANCE(c)   (0.299 * c->red + 0.587 * c->green + 0.114 * c->blue)
 
 #define TASK_REMOVED_NOTIFICATION_ID             "task-removed-id"
@@ -837,6 +837,8 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_list_view__edit_task_finished);
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_list_view__remove_task_cb);
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_list_view__row_activated);
+
+  gtk_widget_class_set_css_name (widget_class, "task-list-view");
 }
 
 static void

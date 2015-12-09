@@ -19,20 +19,20 @@ GtdTaskListItem {
 }
 
 GtdTaskListItem,
-GtdTaskListView task-row {
+task-list-view task-row {
     color: #000003;
 }
 
-GtdTaskListView task-row:hover {
+task-list-view task-row:hover {
     background-color: alpha(#ededed, 0.4);
 }
 
 GtdTaskListItem.dark,
-GtdTaskListView.dark task-row {
+task-list-view.dark task-row {
     color: #eeeeec;
 }
 
-GtdTaskListView.dark task-row:hover {
+task-list-view.dark task-row:hover {
     background-color: alpha(#393f3f, 0.4);
 }
 
