@@ -6,7 +6,7 @@ task-row {
     border-bottom: 1px solid alpha(@borders, 0.4);
 }
 
-GtdTaskListItem.thumbnail {
+task-list-item.thumbnail {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 8px;
@@ -14,11 +14,11 @@ GtdTaskListItem.thumbnail {
     font-size: 9px;
 }
 
-GtdTaskListItem {
+task-list-item {
     background-color: transparent;
 }
 
-GtdTaskListItem,
+task-list-item,
 task-list-view task-row {
     color: #000003;
 }
@@ -27,7 +27,7 @@ task-list-view task-row:hover {
     background-color: alpha(#ededed, 0.4);
 }
 
-GtdTaskListItem.dark,
+task-list-item.dark,
 task-list-view.dark task-row {
     color: #eeeeec;
 }

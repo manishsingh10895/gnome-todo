@@ -526,6 +526,8 @@ gtd_task_list_item_class_init (GtdTaskListItemClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdTaskListItem, title_label);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_task_list_item__button_press_event_cb);
+
+  gtk_widget_class_set_css_name (widget_class, "task-list-item");
 }
 
 static void
