@@ -32,14 +32,6 @@ typedef struct
   GCancellable        *cancellable;
 } GtdTaskListPrivate;
 
-struct _GtdTaskList
-{
-  GtdObject parent;
-
-  /*<private>*/
-  GtdTaskListPrivate *priv;
-};
-
 enum
 {
   TASK_ADDED,
@@ -96,7 +88,7 @@ save_task_list (GtdTaskList *list)
   GtdTaskListPrivate *priv;
   ESource *source;
 
-  priv = list->priv;
+  priv = gtd_task_list_get_instance_private (list);
   source = gtd_task_list_get_source (list);
 
   if (!priv->cancellable)
@@ -150,12 +142,13 @@ static void
 gtd_task_list_finalize (GObject *object)
 {
   GtdTaskList *self = (GtdTaskList*) object;
+  GtdTaskListPrivate *priv = gtd_task_list_get_instance_private (self);
 
-  g_cancellable_cancel (self->priv->cancellable);
+  g_cancellable_cancel (priv->cancellable);
 
-  g_clear_object (&self->priv->cancellable);
-  g_clear_object (&self->priv->source);
-  g_clear_pointer (&self->priv->origin, g_free);
+  g_clear_object (&priv->cancellable);
+  g_clear_object (&priv->source);
+  g_clear_pointer (&priv->origin, g_free);
 
   G_OBJECT_CLASS (gtd_task_list_parent_class)->finalize (object);
 }
@@ -167,6 +160,7 @@ gtd_task_list_get_property (GObject    *object,
                             GParamSpec *pspec)
 {
   GtdTaskList *self = GTD_TASK_LIST (object);
+  GtdTaskListPrivate *priv = gtd_task_list_get_instance_private (self);
 
   switch (prop_id)
     {
@@ -179,15 +173,15 @@ gtd_task_list_get_property (GObject    *object,
       break;
 
     case PROP_NAME:
-      g_value_set_string (value, e_source_get_display_name (self->priv->source));
+      g_value_set_string (value, e_source_get_display_name (priv->source));
       break;
 
     case PROP_ORIGIN:
-      g_value_set_string (value, self->priv->origin);
+      g_value_set_string (value, priv->origin);
       break;
 
     case PROP_SOURCE:
-      g_value_set_object (value, self->priv->source);
+      g_value_set_object (value, priv->source);
       break;
 
     default:
@@ -202,6 +196,7 @@ gtd_task_list_set_property (GObject      *object,
                             GParamSpec   *pspec)
 {
   GtdTaskList *self = GTD_TASK_LIST (object);
+  GtdTaskListPrivate *priv = gtd_task_list_get_instance_private (self);
 
   switch (prop_id)
     {
@@ -214,17 +209,17 @@ gtd_task_list_set_property (GObject      *object,
       break;
 
     case PROP_ORIGIN:
-      self->priv->origin = g_strdup (g_value_get_string (value));
+      priv->origin = g_strdup (g_value_get_string (value));
       break;
 
     case PROP_SOURCE:
-      g_set_object (&self->priv->source, g_value_get_object (value));
+      g_set_object (&priv->source, g_value_get_object (value));
 
-      if (self->priv->source)
+      if (priv->source)
         {
           ESourceSelectable *selectable;
 
-          selectable = E_SOURCE_SELECTABLE (e_source_get_extension (self->priv->source, E_SOURCE_EXTENSION_TASK_LIST));
+          selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
 
           g_object_bind_property_full (object,
                                        "color",
@@ -331,7 +326,7 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
   signals[TASK_ADDED] = g_signal_new ("task-added",
                                       GTD_TYPE_TASK_LIST,
                                       G_SIGNAL_RUN_LAST,
-                                      0,
+                                      G_STRUCT_OFFSET (GtdTaskListClass, task_added),
                                       NULL,
                                       NULL,
                                       NULL,
@@ -348,7 +343,7 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
   signals[TASK_REMOVED] = g_signal_new ("task-removed",
                                         GTD_TYPE_TASK_LIST,
                                         G_SIGNAL_RUN_LAST,
-                                        0,
+                                        G_STRUCT_OFFSET (GtdTaskListClass, task_removed),
                                         NULL,
                                         NULL,
                                         NULL,
@@ -365,7 +360,7 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
   signals[TASK_UPDATED] = g_signal_new ("task-updated",
                                       GTD_TYPE_TASK_LIST,
                                       G_SIGNAL_RUN_LAST,
-                                      0,
+                                      G_STRUCT_OFFSET (GtdTaskListClass, task_updated),
                                       NULL,
                                       NULL,
                                       NULL,
@@ -377,7 +372,7 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
 static void
 gtd_task_list_init (GtdTaskList *self)
 {
-  self->priv = gtd_task_list_get_instance_private (self);
+  ;
 }
 
 /**
@@ -412,15 +407,18 @@ gtd_task_list_new (ESource     *source,
 GdkRGBA*
 gtd_task_list_get_color (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
   GdkRGBA color;
 
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
-  if (list->priv->source)
+  priv = gtd_task_list_get_instance_private (list);
+
+  if (priv->source)
     {
       ESourceSelectable *selectable;
 
-      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (list->priv->source, E_SOURCE_EXTENSION_TASK_LIST));
+      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
 
       if (!gdk_rgba_parse (&color, e_source_selectable_get_color (selectable)))
         gdk_rgba_parse (&color, "#ffffff"); /* calendar default colour */
@@ -444,10 +442,12 @@ void
 gtd_task_list_set_color (GtdTaskList   *list,
                          const GdkRGBA *color)
 {
+  GtdTaskListPrivate *priv;
   GdkRGBA *current_color;
 
   g_return_if_fail (GTD_IS_TASK_LIST (list));
 
+  priv = gtd_task_list_get_instance_private (list);
   current_color = gtd_task_list_get_color (list);
 
   if (!gdk_rgba_equal (current_color, color))
@@ -455,7 +455,7 @@ gtd_task_list_set_color (GtdTaskList   *list,
       ESourceSelectable *selectable;
       gchar *color_str;
 
-      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (list->priv->source, E_SOURCE_EXTENSION_TASK_LIST));
+      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
       color_str = gdk_rgba_to_string (color);
 
       e_source_selectable_set_color (selectable, color_str);
@@ -480,9 +480,13 @@ gtd_task_list_set_color (GtdTaskList   *list,
 const gchar*
 gtd_task_list_get_name (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
-  return e_source_get_display_name (list->priv->source);
+  priv = gtd_task_list_get_instance_private (list);
+
+  return e_source_get_display_name (priv->source);
 }
 
 /**
@@ -496,11 +500,15 @@ void
 gtd_task_list_set_name (GtdTaskList *list,
                         const gchar *name)
 {
+  GtdTaskListPrivate *priv;
+
   g_assert (GTD_IS_TASK_LIST (list));
 
-  if (g_strcmp0 (e_source_get_display_name (list->priv->source), name) != 0)
+  priv = gtd_task_list_get_instance_private (list);
+
+  if (g_strcmp0 (e_source_get_display_name (priv->source), name) != 0)
     {
-      e_source_set_display_name (list->priv->source, name);
+      e_source_set_display_name (priv->source, name);
       save_task_list (list);
 
       g_object_notify (G_OBJECT (list), "name");
@@ -518,9 +526,13 @@ gtd_task_list_set_name (GtdTaskList *list,
 GList*
 gtd_task_list_get_tasks (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
-  return g_list_copy (list->priv->tasks);
+  priv = gtd_task_list_get_instance_private (list);
+
+  return g_list_copy (priv->tasks);
 }
 
 /**
@@ -536,8 +548,12 @@ void
 gtd_task_list_save_task (GtdTaskList *list,
                          GtdTask     *task)
 {
+  GtdTaskListPrivate *priv;
+
   g_assert (GTD_IS_TASK_LIST (list));
   g_assert (GTD_IS_TASK (task));
+
+  priv = gtd_task_list_get_instance_private (list);
 
   if (gtd_task_list_contains (list, task))
     {
@@ -545,7 +561,7 @@ gtd_task_list_save_task (GtdTaskList *list,
     }
   else
     {
-      list->priv->tasks = g_list_append (list->priv->tasks, task);
+      priv->tasks = g_list_append (priv->tasks, task);
 
       g_signal_emit (list, signals[TASK_ADDED], 0, task);
     }
@@ -564,13 +580,17 @@ void
 gtd_task_list_remove_task (GtdTaskList *list,
                            GtdTask     *task)
 {
+  GtdTaskListPrivate *priv;
+
   g_assert (GTD_IS_TASK_LIST (list));
   g_assert (GTD_IS_TASK (task));
+
+  priv = gtd_task_list_get_instance_private (list);
 
   if (!gtd_task_list_contains (list, task))
     return;
 
-  list->priv->tasks = g_list_remove (list->priv->tasks, task);
+  priv->tasks = g_list_remove (priv->tasks, task);
 
   g_signal_emit (list, signals[TASK_REMOVED], 0, task);
 }
@@ -588,10 +608,14 @@ gboolean
 gtd_task_list_contains (GtdTaskList *list,
                         GtdTask     *task)
 {
+  GtdTaskListPrivate *priv;
+
   g_assert (GTD_IS_TASK_LIST (list));
   g_assert (GTD_IS_TASK (task));
 
-  return (g_list_find (list->priv->tasks, task) != NULL);
+  priv = gtd_task_list_get_instance_private (list);
+
+  return (g_list_find (priv->tasks, task) != NULL);
 }
 
 /**
@@ -605,9 +629,13 @@ gtd_task_list_contains (GtdTaskList *list,
 ESource*
 gtd_task_list_get_source (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
-  return list->priv->source;
+  priv = gtd_task_list_get_instance_private (list);
+
+  return priv->source;
 }
 
 /**
@@ -621,9 +649,13 @@ gtd_task_list_get_source (GtdTaskList *list)
 const gchar*
 gtd_task_list_get_origin (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
-  return list->priv->origin;
+  priv = gtd_task_list_get_instance_private (list);
+
+  return priv->origin;
 }
 
 /**
@@ -637,7 +669,11 @@ gtd_task_list_get_origin (GtdTaskList *list)
 gboolean
 gtd_task_list_is_removable (GtdTaskList *list)
 {
+  GtdTaskListPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), FALSE);
 
-  return e_source_get_removable (list->priv->source) || e_source_get_remote_deletable (list->priv->source);
+  priv = gtd_task_list_get_instance_private (list);
+
+  return e_source_get_removable (priv->source) || e_source_get_remote_deletable (priv->source);
 }

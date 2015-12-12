@@ -30,7 +30,23 @@ G_BEGIN_DECLS
 
 #define GTD_TYPE_TASK_LIST (gtd_task_list_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdTaskList, gtd_task_list, GTD, TASK_LIST, GtdObject)
+G_DECLARE_DERIVABLE_TYPE (GtdTaskList, gtd_task_list, GTD, TASK_LIST, GtdObject)
+
+struct _GtdTaskListClass
+{
+  GtdObjectClass        parent;
+
+  void                  (*task_added)                           (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  void                  (*task_updated)                         (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  void                  (*task_removed)                         (GtdTaskList            *list,
+                                                                 GtdTask                *task);
+
+  gpointer              padding[10];
+};
 
 GtdTaskList*            gtd_task_list_new                       (ESource                *source,
                                                                  const gchar            *origin);
