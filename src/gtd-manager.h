@@ -35,6 +35,8 @@ G_DECLARE_FINAL_TYPE (GtdManager, gtd_manager, GTD, MANAGER, GtdObject)
 
 GtdManager*             gtd_manager_new                   (void);
 
+GtdManager*             gtd_manager_get_default           (void);
+
 ESourceRegistry*        gtd_manager_get_source_registry   (GtdManager           *manager);
 
 GList*                  gtd_manager_get_task_lists        (GtdManager           *manager);

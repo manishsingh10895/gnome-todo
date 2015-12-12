@@ -241,7 +241,7 @@ gtd_application_startup (GApplication *application)
   GtdApplicationPrivate *priv = GTD_APPLICATION (application)->priv;
 
   /* manager */
-  priv->manager = gtd_manager_new ();
+  priv->manager = gtd_manager_get_default ();
 
   /* app menu */
   g_application_set_resource_base_path (application, "/org/gnome/todo");

@@ -79,6 +79,9 @@ const gchar *supported_providers[] = {
   NULL
 };
 
+/* Singleton instance */
+GtdManager *gtd_manager_instance = NULL;
+
 enum
 {
   DEFAULT_STORAGE_CHANGED,
@@ -1318,6 +1321,23 @@ gtd_manager_init (GtdManager *self)
   /* fixed task lists */
   self->priv->scheduled_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
   self->priv->today_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
+}
+
+/**
+ * gtd_manager_get_default:
+ *
+ * Retrieves the singleton #GtdManager instance. You should always
+ * use this function instead of @gtd_manager_new.
+ *
+ * Returns: (transfer none): the singleton #GtdManager instance.
+ */
+GtdManager*
+gtd_manager_get_default (void)
+{
+  if (!gtd_manager_instance)
+    gtd_manager_instance = gtd_manager_new ();
+
+  return gtd_manager_instance;
 }
 
 GtdManager*
