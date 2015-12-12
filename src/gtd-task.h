@@ -28,7 +28,14 @@ G_BEGIN_DECLS
 
 #define GTD_TYPE_TASK (gtd_task_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdTask, gtd_task, GTD, TASK, GtdObject)
+G_DECLARE_DERIVABLE_TYPE (GtdTask, gtd_task, GTD, TASK, GtdObject)
+
+struct _GtdTaskClass
+{
+  GtdObjectClass parent;
+
+  gpointer       padding[10];
+};
 
 GtdTask*            gtd_task_new                      (ECalComponent        *component);
 

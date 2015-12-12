@@ -31,14 +31,6 @@ typedef struct
   ECalComponent   *component;
 } GtdTaskPrivate;
 
-struct _GtdTask
-{
-  GtdObject parent;
-
-  /*<private>*/
-  GtdTaskPrivate *priv;
-};
-
 G_DEFINE_TYPE_WITH_PRIVATE (GtdTask, gtd_task, GTD_TYPE_OBJECT)
 
 enum
@@ -83,12 +75,10 @@ static void
 gtd_task_finalize (GObject *object)
 {
   GtdTask *self = (GtdTask*) object;
+  GtdTaskPrivate *priv = gtd_task_get_instance_private (self);
 
-  if (self->priv->description)
-    g_free (self->priv->description);
-
-  if (self->priv->component)
-    g_object_unref (self->priv->component);
+  g_free (priv->description);
+  g_object_unref (priv->component);
 
   G_OBJECT_CLASS (gtd_task_parent_class)->finalize (object);
 }
@@ -96,7 +86,7 @@ gtd_task_finalize (GObject *object)
 static const gchar*
 gtd_task__get_uid (GtdObject *object)
 {
-  GtdTaskPrivate *priv = GTD_TASK (object)->priv;
+  GtdTaskPrivate *priv = gtd_task_get_instance_private (GTD_TASK (object));
   const gchar *uid;
 
   g_return_val_if_fail (GTD_IS_TASK (object), NULL);
@@ -113,7 +103,7 @@ static void
 gtd_task__set_uid (GtdObject   *object,
                    const gchar *uid)
 {
-  GtdTaskPrivate *priv = GTD_TASK (object)->priv;
+  GtdTaskPrivate *priv = gtd_task_get_instance_private (GTD_TASK (object));
   const gchar *current_uid;
 
   g_return_if_fail (GTD_IS_TASK (object));
@@ -138,6 +128,7 @@ gtd_task_get_property (GObject    *object,
                        GParamSpec *pspec)
 {
   GtdTask *self = GTD_TASK (object);
+  GtdTaskPrivate *priv = gtd_task_get_instance_private (self);
 
   switch (prop_id)
     {
@@ -146,7 +137,7 @@ gtd_task_get_property (GObject    *object,
       break;
 
     case PROP_COMPONENT:
-      g_value_set_object (value, self->priv->component);
+      g_value_set_object (value, priv->component);
       break;
 
     case PROP_DESCRIPTION:
@@ -158,7 +149,7 @@ gtd_task_get_property (GObject    *object,
       break;
 
     case PROP_LIST:
-      g_value_set_object (value, self->priv->list);
+      g_value_set_object (value, priv->list);
       break;
 
     case PROP_PRIORITY:
@@ -181,6 +172,7 @@ gtd_task_set_property (GObject      *object,
                        GParamSpec   *pspec)
 {
   GtdTask *self = GTD_TASK (object);
+  GtdTaskPrivate *priv = gtd_task_get_instance_private (self);
 
   switch (prop_id)
     {
@@ -189,16 +181,16 @@ gtd_task_set_property (GObject      *object,
       break;
 
     case PROP_COMPONENT:
-      self->priv->component = g_value_get_object (value);
+      priv->component = g_value_get_object (value);
 
-      if (!self->priv->component)
+      if (!priv->component)
         {
-          self->priv->component = e_cal_component_new ();
-          e_cal_component_set_new_vtype (self->priv->component, E_CAL_COMPONENT_TODO);
+          priv->component = e_cal_component_new ();
+          e_cal_component_set_new_vtype (priv->component, E_CAL_COMPONENT_TODO);
         }
       else
         {
-          g_object_ref (self->priv->component);
+          g_object_ref (priv->component);
         }
 
       break;
@@ -347,7 +339,7 @@ gtd_task_class_init (GtdTaskClass *klass)
 static void
 gtd_task_init (GtdTask *self)
 {
-  self->priv = gtd_task_get_instance_private (self);
+  ;
 }
 
 GtdTask *
@@ -376,12 +368,15 @@ gtd_task_new (ECalComponent *component)
 gboolean
 gtd_task_get_complete (GtdTask *task)
 {
+  GtdTaskPrivate *priv;
   icaltimetype *dt;
   gboolean completed;
 
   g_return_val_if_fail (GTD_IS_TASK (task), FALSE);
 
-  e_cal_component_get_completed (task->priv->component, &dt);
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_get_completed (priv->component, &dt);
   completed = (dt != NULL);
 
   if (dt)
@@ -393,9 +388,13 @@ gtd_task_get_complete (GtdTask *task)
 ECalComponent*
 gtd_task_get_component (GtdTask *task)
 {
+  GtdTaskPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK (task), NULL);
 
-  return task->priv->component;
+  priv = gtd_task_get_instance_private (task);
+
+  return priv->component;
 }
 
 /**
@@ -411,7 +410,11 @@ void
 gtd_task_set_complete (GtdTask  *task,
                        gboolean  complete)
 {
+  GtdTaskPrivate *priv;
+
   g_assert (GTD_IS_TASK (task));
+
+  priv = gtd_task_get_instance_private (task);
 
   if (gtd_task_get_complete (task) != complete)
     {
@@ -453,9 +456,9 @@ gtd_task_set_complete (GtdTask  *task,
           status = ICAL_STATUS_NEEDSACTION;
         }
 
-      e_cal_component_set_percent_as_int (task->priv->component, percent);
-      e_cal_component_set_status (task->priv->component, status);
-      e_cal_component_set_completed (task->priv->component, dt);
+      e_cal_component_set_percent_as_int (priv->component, percent);
+      e_cal_component_set_status (priv->component, status);
+      e_cal_component_set_completed (priv->component, dt);
 
       if (dt)
         e_cal_component_free_icaltimetype (dt);
@@ -475,14 +478,17 @@ gtd_task_set_complete (GtdTask  *task,
 const gchar*
 gtd_task_get_description (GtdTask *task)
 {
+  GtdTaskPrivate *priv;
   GSList *text_list;
   GSList *l;
   gchar *desc = NULL;
 
   g_return_val_if_fail (GTD_IS_TASK (task), NULL);
 
+  priv = gtd_task_get_instance_private (task);
+
   /* concatenates the multiple descriptions a task may have */
-  e_cal_component_get_description_list (task->priv->component, &text_list);
+  e_cal_component_get_description_list (priv->component, &text_list);
   for (l = text_list; l != NULL; l = l->next)
     {
       if (l->data != NULL)
@@ -507,17 +513,17 @@ gtd_task_get_description (GtdTask *task)
         }
     }
 
-  if (g_strcmp0 (task->priv->description, desc) != 0)
+  if (g_strcmp0 (priv->description, desc) != 0)
     {
-      g_clear_pointer (&task->priv->description, g_free);
+      g_clear_pointer (&priv->description, g_free);
 
-      task->priv->description = g_strdup (desc);
+      priv->description = g_strdup (desc);
     }
 
   g_free (desc);
   e_cal_component_free_text_list (text_list);
 
-  return task->priv->description ? task->priv->description : "";
+  return priv->description ? priv->description : "";
 }
 
 /**
@@ -534,25 +540,29 @@ void
 gtd_task_set_description (GtdTask     *task,
                           const gchar *description)
 {
+  GtdTaskPrivate *priv;
+
   g_assert (GTD_IS_TASK (task));
   g_assert (g_utf8_validate (description, -1, NULL));
 
-  if (g_strcmp0 (task->priv->description, description) != 0)
+  priv = gtd_task_get_instance_private (task);
+
+  if (g_strcmp0 (priv->description, description) != 0)
     {
       GSList note;
       ECalComponentText text;
 
-      g_clear_pointer (&task->priv->description, g_free);
+      g_clear_pointer (&priv->description, g_free);
 
-      task->priv->description = g_strdup (description);
+      priv->description = g_strdup (description);
 
-      text.value = task->priv->description;
+      text.value = priv->description;
       text.altrep = NULL;
 
       note.data = &text;
       note.next = NULL;
 
-      e_cal_component_set_description_list (task->priv->component, &note);
+      e_cal_component_set_description_list (priv->component, &note);
 
       g_object_notify (G_OBJECT (task), "description");
     }
@@ -573,10 +583,13 @@ GDateTime*
 gtd_task_get_due_date (GtdTask *task)
 {
   ECalComponentDateTime comp_dt;
+  GtdTaskPrivate *priv;
 
   g_return_val_if_fail (GTD_IS_TASK (task), NULL);
 
-  e_cal_component_get_due (task->priv->component, &comp_dt);
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_get_due (priv->component, &comp_dt);
 
   return gtd_task__convert_icaltime (comp_dt.value);
 }
@@ -594,9 +607,12 @@ void
 gtd_task_set_due_date (GtdTask   *task,
                        GDateTime *dt)
 {
+  GtdTaskPrivate *priv;
   GDateTime *current_dt;
 
   g_assert (GTD_IS_TASK (task));
+
+  priv = gtd_task_get_instance_private (task);
 
   current_dt = gtd_task_get_due_date (task);
 
@@ -634,7 +650,7 @@ gtd_task_set_due_date (GtdTask   *task,
 
           comp_dt.value = idt;
 
-          e_cal_component_set_due (task->priv->component, &comp_dt);
+          e_cal_component_set_due (priv->component, &comp_dt);
 
           e_cal_component_free_datetime (&comp_dt);
 
@@ -647,7 +663,7 @@ gtd_task_set_due_date (GtdTask   *task,
           idt = NULL;
           comp_dt.tzid = NULL;
 
-          e_cal_component_set_due (task->priv->component, NULL);
+          e_cal_component_set_due (priv->component, NULL);
 
           changed = TRUE;
         }
@@ -673,9 +689,13 @@ gtd_task_set_due_date (GtdTask   *task,
 GtdTaskList*
 gtd_task_get_list (GtdTask *task)
 {
+  GtdTaskPrivate *priv;
+
   g_return_val_if_fail (GTD_IS_TASK (task), NULL);
 
-  return task->priv->list;
+  priv = gtd_task_get_instance_private (task);
+
+  return priv->list;
 }
 
 /**
@@ -689,12 +709,16 @@ void
 gtd_task_set_list (GtdTask     *task,
                    GtdTaskList *list)
 {
+  GtdTaskPrivate *priv;
+
   g_assert (GTD_IS_TASK (task));
   g_assert (GTD_IS_TASK_LIST (list));
 
-  if (task->priv->list != list)
+  priv = gtd_task_get_instance_private (task);
+
+  if (priv->list != list)
     {
-      task->priv->list = list;
+      priv->list = list;
       g_object_notify (G_OBJECT (task), "list");
     }
 }
@@ -711,12 +735,15 @@ gtd_task_set_list (GtdTask     *task,
 gint
 gtd_task_get_priority (GtdTask *task)
 {
+  GtdTaskPrivate *priv;
   gint *priority = NULL;
   gint p;
 
   g_assert (GTD_IS_TASK (task));
 
-  e_cal_component_get_priority (task->priv->component, &priority);
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_get_priority (priv->component, &priority);
 
   if (!priority)
     return -1;
@@ -743,16 +770,18 @@ void
 gtd_task_set_priority (GtdTask *task,
                        gint     priority)
 {
+  GtdTaskPrivate *priv;
   gint current;
 
   g_assert (GTD_IS_TASK (task));
   g_assert (priority >= -1);
 
+  priv = gtd_task_get_instance_private (task);
   current = gtd_task_get_priority (task);
 
   if (priority != current)
     {
-      e_cal_component_set_priority (task->priv->component, &priority);
+      e_cal_component_set_priority (priv->component, &priority);
       g_object_notify (G_OBJECT (task), "priority");
     }
 }
@@ -768,13 +797,14 @@ gtd_task_set_priority (GtdTask *task,
 const gchar*
 gtd_task_get_title (GtdTask *task)
 {
-  GtdTaskPrivate *priv = task->priv;
+  GtdTaskPrivate *priv;
   ECalComponentText summary;
 
   g_return_val_if_fail (GTD_IS_TASK (task), NULL);
-  g_return_val_if_fail (E_IS_CAL_COMPONENT (priv->component), NULL);
 
-  e_cal_component_get_summary (task->priv->component, &summary);
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_get_summary (priv->component, &summary);
 
   return summary.value ? summary.value : "";
 }
@@ -793,12 +823,15 @@ void
 gtd_task_set_title (GtdTask     *task,
                     const gchar *title)
 {
+  GtdTaskPrivate *priv;
   ECalComponentText summary;
 
   g_return_if_fail (GTD_IS_TASK (task));
   g_return_if_fail (g_utf8_validate (title, -1, NULL));
 
-  e_cal_component_get_summary (task->priv->component, &summary);
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_get_summary (priv->component, &summary);
 
   if (g_strcmp0 (summary.value, title) != 0)
     {
@@ -807,7 +840,7 @@ gtd_task_set_title (GtdTask     *task,
       new_summary.value = title;
       new_summary.altrep = NULL;
 
-      e_cal_component_set_summary (task->priv->component, &new_summary);
+      e_cal_component_set_summary (priv->component, &new_summary);
 
       g_object_notify (G_OBJECT (task), "title");
     }
@@ -825,10 +858,13 @@ gtd_task_set_title (GtdTask     *task,
 void
 gtd_task_abort (GtdTask *task)
 {
-  g_return_if_fail (GTD_IS_TASK (task));
-  g_return_if_fail (E_IS_CAL_COMPONENT (task->priv->component));
+  GtdTaskPrivate *priv;
 
-  e_cal_component_abort_sequence (task->priv->component);
+  g_return_if_fail (GTD_IS_TASK (task));
+
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_abort_sequence (priv->component);
 }
 
 /**
@@ -842,10 +878,13 @@ gtd_task_abort (GtdTask *task)
 void
 gtd_task_save (GtdTask *task)
 {
-  g_return_if_fail (GTD_IS_TASK (task));
-  g_return_if_fail (E_IS_CAL_COMPONENT (task->priv->component));
+  GtdTaskPrivate *priv;
 
-  e_cal_component_commit_sequence (task->priv->component);
+  g_return_if_fail (GTD_IS_TASK (task));
+
+  priv = gtd_task_get_instance_private (task);
+
+  e_cal_component_commit_sequence (priv->component);
 }
 
 gint
