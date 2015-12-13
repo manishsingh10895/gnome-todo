@@ -24,6 +24,8 @@ gnome_todo_SOURCES = \
 	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.c \
 	interfaces/gtd-panel.h \
+	interfaces/gtd-provider.c \
+	interfaces/gtd-provider.h \
 	notification/gtd-notification.c \
 	notification/gtd-notification.h \
 	notification/gtd-notification-widget.c \
