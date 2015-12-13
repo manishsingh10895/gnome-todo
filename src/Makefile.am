@@ -84,6 +84,22 @@ gnome_todo_LDADD = \
 	$(GNOME_TODO_LIBS)
 
 #
+# Export headers to [PREFIX]/include/gnome-todo
+#
+gnome_todo_includedir = $(includedir)/gnome-todo
+gnome_todo_include_HEADERS = \
+	interfaces/gtd-activatable.h \
+	interfaces/gtd-panel.h \
+	interfaces/gtd-provider.h \
+	notification/gtd-notification.h \
+	gtd-manager.h \
+	gtd-object.h \
+	gtd-task.h \
+	gtd-task-list.h \
+	gtd-window.h \
+	gtd-types.h
+
+#
 # Resources
 #
 resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --generate-dependencies $(top_srcdir)/data/todo.gresource.xml)
