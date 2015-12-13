@@ -32,6 +32,7 @@ typedef struct _GtdManager              GtdManager;
 typedef struct _GtdNotification         GtdNotification;
 typedef struct _GtdNotificationWidget   GtdNotificationWidget;
 typedef struct _GtdObject               GtdObject;
+typedef struct _GtdPanel                GtdPanel;
 typedef struct _GtdStorage              GtdStorage;
 typedef struct _GtdStoragePopover       GtdStoragePopover;
 typedef struct _GtdStorageRow           GtdStorageRow;
