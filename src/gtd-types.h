@@ -25,6 +25,7 @@
 
 G_BEGIN_DECLS
 
+typedef struct _GtdActivatable          GtdActivatable;
 typedef struct _GtdApplication          GtdApplication;
 typedef struct _GtdInitialSetupWindow   GtdInitialSetupWindow;
 typedef struct _GtdListView             GtdListView;
