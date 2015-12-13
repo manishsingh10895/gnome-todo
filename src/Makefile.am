@@ -20,6 +20,8 @@ ENUM_TYPES = \
 
 gnome_todo_SOURCES = \
 	$(BUILT_SOURCES) \
+	interfaces/gtd-activatable.c \
+	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.c \
 	interfaces/gtd-panel.h \
 	notification/gtd-notification.c \
