@@ -17,8 +17,19 @@
  */
 
 #include "gtd-activatable.h"
+#include "gtd-provider.h"
 
 G_DEFINE_INTERFACE (GtdActivatable, gtd_activatable, PEAS_TYPE_ACTIVATABLE)
+
+enum
+{
+  PROVIDER_ADDED,
+  PROVIDER_CHANGED,
+  PROVIDER_REMOVED,
+  NUM_SIGNALS
+};
+
+static guint signals[NUM_SIGNALS] = { 0, };
 
 static void
 gtd_activatable_default_init (GtdActivatableInterface *iface)
@@ -46,6 +57,57 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                                            "A list of providers this widget has",
                                                            G_TYPE_POINTER,
                                                            G_PARAM_READABLE));
+
+  /**
+   * GtdActivatable::provider-added:
+   *
+   * The ::provider-added signal is emmited after a #GtdProvider
+   * is connected.
+   */
+  signals[PROVIDER_ADDED] = g_signal_new ("provider-added",
+                                          GTD_TYPE_ACTIVATABLE,
+                                          G_SIGNAL_RUN_LAST,
+                                          0,
+                                          NULL,
+                                          NULL,
+                                          NULL,
+                                          G_TYPE_NONE,
+                                          1,
+                                          GTD_TYPE_PROVIDER);
+
+  /**
+   * GtdActivatable::provider-changed:
+   *
+   * The ::provider-changed signal is emmited after a #GtdProvider
+   * has any of it's properties changed.
+   */
+  signals[PROVIDER_CHANGED] = g_signal_new ("provider-changed",
+                                            GTD_TYPE_ACTIVATABLE,
+                                            G_SIGNAL_RUN_LAST,
+                                            0,
+                                            NULL,
+                                            NULL,
+                                            NULL,
+                                            G_TYPE_NONE,
+                                            1,
+                                            GTD_TYPE_PROVIDER);
+
+  /**
+   * GtdActivatable::provider-removed:
+   *
+   * The ::provider-removed signal is emmited after a #GtdProvider
+   * is disconnected.
+   */
+  signals[PROVIDER_REMOVED] = g_signal_new ("provider-removed",
+                                            GTD_TYPE_ACTIVATABLE,
+                                            G_SIGNAL_RUN_LAST,
+                                            0,
+                                            NULL,
+                                            NULL,
+                                            NULL,
+                                            G_TYPE_NONE,
+                                            1,
+                                            GTD_TYPE_PROVIDER);
 }
 
 GList*

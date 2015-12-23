@@ -17,8 +17,19 @@
  */
 
 #include "gtd-provider.h"
+#include "gtd-task-list.h"
 
 G_DEFINE_INTERFACE (GtdProvider, gtd_provider, GTD_TYPE_OBJECT)
+
+enum
+{
+  LIST_ADDED,
+  LIST_CHANGED,
+  LIST_REMOVED,
+  NUM_SIGNALS
+};
+
+static guint signals[NUM_SIGNALS] = { 0, };
 
 static void
 gtd_provider_default_init (GtdProviderInterface *iface)
@@ -84,6 +95,57 @@ gtd_provider_default_init (GtdProviderInterface *iface)
                                                             "The description of the provider",
                                                             NULL,
                                                             G_PARAM_READABLE));
+
+  /**
+   * GtdProvider::list-added:
+   *
+   * The ::list-added signal is emmited after a #GtdTaskList
+   * is connected.
+   */
+  signals[LIST_ADDED] = g_signal_new ("list-added",
+                                      GTD_TYPE_PROVIDER,
+                                      G_SIGNAL_RUN_LAST,
+                                      0,
+                                      NULL,
+                                      NULL,
+                                      NULL,
+                                      G_TYPE_NONE,
+                                      1,
+                                      GTD_TYPE_TASK_LIST);
+
+/**
+   * GtdProvider::list-changed:
+   *
+   * The ::list-changed signal is emmited after a #GtdTaskList
+   * has any of it's properties changed.
+   */
+  signals[LIST_CHANGED] = g_signal_new ("list-changed",
+                                        GTD_TYPE_PROVIDER,
+                                        G_SIGNAL_RUN_LAST,
+                                        0,
+                                        NULL,
+                                        NULL,
+                                        NULL,
+                                        G_TYPE_NONE,
+                                        1,
+                                        GTD_TYPE_TASK_LIST);
+
+  /**
+   * GtdManager::list-removed:
+   *
+   * The ::list-removed signal is emmited after a #GtdTaskList
+   * is disconnected.
+   */
+  signals[LIST_REMOVED] = g_signal_new ("list-removed",
+                                        GTD_TYPE_PROVIDER,
+                                        G_SIGNAL_RUN_LAST,
+                                        0,
+                                        NULL,
+                                        NULL,
+                                        NULL,
+                                        G_TYPE_NONE,
+                                        1,
+                                        GTD_TYPE_TASK_LIST);
 }
 
 const gchar*
