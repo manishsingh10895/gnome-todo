@@ -57,6 +57,8 @@ gnome_todo_SOURCES = \
 	gtd-manager.h \
 	gtd-object.c \
 	gtd-object.h \
+	gtd-plugin-manager.c \
+	gtd-plugin-manager.h \
 	gtd-task.c \
 	gtd-task.h \
 	gtd-task-list.c \
@@ -92,12 +94,14 @@ gnome_todo_include_HEADERS = \
 	interfaces/gtd-panel.h \
 	interfaces/gtd-provider.h \
 	notification/gtd-notification.h \
+	gtd-enums.h \
 	gtd-manager.h \
 	gtd-object.h \
 	gtd-task.h \
 	gtd-task-list.h \
 	gtd-window.h \
-	gtd-types.h
+	gtd-types.h \
+	gnome-todo.h
 
 #
 # Resources
