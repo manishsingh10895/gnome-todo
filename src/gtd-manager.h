@@ -37,11 +37,9 @@ GtdManager*             gtd_manager_new                   (void);
 
 GtdManager*             gtd_manager_get_default           (void);
 
-ESourceRegistry*        gtd_manager_get_source_registry   (GtdManager           *manager);
-
 GList*                  gtd_manager_get_task_lists        (GtdManager           *manager);
 
-GList*                  gtd_manager_get_storage_locations (GtdManager           *manager);
+GList*                  gtd_manager_get_providers         (GtdManager           *manager);
 
 /* Task lists */
 void                    gtd_manager_create_task_list      (GtdManager           *manager,
@@ -74,10 +72,10 @@ GoaClient*              gtd_manager_get_goa_client        (GtdManager           
 gboolean                gtd_manager_is_goa_client_ready   (GtdManager           *manager);
 
 /* Settings */
-GtdStorage*             gtd_manager_get_default_storage   (GtdManager           *manager);
+GtdProvider*            gtd_manager_get_default_provider  (GtdManager           *manager);
 
-void                    gtd_manager_set_default_storage   (GtdManager           *manager,
-                                                           GtdStorage           *default_storage);
+void                    gtd_manager_set_default_provider  (GtdManager           *manager,
+                                                           GtdProvider          *provider);
 
 GSettings*              gtd_manager_get_settings          (GtdManager           *manager);
 
@@ -85,6 +83,10 @@ gboolean                gtd_manager_get_is_first_run      (GtdManager           
 
 void                    gtd_manager_set_is_first_run      (GtdManager           *manager,
                                                            gboolean              is_first_run);
+
+void                    gtd_manager_emit_error_message    (GtdManager           *manager,
+                                                           const gchar          *primary_message,
+                                                           const gchar          *secondary_message);
 
 G_END_DECLS
 

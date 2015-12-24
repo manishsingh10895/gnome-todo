@@ -1,7 +1,9 @@
+include $(top_srcdir)/common.am
+
 ACLOCAL_AMFLAGS = --install -I m4 ${ACLOCAL_FLAGS}
 
-SUBDIRS = src data po
-DIST_SUBDIRS = src data po
+SUBDIRS = src data plugins po
+DIST_SUBDIRS = src data plugins po
 
 INTLTOOL_FILES = \
 	intltool-extract.in \

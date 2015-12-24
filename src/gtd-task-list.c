@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "interfaces/gtd-provider.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 
@@ -53,68 +54,6 @@ enum
   PROP_PROVIDER,
   LAST_PROP
 };
-
-static void
-save_task_list_finished_cb (GObject      *source,
-                            GAsyncResult *result,
-                            gpointer      user_data)
-{
-  GtdTaskList  *list;
-  GError *error;
-
-  list = user_data;
-  error = NULL;
-
-  gtd_object_set_ready (GTD_OBJECT (list), TRUE);
-
-  e_source_write_finish (E_SOURCE (source),
-                         result,
-                         &error);
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error saving task list"),
-                 error->message);
-      g_clear_error (&error);
-    }
-}
-
-static gboolean
-color_to_string (GBinding     *binding,
-                 const GValue *from_value,
-                 GValue       *to_value,
-                 gpointer      user_data)
-{
-  GdkRGBA *color;
-  gchar *color_str;
-
-  color = g_value_get_boxed (from_value);
-  color_str = gdk_rgba_to_string (color);
-
-  g_value_set_string (to_value, color_str);
-
-  g_free (color_str);
-
-  return TRUE;
-}
-
-static gboolean
-string_to_color (GBinding     *binding,
-                 const GValue *from_value,
-                 GValue       *to_value,
-                 gpointer      user_data)
-{
-  GdkRGBA color;
-
-  if (!gdk_rgba_parse (&color, g_value_get_string (from_value)))
-    gdk_rgba_parse (&color, "#ffffff"); /* calendar default colour */
-
-  g_value_set_boxed (to_value, &color);
-
-  return TRUE;
-}
 
 static void
 gtd_task_list_finalize (GObject *object)
@@ -343,13 +282,17 @@ GdkRGBA*
 gtd_task_list_get_color (GtdTaskList *list)
 {
   GtdTaskListPrivate *priv;
+  GdkRGBA rgba;
 
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
   priv = gtd_task_list_get_instance_private (list);
 
   if (!priv->color)
-    gdk_rgba_parse (priv->color, "#ffffff");
+    {
+      gdk_rgba_parse (&rgba, "#ffffff");
+      priv->color = gdk_rgba_copy (&rgba);
+    }
 
   return gdk_rgba_copy (priv->color);
 }

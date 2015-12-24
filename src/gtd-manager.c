@@ -16,10 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "interfaces/gtd-provider.h"
 #include "gtd-manager.h"
-#include "gtd-storage-goa.h"
-#include "gtd-storage-local.h"
-#include "gtd-storage.h"
+#include "gtd-plugin-manager.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 
@@ -29,30 +28,18 @@
 
 typedef struct
 {
-  GHashTable            *clients;
-  GList                 *task_lists;
-  ECredentialsPrompter  *credentials_prompter;
-  ESourceRegistry       *source_registry;
-
   /*
    * Today & Scheduled lists
    */
   GtdTaskList           *today_tasks_list;
   GtdTaskList           *scheduled_tasks_list;
 
-  /* Online accounts */
-  GoaClient             *goa_client;
-  gboolean               goa_client_ready;
-  GList                 *storage_locations;
-
   GSettings             *settings;
+  GtdPluginManager      *plugin_manager;
 
-  /*
-   * Small flag that contains the number of sources
-   * that still have to be loaded. When this number
-   * reaches 0, all sources are loaded.
-   */
-  gint                   load_sources;
+  GList                 *tasklists;
+  GList                 *providers;
+  GtdProvider           *default_provider;
 } GtdManagerPrivate;
 
 struct _GtdManager
@@ -63,62 +50,32 @@ struct _GtdManager
   GtdManagerPrivate *priv;
 };
 
-/* Auxiliary struct for asyncronous task operations */
-typedef struct _TaskData
-{
-  GtdManager *manager;
-  gpointer   *data;
-} TaskData;
-
 G_DEFINE_TYPE_WITH_PRIVATE (GtdManager, gtd_manager, GTD_TYPE_OBJECT)
-
-const gchar *supported_providers[] = {
-  "exchange",
-  "google",
-  "owncloud",
-  NULL
-};
 
 /* Singleton instance */
 GtdManager *gtd_manager_instance = NULL;
 
 enum
 {
-  DEFAULT_STORAGE_CHANGED,
+  DEFAULT_PROVIDER_CHANGED,
   LIST_ADDED,
   LIST_CHANGED,
   LIST_REMOVED,
   SHOW_ERROR_MESSAGE,
-  STORAGE_ADDED,
-  STORAGE_CHANGED,
-  STORAGE_REMOVED,
+  PROVIDER_ADDED,
+  PROVIDER_REMOVED,
   NUM_SIGNALS
 };
 
 enum
 {
   PROP_0,
-  PROP_GOA_CLIENT,
-  PROP_GOA_CLIENT_READY,
-  PROP_SOURCE_REGISTRY,
+  PROP_DEFAULT_PROVIDER,
   LAST_PROP
 };
 
 static guint signals[NUM_SIGNALS] = { 0, };
-
-static TaskData*
-task_data_new (GtdManager *manager,
-               gpointer   *data)
-{
-  TaskData *tdata;
-
-  tdata = g_new0 (TaskData, 1);
-  tdata->manager = manager;
-  tdata->data = data;
-
-  return tdata;
-}
-
+/*
 static gboolean
 is_today (GDateTime *dt)
 {
@@ -138,6 +95,8 @@ is_today (GDateTime *dt)
   return FALSE;
 }
 
+ */
+
 static void
 emit_show_error_message (GtdManager  *manager,
                          const gchar *primary_text,
@@ -151,905 +110,10 @@ emit_show_error_message (GtdManager  *manager,
 }
 
 static void
-gtd_manager__setup_url (GtdManager *manager,
-                        GtdStorageGoa *storage)
-{
-  GtdManagerPrivate *priv;
-  GList *sources;
-  GList *l;
-
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-  g_return_if_fail (GTD_IS_STORAGE (storage));
-
-  priv = manager->priv;
-
-  if (!priv->source_registry)
-    return;
-
-  /*
-   * Search for the ESource whose parent source has an ESourceGoa extension.
-   * The ESourceGoa, then, must have the same account uid that of @storage.
-   */
-  sources = e_source_registry_list_sources (priv->source_registry, E_SOURCE_EXTENSION_TASK_LIST);
-
-  for (l = sources; l != NULL; l = l->next)
-    {
-      ESource *source;
-      ESource *goa_source;
-
-      source = l->data;
-      goa_source = e_source_registry_find_extension (priv->source_registry,
-                                                     source,
-                                                     E_SOURCE_EXTENSION_GOA);
-
-      if (goa_source)
-        {
-          ESourceGoa *goa_ext;
-
-          goa_ext = e_source_get_extension (goa_source, E_SOURCE_EXTENSION_GOA);
-
-          /* Found an ESourceGoa with the same uid of storage */
-          if (g_strcmp0 (e_source_goa_get_account_id (goa_ext), gtd_storage_get_id (GTD_STORAGE (storage))) == 0)
-            {
-              gtd_storage_goa_set_parent (storage, e_source_get_uid (goa_source));
-              break;
-            }
-        }
-
-      g_clear_object (&goa_source);
-    }
-
-  g_list_free_full (sources, g_object_unref);
-}
-
-static void
-gtd_manager__goa_account_removed_cb (GoaClient  *client,
-                                     GoaObject  *object,
-                                     GtdManager *manager)
-{
-  GtdManagerPrivate *priv;
-  GoaAccount *account;
-
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-
-  priv = manager->priv;
-  account = goa_object_get_account (object);
-
-  if (g_strv_contains (supported_providers, goa_account_get_provider_type (account)))
-    {
-      GList *l;
-
-      for (l = priv->storage_locations; l != NULL; l = l->next)
-        {
-          if (g_strcmp0 (goa_account_get_id (account), gtd_storage_get_id (l->data)) == 0)
-            {
-              GtdStorage *storage = l->data;
-
-              if (gtd_storage_get_is_default (storage))
-                {
-                  g_settings_set_string (priv->settings,
-                                         "storage-location",
-                                         "local");
-                }
-
-              priv->storage_locations = g_list_remove (priv->storage_locations, storage);
-
-              g_object_unref (storage);
-
-              g_signal_emit (manager, signals[STORAGE_REMOVED], 0, storage);
-              break;
-            }
-        }
-    }
-}
-
-static void
-gtd_manager__goa_account_changed_cb (GoaClient  *client,
-                                     GoaObject  *object,
-                                     GtdManager *manager)
-{
-  GtdManagerPrivate *priv;
-  GoaAccount *account;
-
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-
-  priv = manager->priv;
-  account = goa_object_get_account (object);
-
-  if (g_strv_contains (supported_providers, goa_account_get_provider_type (account)))
-    {
-      GList *l;
-
-      for (l = priv->storage_locations; l != NULL; l = l->next)
-        {
-          if (g_strcmp0 (goa_account_get_id (account), gtd_storage_get_id (l->data)) == 0)
-            {
-              g_signal_emit (manager, signals[STORAGE_CHANGED], 0, l->data);
-              break;
-            }
-        }
-    }
-}
-
-static void
-gtd_manager__goa_account_added_cb (GoaClient  *client,
-                                   GoaObject  *object,
-                                   GtdManager *manager)
-{
-  GtdManagerPrivate *priv;
-  GoaAccount *account;
-
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-
-  priv = manager->priv;
-  account = goa_object_get_account (object);
-
-  if (g_strv_contains (supported_providers, goa_account_get_provider_type (account)))
-    {
-      GtdStorage *storage;
-      gchar *default_location;
-
-      default_location = g_settings_get_string (priv->settings, "storage-location");
-
-      storage = gtd_storage_goa_new (object);
-
-      gtd_storage_set_enabled (storage, !goa_account_get_calendar_disabled (account));
-      gtd_storage_set_is_default (storage, g_strcmp0 (gtd_storage_get_id (storage), default_location) == 0);
-
-      gtd_manager__setup_url (manager, GTD_STORAGE_GOA (storage));
-
-      priv->storage_locations = g_list_insert_sorted (priv->storage_locations,
-                                                      storage,
-                                                      (GCompareFunc) gtd_storage_compare);
-
-      g_signal_emit (manager, signals[STORAGE_ADDED], 0, storage);
-
-      g_free (default_location);
-    }
-}
-
-static void
-gtd_manager__goa_client_finish_cb (GObject      *client,
-                                   GAsyncResult *result,
-                                   gpointer      user_data)
-{
-  GtdManagerPrivate *priv;
-  GError *error;
-
-  g_return_if_fail (GTD_IS_MANAGER (user_data));
-
-  priv = GTD_MANAGER (user_data)->priv;
-  error = NULL;
-
-  priv->goa_client_ready = TRUE;
-  priv->goa_client = goa_client_new_finish (result, &error);
-
-  if (!error)
-    {
-      GList *accounts;
-      GList *l;
-      gchar *default_location;
-
-      /* Load each supported GoaAccount into a GtdStorage */
-      accounts = goa_client_get_accounts (priv->goa_client);
-      default_location = g_settings_get_string (priv->settings, "storage-location");
-
-      for (l = accounts; l != NULL; l = l->next)
-        {
-          GoaObject *object;
-          GoaAccount *account;
-
-          object = l->data;
-          account = goa_object_peek_account (object);
-
-          if (g_strv_contains (supported_providers, goa_account_get_provider_type (account)))
-            {
-              GtdStorage *storage;
-
-              /* Create the new GOA storage */
-              storage = gtd_storage_goa_new (object);
-              gtd_storage_set_enabled (storage, !goa_account_get_calendar_disabled (account));
-              gtd_storage_set_is_default (storage, g_strcmp0 (gtd_storage_get_id (storage), default_location) == 0);
-
-              g_assert (gtd_storage_goa_get_account (GTD_STORAGE_GOA (storage)) == account);
-
-              gtd_manager__setup_url (GTD_MANAGER (user_data), GTD_STORAGE_GOA (storage));
-
-              priv->storage_locations = g_list_insert_sorted (priv->storage_locations,
-                                                              storage,
-                                                              (GCompareFunc) gtd_storage_compare);
-
-              g_signal_emit (user_data, signals[STORAGE_ADDED], 0, storage);
-            }
-        }
-
-      /* Connect GoaClient signals */
-      g_signal_connect (priv->goa_client,
-                        "account-added",
-                        G_CALLBACK (gtd_manager__goa_account_added_cb),
-                        user_data);
-
-      g_signal_connect (priv->goa_client,
-                        "account-changed",
-                        G_CALLBACK (gtd_manager__goa_account_changed_cb),
-                        user_data);
-
-      g_signal_connect (priv->goa_client,
-                        "account-removed",
-                        G_CALLBACK (gtd_manager__goa_account_removed_cb),
-                        user_data);
-
-      g_list_free_full (accounts, g_object_unref);
-      g_free (default_location);
-    }
-  else
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error loading GNOME Online Accounts"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error loading GNOME Online Accounts"),
-                               error->message);
-
-      g_clear_error (&error);
-    }
-
-  g_object_notify (user_data, "goa-client-ready");
-  g_object_notify (user_data, "goa-client");
-}
-
-static void
-gtd_manager__commit_source_finished (GObject      *registry,
-                                     GAsyncResult *result,
-                                     gpointer      user_data)
-{
-  GError *error = NULL;
-
-  g_return_if_fail (GTD_IS_MANAGER (user_data));
-
-  gtd_object_set_ready (GTD_OBJECT (user_data), TRUE);
-  e_source_registry_commit_source_finish (E_SOURCE_REGISTRY (registry),
-                                          result,
-                                          &error);
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error saving task list"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error saving task list"),
-                               error->message);
-
-      g_error_free (error);
-      return;
-    }
-}
-
-static void
-task_list_removal_finished (GtdManager  *manager,
-                            ESource     *source,
-                            GError     **error)
-{
-  gtd_object_set_ready (GTD_OBJECT (manager), TRUE);
-
-  if (*error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error removing task list"),
-                 (*error)->message);
-
-      emit_show_error_message (manager,
-                               _("Error removing task list"),
-                               (*error)->message);
-
-      g_clear_error (error);
-    }
-}
-
-static void
-gtd_manager__remote_create_source_finished (GObject      *source,
-                                            GAsyncResult *result,
-                                            gpointer      user_data)
-{
-  GError *error;
-
-  error = NULL;
-
-  e_source_remote_create_finish (E_SOURCE (source),
-                                 result,
-                                 &error);
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error creating task list"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error creating task list"),
-                               error->message);
-
-      g_clear_error (&error);
-    }
-}
-
-static void
-gtd_manager__remote_delete_finished (GObject      *source,
-                                     GAsyncResult *result,
-                                     gpointer      user_data)
-{
-  GError *error = NULL;
-
-  e_source_remote_delete_finish (E_SOURCE (source),
-                                 result,
-                                 &error);
-
-  task_list_removal_finished (GTD_MANAGER (user_data),
-                              E_SOURCE (source),
-                              &error);
-}
-
-static void
-gtd_manager__remove_source_finished (GObject      *source,
-                                     GAsyncResult *result,
-                                     gpointer      user_data)
-{
-  GError *error = NULL;
-
-  e_source_remove_finish (E_SOURCE (source),
-                          result,
-                          &error);
-
-  task_list_removal_finished (GTD_MANAGER (user_data),
-                              E_SOURCE (source),
-                              &error);
-}
-
-static void
-gtd_manager__create_task_finished (GObject      *client,
-                                   GAsyncResult *result,
-                                   gpointer      user_data)
-{
-  GtdManagerPrivate *priv;
-  TaskData *data = user_data;
-  gchar *new_uid = NULL;
-  GError *error = NULL;
-
-  priv = data->manager->priv;
-  e_cal_client_create_object_finish (E_CAL_CLIENT (client),
-                                     result,
-                                     &new_uid,
-                                     &error);
-
-  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error creating task"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error creating task"),
-                               error->message);
-
-      g_error_free (error);
-      g_free (data);
-      return;
-    }
-  else
-    {
-      GDateTime *dt;
-
-      /*
-       * Add in 'Today' and/or 'Scheduled' lists.
-       */
-      dt = gtd_task_get_due_date (GTD_TASK (data->data));
-
-      if (dt)
-        gtd_task_list_save_task (priv->scheduled_tasks_list, (GtdTask*) data->data);
-
-      if (dt && is_today (dt))
-        gtd_task_list_save_task (priv->today_tasks_list, (GtdTask*) data->data);
-
-      /*
-       * In the case the task UID changes because of creation proccess,
-       * reapply it to the task.
-       */
-      if (new_uid)
-        {
-          gtd_object_set_uid (GTD_OBJECT (data->data), new_uid);
-          g_free (new_uid);
-        }
-
-      g_free (data);
-    }
-}
-
-static void
-gtd_manager__remove_task_finished (GObject      *client,
-                                   GAsyncResult *result,
-                                   gpointer      user_data)
-{
-  GtdManagerPrivate *priv;
-  TaskData *data = user_data;
-  GError *error = NULL;
-
-  priv = data->manager->priv;
-  e_cal_client_remove_object_finish (E_CAL_CLIENT (client),
-                                     result,
-                                     &error);
-
-  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
-
-  /* Remove from 'Today' or 'Scheduled' as needed */
-  gtd_task_list_remove_task (priv->scheduled_tasks_list, (GtdTask*) data->data);
-  gtd_task_list_remove_task (priv->today_tasks_list, (GtdTask*) data->data);
-
-  g_object_unref ((GtdTask*) data->data);
-  g_free (data);
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error removing task"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error removing task"),
-                               error->message);
-
-      g_error_free (error);
-      return;
-    }
-}
-
-static void
-gtd_manager__update_task_finished (GObject      *client,
-                                   GAsyncResult *result,
-                                   gpointer      user_data)
-{
-  GtdManagerPrivate *priv;
-  GDateTime *dt;
-  TaskData *data = user_data;
-  GtdTask *task;
-  GError *error = NULL;
-
-  priv = data->manager->priv;
-  task = GTD_TASK (data->data);
-  e_cal_client_modify_object_finish (E_CAL_CLIENT (client),
-                                     result,
-                                     &error);
-
-  /* Check if the task still fits internal lists */
-  dt = gtd_task_get_due_date (task);
-
-  if (dt)
-    {
-      gtd_task_list_save_task (priv->scheduled_tasks_list, task);
-
-      if (is_today (dt))
-        gtd_task_list_save_task (priv->today_tasks_list, task);
-      else
-        gtd_task_list_remove_task (priv->today_tasks_list, task);
-    }
-  else
-    {
-      gtd_task_list_remove_task (priv->scheduled_tasks_list, task);
-      gtd_task_list_remove_task (priv->today_tasks_list, task);
-    }
-
-  if (error)
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error updating task"),
-                 error->message);
-
-      emit_show_error_message (data->manager,
-                               _("Error updating task"),
-                               error->message);
-
-      g_error_free (error);
-    }
-
-  g_clear_pointer (&dt, g_date_time_unref);
-  g_free (data);
-
-  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
-}
-
-static void
-gtd_manager__invoke_authentication (GObject      *source_object,
-                                    GAsyncResult *result,
-                                    gpointer      user_data)
-{
-  ESource *source = E_SOURCE (source_object);
-  GError *error = NULL;
-  gboolean canceled;
-
-  e_source_invoke_authenticate_finish (source,
-                                       result,
-                                       &error);
-
-  canceled = g_error_matches (error,
-                                   G_IO_ERROR,
-                                   G_IO_ERROR_CANCELLED);
-
-  if (!canceled)
-    {
-      g_warning ("%s: %s (%s): %s",
-                 G_STRFUNC,
-                 _("Failed to prompt for credentials"),
-                 e_source_get_uid (source),
-                 error->message);
-    }
-
-  g_clear_error (&error);
-}
-
-static void
-gtd_manager__credentials_prompt_done (GObject      *source_object,
-                                      GAsyncResult *result,
-                                      gpointer      user_data)
-{
-  ETrustPromptResponse response = E_TRUST_PROMPT_RESPONSE_UNKNOWN;
-  ESource *source = E_SOURCE (source_object);
-  GError *error = NULL;
-
-  e_trust_prompt_run_for_source_finish (source, result, &response, &error);
-
-  if (error)
-    {
-      g_warning ("%s: %s '%s': %s",
-                 G_STRFUNC,
-                 _("Failed to prompt for credentials for"),
-                 e_source_get_display_name (source),
-                 error->message);
-
-    }
-  else if (response == E_TRUST_PROMPT_RESPONSE_ACCEPT || response == E_TRUST_PROMPT_RESPONSE_ACCEPT_TEMPORARILY)
-    {
-      /* Use NULL credentials to reuse those from the last time. */
-      e_source_invoke_authenticate (source,
-                                    NULL,
-                                    NULL /* cancellable */,
-                                    gtd_manager__invoke_authentication,
-                                    NULL);
-    }
-
-  g_clear_error (&error);
-}
-
-static void
-gtd_manager__credentials_required (ESourceRegistry          *registry,
-                                   ESource                  *source,
-                                   ESourceCredentialsReason  reason,
-                                   const gchar              *certificate_pem,
-                                   GTlsCertificateFlags      certificate_errors,
-                                   const GError             *error,
-                                   gpointer                  user_data)
-{
-  GtdManagerPrivate *priv;
-
-  g_return_if_fail (GTD_IS_MANAGER (user_data));
-
-  priv = GTD_MANAGER (user_data)->priv;
-
-  if (e_credentials_prompter_get_auto_prompt_disabled_for (priv->credentials_prompter, source))
-    return;
-
-  if (reason == E_SOURCE_CREDENTIALS_REASON_SSL_FAILED)
-    {
-      e_trust_prompt_run_for_source (e_credentials_prompter_get_dialog_parent (priv->credentials_prompter),
-                                     source,
-                                     certificate_pem,
-                                     certificate_errors,
-                                     error ? error->message : NULL,
-                                     TRUE, // allow saving sources
-                                     NULL, // we won't cancel the operation
-                                     gtd_manager__credentials_prompt_done,
-                                     NULL);
-    }
-  else if (error && reason == E_SOURCE_CREDENTIALS_REASON_ERROR)
-    {
-      g_warning ("%s: %s '%s': %s",
-                 G_STRFUNC,
-                 _("Authentication failure"),
-                 e_source_get_display_name (source),
-                 error->message);
-    }
-}
-
-static void
-gtd_manager__fill_task_list (GObject      *client,
-                             GAsyncResult *result,
-                             gpointer      user_data)
-{
-  GtdManagerPrivate *priv;
-  GtdTaskList *list;
-  TaskData *data = user_data;
-  GSList *component_list;
-  GError *error = NULL;
-
-  g_return_if_fail (GTD_IS_MANAGER (data->manager));
-
-  priv = data->manager->priv;
-  list = GTD_TASK_LIST (data->data);
-
-  e_cal_client_get_object_list_as_comps_finish (E_CAL_CLIENT (client),
-                                                result,
-                                                &component_list,
-                                                &error);
-
-  gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
-  g_free (data);
-
-  if (!error)
-    {
-      GSList *l;
-
-      for (l = component_list; l != NULL; l = l->next)
-        {
-          GDateTime *dt;
-          GtdTask *task;
-
-          task = gtd_task_new (l->data);
-          gtd_task_set_list (task, list);
-
-          gtd_task_list_save_task (list, task);
-
-          /*
-           * Add in 'Today' and/or 'Scheduled' lists.
-           */
-          dt = gtd_task_get_due_date (task);
-
-          if (dt)
-            gtd_task_list_save_task (priv->scheduled_tasks_list, task);
-
-          if (dt && is_today (dt))
-            gtd_task_list_save_task (priv->today_tasks_list, task);
-
-          g_clear_pointer (&dt, g_date_time_unref);
-        }
-
-      e_cal_client_free_ecalcomp_slist (component_list);
-    }
-  else
-    {
-      g_warning ("%s: %s: %s",
-                 G_STRFUNC,
-                 _("Error fetching tasks from list"),
-                 error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Error fetching tasks from list"),
-                               error->message);
-
-      g_error_free (error);
-      return;
-    }
-}
-
-static void
-gtd_manager__on_client_connected (GObject      *source_object,
-                                  GAsyncResult *result,
-                                  gpointer      user_data)
-{
-  GtdManagerPrivate *priv = GTD_MANAGER (user_data)->priv;
-  ECalClient *client;
-  ESource *source;
-  GError *error = NULL;
-
-  source = e_client_get_source (E_CLIENT (source_object));
-  client = E_CAL_CLIENT (e_cal_client_connect_finish (result, &error));
-
-  /* Update ready flag */
-  priv->load_sources--;
-  gtd_object_set_ready (GTD_OBJECT (user_data),
-                        priv->load_sources <= 0);
-
-  if (!error)
-    {
-      GtdTaskList *list;
-      TaskData *data;
-      ESource *parent;
-
-      /* parent source's display name is list's origin */
-      parent = e_source_registry_ref_source (priv->source_registry, e_source_get_parent (source));
-
-      /* creates a new task list */
-      list = gtd_task_list_new (source, e_source_get_display_name (parent));
-
-      /* it's not ready until we fetch the list of tasks from client */
-      gtd_object_set_ready (GTD_OBJECT (list), FALSE);
-
-      /* async data */
-      data = task_data_new (user_data, (gpointer) list);
-
-      /* asyncronously fetch the task list */
-      e_cal_client_get_object_list_as_comps (client,
-                                             "contains? \"any\" \"\"",
-                                             NULL,
-                                             (GAsyncReadyCallback) gtd_manager__fill_task_list,
-                                             data);
-
-
-      priv->task_lists = g_list_append (priv->task_lists, list);
-
-      g_object_set_data (G_OBJECT (source), "task-list", list);
-      g_hash_table_insert (priv->clients, source, client);
-
-      g_signal_emit (user_data,
-                     signals[LIST_ADDED],
-                     0,
-                     list);
-
-      g_object_unref (parent);
-
-      g_debug ("%s: %s (%s)",
-               G_STRFUNC,
-               _("Task list source successfully connected"),
-               e_source_get_display_name (source));
-    }
-  else
-    {
-      g_debug ("%s: %s (%s): %s",
-               G_STRFUNC,
-               _("Failed to connect to task list source"),
-               e_source_get_uid (source),
-               error->message);
-
-      emit_show_error_message (GTD_MANAGER (user_data),
-                               _("Failed to connect to task list source"),
-                               error->message);
-
-      g_error_free (error);
-      return;
-    }
-
-}
-
-static void
-gtd_manager__load__source (GtdManager *manager,
-                           ESource    *source)
-{
-  GtdManagerPrivate *priv = manager->priv;
-
-  if (e_source_has_extension (source, E_SOURCE_EXTENSION_TASK_LIST) &&
-      !g_hash_table_lookup (priv->clients, source))
-    {
-      e_cal_client_connect (source,
-                            E_CAL_CLIENT_SOURCE_TYPE_TASKS,
-                            5, /* seconds to wait */
-                            NULL,
-                            gtd_manager__on_client_connected,
-                            manager);
-    }
-  else
-    {
-      g_warning ("%s: %s %s (%s)",
-                 G_STRFUNC,
-                 _("Skipping already loaded task list "),
-                 e_source_get_display_name (source),
-                 e_source_get_uid (source));
-    }
-}
-
-static void
-gtd_manager__remove_source (GtdManager *manager,
-                            ESource    *source)
-{
-  GtdManagerPrivate *priv = manager->priv;
-  GtdTaskList *list;
-
-  list = g_object_get_data (G_OBJECT (source), "task-list");
-
-  g_hash_table_remove (priv->clients, source);
-
-  g_signal_emit (manager,
-                 signals[LIST_REMOVED],
-                 0,
-                 list);
-}
-
-static void
-gtd_manager__source_registry_finish_cb (GObject      *source_object,
-                                        GAsyncResult *result,
-                                        gpointer      user_data)
-{
-  GtdManagerPrivate *priv = GTD_MANAGER (user_data)->priv;
-  GList *l;
-  GList *sources;
-  GError *error = NULL;
-
-  priv->source_registry = e_source_registry_new_finish (result, &error);
-  priv->credentials_prompter = e_credentials_prompter_new (priv->source_registry);
-
-  if (error != NULL)
-    {
-      g_warning ("%s: %s", _("Error loading task manager"), error->message);
-      g_error_free (error);
-      return;
-    }
-
-  /* First of all, disable authentication dialog for non-tasklists sources */
-  sources = e_source_registry_list_sources (priv->source_registry, NULL);
-
-  for (l = sources; l != NULL; l = g_list_next (l))
-    {
-      ESource *source = E_SOURCE (l->data);
-
-      /* Mark for skip also currently disabled sources */
-      e_credentials_prompter_set_auto_prompt_disabled_for (priv->credentials_prompter,
-                                                           source,
-                                                           !e_source_has_extension (source, E_SOURCE_EXTENSION_TASK_LIST));
-    }
-
-  g_list_free_full (sources, g_object_unref);
-
-  /* Load task list sources */
-  sources = e_source_registry_list_sources (priv->source_registry,
-                                            E_SOURCE_EXTENSION_TASK_LIST);
-
-  /* While load_sources > 0, GtdManager::ready = FALSE */
-  priv->load_sources = g_list_length (sources);
-
-
-  /*
-   * When ESourceRegistry is loaded, it enabled loading the GtdStorage::url properties.
-   * Load them now.
-   */
-  for (l = priv->storage_locations; l != NULL; l = l->next)
-    gtd_manager__setup_url (GTD_MANAGER (user_data), l->data);
-
-
-  g_debug ("%s: number of sources to load: %d",
-           G_STRFUNC,
-           priv->load_sources);
-
-  gtd_object_set_ready (GTD_OBJECT (user_data),
-                        priv->load_sources == 0);
-
-  for (l = sources; l != NULL; l = l->next)
-    gtd_manager__load__source (GTD_MANAGER (user_data), l->data);
-
-  g_list_free_full (sources, g_object_unref);
-
-  /* listen to the signals, so new sources don't slip by */
-  g_signal_connect_swapped (priv->source_registry,
-                            "source-added",
-                            G_CALLBACK (gtd_manager__load__source),
-                            user_data);
-
-  g_signal_connect_swapped (priv->source_registry,
-                            "source-removed",
-                            G_CALLBACK (gtd_manager__remove_source),
-                            user_data);
-
-  g_signal_connect (priv->source_registry,
-                    "credentials-required",
-                    G_CALLBACK (gtd_manager__credentials_required),
-                    user_data);
-
-  e_credentials_prompter_process_awaiting_credentials (priv->credentials_prompter);
-}
-
-static void
 gtd_manager_finalize (GObject *object)
 {
   GtdManager *self = (GtdManager *)object;
 
-  g_clear_object (&self->priv->goa_client);
   g_clear_object (&self->priv->scheduled_tasks_list);
   g_clear_object (&self->priv->today_tasks_list);
 
@@ -1086,35 +150,11 @@ static void
 gtd_manager_constructed (GObject *object)
 {
   GtdManagerPrivate *priv = GTD_MANAGER (object)->priv;
-  GtdStorage *local_storage;
   gchar *default_location;
 
   G_OBJECT_CLASS (gtd_manager_parent_class)->constructed (object);
 
   default_location = g_settings_get_string (priv->settings, "storage-location");
-
-  /* hash table */
-  priv->clients = g_hash_table_new_full ((GHashFunc) e_source_hash,
-                                         (GEqualFunc) e_source_equal,
-                                         g_object_unref,
-                                         g_object_unref);
-
-  /* load the source registry */
-  e_source_registry_new (NULL,
-                         (GAsyncReadyCallback) gtd_manager__source_registry_finish_cb,
-                         object);
-
-  /* local storage location */
-  local_storage = gtd_storage_local_new ();
-  gtd_storage_set_enabled (local_storage, TRUE);
-  gtd_storage_set_is_default (local_storage, g_strcmp0 (default_location, "local") == 0);
-
-  priv->storage_locations = g_list_append (priv->storage_locations, local_storage);
-
-  /* online accounts */
-  goa_client_new (NULL,
-                  (GAsyncReadyCallback) gtd_manager__goa_client_finish_cb,
-                  object);
 
   g_free (default_location);
 }
@@ -1136,49 +176,21 @@ gtd_manager_class_init (GtdManagerClass *klass)
    */
   g_object_class_install_property (
         object_class,
-        PROP_GOA_CLIENT,
-        g_param_spec_object ("goa-client",
-                            "The online accounts client of the manager",
-                            "The read-only GNOME online accounts client loaded and owned by the manager",
-                            GOA_TYPE_CLIENT,
-                            G_PARAM_READABLE));
+        PROP_DEFAULT_PROVIDER,
+        g_param_spec_object ("default-provider",
+                            "The default provider of the application",
+                            "The default provider of the application",
+                            GTD_TYPE_PROVIDER,
+                            G_PARAM_READWRITE));
 
   /**
-   * GtdManager::goa-client-ready:
+   * GtdManager::default-provider-changed:
    *
-   * Whether the GNOME Online Accounts client is loaded.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_GOA_CLIENT_READY,
-        g_param_spec_boolean ("goa-client-ready",
-                              "Whether GNOME Online Accounts client is ready",
-                              "Whether the read-only GNOME online accounts client is loaded",
-                              FALSE,
-                              G_PARAM_READABLE));
-
-  /**
-   * GtdManager::source-registry:
-   *
-   * The #ESourceRegistry asyncronously loaded.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_SOURCE_REGISTRY,
-        g_param_spec_object ("source-registry",
-                            "The source registry of the manager",
-                            "The read-only source registry loaded and owned by the manager",
-                            E_TYPE_SOURCE_REGISTRY,
-                            G_PARAM_READABLE));
-
-  /**
-   * GtdManager::default-storage-changed:
-   *
-   * The ::default-storage-changed signal is emmited when a new #GtdStorage
+   * The ::default-provider-changed signal is emmited when a new #GtdStorage
    * is set as default.
    */
-  signals[DEFAULT_STORAGE_CHANGED] =
-                  g_signal_new ("default-storage-changed",
+  signals[DEFAULT_PROVIDER_CHANGED] =
+                  g_signal_new ("default-provider-changed",
                                 GTD_TYPE_MANAGER,
                                 G_SIGNAL_RUN_LAST,
                                 0,
@@ -1187,8 +199,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                 NULL,
                                 G_TYPE_NONE,
                                 2,
-                                GTD_TYPE_STORAGE,
-                                GTD_TYPE_STORAGE);
+                                GTD_TYPE_PROVIDER,
+                                GTD_TYPE_PROVIDER);
 
   /**
    * GtdManager::list-added:
@@ -1261,57 +273,126 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                               G_TYPE_STRING);
 
   /**
-   * GtdManager::storage-added:
+   * GtdManager::provider-added:
    *
-   * The ::storage-added signal is emmited after a #GtdStorage
+   * The ::provider-added signal is emmited after a #GtdProvider
    * is added.
    */
-  signals[STORAGE_ADDED] = g_signal_new ("storage-added",
-                                         GTD_TYPE_MANAGER,
-                                         G_SIGNAL_RUN_LAST,
-                                         0,
-                                         NULL,
-                                         NULL,
-                                         NULL,
-                                         G_TYPE_NONE,
-                                         1,
-                                         GTD_TYPE_STORAGE);
-
-  /**
-   * GtdManager::storage-changed:
-   *
-   * The ::storage-changed signal is emmited after a #GtdStorage
-   * is changed.
-   */
-  signals[STORAGE_CHANGED] = g_signal_new ("storage-changed",
-                                           GTD_TYPE_MANAGER,
-                                           G_SIGNAL_RUN_LAST,
-                                           0,
-                                           NULL,
+  signals[PROVIDER_ADDED] = g_signal_new ("provider-added",
+                                          GTD_TYPE_MANAGER,
+                                          G_SIGNAL_RUN_LAST,
+                                          0,
+                                          NULL,
                                           NULL,
                                           NULL,
                                           G_TYPE_NONE,
                                           1,
-                                          GTD_TYPE_STORAGE);
+                                          GTD_TYPE_PROVIDER);
 
   /**
-   * GtdManager::storage-removed:
+   * GtdManager::provider-removed:
    *
-   * The ::storage-removed signal is emmited after a #GtdStorage
+   * The ::provider-removed signal is emmited after a #GtdProvider
    * is removed from the list.
    */
-  signals[STORAGE_REMOVED] = g_signal_new ("storage-removed",
-                                           GTD_TYPE_MANAGER,
-                                           G_SIGNAL_RUN_LAST,
-                                           0,
-                                           NULL,
-                                           NULL,
-                                           NULL,
-                                           G_TYPE_NONE,
-                                           1,
-                                           GTD_TYPE_STORAGE);
+  signals[PROVIDER_REMOVED] = g_signal_new ("provider-removed",
+                                            GTD_TYPE_MANAGER,
+                                            G_SIGNAL_RUN_LAST,
+                                            0,
+                                            NULL,
+                                            NULL,
+                                            NULL,
+                                            G_TYPE_NONE,
+                                            1,
+                                            GTD_TYPE_PROVIDER);
 }
 
+static void
+gtd_manager__list_added (GtdProvider *provider,
+                         GtdTaskList *list,
+                         GtdManager  *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+
+  priv->tasklists = g_list_append (priv->tasklists, list);
+
+  g_signal_emit (self, signals[LIST_ADDED], 0, list);
+}
+
+static void
+gtd_manager__list_changed (GtdProvider *provider,
+                           GtdTaskList *list,
+                           GtdManager  *self)
+{
+  g_signal_emit (self, signals[LIST_CHANGED], 0, list);
+}
+
+static void
+gtd_manager__list_removed (GtdProvider *provider,
+                           GtdTaskList *list,
+                           GtdManager  *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+
+  priv->tasklists = g_list_remove (priv->tasklists, list);
+
+  g_signal_emit (self, signals[LIST_REMOVED], 0, list);
+}
+
+static void
+gtd_manager__provider_added (GtdPluginManager *plugin_manager,
+                             GtdProvider      *provider,
+                             GtdManager       *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+  GList *lists;
+  GList *l;
+
+  priv->providers = g_list_append (priv->providers, provider);
+
+  /* Add lists */
+  lists = gtd_provider_get_task_lists (provider);
+
+  for (l = lists; l != NULL; l = l->next)
+    gtd_manager__list_added (provider, l->data, self);
+
+  g_signal_connect (provider,
+                    "list-added",
+                    G_CALLBACK (gtd_manager__list_added),
+                    self);
+
+  g_signal_connect (provider,
+                    "list-changed",
+                    G_CALLBACK (gtd_manager__list_changed),
+                    self);
+
+  g_signal_connect (provider,
+                    "list-removed",
+                    G_CALLBACK (gtd_manager__list_removed),
+                    self);
+
+  g_signal_emit (self, signals[PROVIDER_ADDED], 0, provider);
+}
+
+static void
+gtd_manager__provider_removed (GtdPluginManager *plugin_manager,
+                               GtdProvider      *provider,
+                               GtdManager       *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+  GList *lists;
+  GList *l;
+
+  priv->providers = g_list_remove (priv->providers, provider);
+
+  /* Remove lists */
+  lists = gtd_provider_get_task_lists (provider);
+
+  for (l = lists; l != NULL; l = l->next)
+    gtd_manager__list_removed (provider, l->data, self);
+
+  g_signal_emit (self, signals[PROVIDER_REMOVED], 0, provider);
+}
 static void
 gtd_manager_init (GtdManager *self)
 {
@@ -1321,6 +402,19 @@ gtd_manager_init (GtdManager *self)
   /* fixed task lists */
   self->priv->scheduled_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
   self->priv->today_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
+
+  /* plugin manager */
+  self->priv->plugin_manager = gtd_plugin_manager_new ();
+
+  g_signal_connect (self->priv->plugin_manager,
+                    "provider-registered",
+                    G_CALLBACK (gtd_manager__provider_added),
+                    self);
+
+  g_signal_connect (self->priv->plugin_manager,
+                    "provider-unregistered",
+                    G_CALLBACK (gtd_manager__provider_removed),
+                    self);
 }
 
 /**
@@ -1359,30 +453,16 @@ void
 gtd_manager_create_task (GtdManager *manager,
                          GtdTask    *task)
 {
-  GtdManagerPrivate *priv = GTD_MANAGER (manager)->priv;
-  ECalComponent *component;
-  ECalClient *client;
-  TaskData *data;
-  ESource *source;
+  GtdTaskList *list;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK (task));
 
-  source = gtd_task_list_get_source (gtd_task_get_list (task));
-  client = g_hash_table_lookup (priv->clients, source);
-  component = gtd_task_get_component (task);
+  list = gtd_task_get_list (task);
+  provider = gtd_task_list_get_provider (list);
 
-  /* Temporary data for async operation */
-  data = task_data_new (manager, (gpointer) task);
-
-  /* The task is not ready until we finish the operation */
-  gtd_object_set_ready (GTD_OBJECT (task), FALSE);
-
-  e_cal_client_create_object (client,
-                              e_cal_component_get_icalcomponent (component),
-                              NULL, // We won't cancel the operation
-                              (GAsyncReadyCallback) gtd_manager__create_task_finished,
-                              data);
+  gtd_provider_create_task (provider, task);
 }
 
 /**
@@ -1398,36 +478,16 @@ void
 gtd_manager_remove_task (GtdManager *manager,
                          GtdTask    *task)
 {
-  GtdManagerPrivate *priv = GTD_MANAGER (manager)->priv;
-  ECalComponent *component;
-  ECalComponentId *id;
-  ECalClient *client;
-  TaskData *data;
-  ESource *source;
+  GtdTaskList *list;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK (task));
 
-  source = gtd_task_list_get_source (gtd_task_get_list (task));
-  client = g_hash_table_lookup (priv->clients, source);
-  component = gtd_task_get_component (task);
-  id = e_cal_component_get_id (component);
+  list = gtd_task_get_list (task);
+  provider = gtd_task_list_get_provider (list);
 
-  /* Temporary data for async operation */
-  data = task_data_new (manager, (gpointer) task);
-
-  /* The task is not ready until we finish the operation */
-  gtd_object_set_ready (GTD_OBJECT (task), FALSE);
-
-  e_cal_client_remove_object (client,
-                              id->uid,
-                              id->rid,
-                              E_CAL_OBJ_MOD_THIS,
-                              NULL, // We won't cancel the operation
-                              (GAsyncReadyCallback) gtd_manager__remove_task_finished,
-                              data);
-
-  e_cal_component_free_id (id);
+  gtd_provider_remove_task (provider, task);
 }
 
 /**
@@ -1443,31 +503,16 @@ void
 gtd_manager_update_task (GtdManager *manager,
                          GtdTask    *task)
 {
-  GtdManagerPrivate *priv = GTD_MANAGER (manager)->priv;
-  ECalComponent *component;
-  ECalClient *client;
-  TaskData *data;
-  ESource *source;
+  GtdTaskList *list;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK (task));
 
-  source = gtd_task_list_get_source (gtd_task_get_list (task));
-  client = g_hash_table_lookup (priv->clients, source);
-  component = gtd_task_get_component (task);
+  list = gtd_task_get_list (task);
+  provider = gtd_task_list_get_provider (list);
 
-  /* Temporary data for async operation */
-  data = task_data_new (manager, (gpointer) task);
-
-  /* The task is not ready until we finish the operation */
-  gtd_object_set_ready (GTD_OBJECT (task), FALSE);
-
-  e_cal_client_modify_object (client,
-                              e_cal_component_get_icalcomponent (component),
-                              E_CAL_OBJ_MOD_THIS,
-                              NULL, // We won't cancel the operation
-                              (GAsyncReadyCallback) gtd_manager__update_task_finished,
-                              data);
+  gtd_provider_update_task (provider, task);
 }
 
 /**
@@ -1482,25 +527,14 @@ void
 gtd_manager_create_task_list (GtdManager  *manager,
                               GtdTaskList *list)
 {
-  GtdManagerPrivate *priv;
-  ESource *source;
-  ESource *parent;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK_LIST (list));
-  g_return_if_fail (gtd_task_list_get_source (list));
 
-  priv = manager->priv;
-  source = gtd_task_list_get_source (list);
-  parent = e_source_registry_ref_source (priv->source_registry, e_source_get_parent (source));
+  provider = gtd_task_list_get_provider (list);
 
-  e_source_remote_create (parent,
-                          source,
-                          NULL,
-                          (GAsyncReadyCallback) gtd_manager__remote_create_source_finished,
-                          manager);
-
-  g_object_unref (parent);
+  gtd_provider_create_task_list (provider, list);
 }
 
 /**
@@ -1516,30 +550,14 @@ void
 gtd_manager_remove_task_list (GtdManager  *manager,
                               GtdTaskList *list)
 {
-  ESource *source;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK_LIST (list));
-  g_return_if_fail (gtd_task_list_get_source (list));
 
-  source = gtd_task_list_get_source (list);
+  provider = gtd_task_list_get_provider (list);
 
-  gtd_object_set_ready (GTD_OBJECT (manager), FALSE);
-
-  if (e_source_get_remote_deletable (source))
-    {
-      e_source_remote_delete (source,
-                              NULL,
-                              (GAsyncReadyCallback) gtd_manager__remote_delete_finished,
-                              manager);
-    }
-  else
-    {
-      e_source_remove (source,
-                       NULL,
-                       (GAsyncReadyCallback) gtd_manager__remove_source_finished,
-                       manager);
-    }
+  gtd_provider_remove_task_list (provider, list);
 
   g_signal_emit (manager,
                  signals[LIST_REMOVED],
@@ -1560,56 +578,14 @@ void
 gtd_manager_save_task_list (GtdManager  *manager,
                             GtdTaskList *list)
 {
-  ESource *source;
+  GtdProvider *provider;
 
   g_return_if_fail (GTD_IS_MANAGER (manager));
   g_return_if_fail (GTD_IS_TASK_LIST (list));
-  g_return_if_fail (gtd_task_list_get_source (list));
 
-  source = gtd_task_list_get_source (list);
+  provider = gtd_task_list_get_provider (list);
 
-  gtd_object_set_ready (GTD_OBJECT (manager), FALSE);
-  e_source_registry_commit_source (manager->priv->source_registry,
-                                   source,
-                                   NULL,
-                                   (GAsyncReadyCallback) gtd_manager__commit_source_finished,
-                                   manager);
-}
-
-/**
- * gtd_manager_get_goa_client:
- * @manager: a #GtdManager
- *
- * Retrieves the internal @GoaClient from @manager. %NULL doesn't mean
- * that the client is not ready, use @gtd_manager_is_goa_client_ready to
- * check that.
- *
- * Returns: (transfer none): the internal #GoaClient of @manager
- */
-GoaClient*
-gtd_manager_get_goa_client (GtdManager *manager)
-{
-  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
-
-  return manager->priv->goa_client;
-}
-
-/**
- * gtd_manager_is_goa_client_ready:
- *
- * Checks whether @manager's internal #GoaClient is ready. Note that,
- * in the case of failure, it'll return %TRUE and @gtd_manager_get_goa_client
- * will return %NULL.
- *
- * Returns: %TRUE if @manager's internal #GoaClient is already
- * loaded, %FALSE otherwise.
- */
-gboolean
-gtd_manager_is_goa_client_ready (GtdManager *manager)
-{
-  g_return_val_if_fail (GTD_IS_MANAGER (manager), FALSE);
-
-  return manager->priv->goa_client_ready;
+  gtd_provider_update_task_list (provider, list);
 }
 
 /**
@@ -1625,7 +601,7 @@ gtd_manager_get_task_lists (GtdManager *manager)
 {
   g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
 
-  return g_list_copy (manager->priv->task_lists);
+  return g_list_copy (manager->priv->tasklists);
 }
 
 /**
@@ -1637,37 +613,27 @@ gtd_manager_get_task_lists (GtdManager *manager)
  * #GtdStorage. Free with @g_list_free after use.
  */
 GList*
-gtd_manager_get_storage_locations (GtdManager *manager)
+gtd_manager_get_providers (GtdManager *manager)
 {
   g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
 
-  return g_list_copy (manager->priv->storage_locations);
+  return g_list_copy (manager->priv->providers);
 }
 
 /**
- * gtd_manager_get_default_storage:
+ * gtd_manager_get_default_provider:
  * @manager: a #GtdManager
  *
- * Retrieves the default storage location. Default is "local".
+ * Retrieves the default provider location. Default is "local".
  *
- * Returns: (transfer none): the default storage.
+ * Returns: (transfer none): the default provider.
  */
-GtdStorage*
-gtd_manager_get_default_storage (GtdManager *manager)
+GtdProvider*
+gtd_manager_get_default_provider (GtdManager *manager)
 {
-  GtdManagerPrivate *priv;
-  GtdStorage *storage;
-  gchar *storage_id;
-
   g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
 
-  priv = manager->priv;
-  storage = NULL;
-  storage_id = g_settings_get_string (priv->settings, "storage-location");
-
-  g_free (storage_id);
-
-  return storage;
+  return manager->priv->default_provider;
 }
 
 /**
@@ -1680,11 +646,11 @@ gtd_manager_get_default_storage (GtdManager *manager)
  * Returns:
  */
 void
-gtd_manager_set_default_storage (GtdManager *manager,
-                                 GtdStorage *default_storage)
+gtd_manager_set_default_provider (GtdManager  *manager,
+                                  GtdProvider *provider)
 {
   g_return_if_fail (GTD_IS_MANAGER (manager));
-
+/*
   if (!gtd_storage_get_is_default (default_storage))
     {
       GtdStorage *previus_default = NULL;
@@ -1703,11 +669,12 @@ gtd_manager_set_default_storage (GtdManager *manager,
         }
 
       g_signal_emit (manager,
-                     signals[DEFAULT_STORAGE_CHANGED],
+                     signals[DEFAULT_PROVIDER_CHANGED],
                      0,
                      default_storage,
                      previus_default);
     }
+ */
 }
 
 /**
@@ -1794,4 +761,16 @@ gtd_manager_get_today_list (GtdManager *manager)
   g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
 
   return manager->priv->today_tasks_list;
+}
+
+void
+gtd_manager_emit_error_message (GtdManager  *manager,
+                                const gchar *primary_message,
+                                const gchar *secondary_message)
+{
+  g_return_if_fail (GTD_IS_MANAGER (manager));
+
+  emit_show_error_message (manager,
+                           primary_message,
+                           secondary_message);
 }

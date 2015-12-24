@@ -1,0 +1,3 @@
+SUBDIRS = eds
+
+MAINTAINERCLEANFILES = Makefile.in

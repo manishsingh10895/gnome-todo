@@ -16,9 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "interfaces/gtd-provider.h"
 #include "gtd-application.h"
-#include "gtd-storage.h"
-#include "gtd-storage-selector.h"
+#include "gtd-provider-selector.h"
 #include "gtd-initial-setup-window.h"
 #include "gtd-manager.h"
 
@@ -59,7 +59,7 @@ static guint signals[LAST_SIGNAL] = { 0, };
 
 static void
 gtd_initial_setup_window__location_selected (GtdInitialSetupWindow *window,
-                                             GtdStorage            *storage)
+                                             GtdProvider           *provider)
 {
   GtdInitialSetupWindowPrivate *priv;
 
@@ -67,10 +67,10 @@ gtd_initial_setup_window__location_selected (GtdInitialSetupWindow *window,
 
   priv = window->priv;
 
-  gtk_widget_set_sensitive (priv->done_button, storage != NULL);
+  gtk_widget_set_sensitive (priv->done_button, provider != NULL);
 
-  if (storage)
-    gtd_manager_set_default_storage (priv->manager, storage);
+  if (provider)
+    gtd_manager_set_default_provider (priv->manager, provider);
 }
 
 static void

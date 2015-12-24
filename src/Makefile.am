@@ -4,7 +4,7 @@ AM_CPPFLAGS = \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	-DUI_DATA_DIR=\""$(pkgdatadir)/style"\" \
 	-DGOA_API_IS_SUBJECT_TO_CHANGE \
-	-I$(srcdir)/storage \
+	-I$(srcdir)/provider \
 	-I$(srcdir)/notification
 
 bin_PROGRAMS = gnome-todo
@@ -30,20 +30,14 @@ gnome_todo_SOURCES = \
 	notification/gtd-notification.h \
 	notification/gtd-notification-widget.c \
 	notification/gtd-notification-widget.h \
-	storage/gtd-storage.c \
-	storage/gtd-storage.h \
-	storage/gtd-storage-dialog.c \
-	storage/gtd-storage-dialog.h \
-	storage/gtd-storage-goa.c \
-	storage/gtd-storage-goa.h \
-	storage/gtd-storage-local.c \
-	storage/gtd-storage-local.h \
-	storage/gtd-storage-popover.c \
-	storage/gtd-storage-popover.h \
-	storage/gtd-storage-row.c \
-	storage/gtd-storage-row.h \
-	storage/gtd-storage-selector.c \
-	storage/gtd-storage-selector.h \
+	provider/gtd-provider-dialog.c \
+	provider/gtd-provider-dialog.h \
+	provider/gtd-provider-popover.c \
+	provider/gtd-provider-popover.h \
+	provider/gtd-provider-row.c \
+	provider/gtd-provider-row.h \
+	provider/gtd-provider-selector.c \
+	provider/gtd-provider-selector.h \
 	gtd-application.c \
 	gtd-application.h \
 	gtd-arrow-frame.c \

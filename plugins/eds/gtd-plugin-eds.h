@@ -1,4 +1,4 @@
-/* gtd-storage-local.h
+/* gtd-eds-plugin.h
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -16,23 +16,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_STORAGE_LOCAL_H
-#define GTD_STORAGE_LOCAL_H
-
-#include "gtd-storage.h"
-#include "gtd-types.h"
+#ifndef GTD_EDS_PLUGIN_H
+#define GTD_EDS_PLUGIN_H
 
 #include <glib.h>
-#include <glib-object.h>
+#include <gnome-todo/gtd-activatable.h>
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_STORAGE_LOCAL (gtd_storage_local_get_type())
+#define GTD_TYPE_PLUGIN_EDS (gtd_plugin_eds_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdStorageLocal, gtd_storage_local, GTD, STORAGE_LOCAL, GtdStorage)
+G_DECLARE_FINAL_TYPE (GtdPluginEds, gtd_plugin_eds, GTD, PLUGIN_EDS, PeasExtensionBase)
 
-GtdStorage*          gtd_storage_local_new                       (void);
+G_MODULE_EXPORT void  peas_register_types                        (PeasObjectModule   *module);
 
 G_END_DECLS
 
-#endif /* GTD_STORAGE_LOCAL_H */
+#endif /* GTD_EDS_PLUGIN_H */

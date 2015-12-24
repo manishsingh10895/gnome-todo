@@ -1,4 +1,4 @@
-/* gtd-storage-dialog.c
+/* gtd-provider-dialog.c
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -17,29 +17,29 @@
  */
 
 #include "gtd-manager.h"
-#include "gtd-storage.h"
-#include "gtd-storage-dialog.h"
-#include "gtd-storage-selector.h"
+#include "interfaces/gtd-provider.h"
+#include "gtd-provider-dialog.h"
+#include "gtd-provider-selector.h"
 
 #include <glib/gi18n.h>
 
 typedef struct
 {
   GtkWidget       *headerbar;
-  GtkWidget       *storage_selector;
+  GtkWidget       *provider_selector;
 
   GtdManager      *manager;
-} GtdStorageDialogPrivate;
+} GtdProviderDialogPrivate;
 
-struct _GtdStorageDialog
+struct _GtdProviderDialog
 {
   GtkDialog                parent;
 
   /*<private>*/
-  GtdStorageDialogPrivate *priv;
+  GtdProviderDialogPrivate *priv;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtdStorageDialog, gtd_storage_dialog, GTK_TYPE_DIALOG)
+G_DEFINE_TYPE_WITH_PRIVATE (GtdProviderDialog, gtd_provider_dialog, GTK_TYPE_DIALOG)
 
 enum {
   PROP_0,
@@ -48,53 +48,53 @@ enum {
 };
 
 static void
-gtd_storage_dialog__storage_selected (GtdStorageDialog *dialog,
-                                      GtdStorage       *storage)
+gtd_provider_dialog__provider_selected (GtdProviderDialog *dialog,
+                                      GtdProvider       *provider)
 {
-  GtdStorageDialogPrivate *priv;
+  GtdProviderDialogPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_DIALOG (dialog));
+  g_return_if_fail (GTD_IS_PROVIDER_DIALOG (dialog));
   g_return_if_fail (GTD_IS_MANAGER (dialog->priv->manager));
-  g_return_if_fail (GTD_IS_STORAGE (storage));
+  g_return_if_fail (GTD_IS_PROVIDER (provider));
 
   priv = dialog->priv;
 
-  if (storage)
-    gtd_manager_set_default_storage (priv->manager, storage);
+  if (provider)
+    gtd_manager_set_default_provider (priv->manager, provider);
 }
 
 static void
-gtd_storage_dialog_finalize (GObject *object)
+gtd_provider_dialog_finalize (GObject *object)
 {
-  G_OBJECT_CLASS (gtd_storage_dialog_parent_class)->finalize (object);
+  G_OBJECT_CLASS (gtd_provider_dialog_parent_class)->finalize (object);
 }
 
 static void
-gtd_storage_dialog_constructed (GObject *object)
+gtd_provider_dialog_constructed (GObject *object)
 {
-  GtdStorageDialogPrivate *priv;
+  GtdProviderDialogPrivate *priv;
 
   /* Chain up */
-  G_OBJECT_CLASS (gtd_storage_dialog_parent_class)->constructed (object);
+  G_OBJECT_CLASS (gtd_provider_dialog_parent_class)->constructed (object);
 
-  priv = GTD_STORAGE_DIALOG (object)->priv;
+  priv = GTD_PROVIDER_DIALOG (object)->priv;
 
   gtk_window_set_titlebar (GTK_WINDOW (object), priv->headerbar);
 
   g_object_bind_property (object,
                           "manager",
-                          priv->storage_selector,
+                          priv->provider_selector,
                           "manager",
                           G_BINDING_DEFAULT);
 }
 
 static void
-gtd_storage_dialog_get_property (GObject    *object,
+gtd_provider_dialog_get_property (GObject    *object,
                                  guint       prop_id,
                                  GValue     *value,
                                  GParamSpec *pspec)
 {
-  GtdStorageDialog *self = GTD_STORAGE_DIALOG (object);
+  GtdProviderDialog *self = GTD_PROVIDER_DIALOG (object);
 
   switch (prop_id)
     {
@@ -108,17 +108,17 @@ gtd_storage_dialog_get_property (GObject    *object,
 }
 
 static void
-gtd_storage_dialog_set_property (GObject      *object,
+gtd_provider_dialog_set_property (GObject      *object,
                                  guint         prop_id,
                                  const GValue *value,
                                  GParamSpec   *pspec)
 {
-  GtdStorageDialog *self = GTD_STORAGE_DIALOG (object);
+  GtdProviderDialog *self = GTD_PROVIDER_DIALOG (object);
 
   switch (prop_id)
     {
     case PROP_MANAGER:
-      gtd_storage_dialog_set_manager (self, g_value_get_object (value));
+      gtd_provider_dialog_set_manager (self, g_value_get_object (value));
       break;
 
     default:
@@ -127,19 +127,19 @@ gtd_storage_dialog_set_property (GObject      *object,
 }
 
 static void
-gtd_storage_dialog_class_init (GtdStorageDialogClass *klass)
+gtd_provider_dialog_class_init (GtdProviderDialogClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-  object_class->finalize = gtd_storage_dialog_finalize;
-  object_class->constructed = gtd_storage_dialog_constructed;
-  object_class->get_property = gtd_storage_dialog_get_property;
-  object_class->set_property = gtd_storage_dialog_set_property;
+  object_class->finalize = gtd_provider_dialog_finalize;
+  object_class->constructed = gtd_provider_dialog_constructed;
+  object_class->get_property = gtd_provider_dialog_get_property;
+  object_class->set_property = gtd_provider_dialog_set_property;
 
 
   /**
-   * GtdStorageDialog::manager:
+   * GtdProviderDialog::manager:
    *
    * A weak reference to the application's #GtdManager instance.
    */
@@ -152,54 +152,54 @@ gtd_storage_dialog_class_init (GtdStorageDialogClass *klass)
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE));
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/storage-dialog.ui");
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/provider-dialog.ui");
 
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStorageDialog, headerbar);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStorageDialog, storage_selector);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderDialog, headerbar);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderDialog, provider_selector);
 
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_dialog__storage_selected);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_dialog__provider_selected);
 }
 
 static void
-gtd_storage_dialog_init (GtdStorageDialog *self)
+gtd_provider_dialog_init (GtdProviderDialog *self)
 {
-  self->priv = gtd_storage_dialog_get_instance_private (self);
+  self->priv = gtd_provider_dialog_get_instance_private (self);
 
   gtk_widget_init_template (GTK_WIDGET (self));
 }
 
 /**
- * gtd_storage_dialog_new:
+ * gtd_provider_dialog_new:
  *
- * Creates a new #GtdStorageDialog.
+ * Creates a new #GtdProviderDialog.
  *
- * Returns: (transfer full): the newly allocated #GtdStorageDialog
+ * Returns: (transfer full): the newly allocated #GtdProviderDialog
  */
 GtkWidget*
-gtd_storage_dialog_new (void)
+gtd_provider_dialog_new (void)
 {
-  return g_object_new (GTD_TYPE_STORAGE_DIALOG, NULL);
+  return g_object_new (GTD_TYPE_PROVIDER_DIALOG, NULL);
 }
 
 /**
- * gtd_storage_dialog_get_manager:
- * @dialog: a #GtdStorageDialog
+ * gtd_provider_dialog_get_manager:
+ * @dialog: a #GtdProviderDialog
  *
  * Retrieves @dialog's internal #GtdManager.
  *
  * Returns: (transfer none): the @dialog's #GtdManager
  */
 GtdManager*
-gtd_storage_dialog_get_manager (GtdStorageDialog *dialog)
+gtd_provider_dialog_get_manager (GtdProviderDialog *dialog)
 {
-  g_return_val_if_fail (GTD_IS_STORAGE_DIALOG (dialog), NULL);
+  g_return_val_if_fail (GTD_IS_PROVIDER_DIALOG (dialog), NULL);
 
   return dialog->priv->manager;
 }
 
 /**
- * gtd_storage_dialog_set_manager:
- * @dialog: a #GtdStorageDialog
+ * gtd_provider_dialog_set_manager:
+ * @dialog: a #GtdProviderDialog
  * @manager: a #GtdManager
  *
  * Sets the @dialog's #GtdManager.
@@ -207,12 +207,12 @@ gtd_storage_dialog_get_manager (GtdStorageDialog *dialog)
  * Returns:
  */
 void
-gtd_storage_dialog_set_manager (GtdStorageDialog *dialog,
+gtd_provider_dialog_set_manager (GtdProviderDialog *dialog,
                                 GtdManager       *manager)
 {
-  GtdStorageDialogPrivate *priv;
+  GtdProviderDialogPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_DIALOG (dialog));
+  g_return_if_fail (GTD_IS_PROVIDER_DIALOG (dialog));
 
   priv = dialog->priv;
 

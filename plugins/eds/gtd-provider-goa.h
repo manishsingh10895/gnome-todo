@@ -1,4 +1,4 @@
-/* gtd-storage-dialog.h
+/* gtd-provider-goa.h
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -16,26 +16,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_STORAGE_DIALOG_H
-#define GTD_STORAGE_DIALOG_H
+#ifndef GTD_PROVIDER_GOA_H
+#define GTD_PROVIDER_GOA_H
 
-#include "gtd-types.h"
+#include "gtd-provider-eds.h"
 
-#include <gtk/gtk.h>
+#include <glib.h>
+#include <gnome-todo/gnome-todo.h>
+#include <goa/goa.h>
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_STORAGE_DIALOG (gtd_storage_dialog_get_type())
+#define GTD_TYPE_PROVIDER_GOA (gtd_provider_goa_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdStorageDialog, gtd_storage_dialog, GTD, STORAGE_DIALOG, GtkDialog)
+G_DECLARE_FINAL_TYPE (GtdProviderGoa, gtd_provider_goa, GTD, PROVIDER_GOA, GtdProviderEds)
 
-GtkWidget*         gtd_storage_dialog_new                        (void);
+GtdProviderGoa*      gtd_provider_goa_new                        (ESourceRegistry    *registry,
+                                                                  GoaAccount         *account);
 
-GtdManager*        gtd_storage_dialog_get_manager                (GtdStorageDialog   *dialog);
-
-void               gtd_storage_dialog_set_manager                (GtdStorageDialog   *dialog,
-                                                                  GtdManager         *manager);
+GoaAccount*          gtd_provider_goa_get_account                (GtdProviderGoa     *provider);
 
 G_END_DECLS
 
-#endif /* GTD_STORAGE_DIALOG_H */
+#endif /* GTD_PROVIDER_GOA_H */

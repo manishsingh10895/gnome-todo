@@ -20,9 +20,10 @@
 #define GTD_TASK_LIST_H
 
 #include <glib-object.h>
+#include <gtk/gtk.h>
 
-#include "interfaces/gtd-provider.h"
 #include "gtd-object.h"
+#include "gtd-types.h"
 
 G_BEGIN_DECLS
 

@@ -1,4 +1,4 @@
-/* gtd-storage-row.h
+/* gtd-task-list-eds.h
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -16,30 +16,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_GOA_ROW_H
-#define GTD_GOA_ROW_H
-
-#include "gtd-types.h"
+#ifndef GTD_TASK_LIST_EDS_H
+#define GTD_TASK_LIST_EDS_H
 
 #include <glib-object.h>
-#include <goa/goa.h>
-#include <gtk/gtk.h>
+#include <gnome-todo/gnome-todo.h>
+#include <libecal/libecal.h>
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_STORAGE_ROW (gtd_storage_row_get_type())
+#define GTD_TYPE_TASK_LIST_EDS (gtd_task_list_eds_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdStorageRow, gtd_storage_row, GTD, STORAGE_ROW, GtkListBoxRow)
+G_DECLARE_FINAL_TYPE (GtdTaskListEds, gtd_task_list_eds, GTD, TASK_LIST_EDS, GtdTaskList)
 
-GtkWidget*                  gtd_storage_row_new                  (GtdStorage          *storage);
+GtdTaskListEds*      gtd_task_list_eds_new                       (GtdProvider        *provider,
+                                                                  ESource            *source);
 
-gboolean                    gtd_storage_row_get_selected         (GtdStorageRow       *row);
+ESource*             gtd_task_list_eds_get_source                (GtdTaskListEds     *list);
 
-void                        gtd_storage_row_set_selected         (GtdStorageRow       *row,
-                                                                  gboolean             selected);
-
-GtdStorage*                 gtd_storage_row_get_storage          (GtdStorageRow       *row);
+void                 gtd_task_list_eds_set_source                (GtdTaskListEds     *list,
+                                                                  ESource            *source);
 
 G_END_DECLS
 
-#endif /* GTD_GOA_ROW_H */
+#endif /* GTD_TASK_LIST_EDS_H */

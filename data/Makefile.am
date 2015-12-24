@@ -34,10 +34,10 @@ EXTRA_DIST=                     \
   ui/initial-setup.ui \
   ui/list-view.ui \
   ui/notification.ui \
-  ui/storage-dialog.ui \
-  ui/storage-popover.ui \
-  ui/storage-row.ui \
-  ui/storage-selector.ui \
+  ui/provider-dialog.ui \
+  ui/provider-popover.ui \
+  ui/provider-row.ui \
+  ui/provider-selector.ui \
   ui/task-list-item.ui \
   ui/task-row.ui \
   ui/window.ui \

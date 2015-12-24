@@ -1,4 +1,4 @@
-/* gtd-storage-popover.c
+/* gtd-provider-popover.c
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -17,9 +17,10 @@
  */
 
 #include "gtd-manager.h"
-#include "gtd-storage.h"
-#include "gtd-storage-popover.h"
-#include "gtd-storage-selector.h"
+#include "interfaces/gtd-provider.h"
+#include "gtd-provider-popover.h"
+#include "gtd-provider-selector.h"
+#include "gtd-task-list.h"
 
 #include <glib/gi18n.h>
 
@@ -30,20 +31,20 @@ typedef struct
   GtkWidget            *new_list_create_button;
   GtkWidget            *new_list_name_entry;
   GtkWidget            *stack;
-  GtkWidget            *storage_selector;
+  GtkWidget            *provider_selector;
 
   GtdManager           *manager;
-} GtdStoragePopoverPrivate;
+} GtdProviderPopoverPrivate;
 
-struct _GtdStoragePopover
+struct _GtdProviderPopover
 {
   GtkPopover                parent;
 
   /*<private>*/
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtdStoragePopover, gtd_storage_popover, GTK_TYPE_POPOVER)
+G_DEFINE_TYPE_WITH_PRIVATE (GtdProviderPopover, gtd_provider_popover, GTK_TYPE_POPOVER)
 
 enum {
   PROP_0,
@@ -52,24 +53,24 @@ enum {
 };
 
 static void
-clear_and_hide (GtdStoragePopover *popover)
+clear_and_hide (GtdProviderPopover *popover)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
   GList *locations;
   GList *l;
 
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
 
   priv = popover->priv;
 
   /* Select the default source again */
-  locations = gtd_manager_get_storage_locations (priv->manager);
+  locations = gtd_manager_get_providers (priv->manager);
 
   for (l = locations; l != NULL; l = l->next)
     {
-      if (gtd_storage_get_is_default (l->data))
+      if (FALSE)//gtd_provider_get_is_default (l->data))
         {
-          gtd_storage_selector_set_selected_storage (GTD_STORAGE_SELECTOR (priv->storage_selector), l->data);
+          gtd_provider_selector_set_selected_provider (GTD_PROVIDER_SELECTOR (priv->provider_selector), l->data);
           break;
         }
     }
@@ -84,32 +85,33 @@ clear_and_hide (GtdStoragePopover *popover)
 }
 
 static void
-gtd_storage_popover__closed (GtdStoragePopover *popover)
+gtd_provider_popover__closed (GtdProviderPopover *popover)
 {
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
 
   gtk_stack_set_visible_child_name (GTK_STACK (popover->priv->stack), "main");
 }
 
 static void
-create_task_list (GtdStoragePopover *popover)
+create_task_list (GtdProviderPopover *popover)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
   GtdTaskList *task_list;
-  GtdStorage *storage;
+  GtdProvider *provider;
   const gchar *name;
 
   priv = popover->priv;
-  storage = gtd_storage_selector_get_selected_storage (GTD_STORAGE_SELECTOR (priv->storage_selector));
+  provider = gtd_provider_selector_get_selected_provider (GTD_PROVIDER_SELECTOR (priv->provider_selector));
   name = gtk_entry_get_text (GTK_ENTRY (priv->new_list_name_entry));
 
-  task_list = gtd_storage_create_task_list (storage, name);
+  task_list = gtd_task_list_new (provider);
+  gtd_task_list_set_name (task_list, name);
 
-  gtd_manager_save_task_list (priv->manager, task_list);
+  gtd_provider_create_task_list (provider, task_list);
 }
 
 static void
-gtd_storage_popover__entry_activate (GtdStoragePopover *popover,
+gtd_provider_popover__entry_activate (GtdProviderPopover *popover,
                                      GtkEntry          *entry)
 {
   if (gtk_entry_get_text_length (entry) > 0)
@@ -120,12 +122,12 @@ gtd_storage_popover__entry_activate (GtdStoragePopover *popover,
 }
 
 static void
-gtd_storage_popover__action_button_clicked (GtdStoragePopover *popover,
+gtd_provider_popover__action_button_clicked (GtdProviderPopover *popover,
                                             GtkWidget         *button)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
 
   priv = popover->priv;
 
@@ -136,13 +138,13 @@ gtd_storage_popover__action_button_clicked (GtdStoragePopover *popover,
 }
 
 static void
-gtd_storage_popover__text_changed_cb (GtdStoragePopover *popover,
+gtd_provider_popover__text_changed_cb (GtdProviderPopover *popover,
                                       GParamSpec        *spec,
                                       GtkEntry          *entry)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
   g_return_if_fail (GTK_IS_ENTRY (entry));
 
   priv = popover->priv;
@@ -151,12 +153,12 @@ gtd_storage_popover__text_changed_cb (GtdStoragePopover *popover,
 }
 
 static void
-gtd_storage_popover__change_location_clicked (GtdStoragePopover *popover,
+gtd_provider_popover__change_location_clicked (GtdProviderPopover *popover,
                                               GtkWidget         *button)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
 
   priv = popover->priv;
 
@@ -167,24 +169,24 @@ gtd_storage_popover__change_location_clicked (GtdStoragePopover *popover,
 }
 
 static void
-gtd_storage_popover__storage_selected (GtdStoragePopover *popover,
-                                       GtdStorage        *storage)
+gtd_provider_popover__provider_selected (GtdProviderPopover *popover,
+                                       GtdProvider        *provider)
 {
-  GtdStoragePopoverPrivate *priv;
+  GtdProviderPopoverPrivate *priv;
 
-  g_return_if_fail (GTD_IS_STORAGE_POPOVER (popover));
-  g_return_if_fail (GTD_IS_STORAGE (storage));
+  g_return_if_fail (GTD_IS_PROVIDER_POPOVER (popover));
+  g_return_if_fail (GTD_IS_PROVIDER (provider));
 
   priv = popover->priv;
 
-  if (storage)
+  if (provider)
     {
       gtk_image_set_from_gicon (GTK_IMAGE (priv->location_provider_image),
-                                gtd_storage_get_icon (storage),
+                                gtd_provider_get_icon (provider),
                                 GTK_ICON_SIZE_BUTTON);
-      gtk_widget_set_tooltip_text (priv->change_location_button, gtd_storage_get_name (storage));
+      gtk_widget_set_tooltip_text (priv->change_location_button, gtd_provider_get_name (provider));
 
-      /* Go back immediately after selecting a storage */
+      /* Go back immediately after selecting a provider */
       gtk_stack_set_visible_child_name (GTK_STACK (priv->stack), "main");
 
       if (gtk_widget_is_visible (GTK_WIDGET (popover)))
@@ -193,43 +195,43 @@ gtd_storage_popover__storage_selected (GtdStoragePopover *popover,
 }
 
 static void
-gtd_storage_popover_finalize (GObject *object)
+gtd_provider_popover_finalize (GObject *object)
 {
-  G_OBJECT_CLASS (gtd_storage_popover_parent_class)->finalize (object);
+  G_OBJECT_CLASS (gtd_provider_popover_parent_class)->finalize (object);
 }
 
 static void
-gtd_storage_popover_constructed (GObject *object)
+gtd_provider_popover_constructed (GObject *object)
 {
-  GtdStoragePopoverPrivate *priv;
-  GtdStorage *storage;
+  GtdProviderPopoverPrivate *priv;
+  GtdProvider *provider;
 
-  G_OBJECT_CLASS (gtd_storage_popover_parent_class)->constructed (object);
+  G_OBJECT_CLASS (gtd_provider_popover_parent_class)->constructed (object);
 
-  priv = GTD_STORAGE_POPOVER (object)->priv;
-  storage = gtd_storage_selector_get_selected_storage (GTD_STORAGE_SELECTOR (priv->storage_selector));
+  priv = GTD_PROVIDER_POPOVER (object)->priv;
+  provider = gtd_provider_selector_get_selected_provider (GTD_PROVIDER_SELECTOR (priv->provider_selector));
 
   g_object_bind_property (object,
                           "manager",
-                          priv->storage_selector,
+                          priv->provider_selector,
                           "manager",
                           G_BINDING_DEFAULT);
 
-  if (storage)
+  if (provider)
     {
       gtk_image_set_from_gicon (GTK_IMAGE (priv->location_provider_image),
-                                gtd_storage_get_icon (storage),
+                                gtd_provider_get_icon (provider),
                                 GTK_ICON_SIZE_BUTTON);
     }
 }
 
 static void
-gtd_storage_popover_get_property (GObject    *object,
+gtd_provider_popover_get_property (GObject    *object,
                                   guint       prop_id,
                                   GValue     *value,
                                   GParamSpec *pspec)
 {
-  GtdStoragePopover *self = GTD_STORAGE_POPOVER (object);
+  GtdProviderPopover *self = GTD_PROVIDER_POPOVER (object);
 
   switch (prop_id)
     {
@@ -243,12 +245,12 @@ gtd_storage_popover_get_property (GObject    *object,
 }
 
 static void
-gtd_storage_popover_set_property (GObject      *object,
+gtd_provider_popover_set_property (GObject      *object,
                                   guint         prop_id,
                                   const GValue *value,
                                   GParamSpec   *pspec)
 {
-  GtdStoragePopover *self = GTD_STORAGE_POPOVER (object);
+  GtdProviderPopover *self = GTD_PROVIDER_POPOVER (object);
 
   switch (prop_id)
     {
@@ -266,18 +268,18 @@ gtd_storage_popover_set_property (GObject      *object,
 }
 
 static void
-gtd_storage_popover_class_init (GtdStoragePopoverClass *klass)
+gtd_provider_popover_class_init (GtdProviderPopoverClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
 
-  object_class->finalize = gtd_storage_popover_finalize;
-  object_class->constructed = gtd_storage_popover_constructed;
-  object_class->get_property = gtd_storage_popover_get_property;
-  object_class->set_property = gtd_storage_popover_set_property;
+  object_class->finalize = gtd_provider_popover_finalize;
+  object_class->constructed = gtd_provider_popover_constructed;
+  object_class->get_property = gtd_provider_popover_get_property;
+  object_class->set_property = gtd_provider_popover_set_property;
 
   /**
-   * GtdStoragePopover::manager:
+   * GtdProviderPopover::manager:
    *
    * A weak reference to the application's #GtdManager instance.
    */
@@ -290,33 +292,33 @@ gtd_storage_popover_class_init (GtdStoragePopoverClass *klass)
                              GTD_TYPE_MANAGER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
-  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/storage-popover.ui");
+  gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/provider-popover.ui");
 
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, change_location_button);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, location_provider_image);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, new_list_create_button);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, new_list_name_entry);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, stack);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdStoragePopover, storage_selector);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, change_location_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, location_provider_image);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, new_list_create_button);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, new_list_name_entry);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, stack);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderPopover, provider_selector);
 
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__action_button_clicked);
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__change_location_clicked);
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__closed);
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__entry_activate);
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__storage_selected);
-  gtk_widget_class_bind_template_callback (widget_class, gtd_storage_popover__text_changed_cb);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__action_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__change_location_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__closed);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__entry_activate);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__provider_selected);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_provider_popover__text_changed_cb);
 }
 
 static void
-gtd_storage_popover_init (GtdStoragePopover *self)
+gtd_provider_popover_init (GtdProviderPopover *self)
 {
-  self->priv = gtd_storage_popover_get_instance_private (self);
+  self->priv = gtd_provider_popover_get_instance_private (self);
 
   gtk_widget_init_template (GTK_WIDGET (self));
 }
 
 GtkWidget*
-gtd_storage_popover_new (void)
+gtd_provider_popover_new (void)
 {
-  return g_object_new (GTD_TYPE_STORAGE_POPOVER, NULL);
+  return g_object_new (GTD_TYPE_PROVIDER_POPOVER, NULL);
 }

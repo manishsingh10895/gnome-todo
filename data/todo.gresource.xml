@@ -6,10 +6,10 @@
     <file compressed="true" preprocess="xml-stripblanks">ui/initial-setup.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/list-view.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/notification.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/storage-dialog.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/storage-popover.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/storage-row.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/storage-selector.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/provider-dialog.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/provider-popover.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/provider-row.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/provider-selector.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/task-list-item.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/task-row.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>

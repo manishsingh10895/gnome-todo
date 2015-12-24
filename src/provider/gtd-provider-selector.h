@@ -1,0 +1,55 @@
+/* gtd-provider-selector.h
+ *
+ * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+#ifndef GTD_PROVIDER_SELECTOR_H
+#define GTD_PROVIDER_SELECTOR_H
+
+#include "gtd-types.h"
+
+#include <glib-object.h>
+#include <gtk/gtk.h>
+
+G_BEGIN_DECLS
+
+#define GTD_TYPE_PROVIDER_SELECTOR (gtd_provider_selector_get_type())
+
+G_DECLARE_FINAL_TYPE (GtdProviderSelector, gtd_provider_selector, GTD, PROVIDER_SELECTOR, GtkBox)
+
+GtkWidget*         gtd_provider_selector_new                      (void);
+
+void               gtd_provider_selector_show_local               (GtdProviderSelector *selector,
+                                                                  gboolean            show);
+
+gboolean           gtd_provider_selector_get_select_default       (GtdProviderSelector *selector);
+
+void               gtd_provider_selector_set_select_default       (GtdProviderSelector *selector,
+                                                                  gboolean            select_default);
+
+GtdProvider*        gtd_provider_selector_get_selected_provider     (GtdProviderSelector *selector);
+
+void               gtd_provider_selector_set_selected_provider     (GtdProviderSelector *selector,
+                                                                  GtdProvider         *provider);
+
+gboolean           gtd_provider_selector_get_show_stub_rows       (GtdProviderSelector *selector);
+
+void               gtd_provider_selector_set_show_stub_rows       (GtdProviderSelector *selector,
+                                                                  gboolean            show_stub_rows);
+
+G_END_DECLS
+
+#endif /* GTD_PROVIDER_SELECTOR_H */

@@ -74,12 +74,21 @@ PKG_CHECK_MODULES(GNOME_TODO,
 
 APPSTREAM_XML
 
+
+dnl ================================================================
+dnl Plugins
+dnl ================================================================
+GNOME_TODO_ADD_PLUGIN([eds], [Evolution-Data-Server], [yes])
+
+AC_SUBST([GNOME_TODO_PLUGIN_DIR], [${libdir}])
+
 AC_CONFIG_FILES([
       Makefile
       src/Makefile
       data/Makefile
       data/icons/Makefile
       data/org.gnome.Todo.desktop.in
+      plugins/Makefile
       po/Makefile.in
 ])
 

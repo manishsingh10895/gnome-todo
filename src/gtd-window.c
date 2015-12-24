@@ -16,13 +16,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "interfaces/gtd-provider.h"
 #include "gtd-application.h"
 #include "gtd-enum-types.h"
 #include "gtd-task-list-view.h"
 #include "gtd-manager.h"
 #include "gtd-notification.h"
 #include "gtd-notification-widget.h"
-#include "gtd-storage-dialog.h"
+#include "gtd-provider-dialog.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 #include "gtd-task-list-item.h"
@@ -52,7 +53,7 @@ typedef struct
   GtkWidget                     *select_button;
   GtkStack                      *stack;
   GtkStackSwitcher              *stack_switcher;
-  GtdStorageDialog              *storage_dialog;
+  GtdProviderDialog             *provider_dialog;
   GtdTaskListView               *today_list_view;
   GtdTaskListView               *list_view;
 
@@ -557,7 +558,7 @@ gtd_window__change_storage_action (GSimpleAction *simple,
 
   priv = GTD_WINDOW (user_data)->priv;
 
-  gtk_dialog_run (GTK_DIALOG (priv->storage_dialog));
+  gtk_dialog_run (GTK_DIALOG (priv->provider_dialog));
 }
 
 static void
@@ -609,14 +610,19 @@ gtd_window__flowbox_sort_func (GtdTaskListItem *a,
                                GtdTaskListItem *b,
                                gpointer         user_data)
 {
+  GtdProvider *p1;
+  GtdProvider *p2;
   GtdTaskList *l1;
   GtdTaskList *l2;
   gint retval = 0;
 
   l1 = gtd_task_list_item_get_list (a);
-  l2 = gtd_task_list_item_get_list (b);
+  p1 = gtd_task_list_get_provider (l1);
 
-  retval = g_strcmp0 (gtd_task_list_get_origin (l1), gtd_task_list_get_origin (l2));
+  l2 = gtd_task_list_item_get_list (b);
+  p2 = gtd_task_list_get_provider (l2);
+
+  retval = g_strcmp0 (gtd_provider_get_description (p1), gtd_provider_get_description (p2));
 
   if (retval != 0)
     return retval;
@@ -702,6 +708,7 @@ gtd_window__list_selected (GtkFlowBox      *flowbox,
                            gpointer         user_data)
 {
   GtdWindowPrivate *priv = GTD_WINDOW (user_data)->priv;
+  GtdProvider *provider;
   GtdTaskList *list;
   GdkRGBA *list_color;
 
@@ -717,6 +724,7 @@ gtd_window__list_selected (GtkFlowBox      *flowbox,
 
     case GTD_WINDOW_MODE_NORMAL:
       list = gtd_task_list_item_get_list (item);
+      provider = gtd_task_list_get_provider (list);
       list_color = gtd_task_list_get_color (list);
 
       g_signal_handlers_block_by_func (priv->color_button,
@@ -727,7 +735,7 @@ gtd_window__list_selected (GtkFlowBox      *flowbox,
 
       gtk_stack_set_visible_child_name (priv->main_stack, "tasks");
       gtk_header_bar_set_title (priv->headerbar, gtd_task_list_get_name (list));
-      gtk_header_bar_set_subtitle (priv->headerbar, gtd_task_list_get_origin (list));
+      gtk_header_bar_set_subtitle (priv->headerbar, gtd_provider_get_description (provider));
       gtk_header_bar_set_custom_title (priv->headerbar, NULL);
       gtk_search_bar_set_search_mode (priv->search_bar, FALSE);
       gtd_task_list_view_set_task_list (priv->list_view, list);
@@ -903,7 +911,7 @@ gtd_window_constructed (GObject *object)
                           G_BINDING_DEFAULT);
   g_object_bind_property (object,
                           "manager",
-                          priv->storage_dialog,
+                          priv->provider_dialog,
                           "manager",
                           G_BINDING_DEFAULT);
 }
@@ -1092,6 +1100,7 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, new_list_popover);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, notification_widget);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, provider_dialog);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, remove_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_entry);
@@ -1104,7 +1113,6 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_entry);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, select_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack_switcher);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, storage_dialog);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, today_list_view);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__back_button_clicked);
