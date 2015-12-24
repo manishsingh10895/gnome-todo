@@ -1,9 +1,13 @@
 *.bak
 *.o
+*.la
+*.lo
 *.orig
 *.rej
 *.tab.c
+*.plugin
 *~
+.libs
 .*.sw[nop]
 .deps
 .dirstamp
