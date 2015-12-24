@@ -25,11 +25,11 @@
 typedef struct
 {
   GList               *tasks;
-  ESource             *source;
-  gchar               *origin;
+  GtdProvider         *provider;
+  GdkRGBA             *color;
 
-  /* ongoing operations */
-  GCancellable        *cancellable;
+  gchar               *name;
+  gboolean             removable : 1;
 } GtdTaskListPrivate;
 
 enum
@@ -50,8 +50,7 @@ enum
   PROP_COLOR,
   PROP_IS_REMOVABLE,
   PROP_NAME,
-  PROP_ORIGIN,
-  PROP_SOURCE,
+  PROP_PROVIDER,
   LAST_PROP
 };
 
@@ -81,27 +80,6 @@ save_task_list_finished_cb (GObject      *source,
       g_clear_error (&error);
     }
 }
-
-static void
-save_task_list (GtdTaskList *list)
-{
-  GtdTaskListPrivate *priv;
-  ESource *source;
-
-  priv = gtd_task_list_get_instance_private (list);
-  source = gtd_task_list_get_source (list);
-
-  if (!priv->cancellable)
-    priv->cancellable = g_cancellable_new ();
-
-  gtd_object_set_ready (GTD_OBJECT (list), FALSE);
-
-  e_source_write (source,
-                  priv->cancellable,
-                  save_task_list_finished_cb,
-                  list);
-}
-
 
 static gboolean
 color_to_string (GBinding     *binding,
@@ -144,11 +122,9 @@ gtd_task_list_finalize (GObject *object)
   GtdTaskList *self = (GtdTaskList*) object;
   GtdTaskListPrivate *priv = gtd_task_list_get_instance_private (self);
 
-  g_cancellable_cancel (priv->cancellable);
-
-  g_clear_object (&priv->cancellable);
-  g_clear_object (&priv->source);
-  g_clear_pointer (&priv->origin, g_free);
+  g_clear_object (&priv->provider);
+  g_clear_pointer (&priv->color, gdk_rgba_free);
+  g_clear_pointer (&priv->name, g_free);
 
   G_OBJECT_CLASS (gtd_task_list_parent_class)->finalize (object);
 }
@@ -173,15 +149,11 @@ gtd_task_list_get_property (GObject    *object,
       break;
 
     case PROP_NAME:
-      g_value_set_string (value, e_source_get_display_name (priv->source));
+      g_value_set_string (value, priv->name);
       break;
 
-    case PROP_ORIGIN:
-      g_value_set_string (value, priv->origin);
-      break;
-
-    case PROP_SOURCE:
-      g_value_set_object (value, priv->source);
+    case PROP_PROVIDER:
+      g_value_set_object (value, priv->provider);
       break;
 
     default:
@@ -208,29 +180,9 @@ gtd_task_list_set_property (GObject      *object,
       gtd_task_list_set_name (self, g_value_get_string (value));
       break;
 
-    case PROP_ORIGIN:
-      priv->origin = g_strdup (g_value_get_string (value));
-      break;
-
-    case PROP_SOURCE:
-      g_set_object (&priv->source, g_value_get_object (value));
-
-      if (priv->source)
-        {
-          ESourceSelectable *selectable;
-
-          selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
-
-          g_object_bind_property_full (object,
-                                       "color",
-                                       selectable,
-                                       "color",
-                                       G_BINDING_BIDIRECTIONAL,
-                                       color_to_string,
-                                       string_to_color,
-                                       object,
-                                       NULL);
-        }
+    case PROP_PROVIDER:
+      if (g_set_object (&priv->provider, g_value_get_object (value)))
+        g_object_notify (object, "provider");
       break;
 
     default:
@@ -290,31 +242,17 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
                              G_PARAM_READWRITE));
 
   /**
-   * GtdTaskList::name:
-   *
-   * The display name of the list.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_ORIGIN,
-        g_param_spec_string ("origin",
-                             "Data origin of the list",
-                             "The data origin location of the list",
-                             NULL,
-                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
-
-  /**
    * GtdTaskList::source:
    *
    * The parent source of the list.
    */
   g_object_class_install_property (
         object_class,
-        PROP_SOURCE,
-        g_param_spec_object ("source",
-                             "Source of the list",
-                             "The parent source that handles the list",
-                             E_TYPE_SOURCE,
+        PROP_PROVIDER,
+        g_param_spec_object ("provider",
+                             "Provider of the list",
+                             "The provider that handles the list",
+                             GTD_TYPE_PROVIDER,
                              G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
 
   /**
@@ -385,13 +323,10 @@ gtd_task_list_init (GtdTaskList *self)
  * Returns: (transfer full): the new #GtdTaskList
  */
 GtdTaskList *
-gtd_task_list_new (ESource     *source,
-                   const gchar *origin)
+gtd_task_list_new (GtdProvider *provider)
 {
   return g_object_new (GTD_TYPE_TASK_LIST,
-                       "source", source,
-                       "uid", e_source_get_uid (source),
-                       "origin", origin,
+                       "provider", provider,
                        NULL);
 }
 
@@ -408,27 +343,15 @@ GdkRGBA*
 gtd_task_list_get_color (GtdTaskList *list)
 {
   GtdTaskListPrivate *priv;
-  GdkRGBA color;
 
   g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
 
   priv = gtd_task_list_get_instance_private (list);
 
-  if (priv->source)
-    {
-      ESourceSelectable *selectable;
+  if (!priv->color)
+    gdk_rgba_parse (priv->color, "#ffffff");
 
-      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
-
-      if (!gdk_rgba_parse (&color, e_source_selectable_get_color (selectable)))
-        gdk_rgba_parse (&color, "#ffffff"); /* calendar default colour */
-    }
-  else
-    {
-      gdk_rgba_parse (&color, "#ffffff");
-    }
-
-  return gdk_rgba_copy (&color);
+  return gdk_rgba_copy (priv->color);
 }
 
 /**
@@ -452,15 +375,8 @@ gtd_task_list_set_color (GtdTaskList   *list,
 
   if (!gdk_rgba_equal (current_color, color))
     {
-      ESourceSelectable *selectable;
-      gchar *color_str;
-
-      selectable = E_SOURCE_SELECTABLE (e_source_get_extension (priv->source, E_SOURCE_EXTENSION_TASK_LIST));
-      color_str = gdk_rgba_to_string (color);
-
-      e_source_selectable_set_color (selectable, color_str);
-      save_task_list (list);
-      g_free (color_str);
+      g_clear_pointer (&priv->color, gdk_rgba_free);
+      priv->color = gdk_rgba_copy (color);
 
       g_object_notify (G_OBJECT (list), "color");
     }
@@ -486,7 +402,7 @@ gtd_task_list_get_name (GtdTaskList *list)
 
   priv = gtd_task_list_get_instance_private (list);
 
-  return e_source_get_display_name (priv->source);
+  return priv->name;
 }
 
 /**
@@ -506,13 +422,32 @@ gtd_task_list_set_name (GtdTaskList *list,
 
   priv = gtd_task_list_get_instance_private (list);
 
-  if (g_strcmp0 (e_source_get_display_name (priv->source), name) != 0)
+  if (g_strcmp0 (priv->name, name) != 0)
     {
-      e_source_set_display_name (priv->source, name);
-      save_task_list (list);
+      priv->name = g_strdup (name);
 
       g_object_notify (G_OBJECT (list), "name");
     }
+}
+
+/**
+ * gtd_task_list_get_provider:
+ * @list: a #GtdTaskList
+ *
+ * Retrieves the #GtdProvider who owns this list.
+ *
+ * Returns: (transfer none): a #GtdProvider
+ */
+GtdProvider*
+gtd_task_list_get_provider (GtdTaskList *list)
+{
+  GtdTaskListPrivate *priv;
+
+  g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
+
+  priv = gtd_task_list_get_instance_private (list);
+
+  return priv->provider;
 }
 
 /**
@@ -619,46 +554,6 @@ gtd_task_list_contains (GtdTaskList *list,
 }
 
 /**
- * gtd_task_list_get_source:
- * @list: a #GtdTaskList
- *
- * Retrieves the #ESource that handles @list.
- *
- * Returns: (transfer none): the internal #ESource of @list
- */
-ESource*
-gtd_task_list_get_source (GtdTaskList *list)
-{
-  GtdTaskListPrivate *priv;
-
-  g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
-
-  priv = gtd_task_list_get_instance_private (list);
-
-  return priv->source;
-}
-
-/**
- * gtd_task_list_get_origin:
- * @list: a @GtdTaskList
- *
- * Gets the origin (i.e. parent source display name) of @list.
- *
- * Returns: (transfer none): the origin of @list data.
- */
-const gchar*
-gtd_task_list_get_origin (GtdTaskList *list)
-{
-  GtdTaskListPrivate *priv;
-
-  g_return_val_if_fail (GTD_IS_TASK_LIST (list), NULL);
-
-  priv = gtd_task_list_get_instance_private (list);
-
-  return priv->origin;
-}
-
-/**
  * gtd_task_list_get_is_removable:
  * @list: a #GtdTaskList
  *
@@ -675,5 +570,5 @@ gtd_task_list_is_removable (GtdTaskList *list)
 
   priv = gtd_task_list_get_instance_private (list);
 
-  return e_source_get_removable (priv->source) || e_source_get_remote_deletable (priv->source);
+  return priv->removable;
 }

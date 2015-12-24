@@ -417,8 +417,8 @@ gtd_task_list_item_set_property (GObject      *object,
                               "label",
                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
 
-      g_object_bind_property (priv->list,
-                              "origin",
+      g_object_bind_property (gtd_task_list_get_provider (priv->list),
+                              "description",
                               priv->subtitle_label,
                               "label",
                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);

@@ -21,10 +21,8 @@
 
 #include <glib-object.h>
 
+#include "interfaces/gtd-provider.h"
 #include "gtd-object.h"
-
-#include <libecal/libecal.h>
-#include <gtk/gtk.h>
 
 G_BEGIN_DECLS
 
@@ -48,8 +46,7 @@ struct _GtdTaskListClass
   gpointer              padding[10];
 };
 
-GtdTaskList*            gtd_task_list_new                       (ESource                *source,
-                                                                 const gchar            *origin);
+GtdTaskList*            gtd_task_list_new                       (GtdProvider            *provider);
 
 GdkRGBA*                gtd_task_list_get_color                 (GtdTaskList            *list);
 
@@ -63,6 +60,8 @@ const gchar*            gtd_task_list_get_name                  (GtdTaskList    
 void                    gtd_task_list_set_name                  (GtdTaskList            *list,
                                                                  const gchar            *name);
 
+GtdProvider*            gtd_task_list_get_provider              (GtdTaskList            *list);
+
 GList*                  gtd_task_list_get_tasks                 (GtdTaskList            *list);
 
 void                    gtd_task_list_save_task                 (GtdTaskList            *list,
@@ -73,10 +72,6 @@ void                    gtd_task_list_remove_task               (GtdTaskList    
 
 gboolean                gtd_task_list_contains                  (GtdTaskList            *list,
                                                                  GtdTask                *task);
-
-ESource*                gtd_task_list_get_source                (GtdTaskList            *list);
-
-const gchar*            gtd_task_list_get_origin                (GtdTaskList            *list);
 
 G_END_DECLS
 
