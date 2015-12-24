@@ -35,28 +35,15 @@ static void
 gtd_activatable_default_init (GtdActivatableInterface *iface)
 {
   /**
-   * GtdActivatable::panels:
-   *
-   * A list of #GtdPanel this plugin carries.
-   */
-  g_object_interface_install_property (iface,
-                                       g_param_spec_boxed ("panels",
-                                                           "Panels this widget has",
-                                                           "A list of panel this widget has",
-                                                           G_TYPE_POINTER,
-                                                           G_PARAM_READABLE));
-
-  /**
    * GtdActivatable::providers:
    *
    * A list of #GtdProvider this plugin carries.
    */
   g_object_interface_install_property (iface,
-                                       g_param_spec_boxed ("providers",
-                                                           "Providers this widget has",
-                                                           "A list of providers this widget has",
-                                                           G_TYPE_POINTER,
-                                                           G_PARAM_READABLE));
+                                       g_param_spec_pointer ("providers",
+                                                             "Providers this widget has",
+                                                             "A list of providers this widget has",
+                                                             G_PARAM_READABLE));
 
   /**
    * GtdActivatable::provider-added:
@@ -76,23 +63,6 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                           GTD_TYPE_PROVIDER);
 
   /**
-   * GtdActivatable::provider-changed:
-   *
-   * The ::provider-changed signal is emmited after a #GtdProvider
-   * has any of it's properties changed.
-   */
-  signals[PROVIDER_CHANGED] = g_signal_new ("provider-changed",
-                                            GTD_TYPE_ACTIVATABLE,
-                                            G_SIGNAL_RUN_LAST,
-                                            0,
-                                            NULL,
-                                            NULL,
-                                            NULL,
-                                            G_TYPE_NONE,
-                                            1,
-                                            GTD_TYPE_PROVIDER);
-
-  /**
    * GtdActivatable::provider-removed:
    *
    * The ::provider-removed signal is emmited after a #GtdProvider
@@ -108,15 +78,6 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                             G_TYPE_NONE,
                                             1,
                                             GTD_TYPE_PROVIDER);
-}
-
-GList*
-gtd_activatable_get_panels (GtdActivatable *activatable)
-{
-  g_return_val_if_fail (GTD_IS_ACTIVATABLE (activatable), NULL);
-  g_return_val_if_fail (GTD_ACTIVATABLE_GET_IFACE (activatable)->get_panels, NULL);
-
-  return GTD_ACTIVATABLE_GET_IFACE (activatable)->get_panels (activatable);
 }
 
 GList*
