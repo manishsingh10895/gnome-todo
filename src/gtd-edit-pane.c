@@ -37,7 +37,6 @@ typedef struct
   /* flags */
   gint               should_save_task : 1;
 
-  GtdManager        *manager;
   GtdTask           *task;
 } GtdEditPanePrivate;
 
@@ -53,7 +52,6 @@ G_DEFINE_TYPE_WITH_PRIVATE (GtdEditPane, gtd_edit_pane, GTK_TYPE_GRID)
 
 enum {
   PROP_0,
-  PROP_MANAGER,
   PROP_TASK,
   LAST_PROP
 };
@@ -203,10 +201,6 @@ gtd_edit_pane_get_property (GObject    *object,
 
   switch (prop_id)
     {
-    case PROP_MANAGER:
-      g_value_set_object (value, self->priv->manager);
-      break;
-
     case PROP_TASK:
       g_value_set_object (value, self->priv->task);
       break;
@@ -226,10 +220,6 @@ gtd_edit_pane_set_property (GObject      *object,
 
   switch (prop_id)
     {
-    case PROP_MANAGER:
-      self->priv->manager = g_value_get_object (value);
-      break;
-
     case PROP_TASK:
       self->priv->task = g_value_get_object (value);
       break;
@@ -248,20 +238,6 @@ gtd_edit_pane_class_init (GtdEditPaneClass *klass)
   object_class->finalize = gtd_edit_pane_finalize;
   object_class->get_property = gtd_edit_pane_get_property;
   object_class->set_property = gtd_edit_pane_set_property;
-
-  /**
-   * GtdEditPane::manager:
-   *
-   * A weak reference to the application's #GtdManager instance.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_MANAGER,
-        g_param_spec_object ("manager",
-                             "Manager of this application",
-                             "The manager of the application",
-                             GTD_TYPE_MANAGER,
-                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT));
 
   /**
    * GtdEditPane::task:
@@ -335,45 +311,6 @@ GtkWidget*
 gtd_edit_pane_new (void)
 {
   return g_object_new (GTD_TYPE_EDIT_PANE, NULL);
-}
-
-/**
- * gtd_edit_pane_get_manager:
- *
- * Retrieves the #GtdManager of the application.
- *
- * Returns: (transfer none): the #GtdManager of @pane
- */
-GtdManager*
-gtd_edit_pane_get_manager (GtdEditPane *pane)
-{
-  g_return_val_if_fail (GTD_IS_EDIT_PANE (pane), NULL);
-
-  return pane->priv->manager;
-}
-
-/**
- * gtd_edit_pane_set_manager:
- * @pane: a #GtdEditPane
- * @manager: the singleton #GtdManager
- *
- * Sets the #GtdManager of the application.
- *
- * Returns:
- */
-void
-gtd_edit_pane_set_manager (GtdEditPane *pane,
-                           GtdManager  *manager)
-{
-  g_return_if_fail (GTD_IS_EDIT_PANE (pane));
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-
-  if (pane->priv->manager != manager)
-    {
-      pane->priv->manager = manager;
-
-      g_object_notify (G_OBJECT (pane), "manager");
-    }
 }
 
 /**

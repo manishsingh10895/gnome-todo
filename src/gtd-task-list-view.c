@@ -51,7 +51,6 @@ typedef struct
   gboolean               show_completed;
   GList                 *list;
   GtdTaskList           *task_list;
-  GtdManager            *manager;
 
   /* color provider */
   GtkCssProvider        *color_provider;
@@ -104,7 +103,6 @@ typedef struct
 
 enum {
   PROP_0,
-  PROP_MANAGER,
   PROP_READONLY,
   PROP_SHOW_COMPLETED,
   PROP_SHOW_LIST_NAME,
@@ -117,7 +115,7 @@ remove_task_action (GtdNotification *notification,
 {
   RemoveTaskData *data = user_data;
 
-  gtd_manager_remove_task (data->view->priv->manager, data->task);
+  gtd_manager_remove_task (gtd_manager_get_default (), data->task);
 
   g_free (data);
 }
@@ -193,7 +191,7 @@ gtd_task_list_view__clear_completed_tasks (GSimpleAction *simple,
           list = gtd_task_get_list (l->data);
 
           gtd_task_list_remove_task (list, l->data);
-          gtd_manager_remove_task (view->priv->manager, l->data);
+          gtd_manager_remove_task (gtd_manager_get_default (), l->data);
         }
     }
 
@@ -317,7 +315,7 @@ gtd_task_list_view__edit_task_finished (GtdEditPane *pane,
 
   gtd_task_save (task);
 
-  gtd_manager_update_task (priv->manager, task);
+  gtd_manager_update_task (gtd_manager_get_default (), task);
   gtd_task_list_save_task (priv->task_list, task);
 
   gtk_list_box_invalidate_sort (priv->listbox);
@@ -558,7 +556,7 @@ gtd_task_list_view__task_completed (GObject    *object,
 
   task_complete = gtd_task_get_complete (task);
 
-  gtd_manager_update_task (priv->manager, task);
+  gtd_manager_update_task (gtd_manager_get_default (), task);
   gtd_task_list_save_task (gtd_task_get_list (task), task);
 
   if (task_complete)
@@ -630,7 +628,7 @@ gtd_task_list_view__create_task (GtdTaskRow *row,
   gtd_task_set_list (task, priv->task_list);
   gtd_task_list_save_task (priv->task_list, task);
 
-  gtd_manager_create_task (priv->manager, task);
+  gtd_manager_create_task (gtd_manager_get_default (), task);
 }
 
 static void
@@ -649,10 +647,6 @@ gtd_task_list_view_get_property (GObject    *object,
 
   switch (prop_id)
     {
-    case PROP_MANAGER:
-      g_value_set_object (value, self->priv->manager);
-      break;
-
     case PROP_SHOW_COMPLETED:
       g_value_set_boolean (value, self->priv->show_completed);
       break;
@@ -680,10 +674,6 @@ gtd_task_list_view_set_property (GObject      *object,
 
   switch (prop_id)
     {
-    case PROP_MANAGER:
-      gtd_task_list_view_set_manager (self, g_value_get_object (value));
-      break;
-
     case PROP_SHOW_COMPLETED:
       gtd_task_list_view_set_show_completed (self, g_value_get_boolean (value));
       break;
@@ -764,20 +754,6 @@ gtd_task_list_view_class_init (GtdTaskListViewClass *klass)
   object_class->set_property = gtd_task_list_view_set_property;
 
   widget_class->map = gtd_task_list_view_map;
-
-  /**
-   * GtdTaskListView::manager:
-   *
-   * A weak reference to the application's #GtdManager instance.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_MANAGER,
-        g_param_spec_object ("manager",
-                             "Manager of this window's application",
-                             "The manager of the window's application",
-                             GTD_TYPE_MANAGER,
-                             G_PARAM_READWRITE));
 
   /**
    * GtdTaskListView::readonly:
@@ -931,47 +907,6 @@ gtd_task_list_view_set_list (GtdTaskListView *view,
 
   /* Check if it should show the empty state */
   gtd_task_list_view__update_empty_state (view);
-}
-
-/**
- * gtd_task_list_view_get_manager:
- * @view: a #GtdTaskListView
- *
- * Retrieves the #GtdManager from @view.
- *
- * Returns: (transfer none): the #GtdManager of @view
- */
-GtdManager*
-gtd_task_list_view_get_manager (GtdTaskListView *view)
-{
-  g_return_val_if_fail (GTD_IS_TASK_LIST_VIEW (view), NULL);
-
-  return view->priv->manager;
-}
-
-/**
- * gtd_task_list_view_set_manager:
- * @view: a #GtdTaskListView
- * @manager: a #GtdManager
- *
- * Sets the #GtdManager of @view.
- *
- * Returns:
- */
-void
-gtd_task_list_view_set_manager (GtdTaskListView *view,
-                                GtdManager      *manager)
-{
-  g_return_if_fail (GTD_IS_TASK_LIST_VIEW (view));
-  g_return_if_fail (GTD_IS_MANAGER (manager));
-
-  if (view->priv->manager != manager)
-    {
-      view->priv->manager = manager;
-      gtd_edit_pane_set_manager (GTD_EDIT_PANE (view->priv->edit_pane), manager);
-
-      g_object_notify (G_OBJECT (view), "manager");
-    }
 }
 
 /**

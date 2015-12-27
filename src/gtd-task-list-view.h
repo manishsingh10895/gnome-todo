@@ -36,11 +36,6 @@ GList*                    gtd_task_list_view_get_list           (GtdTaskListView
 void                      gtd_task_list_view_set_list           (GtdTaskListView        *view,
                                                                  GList                  *list);
 
-GtdManager*               gtd_task_list_view_get_manager        (GtdTaskListView            *view);
-
-void                      gtd_task_list_view_set_manager        (GtdTaskListView        *view,
-                                                                 GtdManager             *manager);
-
 gboolean                  gtd_task_list_view_get_readonly       (GtdTaskListView        *view);
 
 void                      gtd_task_list_view_set_readonly       (GtdTaskListView        *view,
