@@ -240,6 +240,8 @@ gtd_application_startup (GApplication *application)
 {
   GtdApplicationPrivate *priv = GTD_APPLICATION (application)->priv;
 
+  G_APPLICATION_CLASS (gtd_application_parent_class)->startup (application);
+
   /* manager */
   priv->manager = gtd_manager_get_default ();
 
@@ -251,8 +253,6 @@ gtd_application_startup (GApplication *application)
                                    gtd_application_entries,
                                    G_N_ELEMENTS (gtd_application_entries),
                                    application);
-
-  G_APPLICATION_CLASS (gtd_application_parent_class)->startup (application);
 }
 
 static void
