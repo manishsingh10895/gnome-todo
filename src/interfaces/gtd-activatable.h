@@ -32,8 +32,12 @@ struct _GtdActivatableInterface
 {
   PeasActivatableInterface parent;
 
+  GList*           (*get_panels)                           (GtdActivatable     *activatable);
+
   GList*           (*get_providers)                        (GtdActivatable     *activatable);
 };
+
+GList*               gtd_activatable_get_panels                  (GtdActivatable     *activatable);
 
 GList*               gtd_activatable_get_providers               (GtdActivatable     *activatable);
 
