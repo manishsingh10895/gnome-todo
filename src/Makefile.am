@@ -93,6 +93,7 @@ gnome_todo_include_HEADERS = \
 	gtd-object.h \
 	gtd-task.h \
 	gtd-task-list.h \
+	gtd-task-list-view.h \
 	gtd-window.h \
 	gtd-types.h \
 	gnome-todo.h

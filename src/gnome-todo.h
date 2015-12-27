@@ -25,5 +25,6 @@
 #include "gtd-object.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
+#include "gtd-task-list-view.h"
 #include "gtd-window.h"
 #include "gtd-types.h"
