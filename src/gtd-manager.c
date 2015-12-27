@@ -26,12 +26,6 @@
 
 typedef struct
 {
-  /*
-   * Today & Scheduled lists
-   */
-  GtdTaskList           *today_tasks_list;
-  GtdTaskList           *scheduled_tasks_list;
-
   GSettings             *settings;
   GtdPluginManager      *plugin_manager;
 
@@ -112,8 +106,8 @@ gtd_manager_finalize (GObject *object)
 {
   GtdManager *self = (GtdManager *)object;
 
-  g_clear_object (&self->priv->scheduled_tasks_list);
-  g_clear_object (&self->priv->today_tasks_list);
+  g_clear_object (&self->priv->plugin_manager);
+  g_clear_object (&self->priv->settings);
 
   G_OBJECT_CLASS (gtd_manager_parent_class)->finalize (object);
 }
@@ -396,10 +390,6 @@ gtd_manager_init (GtdManager *self)
 {
   self->priv = gtd_manager_get_instance_private (self);
   self->priv->settings = g_settings_new ("org.gnome.todo");
-
-  /* fixed task lists */
-  self->priv->scheduled_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
-  self->priv->today_tasks_list = g_object_new (GTD_TYPE_TASK_LIST, NULL);
 
   /* plugin manager */
   self->priv->plugin_manager = gtd_plugin_manager_new ();
@@ -725,40 +715,6 @@ gtd_manager_set_is_first_run (GtdManager *manager,
   g_settings_set_boolean (manager->priv->settings,
                           "first-run",
                           is_first_run);
-}
-
-/**
- * gtd_manager_get_scheduled_list:
- * @manager: a #GtdManager
- *
- * Retrieves the internal #GtdTaskList that holds scheduled tasks.
- *
- * Returns: (transfer none): the internal #GtdTaskList with scheduled
- * tasks
- */
-GtdTaskList*
-gtd_manager_get_scheduled_list (GtdManager *manager)
-{
-  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
-
-  return manager->priv->scheduled_tasks_list;
-}
-
-/**
- * gtd_manager_get_today_list:
- * @manager: a #GtdManager
- *
- * Retrieves the internal #GtdTaskList that holds tasks for today.
- *
- * Returns: (transfer none): the internal #GtdTaskList with today's
- * tasks
- */
-GtdTaskList*
-gtd_manager_get_today_list (GtdManager *manager)
-{
-  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
-
-  return manager->priv->today_tasks_list;
 }
 
 void

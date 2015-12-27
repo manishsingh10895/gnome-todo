@@ -46,7 +46,6 @@ typedef struct
   GtdNotificationWidget         *notification_widget;
   GtkWidget                     *remove_button;
   GtkWidget                     *rename_button;
-  GtdTaskListView               *scheduled_list_view;
   GtkSearchBar                  *search_bar;
   GtkToggleButton               *search_button;
   GtkSearchEntry                *search_entry;
@@ -54,7 +53,6 @@ typedef struct
   GtkStack                      *stack;
   GtkStackSwitcher              *stack_switcher;
   GtdProviderDialog             *provider_dialog;
-  GtdTaskListView               *today_list_view;
   GtdTaskListView               *list_view;
 
   /* rename popover */
@@ -478,59 +476,6 @@ gtd_window__cancel_selection_button_clicked (GtkWidget *button,
                                              GtdWindow *window)
 {
   gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (window->priv->select_button), FALSE);
-}
-
-static void
-gtd_window_update_list_counters (GtdTaskList *list,
-                                 GtdTask     *task,
-                                 GtdWindow   *window)
-{
-  GtdWindowPrivate *priv;
-  GtkWidget *container_child;
-  gboolean is_today;
-  GList *tasks;
-  GList *l;
-  gchar *new_title;
-  gint counter;
-
-  g_return_if_fail (GTD_IS_WINDOW (window));
-  g_return_if_fail (GTD_IS_TASK_LIST (list));
-
-  priv = window->priv;
-
-  /* Count the number of incomplete tasks */
-  counter = 0;
-  tasks = gtd_task_list_get_tasks (list);
-
-  for (l = tasks; l != NULL; l = l->next)
-    {
-      if (!gtd_task_get_complete (l->data))
-        counter++;
-    }
-
-  /* Update the list title */
-  is_today = list == gtd_manager_get_today_list (priv->manager);
-
-  container_child = is_today ? GTK_WIDGET (priv->today_list_view) : GTK_WIDGET (priv->scheduled_list_view);
-
-  if (counter == 0)
-    {
-      new_title = g_strdup_printf ("%s", is_today ? _("Today") : _("Scheduled"));
-    }
-  else
-    {
-      new_title = g_strdup_printf ("%s (%d)",
-                                   is_today ? _("Today") : _("Scheduled"),
-                                   counter);
-    }
-
-  gtk_container_child_set (GTK_CONTAINER (priv->stack),
-                           container_child,
-                           "title", new_title,
-                           NULL);
-
-  g_list_free (tasks);
-  g_free (new_title);
 }
 
 static void
@@ -997,36 +942,6 @@ gtd_window_set_property (GObject      *object,
         }
 
       g_list_free (lists);
-
-      /* Setup 'Today' and 'Scheduled' lists */
-      gtd_task_list_view_set_task_list (self->priv->today_list_view, gtd_manager_get_today_list (self->priv->manager));
-      gtd_task_list_view_set_task_list (self->priv->scheduled_list_view, gtd_manager_get_scheduled_list (self->priv->manager));
-
-      g_signal_connect (gtd_manager_get_today_list (self->priv->manager),
-                        "task-added",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-      g_signal_connect (gtd_manager_get_today_list (self->priv->manager),
-                        "task-updated",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-      g_signal_connect (gtd_manager_get_today_list (self->priv->manager),
-                        "task-removed",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-      g_signal_connect (gtd_manager_get_scheduled_list (self->priv->manager),
-                        "task-added",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-      g_signal_connect (gtd_manager_get_scheduled_list (self->priv->manager),
-                        "task-updated",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-      g_signal_connect (gtd_manager_get_scheduled_list (self->priv->manager),
-                        "task-removed",
-                        G_CALLBACK (gtd_window_update_list_counters),
-                        self);
-
       g_object_notify (object, "manager");
       break;
 
@@ -1102,14 +1017,12 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_entry);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, rename_popover);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, save_rename_button);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, scheduled_list_view);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_bar);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, search_entry);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, select_button);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack_switcher);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, today_list_view);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__back_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__cancel_selection_button_clicked);

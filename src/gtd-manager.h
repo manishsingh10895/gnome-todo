@@ -58,16 +58,6 @@ void                    gtd_manager_remove_task           (GtdManager           
 void                    gtd_manager_update_task           (GtdManager           *manager,
                                                            GtdTask              *task);
 
-/* Special lists */
-GtdTaskList*            gtd_manager_get_scheduled_list    (GtdManager           *manager);
-
-GtdTaskList*            gtd_manager_get_today_list        (GtdManager           *manager);
-
-/* Online accounts */
-GoaClient*              gtd_manager_get_goa_client        (GtdManager           *manager);
-
-gboolean                gtd_manager_is_goa_client_ready   (GtdManager           *manager);
-
 /* Settings */
 GtdProvider*            gtd_manager_get_default_provider  (GtdManager           *manager);
 
