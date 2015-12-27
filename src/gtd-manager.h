@@ -19,12 +19,9 @@
 #ifndef GTD_MANAGER_H
 #define GTD_MANAGER_H
 
-#include <glib-object.h>
-
 #include "gtd-object.h"
 #include "gtd-types.h"
 
-#include <libecal/libecal.h>
 #include <goa/goa.h>
 
 G_BEGIN_DECLS
