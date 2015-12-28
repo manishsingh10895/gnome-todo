@@ -17,6 +17,7 @@
  */
 
 #include "interfaces/gtd-provider.h"
+#include "interfaces/gtd-panel.h"
 #include "gtd-application.h"
 #include "gtd-enum-types.h"
 #include "gtd-task-list-view.h"
@@ -109,6 +110,47 @@ typedef struct
   gchar     *primary_text;
   gchar     *secondary_text;
 } ErrorData;
+
+static void
+gtd_window__panel_title_changed (GObject    *object,
+                                 GParamSpec *pspec,
+                                 GtdWindow  *window)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+
+  gtk_container_child_set (GTK_CONTAINER (priv->stack),
+                           GTK_WIDGET (object),
+                           "title", gtd_panel_get_title (GTD_PANEL (object)),
+                           NULL);
+}
+
+static void
+gtd_window__panel_added (GtdManager *manager,
+                         GtdPanel   *panel,
+                         GtdWindow  *window)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+
+  gtk_stack_add_titled (priv->stack,
+                        GTK_WIDGET (panel),
+                        gtd_panel_get_name (panel),
+                        gtd_panel_get_title (panel));
+
+  g_signal_connect (panel,
+                    "notify::title",
+                    G_CALLBACK (gtd_window__panel_title_changed),
+                    window);
+}
+
+static void
+gtd_window__panel_removed (GtdManager *manager,
+                           GtdPanel   *panel,
+                           GtdWindow  *window)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+
+  gtk_container_remove (GTK_CONTAINER (priv->stack), GTK_WIDGET (panel));
+}
 
 static void
 error_data_free (ErrorData *error_data)
@@ -925,6 +967,14 @@ gtd_window_set_property (GObject      *object,
       g_signal_connect (self->priv->manager,
                         "list-removed",
                         G_CALLBACK (gtd_window__list_removed),
+                        self);
+      g_signal_connect (self->priv->manager,
+                        "panel-added",
+                        G_CALLBACK (gtd_window__panel_added),
+                        self);
+      g_signal_connect (self->priv->manager,
+                        "panel-removed",
+                        G_CALLBACK (gtd_window__panel_removed),
                         self);
       g_signal_connect (self->priv->manager,
                         "show-error-message",

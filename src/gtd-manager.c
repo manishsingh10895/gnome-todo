@@ -17,6 +17,7 @@
  */
 
 #include "interfaces/gtd-provider.h"
+#include "interfaces/gtd-panel.h"
 #include "gtd-manager.h"
 #include "gtd-plugin-manager.h"
 #include "gtd-task.h"
@@ -31,6 +32,7 @@ typedef struct
 
   GList                 *tasklists;
   GList                 *providers;
+  GList                 *panels;
   GtdProvider           *default_provider;
 } GtdManagerPrivate;
 
@@ -54,6 +56,8 @@ enum
   LIST_CHANGED,
   LIST_REMOVED,
   SHOW_ERROR_MESSAGE,
+  PANEL_ADDED,
+  PANEL_REMOVED,
   PROVIDER_ADDED,
   PROVIDER_REMOVED,
   NUM_SIGNALS
@@ -265,6 +269,40 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                               G_TYPE_STRING);
 
   /**
+   * GtdManager::panel-added:
+   *
+   * The ::panel-added signal is emmited after a #GtdPanel
+   * is added.
+   */
+  signals[PANEL_ADDED] = g_signal_new ("panel-added",
+                                        GTD_TYPE_MANAGER,
+                                        G_SIGNAL_RUN_LAST,
+                                        0,
+                                        NULL,
+                                        NULL,
+                                        NULL,
+                                        G_TYPE_NONE,
+                                        1,
+                                        GTD_TYPE_PANEL);
+
+  /**
+   * GtdManager::panel-removed:
+   *
+   * The ::panel-removed signal is emmited after a #GtdPanel
+   * is removed from the list.
+   */
+  signals[PANEL_REMOVED] = g_signal_new ("panel-removed",
+                                         GTD_TYPE_MANAGER,
+                                         G_SIGNAL_RUN_LAST,
+                                         0,
+                                         NULL,
+                                         NULL,
+                                         NULL,
+                                         G_TYPE_NONE,
+                                         1,
+                                         GTD_TYPE_PANEL);
+
+  /**
    * GtdManager::provider-added:
    *
    * The ::provider-added signal is emmited after a #GtdProvider
@@ -297,6 +335,30 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                             G_TYPE_NONE,
                                             1,
                                             GTD_TYPE_PROVIDER);
+}
+
+static void
+gtd_manager__panel_added (GtdPluginManager *plugin_manager,
+                          GtdPanel         *panel,
+                          GtdManager       *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+
+  priv->panels = g_list_append (priv->panels, panel);
+
+  g_signal_emit (self, signals[PANEL_ADDED], 0, panel);
+}
+
+static void
+gtd_manager__panel_removed (GtdPluginManager *plugin_manager,
+                            GtdPanel         *panel,
+                            GtdManager       *self)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
+
+  priv->panels = g_list_remove (priv->panels, panel);
+
+  g_signal_emit (self, signals[PANEL_REMOVED], 0, panel);
 }
 
 static void
@@ -393,6 +455,16 @@ gtd_manager_init (GtdManager *self)
 
   /* plugin manager */
   self->priv->plugin_manager = gtd_plugin_manager_new ();
+
+  g_signal_connect (self->priv->plugin_manager,
+                    "panel-registered",
+                    G_CALLBACK (gtd_manager__panel_added),
+                    self);
+
+  g_signal_connect (self->priv->plugin_manager,
+                    "panel-unregistered",
+                    G_CALLBACK (gtd_manager__panel_removed),
+                    self);
 
   g_signal_connect (self->priv->plugin_manager,
                     "provider-registered",
@@ -606,6 +678,22 @@ gtd_manager_get_providers (GtdManager *manager)
   g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
 
   return g_list_copy (manager->priv->providers);
+}
+
+/**
+ * gtd_manager_get_panels:
+ *
+ * Retrieves the list of currently loaded #GtdPanel
+ * instances.
+ *
+ * Returns: (transger full): a #GList of #GtdPanel
+ */
+GList*
+gtd_manager_get_panels (GtdManager *manager)
+{
+  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
+
+  return g_list_copy (manager->priv->panels);
 }
 
 /**

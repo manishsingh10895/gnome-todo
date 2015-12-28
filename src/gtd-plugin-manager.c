@@ -112,6 +112,22 @@ gtd_plugin_manager_class_init (GtdPluginManagerClass *klass)
 }
 
 static void
+on_panel_added (GtdActivatable   *activatable,
+                GtdPanel         *panel,
+                GtdPluginManager *self)
+{
+  g_signal_emit_by_name (self, "panel-registered", panel);
+}
+
+static void
+on_panel_removed (GtdActivatable   *activatable,
+                  GtdPanel         *panel,
+                  GtdPluginManager *self)
+{
+  g_signal_emit_by_name (self, "panel-unregistered", panel);
+}
+
+static void
 on_provider_added (GtdActivatable   *activatable,
                    GtdProvider      *provider,
                    GtdPluginManager *self)
@@ -134,12 +150,19 @@ on_plugin_unloaded (PeasEngine       *engine,
 {
   GtdActivatable *activatable;
   GList *extension_providers;
+  GList *extension_panels;
   GList *l;
 
   activatable = g_hash_table_lookup (self->info_to_extension, info);
 
   if (!activatable)
     return;
+
+  /* Remove all panels */
+  extension_panels = gtd_activatable_get_panels (activatable);
+
+  for (l = extension_panels; l != NULL; l = l->next)
+    on_panel_removed (activatable, l->data, self);
 
   /* Remove all registered providers */
   extension_providers = gtd_activatable_get_providers (activatable);
@@ -186,6 +209,10 @@ on_plugin_loaded (PeasEngine       *engine,
       for (l = gtd_activatable_get_providers (activatable); l != NULL; l = l->next)
         on_provider_added (activatable, l->data, self);
 
+      /* Load all panels */
+      for (l = gtd_activatable_get_panels (activatable); l != NULL; l = l->next)
+        on_panel_added (activatable, l->data, self);
+
       g_signal_connect (activatable,
                         "provider-added",
                         G_CALLBACK (on_provider_added),
@@ -194,6 +221,16 @@ on_plugin_loaded (PeasEngine       *engine,
       g_signal_connect (activatable,
                         "provider-removed",
                         G_CALLBACK (on_provider_removed),
+                        self);
+
+      g_signal_connect (activatable,
+                        "panel-added",
+                        G_CALLBACK (on_panel_added),
+                        self);
+
+      g_signal_connect (activatable,
+                        "panel-removed",
+                        G_CALLBACK (on_panel_removed),
                         self);
     }
 }
