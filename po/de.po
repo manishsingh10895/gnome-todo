@@ -8,16 +8,16 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-09 09:10+0000\n"
-"PO-Revision-Date: 2015-10-09 19:49+0200\n"
-"Last-Translator: Kristjan SCHMIDT <kristjan.schmidt@googlemail.com>\n"
+"POT-Creation-Date: 2015-12-26 22:43+0000\n"
+"PO-Revision-Date: 2015-12-27 11:31+0100\n"
+"Last-Translator: J.M. Ruetter <jm@jublo.net>\n"
 "Language-Team: Esperanto <gnome-l10n-eo@lists.launchpad.net>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Virtaal 0.7.1\n"
+"X-Generator: Poedit 1.8.6\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -125,6 +125,7 @@ msgid "Priority"
 msgstr "Priorität"
 
 #: ../data/ui/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Keine"
 
@@ -143,6 +144,11 @@ msgstr "Hoch"
 #: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
 msgid "Delete"
 msgstr "Löschen"
+
+#: ../data/ui/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Keine"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -280,7 +286,7 @@ msgstr ""
 msgid "Error loading CSS from resource"
 msgstr "Fehler beim Laden des CSS aus der Resource"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
+#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Kein Datum festgelegt"
 
@@ -402,8 +408,3 @@ msgstr "Auf diesem Rechner"
 msgid "Local"
 msgstr "Lokal"
 
-#~ msgid "New Listâ€¦"
-#~ msgstr "Neue Liste"
-
-#~ msgid "Copyright Â© %dâ€“%d The To Do authors"
-#~ msgstr "Copyright Â© %dâ€“%d Die Aufgaben-Autoren"
