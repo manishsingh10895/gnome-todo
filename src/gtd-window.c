@@ -981,6 +981,18 @@ gtd_window_set_property (GObject      *object,
                         G_CALLBACK (gtd_window__show_error_message),
                         self);
 
+      /* Add loaded panels */
+      lists = gtd_manager_get_panels (self->priv->manager);
+
+      for (l = lists; l != NULL; l = l->next)
+        {
+          gtd_window__panel_added (self->priv->manager,
+                                   l->data,
+                                   GTD_WINDOW (object));
+        }
+
+      g_list_free (lists);
+
       /* Add already loaded lists */
       lists = gtd_manager_get_task_lists (self->priv->manager);
 
