@@ -16,6 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "gtd-panel-today.h"
+#include "gtd-panel-scheduled.h"
 #include "gtd-plugin-eds.h"
 #include "gtd-provider-goa.h"
 #include "gtd-provider-local.h"
@@ -43,6 +45,9 @@ struct _GtdPluginEds
 
   ESourceRegistry        *registry;
 
+  /* Panels */
+  GList                  *panels;
+
   /* Providers */
   GList                  *providers;
 };
@@ -52,6 +57,7 @@ enum
   PROP_0,
   PROP_OBJECT,
   PROP_PROVIDERS,
+  PROP_PANELS,
   LAST_PROP
 };
 
@@ -99,6 +105,14 @@ peas_activatable_iface_init (PeasActivatableInterface *iface)
  * GtdActivatable interface implementation
  */
 static GList*
+gtd_plugin_eds_get_panels (GtdActivatable *activatable)
+{
+  GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
+
+  return plugin->panels;
+}
+
+static GList*
 gtd_plugin_eds_get_providers (GtdActivatable *activatable)
 {
   GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
@@ -109,6 +123,7 @@ gtd_plugin_eds_get_providers (GtdActivatable *activatable)
 static void
 gtd_activatable_iface_init (GtdActivatableInterface *iface)
 {
+  iface->get_panels = gtd_plugin_eds_get_panels;
   iface->get_providers = gtd_plugin_eds_get_providers;
 }
 
@@ -309,6 +324,10 @@ gtd_plugin_eds_get_property (GObject    *object,
       g_value_set_object (value, NULL);
       break;
 
+    case PROP_PANELS:
+      g_value_set_pointer (value, self->panels);
+      break;
+
     case PROP_PROVIDERS:
       g_value_set_pointer (value, self->providers);
       break;
@@ -348,6 +367,10 @@ gtd_plugin_eds_class_init (GtdPluginEdsClass *klass)
                                     "object");
 
   g_object_class_override_property (object_class,
+                                    PROP_PANELS,
+                                    "panels");
+
+  g_object_class_override_property (object_class,
                                     PROP_PROVIDERS,
                                     "providers");
 }
@@ -355,6 +378,9 @@ gtd_plugin_eds_class_init (GtdPluginEdsClass *klass)
 static void
 gtd_plugin_eds_init (GtdPluginEds *self)
 {
+  self->panels = g_list_append (NULL, gtd_panel_today_new ());
+  self->panels = g_list_append (self->panels, gtd_panel_scheduled_new ());
+
   /* load the source registry */
   e_source_registry_new (NULL,
                          (GAsyncReadyCallback) gtd_plugin_eds_source_registry_finish_cb,

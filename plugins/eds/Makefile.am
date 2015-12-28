@@ -9,6 +9,10 @@ BUILT_SOURCES = \
 	gtd-plugin-eds-resources.c
 
 libeds_la_SOURCES = \
+	gtd-panel-today.c \
+	gtd-panel-today.h \
+	gtd-panel-scheduled.c \
+	gtd-panel-scheduled.h \
 	gtd-plugin-eds.c \
 	gtd-plugin-eds.h \
 	gtd-provider-eds.c \
