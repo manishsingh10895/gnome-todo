@@ -56,11 +56,10 @@ gtd_panel_default_init (GtdPanelInterface *iface)
    * A #GList of widgets to be added to the headerbar.
    */
   g_object_interface_install_property (iface,
-                                       g_param_spec_boxed ("header-widgets",
-                                                           "The header widgets",
-                                                           "The widgets to be added in the headerbar",
-                                                           G_TYPE_POINTER,
-                                                           G_PARAM_READABLE));
+                                       g_param_spec_pointer ("header-widgets",
+                                                             "The header widgets",
+                                                             "The widgets to be added in the headerbar",
+                                                             G_PARAM_READABLE));
 
   /**
    * GtdPanel::menu:
@@ -94,13 +93,13 @@ gtd_panel_get_title (GtdPanel *panel)
   return GTD_PANEL_GET_IFACE (panel)->get_title (panel);
 }
 
-const GtkWidget*
-gtd_panel_get_header_widget (GtdPanel *panel)
+GList*
+gtd_panel_get_header_widgets (GtdPanel *panel)
 {
   g_return_val_if_fail (GTD_IS_PANEL (panel), NULL);
-  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_header_widget, NULL);
+  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_header_widgets, NULL);
 
-  return GTD_PANEL_GET_IFACE (panel)->get_header_widget (panel);
+  return GTD_PANEL_GET_IFACE (panel)->get_header_widgets (panel);
 }
 
 const GMenu*

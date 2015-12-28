@@ -39,7 +39,7 @@ struct _GtdPanelInterface
 
   const gchar*       (*get_title)                          (GtdPanel        *panel);
 
-  const GtkWidget*   (*get_header_widget)                  (GtdPanel        *panel);
+  GList*             (*get_header_widgets)                 (GtdPanel        *panel);
 
   const GMenu*       (*get_menu)                           (GtdPanel        *panel);
 };
@@ -48,7 +48,7 @@ const gchar*         gtd_panel_get_name                          (GtdPanel      
 
 const gchar*         gtd_panel_get_title                         (GtdPanel           *panel);
 
-const GtkWidget*     gtd_panel_get_header_widget                 (GtdPanel           *panel);
+GList*               gtd_panel_get_header_widgets                (GtdPanel           *panel);
 
 const GMenu*         gtd_panel_get_menu                          (GtdPanel           *panel);
 

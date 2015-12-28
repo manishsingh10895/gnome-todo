@@ -17,12 +17,15 @@
  */
 
 #include "gtd-activatable.h"
+#include "gtd-panel.h"
 #include "gtd-provider.h"
 
 G_DEFINE_INTERFACE (GtdActivatable, gtd_activatable, PEAS_TYPE_ACTIVATABLE)
 
 enum
 {
+  PANEL_ADDED,
+  PANEL_REMOVED,
   PROVIDER_ADDED,
   PROVIDER_CHANGED,
   PROVIDER_REMOVED,
@@ -40,11 +43,10 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
    * A list of #GtdPanel this plugin carries.
    */
   g_object_interface_install_property (iface,
-                                       g_param_spec_boxed ("panels",
-                                                           "Panels this widget has",
-                                                           "A list of panel this widget has",
-                                                           G_TYPE_POINTER,
-                                                           G_PARAM_READABLE));
+                                       g_param_spec_pointer ("panels",
+                                                             "Panels this widget has",
+                                                             "A list of panel this widget has",
+                                                             G_PARAM_READABLE));
 
   /**
    * GtdActivatable::providers:
@@ -52,11 +54,44 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
    * A list of #GtdProvider this plugin carries.
    */
   g_object_interface_install_property (iface,
-                                       g_param_spec_boxed ("providers",
-                                                           "Providers this widget has",
-                                                           "A list of providers this widget has",
-                                                           G_TYPE_POINTER,
-                                                           G_PARAM_READABLE));
+                                       g_param_spec_pointer ("providers",
+                                                             "Providers this widget has",
+                                                             "A list of providers this widget has",
+                                                             G_PARAM_READABLE));
+
+  /**
+   * GtdActivatable::panel-added:
+   *
+   * The ::panel-added signal is emmited after a #GtdPanel
+   * is connected.
+   */
+  signals[PANEL_ADDED] = g_signal_new ("panel-added",
+                                       GTD_TYPE_ACTIVATABLE,
+                                       G_SIGNAL_RUN_LAST,
+                                       0,
+                                       NULL,
+                                       NULL,
+                                       NULL,
+                                       G_TYPE_NONE,
+                                       1,
+                                       GTD_TYPE_PANEL);
+
+  /**
+   * GtdActivatable::panel-removed:
+   *
+   * The ::panel-removed signal is emmited after a #GtdPanel
+   * is removed from the list.
+   */
+  signals[PANEL_REMOVED] = g_signal_new ("panel-removed",
+                                         GTD_TYPE_ACTIVATABLE,
+                                         G_SIGNAL_RUN_LAST,
+                                         0,
+                                         NULL,
+                                         NULL,
+                                         NULL,
+                                         G_TYPE_NONE,
+                                         1,
+                                         GTD_TYPE_PANEL);
 
   /**
    * GtdActivatable::provider-added:
