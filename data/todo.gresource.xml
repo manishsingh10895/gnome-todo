@@ -4,6 +4,7 @@
     <file alias="gtk/menus.ui">gtk/menus.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/edit-pane.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/initial-setup.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/list-selector-panel.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/list-view.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/notification.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/provider-dialog.ui</file>

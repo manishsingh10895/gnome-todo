@@ -32,6 +32,7 @@ EXTRA_DIST=                     \
   gtk/menus.ui \
   ui/edit-pane.ui \
   ui/initial-setup.ui \
+  ui/list-selector-panel.ui \
   ui/list-view.ui \
   ui/notification.ui \
   ui/provider-dialog.ui \

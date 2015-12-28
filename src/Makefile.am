@@ -40,6 +40,10 @@ gnome_todo_SOURCES = \
 	provider/gtd-provider-selector.h \
 	views/gtd-list-selector.c \
 	views/gtd-list-selector.h \
+	views/gtd-list-selector-grid.c \
+	views/gtd-list-selector-grid.h \
+	views/gtd-list-selector-panel.c \
+	views/gtd-list-selector-panel.h \
 	gtd-application.c \
 	gtd-application.h \
 	gtd-arrow-frame.c \

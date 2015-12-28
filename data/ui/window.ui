@@ -2,10 +2,6 @@
 <!-- Generated with glade 3.18.1 -->
 <interface>
   <requires lib="gtk+" version="3.16"/>
-  <object class="GtdProviderPopover" id="new_list_popover">
-    <property name="can_focus">False</property>
-    <property name="position">bottom</property>
-  </object>
   <object class="GtdProviderDialog" id="provider_dialog">
     <property name="visible">False</property>
     <property name="modal">True</property>
@@ -15,7 +11,6 @@
     <property name="can_focus">False</property>
     <property name="default_width">800</property>
     <property name="default_height">600</property>
-    <signal name="key-press-event" handler="gtd_window__on_key_press_event" object="search_bar" swapped="no" />
     <child>
       <object class="GtkOverlay" id="overlay">
         <property name="visible">True</property>
@@ -29,143 +24,17 @@
           </object>
         </child>
         <child>
-          <object class="GtkStack" id="main_stack">
+          <object class="GtkStack" id="stack">
             <property name="visible">True</property>
             <property name="can_focus">False</property>
+            <property name="hexpand">True</property>
+            <property name="vexpand">True</property>
+            <property name="transition_duration">250</property>
             <property name="transition_type">crossfade</property>
             <signal name="notify::visible-child" handler="gtd_window__stack_visible_child_cb" object="GtdWindow" swapped="yes" />
-            <child>
-              <object class="GtkBox" id="main_box">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="hexpand">True</property>
-                <property name="vexpand">True</property>
-                <property name="orientation">vertical</property>
-                <child>
-                  <object class="GtkSearchBar" id="search_bar">
-                    <property name="visible">True</property>
-                    <property name="show_close_button">True</property>
-                    <property name="search_mode_enabled" bind-source="search_button" bind-property="active" bind-flags="default|bidirectional" />
-                    <child>
-                      <object class="GtkSearchEntry" id="search_entry">
-                        <property name="visible">True</property>
-                        <property name="width_request">400</property>
-                        <signal name="search-changed" handler="gtk_flow_box_invalidate_filter" object="lists_flowbox" swapped="yes" />
-                      </object>
-                    </child>
-                  </object>
-                </child>
-                <child>
-                  <object class="GtkStack" id="stack">
-                    <property name="visible">True</property>
-                    <property name="can_focus">False</property>
-                    <property name="hexpand">True</property>
-                    <property name="vexpand">True</property>
-                    <property name="transition_duration">250</property>
-                    <property name="transition_type">crossfade</property>
-                    <signal name="notify::visible-child" handler="gtd_window__stack_visible_child_cb" object="GtdWindow" swapped="yes" />
-                    <style>
-                      <class name="background" />
-                    </style>
-                    <child>
-                      <object class="GtkScrolledWindow" id="lists_scrolled_window">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="vexpand">True</property>
-                        <property name="hscrollbar_policy">never</property>
-                        <child>
-                          <object class="GtkViewport" id="lists_viewport">
-                            <property name="visible">True</property>
-                            <property name="can_focus">False</property>
-                            <property name="shadow_type">none</property>
-                            <child>
-                              <object class="GtkFlowBox" id="lists_flowbox">
-                                <property name="visible">True</property>
-                                <property name="can_focus">True</property>
-                                <property name="has_focus">True</property>
-                                <property name="halign">start</property>
-                                <property name="valign">start</property>
-                                <property name="hexpand">True</property>
-                                <property name="vexpand">True</property>
-                                <property name="border_width">12</property>
-                                <property name="homogeneous">True</property>
-                                <property name="column_spacing">12</property>
-                                <property name="row_spacing">12</property>
-                                <property name="max_children_per_line">100</property>
-                                <property name="selection_mode">none</property>
-                                <signal name="child-activated" handler="gtd_window__list_selected" object="GtdWindow" swapped="no" />
-                              </object>
-                            </child>
-                          </object>
-                        </child>
-                      </object>
-                      <packing>
-                        <property name="name">lists</property>
-                        <property name="title" translatable="yes">Lists</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">1</property>
-                  </packing>
-                </child>
-                <child>
-                  <object class="GtkActionBar" id="action_bar">
-                    <property name="can_focus">False</property>
-                    <child>
-                      <object class="GtkButton" id="rename_button">
-                        <property name="label" translatable="yes">Rename</property>
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="sensitive">False</property>
-                        <signal name="clicked" handler="gtd_window__rename_button_clicked" object="GtdWindow" swapped="yes" />
-                      </object>
-                      <packing>
-                        <property name="position">1</property>
-                      </packing>
-                    </child>
-                    <child>
-                      <object class="GtkButton" id="remove_button">
-                        <property name="visible">True</property>
-                        <property name="can_focus">True</property>
-                        <property name="sensitive">False</property>
-                        <property name="label" translatable="yes">Delete</property>
-                        <signal name="clicked" handler="gtd_window__remove_button_clicked" object="GtdWindow" swapped="yes" />
-                        <style>
-                          <class name="destructive-action"/>
-                        </style>
-                      </object>
-                      <packing>
-                        <property name="pack_type">end</property>
-                        <property name="position">0</property>
-                      </packing>
-                    </child>
-                  </object>
-                  <packing>
-                    <property name="expand">False</property>
-                    <property name="fill">True</property>
-                    <property name="position">2</property>
-                  </packing>
-                </child>
-              </object>
-              <packing>
-                <property name="name">overview</property>
-              </packing>
-            </child>
-            <child>
-              <object class="GtdTaskListView" id="list_view">
-                <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="readonly">False</property>
-              </object>
-              <packing>
-                <property name="name">tasks</property>
-                <property name="position">1</property>
-              </packing>
-            </child>
+            <style>
+              <class name="background" />
+            </style>
           </object>
         </child>
       </object>
@@ -175,38 +44,6 @@
         <property name="visible">True</property>
         <property name="can_focus">False</property>
         <property name="show_close_button">True</property>
-        <child>
-          <object class="GtkButton" id="back_button">
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="clicked" handler="gtd_window__back_button_clicked" object="GtdWindow" swapped="no" />
-            <child>
-              <object class="GtkImage" id="back_button_image">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">go-previous-symbolic</property>
-              </object>
-            </child>
-          </object>
-        </child>
-        <child>
-          <object class="GtkMenuButton" id="new_list_button">
-            <property name="visible" bind-source="back_button" bind-property="visible" bind-flags="invert-boolean|sync-create"/>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <property name="popover">new_list_popover</property>
-            <child>
-              <object class="GtkLabel" id="new_list_button_label">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="label" translatable="yes">New List</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="position">1</property>
-          </packing>
-        </child>
         <child type="title">
           <object class="GtkStackSwitcher" id="stack_switcher">
             <property name="visible">True</property>
@@ -244,108 +81,7 @@
             <property name="pack_type">end</property>
           </packing>
         </child>
-        <child>
-          <object class="GtkToggleButton" id="select_button">
-            <property name="visible" bind-source="back_button" bind-property="visible" bind-flags="default|invert-boolean|sync-create"/>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="toggled" handler="gtd_window__select_button_toggled" object="GtdWindow" swapped="no" />
-            <child>
-              <object class="GtkImage" id="select_button_image">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">object-select-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkToggleButton" id="search_button">
-            <property name="visible" bind-source="back_button" bind-property="visible" bind-flags="invert-boolean|sync-create"/>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <child>
-              <object class="GtkImage" id="search_button_image">
-                <property name="visible">True</property>
-                <property name="can_focus">False</property>
-                <property name="icon_name">edit-find-symbolic</property>
-              </object>
-            </child>
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkColorButton" id="color_button">
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="color_set" handler="gtd_window__list_color_set" object="GtdWindow" swapped="no" />
-          </object>
-          <packing>
-            <property name="pack_type">end</property>
-          </packing>
-        </child>
       </object>
     </child>
   </template>
-  <object class="GtkPopover" id="rename_popover">
-    <property name="can_focus">False</property>
-    <property name="border_width">12</property>
-    <child>
-      <object class="GtkGrid" id="grid">
-        <property name="visible">True</property>
-        <property name="can_focus">False</property>
-        <property name="row_spacing">12</property>
-        <property name="column_spacing">12</property>
-        <child>
-          <object class="GtkLabel" id="label">
-            <property name="visible">True</property>
-            <property name="can_focus">False</property>
-            <property name="label" translatable="yes">Name of the task list</property>
-            <property name="xalign">0</property>
-            <attributes>
-              <attribute name="weight" value="bold"/>
-            </attributes>
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">0</property>
-            <property name="width">2</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkEntry" id="rename_entry">
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <signal name="notify::text" handler="gtd_window__rename_entry_text_changed" object="GtdWindow" swapped="no" />
-            <signal name="activate" handler="gtd_window__rename_task_list" object="GtdWindow" swapped="yes" />
-          </object>
-          <packing>
-            <property name="left_attach">0</property>
-            <property name="top_attach">1</property>
-          </packing>
-        </child>
-        <child>
-          <object class="GtkButton" id="save_rename_button">
-            <property name="label" translatable="yes">Rename</property>
-            <property name="visible">True</property>
-            <property name="can_focus">True</property>
-            <property name="receives_default">True</property>
-            <signal name="clicked" handler="gtd_window__rename_task_list" object="GtdWindow" swapped="yes" />
-            <style>
-              <class name="suggested-action"/>
-            </style>
-          </object>
-          <packing>
-            <property name="left_attach">1</property>
-            <property name="top_attach">1</property>
-          </packing>
-        </child>
-      </object>
-    </child>
-  </object>
 </interface>
