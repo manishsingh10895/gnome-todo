@@ -181,6 +181,8 @@ on_plugin_loaded (PeasEngine       *engine,
                   PeasPluginInfo   *info,
                   GtdPluginManager *self)
 {
+  g_message ("%s", G_STRFUNC);
+
   if (peas_engine_provides_extension (engine, info, GTD_TYPE_ACTIVATABLE))
     {
       GtdActivatable *activatable;
@@ -309,7 +311,6 @@ gtd_plugin_manager_init (GtdPluginManager *self)
   gtd_object_set_ready (GTD_OBJECT (self), FALSE);
 
   setup_engine (self);
-  setup_plugins (self);
 
   gtd_object_set_ready (GTD_OBJECT (self), TRUE);
 }
@@ -318,4 +319,10 @@ GtdPluginManager*
 gtd_plugin_manager_new (void)
 {
   return g_object_new (GTD_TYPE_PLUGIN_MANAGER, NULL);
+}
+
+void
+gtd_plugin_manager_load_plugins (GtdPluginManager *self)
+{
+  setup_plugins (self);
 }

@@ -19,6 +19,7 @@
 #include "interfaces/gtd-provider.h"
 #include "interfaces/gtd-panel.h"
 #include "gtd-manager.h"
+#include "gtd-manager-protected.h"
 #include "gtd-plugin-manager.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
@@ -452,29 +453,6 @@ gtd_manager_init (GtdManager *self)
 {
   self->priv = gtd_manager_get_instance_private (self);
   self->priv->settings = g_settings_new ("org.gnome.todo");
-
-  /* plugin manager */
-  self->priv->plugin_manager = gtd_plugin_manager_new ();
-
-  g_signal_connect (self->priv->plugin_manager,
-                    "panel-registered",
-                    G_CALLBACK (gtd_manager__panel_added),
-                    self);
-
-  g_signal_connect (self->priv->plugin_manager,
-                    "panel-unregistered",
-                    G_CALLBACK (gtd_manager__panel_removed),
-                    self);
-
-  g_signal_connect (self->priv->plugin_manager,
-                    "provider-registered",
-                    G_CALLBACK (gtd_manager__provider_added),
-                    self);
-
-  g_signal_connect (self->priv->plugin_manager,
-                    "provider-unregistered",
-                    G_CALLBACK (gtd_manager__provider_removed),
-                    self);
 }
 
 /**
@@ -815,4 +793,41 @@ gtd_manager_emit_error_message (GtdManager  *manager,
   emit_show_error_message (manager,
                            primary_message,
                            secondary_message);
+}
+
+void
+gtd_manager_load_plugins (GtdManager *manager)
+{
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (manager);
+
+  /*
+   * Avoid loading plugins more than once.
+   */
+  if (priv->plugin_manager)
+    return;
+
+  /* plugin manager */
+  priv->plugin_manager = gtd_plugin_manager_new ();
+
+  g_signal_connect (priv->plugin_manager,
+                    "panel-registered",
+                    G_CALLBACK (gtd_manager__panel_added),
+                    manager);
+
+  g_signal_connect (priv->plugin_manager,
+                    "panel-unregistered",
+                    G_CALLBACK (gtd_manager__panel_removed),
+                    manager);
+
+  g_signal_connect (priv->plugin_manager,
+                    "provider-registered",
+                    G_CALLBACK (gtd_manager__provider_added),
+                    manager);
+
+  g_signal_connect (priv->plugin_manager,
+                    "provider-unregistered",
+                    G_CALLBACK (gtd_manager__provider_removed),
+                    manager);
+
+  gtd_plugin_manager_load_plugins (priv->plugin_manager);
 }

@@ -23,6 +23,7 @@
 #include "gtd-application.h"
 #include "gtd-initial-setup-window.h"
 #include "gtd-manager.h"
+#include "gtd-manager-protected.h"
 #include "gtd-window.h"
 
 #include <glib.h>
@@ -244,6 +245,7 @@ gtd_application_startup (GApplication *application)
 
   /* manager */
   priv->manager = gtd_manager_get_default ();
+  gtd_manager_load_plugins (priv->manager);
 
   /* app menu */
   g_application_set_resource_base_path (application, "/org/gnome/todo");

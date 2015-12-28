@@ -49,6 +49,7 @@ gnome_todo_SOURCES = \
 	gtd-initial-setup-window.h \
 	gtd-manager.c \
 	gtd-manager.h \
+	gtd-manager-protected.h \
 	gtd-object.c \
 	gtd-object.h \
 	gtd-plugin-manager.c \

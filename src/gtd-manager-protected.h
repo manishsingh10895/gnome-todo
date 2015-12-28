@@ -1,4 +1,4 @@
-/* gtd-plugin-manager.h
+/* gtd-manager-protected.h
  *
  * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
@@ -16,24 +16,15 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_PLUGIN_MANAGER_H
-#define GTD_PLUGIN_MANAGER_H
+#ifndef GTD_MANAGER_PROTECTED_H
+#define GTD_MANAGER_PROTECTED_H
 
-#include <glib-object.h>
-
-#include "gtd-object.h"
 #include "gtd-types.h"
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_PLUGIN_MANAGER (gtd_plugin_manager_get_type())
-
-G_DECLARE_FINAL_TYPE (GtdPluginManager, gtd_plugin_manager, GTD, PLUGIN_MANAGER, GtdObject)
-
-GtdPluginManager*    gtd_plugin_manager_new                      (void);
-
-void                 gtd_plugin_manager_load_plugins             (GtdPluginManager   *self);
+void                 gtd_manager_load_plugins                    (GtdManager         *manager);
 
 G_END_DECLS
 
-#endif /* GTD_PLUGIN_MANAGER_H */
+#endif /* GTD_MANAGER_PROTECTED_H */
