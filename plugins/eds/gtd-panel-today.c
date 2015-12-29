@@ -32,7 +32,6 @@ struct _GtdPanelToday
   gchar              *title;
   guint               number_of_tasks;
   GtdTaskList        *task_list;
-  GDateTime          *today;
 };
 
 static void          gtd_panel_iface_init                        (GtdPanelInterface  *iface);
@@ -53,6 +52,28 @@ enum {
   PROP_TITLE,
   N_PROPS
 };
+
+static gboolean
+is_today (GDateTime *dt)
+{
+  GDateTime *today;
+
+  if (!dt)
+    return FALSE;
+
+  today = g_date_time_new_now_local ();
+
+  if (g_date_time_get_year (dt) == g_date_time_get_year (today) &&
+      g_date_time_get_month (dt) == g_date_time_get_month (today) &&
+      g_date_time_get_day_of_month (dt) == g_date_time_get_day_of_month (today))
+    {
+      return TRUE;
+    }
+
+  g_date_time_unref (today);
+
+  return FALSE;
+}
 
 static void
 gtd_panel_today_clear (GtdPanelToday *panel)
@@ -101,7 +122,7 @@ gtd_panel_today_count_tasks (GtdPanelToday *panel)
            * GtdTaskListView automagically updates the list
            * whever a task is added/removed/changed.
            */
-          if (task_dt && g_date_time_equal (task_dt, panel->today))
+          if (is_today (task_dt))
             {
               gtd_task_list_save_task (panel->task_list, t->data);
               number_of_tasks++;
@@ -130,43 +151,10 @@ gtd_panel_today_count_tasks (GtdPanelToday *panel)
                                           panel->number_of_tasks);
         }
 
-      g_message ("%s: setting title to '%s'",
-                 G_STRFUNC,
-                 panel->title);
-
       g_object_notify (G_OBJECT (panel), "title");
     }
 
   g_list_free (tasklists);
-}
-
-static GDateTime*
-get_today (void)
-{
-  GDateTime *now_local;
-  GDateTime *today;
-
-  now_local = g_date_time_new_now_local ();
-  today = g_date_time_new_local (g_date_time_get_year (now_local),
-                                 g_date_time_get_month (now_local),
-                                 g_date_time_get_day_of_month (now_local),
-                                 0,
-                                 0,
-                                 0);
-
-  g_clear_pointer (&now_local, g_date_time_unref);
-
-  return today;
-}
-
-static void
-gtd_panel_today_update_today (GtdPanelToday *panel)
-{
-  g_clear_pointer (&panel->today, g_date_time_unref);
-  panel->today = get_today ();
-
-  /* Recount tasks */
-  gtd_panel_today_count_tasks (panel);
 }
 
 static gboolean
@@ -178,12 +166,17 @@ gtd_panel_today_update_today_timeout_cb (GtdPanelToday *panel)
   gint seconds;
 
   now = g_date_time_new_now_local ();
-  today = get_today ();
+  today = g_date_time_new_local (g_date_time_get_year (now),
+                                 g_date_time_get_month (now),
+                                 g_date_time_get_day_of_month (now),
+                                 0,
+                                 0,
+                                 0);
   tomorrow = g_date_time_add_days (today, 1);
   seconds = g_date_time_difference (now, tomorrow) / G_TIME_SPAN_SECOND;
 
-  /* Update today and recount tasks */
-  gtd_panel_today_update_today (panel);
+  /* Recount tasks */
+  gtd_panel_today_count_tasks (panel);
 
   panel->day_change_callback_id = g_timeout_add_seconds (seconds,
                                                          (GSourceFunc) gtd_panel_today_update_today_timeout_cb,
@@ -237,7 +230,7 @@ gtd_panel_today_finalize (GObject *object)
 {
   GtdPanelToday *self = (GtdPanelToday *)object;
 
-  g_clear_pointer (&self->today, g_date_time_unref);
+  g_clear_object (&self->task_list);
 
   G_OBJECT_CLASS (gtd_panel_today_parent_class)->finalize (object);
 }
