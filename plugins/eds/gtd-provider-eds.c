@@ -74,7 +74,6 @@ task_data_new (GtdProviderEds *provider,
   return tdata;
 }
 
-
 static void
 gtd_provider_eds_fill_task_list (GObject      *client,
                                  GAsyncResult *result,
