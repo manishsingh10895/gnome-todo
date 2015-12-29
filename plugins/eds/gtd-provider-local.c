@@ -114,6 +114,8 @@ gtd_provider_local_create_task_list (GtdProvider *provider,
                                      GtdTaskList *list)
 {
   gtd_provider_eds_create_task_list (GTD_PROVIDER_EDS (provider), list);
+
+  g_signal_emit_by_name (provider, "list-added", list);
 }
 
 static void
@@ -121,6 +123,10 @@ gtd_provider_local_update_task_list (GtdProvider *provider,
                                      GtdTaskList *list)
 {
   gtd_provider_eds_update_task_list (GTD_PROVIDER_EDS (provider), list);
+
+  g_message ("%s: updating task list", G_STRFUNC);
+
+  g_signal_emit_by_name (provider, "list-changed", list);
 }
 
 static void
