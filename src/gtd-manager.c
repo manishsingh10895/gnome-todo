@@ -72,27 +72,6 @@ enum
 };
 
 static guint signals[NUM_SIGNALS] = { 0, };
-/*
-static gboolean
-is_today (GDateTime *dt)
-{
-  GDateTime *today;
-
-  today = g_date_time_new_now_local ();
-
-  if (g_date_time_get_year (dt) == g_date_time_get_year (today) &&
-      g_date_time_get_month (dt) == g_date_time_get_month (today) &&
-      g_date_time_get_day_of_month (dt) == g_date_time_get_day_of_month (today))
-    {
-      return TRUE;
-    }
-
-  g_date_time_unref (today);
-
-  return FALSE;
-}
-
- */
 
 static void
 emit_show_error_message (GtdManager  *manager,
@@ -339,6 +318,14 @@ gtd_manager_class_init (GtdManagerClass *klass)
 }
 
 static void
+gtd_manager__task_list_modified (GtdTaskList *list,
+                                 GtdTask     *task,
+                                 GtdManager  *self)
+{
+  g_signal_emit (self, signals[LIST_CHANGED], 0, list);
+}
+
+static void
 gtd_manager__panel_added (GtdPluginManager *plugin_manager,
                           GtdPanel         *panel,
                           GtdManager       *self)
@@ -371,6 +358,21 @@ gtd_manager__list_added (GtdProvider *provider,
 
   priv->tasklists = g_list_append (priv->tasklists, list);
 
+  g_signal_connect (list,
+                    "task-added",
+                    G_CALLBACK (gtd_manager__task_list_modified),
+                    self);
+
+  g_signal_connect (list,
+                    "task-updated",
+                    G_CALLBACK (gtd_manager__task_list_modified),
+                    self);
+
+  g_signal_connect (list,
+                    "task-removed",
+                    G_CALLBACK (gtd_manager__task_list_modified),
+                    self);
+
   g_signal_emit (self, signals[LIST_ADDED], 0, list);
 }
 
@@ -390,6 +392,10 @@ gtd_manager__list_removed (GtdProvider *provider,
   GtdManagerPrivate *priv = gtd_manager_get_instance_private (self);
 
   priv->tasklists = g_list_remove (priv->tasklists, list);
+
+  g_signal_handlers_disconnect_by_func (list,
+                                        gtd_manager__task_list_modified,
+                                        self);
 
   g_signal_emit (self, signals[LIST_REMOVED], 0, list);
 }
@@ -622,6 +628,8 @@ gtd_manager_save_task_list (GtdManager  *manager,
   g_return_if_fail (GTD_IS_TASK_LIST (list));
 
   provider = gtd_task_list_get_provider (list);
+
+  g_message ("%s", G_STRFUNC);
 
   gtd_provider_update_task_list (provider, list);
 }
