@@ -629,8 +629,6 @@ gtd_manager_save_task_list (GtdManager  *manager,
 
   provider = gtd_task_list_get_provider (list);
 
-  g_message ("%s", G_STRFUNC);
-
   gtd_provider_update_task_list (provider, list);
 }
 

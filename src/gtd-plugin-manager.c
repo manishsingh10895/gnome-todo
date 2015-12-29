@@ -181,8 +181,6 @@ on_plugin_loaded (PeasEngine       *engine,
                   PeasPluginInfo   *info,
                   GtdPluginManager *self)
 {
-  g_message ("%s", G_STRFUNC);
-
   if (peas_engine_provides_extension (engine, info, GTD_TYPE_ACTIVATABLE))
     {
       GtdActivatable *activatable;

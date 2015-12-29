@@ -124,8 +124,6 @@ gtd_provider_local_update_task_list (GtdProvider *provider,
 {
   gtd_provider_eds_update_task_list (GTD_PROVIDER_EDS (provider), list);
 
-  g_message ("%s: updating task list", G_STRFUNC);
-
   g_signal_emit_by_name (provider, "list-changed", list);
 }
 
