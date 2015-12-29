@@ -43,6 +43,8 @@ typedef struct
   GtkStackSwitcher              *stack_switcher;
   GtdProviderDialog             *provider_dialog;
 
+  GtdPanel                      *active_panel;
+
   /* mode */
   GtdWindowMode                  mode;
 
@@ -284,6 +286,65 @@ gtd_window__cancel_selection_button_clicked (GtkWidget *button,
                                              GtdWindow *window)
 {
   gtd_window_set_mode (window, GTD_WINDOW_MODE_NORMAL);
+}
+
+static void
+gtd_window__stack_visible_child_cb (GtdWindow  *window,
+                                    GParamSpec *pspec,
+                                    GtkStack   *stack)
+{
+  GtdWindowPrivate *priv;
+  GtkWidget *visible_child;
+  GtdPanel *panel;
+  GList *header_widgets;
+  GList *l;
+
+  priv = gtd_window_get_instance_private (window);
+  visible_child = gtk_stack_get_visible_child (stack);
+  panel = GTD_PANEL (visible_child);
+
+  /* Remove previous panel's widgets */
+  if (priv->active_panel)
+    {
+      header_widgets = gtd_panel_get_header_widgets (priv->active_panel);
+
+      for (l = header_widgets; l != NULL; l = l->next)
+        gtk_container_remove (GTK_CONTAINER (priv->headerbar), l->data);
+
+      g_list_free (header_widgets);
+    }
+
+  /* Add current panel's header widgets */
+  header_widgets = gtd_panel_get_header_widgets (panel);
+
+  for (l = header_widgets; l != NULL; l = l->next)
+    {
+      switch (gtk_widget_get_halign (l->data))
+        {
+        case GTK_ALIGN_START:
+          gtk_header_bar_pack_start (priv->headerbar, l->data);
+          break;
+
+        case GTK_ALIGN_CENTER:
+          gtk_header_bar_set_custom_title (priv->headerbar, l->data);
+          break;
+
+        case GTK_ALIGN_END:
+          gtk_header_bar_pack_end (priv->headerbar, l->data);
+          break;
+
+        case GTK_ALIGN_BASELINE:
+        case GTK_ALIGN_FILL:
+        default:
+          gtk_header_bar_pack_start (priv->headerbar, l->data);
+          break;
+        }
+    }
+
+  g_list_free (header_widgets);
+
+  /* Set panel as the new active panel */
+  g_set_object (&priv->active_panel, panel);
 }
 
 /*
@@ -580,6 +641,7 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack_switcher);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__cancel_selection_button_clicked);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_window__stack_visible_child_cb);
 }
 
 static void
