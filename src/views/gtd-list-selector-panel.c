@@ -17,6 +17,7 @@
  */
 
 #include "interfaces/gtd-panel.h"
+#include "interfaces/gtd-provider.h"
 #include "gtd-enum-types.h"
 #include "gtd-list-selector.h"
 #include "gtd-list-selector-grid.h"
@@ -194,6 +195,10 @@ gtd_list_selector_panel_list_selected (GtdListSelector      *selector,
       gtk_widget_show (panel->back_button);
       gtk_widget_show (panel->color_button);
 
+      gtd_window_set_custom_title (window,
+                                   gtd_task_list_get_name (list),
+                                   gtd_provider_get_description (gtd_task_list_get_provider (list)));
+
       g_signal_handlers_unblock_by_func (panel->color_button,
                                          gtd_list_selector_panel_list_color_set,
                                          panel);
@@ -210,13 +215,18 @@ static void
 gtd_list_selector_panel_back_button_clicked (GtkButton            *button,
                                              GtdListSelectorPanel *panel)
 {
-  // TODO: add a way to set custom title on GtdWindow's headerbar
+  GtdWindow *window;
+
+  window = GTD_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel)));
+
   gtk_stack_set_visible_child_name (GTK_STACK (panel), "lists");
   gtk_widget_show (panel->search_button);
   gtk_widget_show (panel->selection_button);
   gtk_widget_show (panel->view_button);
   gtk_widget_hide (panel->back_button);
   gtk_widget_hide (panel->color_button);
+
+  gtd_window_set_custom_title (window, NULL, NULL);
 }
 
 static void
