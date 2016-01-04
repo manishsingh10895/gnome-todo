@@ -626,11 +626,11 @@ gtd_provider_eds_remote_create_source_finished (GObject      *source,
 }
 
 static void
-task_list_removal_finished (GtdManager  *manager,
+task_list_removal_finished (GtdProvider *provider,
                             ESource     *source,
                             GError     **error)
 {
-  gtd_object_set_ready (GTD_OBJECT (manager), TRUE);
+  gtd_object_set_ready (GTD_OBJECT (provider), TRUE);
 
   if (*error)
     {
@@ -658,7 +658,7 @@ gtd_provider_eds_remote_delete_finished (GObject      *source,
                                  result,
                                  &error);
 
-  task_list_removal_finished (GTD_MANAGER (user_data),
+  task_list_removal_finished (GTD_PROVIDER (user_data),
                               E_SOURCE (source),
                               &error);
 }
@@ -674,7 +674,7 @@ gtd_provider_eds_remove_source_finished (GObject      *source,
                           result,
                           &error);
 
-  task_list_removal_finished (GTD_MANAGER (user_data),
+  task_list_removal_finished (GTD_PROVIDER (user_data),
                               E_SOURCE (source),
                               &error);
 }
@@ -686,7 +686,7 @@ gtd_provider_eds_commit_source_finished (GObject      *registry,
 {
   GError *error = NULL;
 
-  g_return_if_fail (GTD_IS_MANAGER (user_data));
+  g_return_if_fail (GTD_IS_PROVIDER_EDS (user_data));
 
   gtd_object_set_ready (GTD_OBJECT (user_data), TRUE);
   e_source_registry_commit_source_finish (E_SOURCE_REGISTRY (registry),
@@ -893,22 +893,34 @@ gtd_provider_eds_create_task_list (GtdProviderEds *provider,
 {
   GtdProviderEdsPrivate *priv;
   ESource *source;
-  ESource *parent;
 
   g_return_if_fail (GTD_IS_TASK_LIST_EDS (list));
   g_return_if_fail (gtd_task_list_eds_get_source (GTD_TASK_LIST_EDS (list)));
 
   priv = gtd_provider_eds_get_instance_private (provider);
   source = gtd_task_list_eds_get_source (GTD_TASK_LIST_EDS (list));
-  parent = e_source_registry_ref_source (priv->source_registry, e_source_get_parent (source));
 
-  e_source_remote_create (parent,
-                          source,
-                          NULL,
-                          (GAsyncReadyCallback) gtd_provider_eds_remote_create_source_finished,
-                          provider);
+  gtd_object_set_ready (GTD_OBJECT (provider), FALSE);
+  e_source_registry_commit_source (priv->source_registry,
+                                   source,
+                                   NULL,
+                                   (GAsyncReadyCallback) gtd_provider_eds_commit_source_finished,
+                                   provider);
 
-  g_object_unref (parent);
+  if (e_source_get_remote_creatable (source))
+    {
+      ESource *parent;
+
+      parent = e_source_registry_ref_source (priv->source_registry, e_source_get_parent (source));
+
+      e_source_remote_create (parent,
+                              source,
+                              NULL,
+                              (GAsyncReadyCallback) gtd_provider_eds_remote_create_source_finished,
+                              provider);
+
+      g_object_unref (parent);
+    }
 }
 
 void

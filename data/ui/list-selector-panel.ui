@@ -91,7 +91,7 @@
                 <property name="sensitive">False</property>
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
-                <signal name="clicked" handler="gtd_list_selector_panel_delete_button_clicked" object="GtdListSelectorPanel" swapped="no" />
+                <signal name="clicked" handler="gtd_list_selector_panel_delete_button_clicked" object="GtdListSelectorPanel" swapped="yes" />
                 <style>
                   <class name="destructive-action"/>
                 </style>

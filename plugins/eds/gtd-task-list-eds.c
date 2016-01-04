@@ -75,15 +75,18 @@ save_task_list_finished_cb (GObject      *source,
 static void
 save_task_list (GtdTaskListEds *list)
 {
-  if (!list->cancellable)
-    list->cancellable = g_cancellable_new ();
+  if (e_source_get_writable (list->source))
+    {
+      if (!list->cancellable)
+        list->cancellable = g_cancellable_new ();
 
-  gtd_object_set_ready (GTD_OBJECT (list), FALSE);
+      gtd_object_set_ready (GTD_OBJECT (list), FALSE);
 
-  e_source_write (list->source,
-                  list->cancellable,
-                  save_task_list_finished_cb,
-                  list);
+      e_source_write (list->source,
+                      list->cancellable,
+                      save_task_list_finished_cb,
+                      list);
+    }
 }
 static gboolean
 color_to_string (GBinding     *binding,
