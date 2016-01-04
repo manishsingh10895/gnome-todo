@@ -456,6 +456,8 @@ gtd_list_selector_panel_set_mode (GtdListSelectorPanel *panel,
       gtk_widget_set_visible (panel->view_button, !is_selection);
       gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (panel->selection_button), is_selection);
 
+      update_action_bar_buttons (panel);
+
       g_object_notify (G_OBJECT (panel), "mode");
     }
 }
