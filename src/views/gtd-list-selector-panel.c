@@ -212,6 +212,9 @@ gtd_list_selector_panel_back_button_clicked (GtkButton            *button,
 {
   // TODO: add a way to set custom title on GtdWindow's headerbar
   gtk_stack_set_visible_child_name (GTK_STACK (panel), "lists");
+  gtk_widget_show (panel->search_button);
+  gtk_widget_show (panel->selection_button);
+  gtk_widget_show (panel->view_button);
   gtk_widget_hide (panel->back_button);
   gtk_widget_hide (panel->color_button);
 }
