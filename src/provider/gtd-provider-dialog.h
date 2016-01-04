@@ -31,11 +31,6 @@ G_DECLARE_FINAL_TYPE (GtdProviderDialog, gtd_provider_dialog, GTD, PROVIDER_DIAL
 
 GtkWidget*         gtd_provider_dialog_new                       (void);
 
-GtdManager*        gtd_provider_dialog_get_manager               (GtdProviderDialog   *dialog);
-
-void               gtd_provider_dialog_set_manager               (GtdProviderDialog   *dialog,
-                                                                  GtdManager         *manager);
-
 G_END_DECLS
 
 #endif /* GTD_PROVIDER_DIALOG_H */

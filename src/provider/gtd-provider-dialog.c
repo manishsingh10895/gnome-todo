@@ -23,44 +23,28 @@
 
 #include <glib/gi18n.h>
 
-typedef struct
-{
-  GtkWidget       *headerbar;
-  GtkWidget       *provider_selector;
-
-  GtdManager      *manager;
-} GtdProviderDialogPrivate;
-
 struct _GtdProviderDialog
 {
-  GtkDialog                parent;
-
-  /*<private>*/
-  GtdProviderDialogPrivate *priv;
+  GtkDialog        parent;
+  GtkWidget       *headerbar;
+  GtkWidget       *provider_selector;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (GtdProviderDialog, gtd_provider_dialog, GTK_TYPE_DIALOG)
-
-enum {
-  PROP_0,
-  PROP_MANAGER,
-  LAST_PROP
-};
+G_DEFINE_TYPE (GtdProviderDialog, gtd_provider_dialog, GTK_TYPE_DIALOG)
 
 static void
 gtd_provider_dialog__provider_selected (GtdProviderDialog *dialog,
                                       GtdProvider       *provider)
 {
-  GtdProviderDialogPrivate *priv;
+  GtdManager *manager;
 
   g_return_if_fail (GTD_IS_PROVIDER_DIALOG (dialog));
-  g_return_if_fail (GTD_IS_MANAGER (dialog->priv->manager));
   g_return_if_fail (GTD_IS_PROVIDER (provider));
 
-  priv = dialog->priv;
+  manager = gtd_manager_get_default ();
 
   if (provider)
-    gtd_manager_set_default_provider (priv->manager, provider);
+    gtd_manager_set_default_provider (manager, provider);
 }
 
 static void
@@ -72,58 +56,13 @@ gtd_provider_dialog_finalize (GObject *object)
 static void
 gtd_provider_dialog_constructed (GObject *object)
 {
-  GtdProviderDialogPrivate *priv;
+  GtdProviderDialog *self = GTD_PROVIDER_DIALOG (object);
 
   /* Chain up */
   G_OBJECT_CLASS (gtd_provider_dialog_parent_class)->constructed (object);
 
-  priv = GTD_PROVIDER_DIALOG (object)->priv;
+  gtk_window_set_titlebar (GTK_WINDOW (object), self->headerbar);
 
-  gtk_window_set_titlebar (GTK_WINDOW (object), priv->headerbar);
-
-  g_object_bind_property (object,
-                          "manager",
-                          priv->provider_selector,
-                          "manager",
-                          G_BINDING_DEFAULT);
-}
-
-static void
-gtd_provider_dialog_get_property (GObject    *object,
-                                 guint       prop_id,
-                                 GValue     *value,
-                                 GParamSpec *pspec)
-{
-  GtdProviderDialog *self = GTD_PROVIDER_DIALOG (object);
-
-  switch (prop_id)
-    {
-    case PROP_MANAGER:
-      g_value_set_object (value, self->priv->manager);
-      break;
-
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-gtd_provider_dialog_set_property (GObject      *object,
-                                 guint         prop_id,
-                                 const GValue *value,
-                                 GParamSpec   *pspec)
-{
-  GtdProviderDialog *self = GTD_PROVIDER_DIALOG (object);
-
-  switch (prop_id)
-    {
-    case PROP_MANAGER:
-      gtd_provider_dialog_set_manager (self, g_value_get_object (value));
-      break;
-
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
 }
 
 static void
@@ -134,28 +73,11 @@ gtd_provider_dialog_class_init (GtdProviderDialogClass *klass)
 
   object_class->finalize = gtd_provider_dialog_finalize;
   object_class->constructed = gtd_provider_dialog_constructed;
-  object_class->get_property = gtd_provider_dialog_get_property;
-  object_class->set_property = gtd_provider_dialog_set_property;
-
-
-  /**
-   * GtdProviderDialog::manager:
-   *
-   * A weak reference to the application's #GtdManager instance.
-   */
-  g_object_class_install_property (
-        object_class,
-        PROP_MANAGER,
-        g_param_spec_object ("manager",
-                             "Manager of this window's application",
-                             "The manager of the window's application",
-                             GTD_TYPE_MANAGER,
-                             G_PARAM_READWRITE));
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/provider-dialog.ui");
 
-  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderDialog, headerbar);
-  gtk_widget_class_bind_template_child_private (widget_class, GtdProviderDialog, provider_selector);
+  gtk_widget_class_bind_template_child (widget_class, GtdProviderDialog, headerbar);
+  gtk_widget_class_bind_template_child (widget_class, GtdProviderDialog, provider_selector);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_provider_dialog__provider_selected);
 }
@@ -163,8 +85,6 @@ gtd_provider_dialog_class_init (GtdProviderDialogClass *klass)
 static void
 gtd_provider_dialog_init (GtdProviderDialog *self)
 {
-  self->priv = gtd_provider_dialog_get_instance_private (self);
-
   gtk_widget_init_template (GTK_WIDGET (self));
 }
 
@@ -179,46 +99,4 @@ GtkWidget*
 gtd_provider_dialog_new (void)
 {
   return g_object_new (GTD_TYPE_PROVIDER_DIALOG, NULL);
-}
-
-/**
- * gtd_provider_dialog_get_manager:
- * @dialog: a #GtdProviderDialog
- *
- * Retrieves @dialog's internal #GtdManager.
- *
- * Returns: (transfer none): the @dialog's #GtdManager
- */
-GtdManager*
-gtd_provider_dialog_get_manager (GtdProviderDialog *dialog)
-{
-  g_return_val_if_fail (GTD_IS_PROVIDER_DIALOG (dialog), NULL);
-
-  return dialog->priv->manager;
-}
-
-/**
- * gtd_provider_dialog_set_manager:
- * @dialog: a #GtdProviderDialog
- * @manager: a #GtdManager
- *
- * Sets the @dialog's #GtdManager.
- *
- * Returns:
- */
-void
-gtd_provider_dialog_set_manager (GtdProviderDialog *dialog,
-                                GtdManager       *manager)
-{
-  GtdProviderDialogPrivate *priv;
-
-  g_return_if_fail (GTD_IS_PROVIDER_DIALOG (dialog));
-
-  priv = dialog->priv;
-
-  if (priv->manager != manager)
-    {
-      priv->manager = manager;
-      g_object_notify (G_OBJECT (dialog), "manager");
-    }
 }
