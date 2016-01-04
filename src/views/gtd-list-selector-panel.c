@@ -370,7 +370,7 @@ gtd_list_selector_panel_get_header_widgets (GtdPanel *panel)
 
   widgets = g_list_append (NULL, self->search_button);
   widgets = g_list_append (widgets, self->selection_button);
-  widgets = g_list_append (widgets, self->view_button);
+  //widgets = g_list_append (widgets, self->view_button);
   widgets = g_list_append (widgets, self->back_button);
   widgets = g_list_append (widgets, self->new_list_button);
 
