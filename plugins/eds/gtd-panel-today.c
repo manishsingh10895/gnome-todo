@@ -321,6 +321,7 @@ gtd_panel_today_init (GtdPanelToday *self)
 
   /* The main view */
   self->view = gtd_task_list_view_new ();
+  gtd_task_list_view_set_show_list_name (GTD_TASK_LIST_VIEW (self->view), TRUE);
   gtd_task_list_view_set_task_list (GTD_TASK_LIST_VIEW (self->view), self->task_list);
 
   gtk_widget_set_hexpand (self->view, TRUE);
