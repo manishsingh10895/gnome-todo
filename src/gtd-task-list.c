@@ -115,6 +115,10 @@ gtd_task_list_set_property (GObject      *object,
       gtd_task_list_set_color (self, g_value_get_boxed (value));
       break;
 
+    case PROP_IS_REMOVABLE:
+      gtd_task_list_set_is_removable (self, g_value_get_boolean (value));
+      break;
+
     case PROP_NAME:
       gtd_task_list_set_name (self, g_value_get_string (value));
       break;
@@ -163,8 +167,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
         g_param_spec_boolean ("is-removable",
                               "Whether the task list is removable",
                               "Whether the task list can be removed from the system",
-                              TRUE,
-                              G_PARAM_READABLE));
+                              FALSE,
+                              G_PARAM_READWRITE));
 
   /**
    * GtdTaskList::name:
@@ -514,4 +518,22 @@ gtd_task_list_is_removable (GtdTaskList *list)
   priv = gtd_task_list_get_instance_private (list);
 
   return priv->removable;
+}
+
+void
+gtd_task_list_set_is_removable (GtdTaskList *list,
+                                gboolean     is_removable)
+{
+  GtdTaskListPrivate *priv;
+
+  g_return_if_fail (GTD_IS_TASK_LIST (list));
+
+  priv = gtd_task_list_get_instance_private (list);
+
+  if (priv->removable != is_removable)
+    {
+      priv->removable = is_removable;
+
+      g_object_notify (G_OBJECT (list), "is-removable");
+    }
 }

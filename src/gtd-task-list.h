@@ -56,6 +56,9 @@ void                    gtd_task_list_set_color                 (GtdTaskList    
 
 gboolean                gtd_task_list_is_removable              (GtdTaskList            *list);
 
+void                    gtd_task_list_set_is_removable          (GtdTaskList            *list,
+                                                                 gboolean                is_removable);
+
 const gchar*            gtd_task_list_get_name                  (GtdTaskList            *list);
 
 void                    gtd_task_list_set_name                  (GtdTaskList            *list,

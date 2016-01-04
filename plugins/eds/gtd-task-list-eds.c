@@ -38,6 +38,14 @@ enum {
 };
 
 static void
+source_removable_changed (GtdTaskListEds *list)
+{
+  gtd_task_list_set_is_removable (GTD_TASK_LIST (list),
+                                  e_source_get_removable (list->source) ||
+                                  e_source_get_remote_deletable (list->source));
+}
+
+static void
 save_task_list_finished_cb (GObject      *source,
                             GAsyncResult *result,
                             gpointer      user_data)
@@ -251,6 +259,21 @@ gtd_task_list_eds_set_source (GtdTaskListEds *list,
       g_signal_connect_swapped (source,
                                 "notify",
                                 G_CALLBACK (save_task_list),
+                                list);
+
+      /* Update ::is-removable property */
+      gtd_task_list_set_is_removable (GTD_TASK_LIST (list),
+                                      e_source_get_removable (source) ||
+                                      e_source_get_remote_deletable (source));
+
+      g_signal_connect_swapped (source,
+                                "notify::removable",
+                                G_CALLBACK (source_removable_changed),
+                                list);
+
+      g_signal_connect_swapped (source,
+                                "notify::remote-deletable",
+                                G_CALLBACK (source_removable_changed),
                                 list);
 
       g_object_notify (G_OBJECT (list), "source");
