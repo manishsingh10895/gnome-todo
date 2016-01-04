@@ -45,6 +45,10 @@ GtdWindowMode             gtd_window_get_mode             (GtdWindow            
 void                      gtd_window_set_mode             (GtdWindow             *window,
                                                            GtdWindowMode          mode);
 
+void                      gtd_window_set_custom_title     (GtdWindow             *window,
+                                                           const gchar           *title,
+                                                           const gchar           *subtitle);
+
 G_END_DECLS
 
 #endif /* GTD_WINDOW_H */

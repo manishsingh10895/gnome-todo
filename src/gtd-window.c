@@ -800,3 +800,35 @@ gtd_window_set_mode (GtdWindow     *window,
       g_object_notify (G_OBJECT (window), "mode");
     }
 }
+
+/**
+ * gtd_window_set_custom_title:
+ * @window: a #GtdWindow
+ * @title: (nullable): the #GtkHeaderBar title
+ * @subtitle: (nullable): the #GtkHeaderBar subtitle
+ *
+ * Sets the #GtdWindow's headerbar title and subtitle. If @title is %NULL,
+ * the header will be set to the stack switcher.
+ */
+void
+gtd_window_set_custom_title (GtdWindow   *window,
+                             const gchar *title,
+                             const gchar *subtitle)
+{
+  GtdWindowPrivate *priv;
+
+  g_return_if_fail (GTD_IS_WINDOW (window));
+
+  priv = window->priv;
+
+  if (title)
+    {
+      gtk_header_bar_set_custom_title (priv->headerbar, NULL);
+      gtk_header_bar_set_title (priv->headerbar, title);
+      gtk_header_bar_set_subtitle (window->priv->headerbar, subtitle);
+    }
+  else
+    {
+      gtk_header_bar_set_custom_title (priv->headerbar, GTK_WIDGET (priv->stack_switcher));
+    }
+}
