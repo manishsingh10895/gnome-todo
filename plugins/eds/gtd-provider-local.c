@@ -17,6 +17,7 @@
  */
 
 #include "gtd-provider-local.h"
+#include "gtd-task-list-eds.h"
 
 #include <glib/gi18n.h>
 
@@ -113,9 +114,46 @@ static void
 gtd_provider_local_create_task_list (GtdProvider *provider,
                                      GtdTaskList *list)
 {
-  gtd_provider_eds_create_task_list (GTD_PROVIDER_EDS (provider), list);
+  ESourceExtension *extension;
+  GtdTaskListEds *eds_list;
+  ESource *source;
+  GError *error;
 
-  g_signal_emit_by_name (provider, "list-added", list);
+  error = NULL;
+
+  /* Create the source */
+  source = e_source_new (NULL,
+                         NULL,
+                         &error);
+
+  if (error)
+    {
+      g_warning ("%s: %s: %s",
+                 G_STRFUNC,
+                 _("Error creating new task list"),
+                 error->message);
+
+      gtd_manager_emit_error_message (gtd_manager_get_default (),
+                                      _("Error creating new task list"),
+                                      error->message);
+
+      g_clear_error (&error);
+      return;
+    }
+
+  /* EDS properties */
+  e_source_set_display_name (source, gtd_task_list_get_name (list));
+
+  /* Make it a local source */
+  extension = e_source_get_extension (source, E_SOURCE_EXTENSION_TASK_LIST);
+
+  e_source_set_parent (source, "local-stub");
+  e_source_backend_set_backend_name (E_SOURCE_BACKEND (extension), "local");
+
+  /* EDS Task list */
+  eds_list = gtd_task_list_eds_new (provider, source);
+
+  gtd_provider_eds_create_task_list (GTD_PROVIDER_EDS (provider), GTD_TASK_LIST (eds_list));
 }
 
 static void
