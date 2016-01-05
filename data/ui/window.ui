@@ -66,6 +66,7 @@
         </child>
         <child>
           <object class="GtkMenuButton" id="gear_menu_button">
+            <property name="visible">True</property>
             <property name="can_focus">True</property>
             <style>
               <class name="image-button" />

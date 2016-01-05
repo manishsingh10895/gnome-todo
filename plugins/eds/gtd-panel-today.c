@@ -26,6 +26,7 @@ struct _GtdPanelToday
   GtkBox              parent;
 
   GtkWidget          *view;
+  GMenu              *menu;
 
   gint                day_change_callback_id;
 
@@ -125,7 +126,9 @@ gtd_panel_today_count_tasks (GtdPanelToday *panel)
           if (is_today (task_dt))
             {
               gtd_task_list_save_task (panel->task_list, t->data);
-              number_of_tasks++;
+
+              if (!gtd_task_get_complete (t->data))
+                number_of_tasks++;
             }
 
           g_clear_pointer (&task_dt, g_date_time_unref);
@@ -213,7 +216,7 @@ gtd_panel_today_get_header_widgets (GtdPanel *panel)
 static const GMenu*
 gtd_panel_today_get_menu (GtdPanel *panel)
 {
-  return NULL;
+  return GTD_PANEL_TODAY (panel)->menu;
 }
 
 static void
@@ -318,6 +321,12 @@ gtd_panel_today_init (GtdPanelToday *self)
 
   /* Task list */
   self->task_list = gtd_task_list_new (NULL);
+
+  /* Menu */
+  self->menu = g_menu_new ();
+  g_menu_append (self->menu,
+                 _("Clear completed tasks…"),
+                 "list.clear-completed-tasks");
 
   /* The main view */
   self->view = gtd_task_list_view_new ();

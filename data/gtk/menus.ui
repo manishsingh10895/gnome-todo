@@ -27,12 +27,4 @@
       </item>
     </section>
   </menu>
-  <menu id="gear-menu">
-    <section>
-      <item>
-        <attribute name="label" translatable="yes">Clear completed tasks…</attribute>
-        <attribute name="action">list.clear-completed-tasks</attribute>
-      </item>
-    </section>
-  </menu>
 </interface>

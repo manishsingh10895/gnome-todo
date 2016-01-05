@@ -25,6 +25,8 @@ struct _GtdPanelScheduled
 {
   GtkBox              parent;
 
+  GMenu              *menu;
+
   gchar              *title;
   guint               number_of_tasks;
   GtdTaskList        *task_list;
@@ -99,7 +101,9 @@ gtd_panel_scheduled_count_tasks (GtdPanelScheduled *panel)
           if (task_dt)
             {
               gtd_task_list_save_task (panel->task_list, t->data);
-              number_of_tasks++;
+
+              if (!gtd_task_get_complete (t->data))
+                number_of_tasks++;
             }
 
           g_clear_pointer (&task_dt, g_date_time_unref);
@@ -155,7 +159,7 @@ gtd_panel_scheduled_get_header_widgets (GtdPanel *panel)
 static const GMenu*
 gtd_panel_scheduled_get_menu (GtdPanel *panel)
 {
-  return NULL;
+  return GTD_PANEL_SCHEDULED (panel)->menu;
 }
 
 static void
@@ -260,6 +264,12 @@ gtd_panel_scheduled_init (GtdPanelScheduled *self)
 
   /* Task list */
   self->task_list = gtd_task_list_new (NULL);
+
+  /* Menu */
+  self->menu = g_menu_new ();
+  g_menu_append (self->menu,
+                 _("Clear completed tasks…"),
+                 "list.clear-completed-tasks");
 
   /* The main view */
   self->view = gtd_task_list_view_new ();

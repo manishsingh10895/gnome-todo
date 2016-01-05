@@ -91,6 +91,30 @@ typedef struct
 } ErrorData;
 
 static void
+update_panel_menu (GtdWindow *window)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+  const GMenu *menu;
+
+  menu = gtd_panel_get_menu (priv->active_panel);
+
+  gtk_menu_button_set_menu_model (GTK_MENU_BUTTON (priv->gear_menu_button), G_MENU_MODEL (menu));
+}
+
+static void
+gtd_window__panel_menu_changed (GObject    *object,
+                                GParamSpec *pspec,
+                                GtdWindow  *window)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+
+  if (GTD_PANEL (object) != priv->active_panel)
+    return;
+
+  update_panel_menu (window);
+}
+
+static void
 gtd_window__panel_title_changed (GObject    *object,
                                  GParamSpec *pspec,
                                  GtdWindow  *window)
@@ -308,6 +332,11 @@ gtd_window__stack_visible_child_cb (GtdWindow  *window,
     {
       header_widgets = gtd_panel_get_header_widgets (priv->active_panel);
 
+      /* Disconnect signals */
+      g_signal_handlers_disconnect_by_func (priv->active_panel,
+                                            gtd_window__panel_menu_changed,
+                                            window);
+
       for (l = header_widgets; l != NULL; l = l->next)
         gtk_container_remove (GTK_CONTAINER (priv->headerbar), l->data);
 
@@ -343,8 +372,16 @@ gtd_window__stack_visible_child_cb (GtdWindow  *window,
 
   g_list_free (header_widgets);
 
+  g_signal_connect (panel,
+                    "notify::menu",
+                    G_CALLBACK (gtd_window__panel_menu_changed),
+                    window);
+
   /* Set panel as the new active panel */
   g_set_object (&priv->active_panel, panel);
+
+  /* Setup the panel's menu */
+  update_panel_menu (window);
 }
 
 /*
@@ -780,6 +817,7 @@ gtd_window_set_mode (GtdWindow     *window,
       context = gtk_widget_get_style_context (GTK_WIDGET (priv->headerbar));
       is_selection_mode = (mode == GTD_WINDOW_MODE_SELECTION);
 
+      gtk_widget_set_visible (priv->gear_menu_button, !is_selection_mode);
       gtk_widget_set_visible (priv->cancel_selection_button, is_selection_mode);
       gtk_header_bar_set_show_close_button (priv->headerbar, !is_selection_mode);
       gtk_header_bar_set_subtitle (priv->headerbar, NULL);

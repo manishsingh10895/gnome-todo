@@ -38,6 +38,7 @@ struct _GtdListSelectorPanel
   GtkWidget          *tasklist_view;
 
   GtkWidget          *grid_selector;
+  GMenu              *menu;
 
   /* Action bar widgets */
   GtkWidget          *actionbar;
@@ -204,6 +205,8 @@ gtd_list_selector_panel_list_selected (GtdListSelector      *selector,
                                          panel);
 
       gdk_rgba_free (list_color);
+
+      g_object_notify (G_OBJECT (panel), "menu");
       break;
 
     default:
@@ -227,6 +230,8 @@ gtd_list_selector_panel_back_button_clicked (GtkButton            *button,
   gtk_widget_hide (panel->color_button);
 
   gtd_window_set_custom_title (window, NULL, NULL);
+
+  g_object_notify (G_OBJECT (panel), "menu");
 }
 
 static void
@@ -380,8 +385,12 @@ gtd_list_selector_panel_get_header_widgets (GtdPanel *panel)
 static const GMenu*
 gtd_list_selector_panel_get_menu (GtdPanel *panel)
 {
-  /* TODO: add a menu for GtdListSelectorPanel */
-  return NULL;
+  if (g_strcmp0 (gtk_stack_get_visible_child_name (GTK_STACK (panel)), "lists") == 0)
+    {
+      return NULL;
+    }
+
+  return GTD_LIST_SELECTOR_PANEL (panel)->menu;
 }
 
 static const gchar*
@@ -580,6 +589,12 @@ gtd_list_selector_panel_init (GtdListSelectorPanel *self)
                         self->grid_selector,
                         "grid",
                         "Grid");
+
+  /* Menu */
+  self->menu = g_menu_new ();
+  g_menu_append (self->menu,
+                 _("Clear completed tasks…"),
+                 "list.clear-completed-tasks");
 }
 
 GtkWidget*
