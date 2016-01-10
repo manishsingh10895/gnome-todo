@@ -52,7 +52,6 @@ GtdManager *gtd_manager_instance = NULL;
 
 enum
 {
-  DEFAULT_PROVIDER_CHANGED,
   LIST_ADDED,
   LIST_CHANGED,
   LIST_REMOVED,
@@ -72,6 +71,26 @@ enum
 };
 
 static guint signals[NUM_SIGNALS] = { 0, };
+
+static void
+check_provider_is_default (GtdManager  *manager,
+                           GtdProvider *provider)
+{
+  GtdManagerPrivate *priv;
+  gchar *default_provider;
+
+  priv = manager->priv;
+  default_provider = g_settings_get_string (priv->settings, "default-provider");
+
+  if (g_strcmp0 (default_provider, gtd_provider_get_id (provider)) == 0)
+    {
+      g_set_object (&priv->default_provider, provider);
+
+      g_object_notify (G_OBJECT (manager), "default-provider");
+    }
+
+  g_free (default_provider);
+}
 
 static void
 emit_show_error_message (GtdManager  *manager,
@@ -123,19 +142,6 @@ gtd_manager_set_property (GObject      *object,
 }
 
 static void
-gtd_manager_constructed (GObject *object)
-{
-  GtdManagerPrivate *priv = GTD_MANAGER (object)->priv;
-  gchar *default_location;
-
-  G_OBJECT_CLASS (gtd_manager_parent_class)->constructed (object);
-
-  default_location = g_settings_get_string (priv->settings, "storage-location");
-
-  g_free (default_location);
-}
-
-static void
 gtd_manager_class_init (GtdManagerClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -143,7 +149,6 @@ gtd_manager_class_init (GtdManagerClass *klass)
   object_class->finalize = gtd_manager_finalize;
   object_class->get_property = gtd_manager_get_property;
   object_class->set_property = gtd_manager_set_property;
-  object_class->constructed = gtd_manager_constructed;
 
   /**
    * GtdManager::goa-client:
@@ -158,25 +163,6 @@ gtd_manager_class_init (GtdManagerClass *klass)
                             "The default provider of the application",
                             GTD_TYPE_PROVIDER,
                             G_PARAM_READWRITE));
-
-  /**
-   * GtdManager::default-provider-changed:
-   *
-   * The ::default-provider-changed signal is emmited when a new #GtdStorage
-   * is set as default.
-   */
-  signals[DEFAULT_PROVIDER_CHANGED] =
-                  g_signal_new ("default-provider-changed",
-                                GTD_TYPE_MANAGER,
-                                G_SIGNAL_RUN_LAST,
-                                0,
-                                NULL,
-                                NULL,
-                                NULL,
-                                G_TYPE_NONE,
-                                2,
-                                GTD_TYPE_PROVIDER,
-                                GTD_TYPE_PROVIDER);
 
   /**
    * GtdManager::list-added:
@@ -431,6 +417,9 @@ gtd_manager__provider_added (GtdPluginManager *plugin_manager,
                     "list-removed",
                     G_CALLBACK (gtd_manager__list_removed),
                     self);
+
+  /* If we just added the default provider, update the property */
+  check_provider_is_default (self, provider);
 
   g_signal_emit (self, signals[PROVIDER_ADDED], 0, provider);
 }
@@ -709,32 +698,20 @@ void
 gtd_manager_set_default_provider (GtdManager  *manager,
                                   GtdProvider *provider)
 {
+  GtdManagerPrivate *priv;
+
   g_return_if_fail (GTD_IS_MANAGER (manager));
-/*
-  if (!gtd_storage_get_is_default (default_storage))
+
+  priv = manager->priv;
+
+  if (g_set_object (&priv->default_provider, provider))
     {
-      GtdStorage *previus_default = NULL;
-      GList *l;
+      g_settings_set_string (priv->settings,
+                             "default-provider",
+                             provider ? gtd_provider_get_id (provider) : "local");
 
-      g_settings_set_string (manager->priv->settings,
-                             "storage-location",
-                             gtd_storage_get_id (default_storage));
-
-      for (l = manager->priv->storage_locations; l != NULL; l = l->next)
-        {
-          if (gtd_storage_get_is_default (l->data))
-            previus_default = l->data;
-
-          gtd_storage_set_is_default (l->data, l->data == default_storage);
-        }
-
-      g_signal_emit (manager,
-                     signals[DEFAULT_PROVIDER_CHANGED],
-                     0,
-                     default_storage,
-                     previus_default);
+      g_object_notify (G_OBJECT (manager), "default-provider");
     }
- */
 }
 
 /**

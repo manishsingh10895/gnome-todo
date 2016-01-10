@@ -89,20 +89,18 @@ display_header_func (GtkListBoxRow *row,
 }
 
 static void
-gtd_provider_selector__default_provider_changed (GtdProviderSelector *selector,
-                                               GtdProvider         *current,
-                                               GtdProvider         *previous)
+gtd_provider_selector__default_provider_changed (GtdProviderSelector *selector)
 {
+  GtdProvider *current;
+  GtdManager *manager;
   GList *children;
   GList *l;
-
-  g_return_if_fail (GTD_IS_PROVIDER_SELECTOR (selector));
-  g_return_if_fail (GTD_IS_PROVIDER (previous));
-  g_return_if_fail (GTD_IS_PROVIDER (current));
 
   if (!selector->select_default)
     return;
 
+  manager = gtd_manager_get_default ();
+  current = gtd_manager_get_default_provider (manager);
   children = gtk_container_get_children (GTK_CONTAINER (selector->listbox));
 
   for (l = children; l != NULL; l = l->next)
@@ -515,7 +513,7 @@ gtd_provider_selector_init (GtdProviderSelector *self)
   gtd_provider_selector__fill_accounts (self);
 
   g_signal_connect_swapped (manager,
-                            "default-provider-changed",
+                            "notify::default-provider",
                             G_CALLBACK (gtd_provider_selector__default_provider_changed),
                             self);
 
