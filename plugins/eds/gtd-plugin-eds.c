@@ -50,11 +50,14 @@ struct _GtdPluginEds
 
   /* Providers */
   GList                  *providers;
+
+  gboolean                active;
 };
 
 enum
 {
   PROP_0,
+  PROP_ACTIVE,
   PROP_OBJECT,
   PROP_PROVIDERS,
   PROP_PANELS,
@@ -85,13 +88,21 @@ G_DEFINE_DYNAMIC_TYPE_EXTENDED (GtdPluginEds, gtd_plugin_eds, PEAS_TYPE_EXTENSIO
 static void
 gtd_plugin_eds_activate (PeasActivatable *activatable)
 {
-  g_message ("activate");
+  GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
+
+  plugin->active = TRUE;
+
+  g_object_notify (G_OBJECT (activatable), "active");
 }
 
 static void
 gtd_plugin_eds_deactivate (PeasActivatable *activatable)
 {
-  g_message ("deactivate");
+  GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
+
+  plugin->active = FALSE;
+
+  g_object_notify (G_OBJECT (activatable), "active");
 }
 
 static void
@@ -320,6 +331,10 @@ gtd_plugin_eds_get_property (GObject    *object,
 
   switch (prop_id)
     {
+    case PROP_ACTIVE:
+      g_value_set_boolean (value, self->active);
+      break;
+
     case PROP_OBJECT:
       g_value_set_object (value, NULL);
       break;
@@ -361,6 +376,10 @@ gtd_plugin_eds_class_init (GtdPluginEdsClass *klass)
   object_class->finalize = gtd_plugin_eds_finalize;
   object_class->get_property = gtd_plugin_eds_get_property;
   object_class->set_property = gtd_plugin_eds_set_property;
+
+  g_object_class_override_property (object_class,
+                                    PROP_ACTIVE,
+                                    "active");
 
   g_object_class_override_property (object_class,
                                     PROP_OBJECT,
