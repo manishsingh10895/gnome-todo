@@ -205,12 +205,21 @@ gtd_provider_eds_on_client_connected (GObject      *source_object,
 
 }
 
-static void
-gtd_provider_eds_load_source (GtdProviderEds *provider,
-                              ESource        *source)
+typedef struct
+{
+  GtdProviderEds *provider;
+  ESource        *source;
+} LoadSourceData;
+
+static gboolean
+gtd_provider_eds_load_source_cb (LoadSourceData *data)
 {
   GtdProviderEdsPrivate *priv;
+  GtdProviderEds *provider;
+  ESource *source;
 
+  provider = data->provider;
+  source = data->source;
   priv = gtd_provider_eds_get_instance_private (provider);
 
   if (e_source_has_extension (source, E_SOURCE_EXTENSION_TASK_LIST) &&
@@ -224,6 +233,32 @@ gtd_provider_eds_load_source (GtdProviderEds *provider,
                             gtd_provider_eds_on_client_connected,
                             provider);
     }
+
+  g_free (data);
+
+  return G_SOURCE_REMOVE;
+}
+
+static void
+gtd_provider_eds_load_source (GtdProviderEds *provider,
+                              ESource        *source)
+{
+  LoadSourceData *data;
+
+  data = g_new0 (LoadSourceData, 1);
+  data->provider = provider;
+  data->source = source;
+
+  /* HACK: I really don't like to use arbitrary timeouts on
+   * my code, but we have absolutely no guarantees that
+   * ESourceRegistry::source-added was emited to the other
+   * objects before. So Milan Crha told me to add this timeout
+   * and "guarantee" that other objects will receive the
+   * signal.
+   */
+  g_timeout_add (1000,
+                 (GSourceFunc) gtd_provider_eds_load_source_cb,
+                 data);
 }
 
 static void
