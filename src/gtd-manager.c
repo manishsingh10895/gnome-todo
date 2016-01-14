@@ -448,6 +448,7 @@ gtd_manager_init (GtdManager *self)
 {
   self->priv = gtd_manager_get_instance_private (self);
   self->priv->settings = g_settings_new ("org.gnome.todo");
+  self->priv->plugin_manager = gtd_plugin_manager_new ();
 }
 
 /**
@@ -783,15 +784,6 @@ gtd_manager_load_plugins (GtdManager *manager)
 {
   GtdManagerPrivate *priv = gtd_manager_get_instance_private (manager);
 
-  /*
-   * Avoid loading plugins more than once.
-   */
-  if (priv->plugin_manager)
-    return;
-
-  /* plugin manager */
-  priv->plugin_manager = gtd_plugin_manager_new ();
-
   g_signal_connect (priv->plugin_manager,
                     "panel-registered",
                     G_CALLBACK (gtd_manager__panel_added),
@@ -813,4 +805,12 @@ gtd_manager_load_plugins (GtdManager *manager)
                     manager);
 
   gtd_plugin_manager_load_plugins (priv->plugin_manager);
+}
+
+GtdPluginManager*
+gtd_manager_get_plugin_manager (GtdManager *manager)
+{
+  g_return_val_if_fail (GTD_IS_MANAGER (manager), NULL);
+
+  return manager->priv->plugin_manager;
 }
