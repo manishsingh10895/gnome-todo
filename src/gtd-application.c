@@ -20,6 +20,7 @@
 #include "config.h"
 #endif
 
+#include "plugin/gtd-plugin-dialog.h"
 #include "gtd-application.h"
 #include "gtd-initial-setup-window.h"
 #include "gtd-manager.h"
@@ -37,6 +38,7 @@ typedef struct
   GtdManager     *manager;
 
   GtkWidget      *window;
+  GtkWidget      *plugin_dialog;
   GtkWidget      *initial_setup;
 } GtdApplicationPrivate;
 
@@ -47,6 +49,10 @@ struct _GtdApplication
   /*< private >*/
   GtdApplicationPrivate *priv;
 };
+
+static void           gtd_application_show_extensions             (GSimpleAction        *simple,
+                                                                   GVariant             *parameter,
+                                                                   gpointer              user_data);
 
 static void           gtd_application_show_about                  (GSimpleAction        *simple,
                                                                    GVariant             *parameter,
@@ -59,9 +65,20 @@ static void           gtd_application_quit                        (GSimpleAction
 G_DEFINE_TYPE_WITH_PRIVATE (GtdApplication, gtd_application, GTK_TYPE_APPLICATION)
 
 static const GActionEntry gtd_application_entries[] = {
+  { "show-extensions",  gtd_application_show_extensions },
   { "about",  gtd_application_show_about },
   { "quit",   gtd_application_quit }
 };
+
+static void
+gtd_application_show_extensions (GSimpleAction *simple,
+                                 GVariant      *parameter,
+                                 gpointer       user_data)
+{
+  GtdApplicationPrivate *priv = GTD_APPLICATION (user_data)->priv;
+
+  gtk_widget_show (priv->plugin_dialog);
+}
 
 static void
 gtd_application_show_about (GSimpleAction *simple,
@@ -130,6 +147,7 @@ gtd_application_new (void)
   return g_object_new (GTD_TYPE_APPLICATION,
                        "application-id", "org.gnome.Todo",
                        "flags", G_APPLICATION_FLAGS_NONE,
+                       "resource-base-path", "/org/gnome/todo",
                        NULL);
 }
 
@@ -143,7 +161,12 @@ run_window (GtdApplication *application)
   priv = application->priv;
 
   if (!priv->window)
-    priv->window = gtd_window_new (GTD_APPLICATION (application));
+    {
+      priv->window = gtd_window_new (GTD_APPLICATION (application));
+
+      gtk_window_set_transient_for (GTK_WINDOW (priv->plugin_dialog),
+                                    GTK_WINDOW (priv->window));
+    }
 
   gtk_widget_show (priv->window);
 }
@@ -241,20 +264,20 @@ gtd_application_startup (GApplication *application)
 {
   GtdApplicationPrivate *priv = GTD_APPLICATION (application)->priv;
 
-  G_APPLICATION_CLASS (gtd_application_parent_class)->startup (application);
-
-  /* manager */
-  priv->manager = gtd_manager_get_default ();
-  gtd_manager_load_plugins (priv->manager);
-
-  /* app menu */
-  g_application_set_resource_base_path (application, "/org/gnome/todo");
-
   /* add actions */
   g_action_map_add_action_entries (G_ACTION_MAP (application),
                                    gtd_application_entries,
                                    G_N_ELEMENTS (gtd_application_entries),
                                    application);
+
+  G_APPLICATION_CLASS (gtd_application_parent_class)->startup (application);
+
+  /* plugin dialog */
+  priv->plugin_dialog = gtd_plugin_dialog_new ();
+
+  /* manager */
+  priv->manager = gtd_manager_get_default ();
+  gtd_manager_load_plugins (priv->manager);
 }
 
 static void

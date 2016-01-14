@@ -35,6 +35,8 @@ EXTRA_DIST=                     \
   ui/list-selector-panel.ui \
   ui/list-view.ui \
   ui/notification.ui \
+  ui/plugin-dialog.ui \
+  ui/plugin-row.ui \
   ui/provider-dialog.ui \
   ui/provider-popover.ui \
   ui/provider-row.ui \

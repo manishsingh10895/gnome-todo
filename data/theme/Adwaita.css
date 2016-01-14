@@ -85,3 +85,13 @@ task-row.priority-hight {
 task-row.priority-hight:hover {
     background-color: alpha(#cc0000, 0.4);
 }
+
+/* extension list */
+list.extension-list row {
+    border-bottom: solid 1px @borders
+}
+
+/* circle button */
+button.circle {
+    border-radius: 20px;
+}
