@@ -34,6 +34,8 @@ GtdPluginManager*    gtd_plugin_manager_new                      (void);
 
 void                 gtd_plugin_manager_load_plugins             (GtdPluginManager   *self);
 
+GList*               gtd_plugin_manager_get_loaded_plugins       (GtdPluginManager   *self);
+
 G_END_DECLS
 
 #endif /* GTD_PLUGIN_MANAGER_H */

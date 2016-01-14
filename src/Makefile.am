@@ -38,6 +38,8 @@ gnome_todo_SOURCES = \
 	provider/gtd-provider-row.h \
 	provider/gtd-provider-selector.c \
 	provider/gtd-provider-selector.h \
+	plugin/gtd-plugin-manager.c \
+	plugin/gtd-plugin-manager.h \
 	views/gtd-list-selector.c \
 	views/gtd-list-selector.h \
 	views/gtd-list-selector-grid.c \
@@ -58,8 +60,6 @@ gnome_todo_SOURCES = \
 	gtd-manager-protected.h \
 	gtd-object.c \
 	gtd-object.h \
-	gtd-plugin-manager.c \
-	gtd-plugin-manager.h \
 	gtd-task.c \
 	gtd-task.h \
 	gtd-task-list.c \

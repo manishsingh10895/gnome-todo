@@ -42,6 +42,8 @@ enum
 {
   PANEL_REGISTERED,
   PANEL_UNREGISTERED,
+  PLUGIN_LOADED,
+  PLUGIN_UNLOADED,
   PROVIDER_REGISTERED,
   PROVIDER_UNREGISTERED,
   NUM_SIGNALS
@@ -87,6 +89,30 @@ gtd_plugin_manager_class_init (GtdPluginManagerClass *klass)
                                               G_TYPE_NONE,
                                               1,
                                               GTD_TYPE_PANEL);
+
+  signals[PLUGIN_LOADED] = g_signal_new ("plugin-loaded",
+                                         GTD_TYPE_PLUGIN_MANAGER,
+                                         G_SIGNAL_RUN_FIRST,
+                                         0,
+                                         NULL,
+                                         NULL,
+                                         NULL,
+                                         G_TYPE_NONE,
+                                         2,
+                                         PEAS_TYPE_PLUGIN_INFO,
+                                         GTD_TYPE_ACTIVATABLE);
+
+  signals[PLUGIN_UNLOADED] = g_signal_new ("plugin-unloaded",
+                                           GTD_TYPE_PLUGIN_MANAGER,
+                                           G_SIGNAL_RUN_FIRST,
+                                           0,
+                                           NULL,
+                                           NULL,
+                                           NULL,
+                                           G_TYPE_NONE,
+                                           2,
+                                           PEAS_TYPE_PLUGIN_INFO,
+                                           GTD_TYPE_ACTIVATABLE);
 
   signals[PROVIDER_REGISTERED] = g_signal_new ("provider-registered",
                                                GTD_TYPE_PLUGIN_MANAGER,
@@ -173,6 +199,9 @@ on_plugin_unloaded (PeasEngine       *engine,
   /* Deactivate extension */
   peas_activatable_deactivate (PEAS_ACTIVATABLE (activatable));
 
+  /* Emit the signal */
+  g_signal_emit (self, signals[PLUGIN_UNLOADED], 0, info, activatable);
+
   g_hash_table_remove (self->info_to_extension, info);
 }
 
@@ -232,6 +261,9 @@ on_plugin_loaded (PeasEngine       *engine,
                         "panel-removed",
                         G_CALLBACK (on_panel_removed),
                         self);
+
+      /* Emit the signal */
+      g_signal_emit (self, signals[PLUGIN_LOADED], 0, info, extension);
     }
 }
 
@@ -323,4 +355,12 @@ void
 gtd_plugin_manager_load_plugins (GtdPluginManager *self)
 {
   setup_plugins (self);
+}
+
+GList*
+gtd_plugin_manager_get_loaded_plugins (GtdPluginManager *self)
+{
+  g_return_val_if_fail (GTD_IS_PLUGIN_MANAGER (self), NULL);
+
+  return g_hash_table_get_values (self->info_to_extension);
 }
