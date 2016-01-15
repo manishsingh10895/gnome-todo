@@ -50,6 +50,18 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                                              G_PARAM_READABLE));
 
   /**
+   * GtdActivatable::preferences-panel:
+   *
+   * The preferences panel of the plugin, or %NULL.
+   */
+  g_object_interface_install_property (iface,
+                                       g_param_spec_object ("preferences-panel",
+                                                            "Preferences panel",
+                                                            "The preferences panel of the plugins",
+                                                            GTK_TYPE_WIDGET,
+                                                            G_PARAM_READABLE));
+
+  /**
    * GtdActivatable::panels:
    *
    * A list of #GtdPanel this plugin carries.
@@ -155,6 +167,15 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                             G_TYPE_NONE,
                                             1,
                                             GTD_TYPE_PROVIDER);
+}
+
+GtkWidget*
+gtd_activatable_get_preferences_panel (GtdActivatable *activatable)
+{
+  g_return_val_if_fail (GTD_IS_ACTIVATABLE (activatable), NULL);
+  g_return_val_if_fail (GTD_ACTIVATABLE_GET_IFACE (activatable)->get_preferences_panel, NULL);
+
+  return GTD_ACTIVATABLE_GET_IFACE (activatable)->get_preferences_panel (activatable);
 }
 
 GList*

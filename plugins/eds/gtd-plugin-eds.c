@@ -59,6 +59,7 @@ enum
   PROP_0,
   PROP_ACTIVE,
   PROP_OBJECT,
+  PROP_PREFERENCES_PANEL,
   PROP_PROVIDERS,
   PROP_PANELS,
   LAST_PROP
@@ -115,6 +116,12 @@ peas_activatable_iface_init (PeasActivatableInterface *iface)
 /*
  * GtdActivatable interface implementation
  */
+static GtkWidget*
+gtd_plugin_eds_get_preferences_panel (GtdActivatable *activatable)
+{
+  return NULL;
+}
+
 static GList*
 gtd_plugin_eds_get_panels (GtdActivatable *activatable)
 {
@@ -134,6 +141,7 @@ gtd_plugin_eds_get_providers (GtdActivatable *activatable)
 static void
 gtd_activatable_iface_init (GtdActivatableInterface *iface)
 {
+  iface->get_preferences_panel = gtd_plugin_eds_get_preferences_panel;
   iface->get_panels = gtd_plugin_eds_get_panels;
   iface->get_providers = gtd_plugin_eds_get_providers;
 }
@@ -339,6 +347,10 @@ gtd_plugin_eds_get_property (GObject    *object,
       g_value_set_object (value, NULL);
       break;
 
+    case PROP_PREFERENCES_PANEL:
+      g_value_set_object (value, NULL);
+      break;
+
     case PROP_PANELS:
       g_value_set_pointer (value, self->panels);
       break;
@@ -388,6 +400,10 @@ gtd_plugin_eds_class_init (GtdPluginEdsClass *klass)
   g_object_class_override_property (object_class,
                                     PROP_PANELS,
                                     "panels");
+
+  g_object_class_override_property (object_class,
+                                    PROP_PREFERENCES_PANEL,
+                                    "preferences-panel");
 
   g_object_class_override_property (object_class,
                                     PROP_PROVIDERS,

@@ -20,6 +20,7 @@
 #define GTD_ACTIVATABLE_H
 
 #include <glib.h>
+#include <gtk/gtk.h>
 #include <libpeas/peas.h>
 
 G_BEGIN_DECLS
@@ -32,10 +33,14 @@ struct _GtdActivatableInterface
 {
   PeasActivatableInterface parent;
 
+  GtkWidget*       (*get_preferences_panel)                (GtdActivatable     *activatable);
+
   GList*           (*get_panels)                           (GtdActivatable     *activatable);
 
   GList*           (*get_providers)                        (GtdActivatable     *activatable);
 };
+
+GtkWidget*           gtd_activatable_get_preferences_panel       (GtdActivatable     *activatable);
 
 GList*               gtd_activatable_get_panels                  (GtdActivatable     *activatable);
 
