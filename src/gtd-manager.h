@@ -19,10 +19,10 @@
 #ifndef GTD_MANAGER_H
 #define GTD_MANAGER_H
 
+#include <gio/gio.h>
+
 #include "gtd-object.h"
 #include "gtd-types.h"
-
-#include <goa/goa.h>
 
 G_BEGIN_DECLS
 

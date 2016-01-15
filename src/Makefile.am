@@ -3,7 +3,6 @@ AM_CPPFLAGS = \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	-DUI_DATA_DIR=\""$(pkgdatadir)/style"\" \
-	-DGOA_API_IS_SUBJECT_TO_CHANGE \
 	-I$(srcdir)/provider \
 	-I$(srcdir)/notification
 
