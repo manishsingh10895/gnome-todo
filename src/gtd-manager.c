@@ -67,6 +67,7 @@ enum
 {
   PROP_0,
   PROP_DEFAULT_PROVIDER,
+  PROP_PLUGIN_MANAGER,
   LAST_PROP
 };
 
@@ -121,8 +122,18 @@ gtd_manager_get_property (GObject    *object,
                           GValue     *value,
                           GParamSpec *pspec)
 {
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (GTD_MANAGER (object));
+
   switch (prop_id)
     {
+    case PROP_DEFAULT_PROVIDER:
+      g_value_set_object (value, priv->default_provider);
+      break;
+
+    case PROP_PLUGIN_MANAGER:
+      g_value_set_object (value, priv->plugin_manager);
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -134,8 +145,15 @@ gtd_manager_set_property (GObject      *object,
                           const GValue *value,
                           GParamSpec   *pspec)
 {
+  GtdManagerPrivate *priv = gtd_manager_get_instance_private (GTD_MANAGER (object));
+
   switch (prop_id)
     {
+    case PROP_DEFAULT_PROVIDER:
+      if (g_set_object (&priv->default_provider, g_value_get_object (value)))
+        g_object_notify (object, "default-provider");
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -151,18 +169,32 @@ gtd_manager_class_init (GtdManagerClass *klass)
   object_class->set_property = gtd_manager_set_property;
 
   /**
-   * GtdManager::goa-client:
+   * GtdManager::default-provider:
    *
-   * The #GoaClient asyncronously loaded.
+   * The default provider.
    */
   g_object_class_install_property (
         object_class,
         PROP_DEFAULT_PROVIDER,
         g_param_spec_object ("default-provider",
-                            "The default provider of the application",
-                            "The default provider of the application",
-                            GTD_TYPE_PROVIDER,
-                            G_PARAM_READWRITE));
+                             "The default provider of the application",
+                             "The default provider of the application",
+                             GTD_TYPE_PROVIDER,
+                             G_PARAM_READWRITE));
+
+  /**
+   * GtdManager::plugin-manager:
+   *
+   * The plugin manager.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_PLUGIN_MANAGER,
+        g_param_spec_object ("plugin-manager",
+                             "The plugin manager",
+                             "The plugin manager of the application",
+                             GTD_TYPE_PLUGIN_MANAGER,
+                             G_PARAM_READABLE));
 
   /**
    * GtdManager::list-added:
