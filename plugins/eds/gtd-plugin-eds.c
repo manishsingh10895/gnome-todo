@@ -116,6 +116,12 @@ peas_activatable_iface_init (PeasActivatableInterface *iface)
 /*
  * GtdActivatable interface implementation
  */
+static GList*
+gtd_plugin_eds_get_header_widgets (GtdActivatable *activatable)
+{
+  return NULL;
+}
+
 static GtkWidget*
 gtd_plugin_eds_get_preferences_panel (GtdActivatable *activatable)
 {
@@ -141,6 +147,7 @@ gtd_plugin_eds_get_providers (GtdActivatable *activatable)
 static void
 gtd_activatable_iface_init (GtdActivatableInterface *iface)
 {
+  iface->get_header_widgets = gtd_plugin_eds_get_header_widgets;
   iface->get_preferences_panel = gtd_plugin_eds_get_preferences_panel;
   iface->get_panels = gtd_plugin_eds_get_panels;
   iface->get_providers = gtd_plugin_eds_get_providers;

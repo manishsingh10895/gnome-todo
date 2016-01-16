@@ -180,6 +180,23 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 }
 
 /**
+ * gtd_activatable_get_header_widgets:
+ * @activatable: a #GtdActivatable
+ *
+ * Retrieve the list header widgets of @activatable if any.
+ *
+ * Returns: (transfer container) (element-type #GtkWidget): a #GList
+ */
+GList*
+gtd_activatable_get_header_widgets (GtdActivatable *activatable)
+{
+  g_return_val_if_fail (GTD_IS_ACTIVATABLE (activatable), NULL);
+  g_return_val_if_fail (GTD_ACTIVATABLE_GET_IFACE (activatable)->get_header_widgets, NULL);
+
+  return GTD_ACTIVATABLE_GET_IFACE (activatable)->get_header_widgets (activatable);
+}
+
+/**
  * gtd_activatable_get_preferences_panel:
  * @activatable: a #GtdActivatable
  *

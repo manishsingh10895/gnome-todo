@@ -16,13 +16,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "interfaces/gtd-activatable.h"
 #include "interfaces/gtd-provider.h"
 #include "interfaces/gtd-panel.h"
 #include "views/gtd-list-selector-panel.h"
+#include "plugin/gtd-plugin-manager.h"
 #include "gtd-application.h"
 #include "gtd-enum-types.h"
 #include "gtd-task-list-view.h"
 #include "gtd-manager.h"
+#include "gtd-manager-protected.h"
 #include "gtd-notification.h"
 #include "gtd-notification-widget.h"
 #include "gtd-provider-dialog.h"
@@ -42,6 +45,12 @@ typedef struct
   GtkStack                      *stack;
   GtkStackSwitcher              *stack_switcher;
   GtdProviderDialog             *provider_dialog;
+
+  /* boxes */
+  GtkWidget                     *extension_box_end;
+  GtkWidget                     *extension_box_start;
+  GtkWidget                     *panel_box_end;
+  GtkWidget                     *panel_box_start;
 
   GtdPanel                      *active_panel;
 
@@ -89,6 +98,172 @@ typedef struct
   gchar     *primary_text;
   gchar     *secondary_text;
 } ErrorData;
+
+static void
+add_widgets (GtdWindow *window,
+             GtkWidget *container_start,
+             GtkWidget *container_end,
+             GList     *widgets)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+  GList *l;
+
+  for (l = widgets; l != NULL; l = l->next)
+    {
+      switch (gtk_widget_get_halign (l->data))
+        {
+        case GTK_ALIGN_START:
+          gtk_box_pack_start (GTK_BOX (container_start),
+                              l->data,
+                              FALSE,
+                              FALSE,
+                              0);
+          break;
+
+        case GTK_ALIGN_CENTER:
+          gtk_header_bar_set_custom_title (priv->headerbar, l->data);
+          break;
+
+        case GTK_ALIGN_END:
+          gtk_box_pack_end (GTK_BOX (container_end),
+                            l->data,
+                            FALSE,
+                            FALSE,
+                            0);
+          break;
+
+        case GTK_ALIGN_BASELINE:
+        case GTK_ALIGN_FILL:
+        default:
+          gtk_box_pack_start (GTK_BOX (container_start),
+                              l->data,
+                              FALSE,
+                              FALSE,
+                              0);
+          break;
+        }
+    }
+}
+
+static void
+remove_widgets (GtdWindow *window,
+                GtkWidget *container_start,
+                GtkWidget *container_end,
+                GList     *widgets)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+  GList *l;
+
+  for (l = widgets; l != NULL; l = l->next)
+    {
+      GtkWidget *container;
+
+      if (gtk_widget_get_halign (l->data) == GTK_ALIGN_END)
+        container = container_end;
+      else if (gtk_widget_get_halign (l->data) == GTK_ALIGN_CENTER)
+        container = GTK_WIDGET (priv->headerbar);
+      else
+        container = container_start;
+
+      g_object_ref (l->data);
+      gtk_container_remove (GTK_CONTAINER (container), l->data);
+    }
+}
+
+static void
+on_active_change (GtdActivatable *activatable,
+                  GParamSpec     *pspec,
+                  GtdWindow      *window)
+{
+  GtdWindowPrivate *priv;
+  GList *header_widgets;
+  gboolean active;
+
+  priv = gtd_window_get_instance_private (window);
+  header_widgets = gtd_activatable_get_header_widgets (activatable);
+
+  g_object_get (activatable,
+                "active", &active,
+                NULL);
+
+  if (active)
+    {
+      add_widgets (window,
+                   priv->extension_box_start,
+                   priv->extension_box_end,
+                   header_widgets);
+    }
+  else
+    {
+      remove_widgets (window,
+                      priv->extension_box_start,
+                      priv->extension_box_end,
+                      header_widgets);
+    }
+
+  g_list_free (header_widgets);
+}
+
+static void
+plugin_loaded (GtdWindow      *window,
+               gpointer        unused_field,
+               GtdActivatable *activatable)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+  gboolean active;
+
+  g_object_get (activatable,
+                "active", &active,
+                NULL);
+
+  if (active)
+    {
+      GList *header_widgets;
+
+      header_widgets = gtd_activatable_get_header_widgets (activatable);
+
+      add_widgets (window,
+                   priv->extension_box_start,
+                   priv->extension_box_end,
+                   header_widgets);
+
+      g_list_free (header_widgets);
+    }
+
+  g_signal_connect (activatable,
+                    "notify::active",
+                    G_CALLBACK (on_active_change),
+                    window);
+}
+
+static void
+plugin_unloaded (GtdWindow      *window,
+                 gpointer        unused_field,
+                 GtdActivatable *activatable)
+{
+  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
+  gboolean active;
+
+  g_object_get (activatable,
+                "active", &active,
+                NULL);
+
+  if (active)
+    {
+      GList *header_widgets;
+
+      header_widgets = gtd_activatable_get_header_widgets (activatable);
+
+      remove_widgets (window,
+                      priv->extension_box_start,
+                      priv->extension_box_end,
+                      header_widgets);
+    }
+
+  g_signal_handlers_disconnect_by_func (activatable,
+                                        on_active_change,
+                                        window);
+}
 
 static void
 update_panel_menu (GtdWindow *window)
@@ -321,7 +496,6 @@ gtd_window__stack_visible_child_cb (GtdWindow  *window,
   GtkWidget *visible_child;
   GtdPanel *panel;
   GList *header_widgets;
-  GList *l;
 
   priv = gtd_window_get_instance_private (window);
   visible_child = gtk_stack_get_visible_child (stack);
@@ -337,8 +511,10 @@ gtd_window__stack_visible_child_cb (GtdWindow  *window,
                                             gtd_window__panel_menu_changed,
                                             window);
 
-      for (l = header_widgets; l != NULL; l = l->next)
-        gtk_container_remove (GTK_CONTAINER (priv->headerbar), l->data);
+      remove_widgets (window,
+                      priv->panel_box_start,
+                      priv->panel_box_end,
+                      header_widgets);
 
       g_list_free (header_widgets);
     }
@@ -346,29 +522,10 @@ gtd_window__stack_visible_child_cb (GtdWindow  *window,
   /* Add current panel's header widgets */
   header_widgets = gtd_panel_get_header_widgets (panel);
 
-  for (l = header_widgets; l != NULL; l = l->next)
-    {
-      switch (gtk_widget_get_halign (l->data))
-        {
-        case GTK_ALIGN_START:
-          gtk_header_bar_pack_start (priv->headerbar, l->data);
-          break;
-
-        case GTK_ALIGN_CENTER:
-          gtk_header_bar_set_custom_title (priv->headerbar, l->data);
-          break;
-
-        case GTK_ALIGN_END:
-          gtk_header_bar_pack_end (priv->headerbar, l->data);
-          break;
-
-        case GTK_ALIGN_BASELINE:
-        case GTK_ALIGN_FILL:
-        default:
-          gtk_header_bar_pack_start (priv->headerbar, l->data);
-          break;
-        }
-    }
+  add_widgets (window,
+               priv->panel_box_start,
+               priv->panel_box_end,
+               header_widgets);
 
   g_list_free (header_widgets);
 
@@ -583,6 +740,30 @@ gtd_window_set_property (GObject      *object,
     case PROP_MANAGER:
       self->priv->manager = g_value_get_object (value);
 
+      /* Add plugins' header widgets, and setup for new plugins */
+      {
+        GtdPluginManager *plugin_manager;
+        GList *plugins;
+
+        plugin_manager = gtd_manager_get_plugin_manager (self->priv->manager);
+        plugins = gtd_plugin_manager_get_loaded_plugins (plugin_manager);
+
+        for (l = plugins; l != NULL; l = l->next)
+          plugin_loaded (self, NULL, l->data);
+
+        g_signal_connect_swapped (plugin_manager,
+                                  "plugin-loaded",
+                                  G_CALLBACK (plugin_loaded),
+                                  self);
+
+        g_signal_connect_swapped (plugin_manager,
+                                  "plugin-unloaded",
+                                  G_CALLBACK (plugin_unloaded),
+                                  self);
+
+        g_list_free (plugins);
+      }
+
       g_signal_connect (self->priv->manager,
                         "notify::ready",
                         G_CALLBACK (gtd_window__manager_ready_changed),
@@ -676,6 +857,11 @@ gtd_window_class_init (GtdWindowClass *klass)
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, provider_dialog);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack);
   gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, stack_switcher);
+
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, extension_box_end);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, extension_box_start);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, panel_box_end);
+  gtk_widget_class_bind_template_child_private (widget_class, GtdWindow, panel_box_start);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__cancel_selection_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_window__stack_visible_child_cb);
