@@ -1,6 +1,6 @@
-/* gtd-task-list-item.h
+/* gtd-list-selector-list-item.h
  *
- * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
+ * Copyright (C) 2016 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_LIST_SELECTOR_GRID_ITEM_H
-#define GTD_LIST_SELECTOR_GRID_ITEM_H
+#ifndef GTD_LIST_SELECTOR_LIST_ITEM_H
+#define GTD_LIST_SELECTOR_LIST_ITEM_H
 
 #include "gtd-types.h"
 
@@ -25,12 +25,12 @@
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_LIST_SELECTOR_GRID_ITEM (gtd_list_selector_grid_item_get_type())
+#define GTD_TYPE_LIST_SELECTOR_LIST_ITEM (gtd_list_selector_list_item_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdListSelectorGridItem, gtd_list_selector_grid_item, GTD, LIST_SELECTOR_GRID_ITEM, GtkFlowBoxChild)
+G_DECLARE_FINAL_TYPE (GtdListSelectorListItem, gtd_list_selector_list_item, GTD, LIST_SELECTOR_LIST_ITEM, GtkListBoxRow)
 
-GtkWidget*              gtd_list_selector_grid_item_new          (GtdTaskList             *list);
+GtkWidget*           gtd_list_selector_list_item_new             (GtdTaskList        *list);
 
 G_END_DECLS
 
-#endif /* GTD_LIST_SELECTOR_GRID_ITEM_H */
+#endif /* GTD_LIST_SELECTOR_LIST_ITEM_H */

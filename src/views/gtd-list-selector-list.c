@@ -1,6 +1,6 @@
-/* gtd-list-selector-grid.c
+/* gtd-list-selector-list.c
  *
- * Copyright (C) 2015 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
+ * Copyright (C) 2016 Georges Basile Stavracas Neto <georges.stavracas@gmail.com>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,15 +18,15 @@
 
 #include "interfaces/gtd-provider.h"
 #include "gtd-list-selector.h"
-#include "gtd-list-selector-grid.h"
-#include "gtd-list-selector-grid-item.h"
 #include "gtd-list-selector-item.h"
+#include "gtd-list-selector-list.h"
+#include "gtd-list-selector-list-item.h"
 #include "gtd-manager.h"
 #include "gtd-task-list.h"
 
-struct _GtdListSelectorGrid
+struct _GtdListSelectorList
 {
-  GtkFlowBox          parent;
+  GtkListBox          parent;
 
   gchar              *search_query;
 
@@ -35,7 +35,7 @@ struct _GtdListSelectorGrid
 
 static void          gtd_list_selector_iface_init                (GtdListSelectorInterface *iface);
 
-G_DEFINE_TYPE_EXTENDED (GtdListSelectorGrid, gtd_list_selector_grid, GTK_TYPE_FLOW_BOX,
+G_DEFINE_TYPE_EXTENDED (GtdListSelectorList, gtd_list_selector_list, GTK_TYPE_LIST_BOX,
                         0,
                         G_IMPLEMENT_INTERFACE (GTD_TYPE_LIST_SELECTOR,
                                                gtd_list_selector_iface_init))
@@ -48,13 +48,30 @@ enum {
 };
 
 static void
-gtd_list_selector_grid_list_added (GtdManager          *manager,
+on_row_selected (GtdListSelectorItem *item,
+                 GParamSpec          *pspec,
+                 GtdListSelectorList *self)
+{
+  if (self->mode == GTD_WINDOW_MODE_SELECTION)
+    {
+      g_signal_emit_by_name (self, "list-selected", gtd_list_selector_item_get_list (item));
+    }
+  else if (gtd_list_selector_item_get_selected (item))
+    {
+      gtd_list_selector_set_mode (GTD_LIST_SELECTOR (self), GTD_WINDOW_MODE_SELECTION);
+      g_signal_emit_by_name (self, "list-selected", gtd_list_selector_item_get_list (item));
+    }
+
+}
+
+static void
+gtd_list_selector_list_list_added (GtdManager          *manager,
                                    GtdTaskList         *list,
-                                   GtdListSelectorGrid *selector)
+                                   GtdListSelectorList *selector)
 {
   GtkWidget *item;
 
-  item = gtd_list_selector_grid_item_new (list);
+  item = gtd_list_selector_list_item_new (list);
 
   g_object_bind_property (selector,
                           "mode",
@@ -62,17 +79,31 @@ gtd_list_selector_grid_list_added (GtdManager          *manager,
                           "mode",
                           G_BINDING_BIDIRECTIONAL | G_BINDING_SYNC_CREATE);
 
+  /* Different than the GRID view, on LIST view we have
+   * 2 ways to select an item:
+   *
+   * - Clicking in the row when in selection mode
+   * - Toggling the selection checkbox
+   *
+   * Because of that, we have to also track the ::selected
+   * state of each row, since they may change through the
+   * selection box and we don't get notified via ::row_activated.
+   */
+  g_signal_connect (item,
+                    "notify::selected",
+                    G_CALLBACK (on_row_selected),
+                    selector);
+
   gtk_widget_show (item);
 
-  gtk_flow_box_insert (GTK_FLOW_BOX (selector),
-                       item,
-                       -1);
+  gtk_container_add (GTK_CONTAINER (selector), item);
 }
 
+
 static void
-gtd_list_selector_grid_list_removed (GtdManager          *manager,
+gtd_list_selector_list_list_removed (GtdManager          *manager,
                                      GtdTaskList         *list,
-                                     GtdListSelectorGrid *selector)
+                                     GtdListSelectorList *selector)
 {
   GList *children;
   GList *l;
@@ -89,9 +120,9 @@ gtd_list_selector_grid_list_removed (GtdManager          *manager,
 }
 
 static gint
-gtd_list_selector_grid_sort_func (GtdListSelectorItem *a,
-                                  GtdListSelectorItem *b,
-                                  GtdListSelectorGrid *selector)
+sort_func (GtdListSelectorItem *a,
+           GtdListSelectorItem *b,
+           GtdListSelectorList *selector)
 {
   GtdProvider *p1;
   GtdProvider *p2;
@@ -114,8 +145,8 @@ gtd_list_selector_grid_sort_func (GtdListSelectorItem *a,
 }
 
 static gboolean
-gtd_list_selector_grid_filter_func (GtdListSelectorItem *item,
-                                    GtdListSelectorGrid *selector)
+filter_func (GtdListSelectorItem *item,
+             GtdListSelectorList *selector)
 {
   GtdTaskList *list;
   gboolean return_value;
@@ -154,26 +185,42 @@ out:
   return return_value;
 }
 
+static void
+update_header_func (GtkListBoxRow *row,
+                    GtkListBoxRow *before,
+                    gpointer       user_data)
+{
+  if (before)
+    {
+      GtkWidget *separator;
+
+      separator = gtk_separator_new (GTK_ORIENTATION_HORIZONTAL);
+      gtk_widget_show (separator);
+
+      gtk_list_box_row_set_header (row, separator);
+    }
+}
+
 /******************************
  * GtdListSelector iface init *
  ******************************/
 static GtdWindowMode
-gtd_list_selector_grid_get_mode (GtdListSelector *selector)
+gtd_list_selector_list_get_mode (GtdListSelector *selector)
 {
-  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID (selector), GTD_WINDOW_MODE_NORMAL);
+  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_LIST (selector), GTD_WINDOW_MODE_NORMAL);
 
-  return GTD_LIST_SELECTOR_GRID (selector)->mode;
+  return GTD_LIST_SELECTOR_LIST (selector)->mode;
 }
 
 static void
-gtd_list_selector_grid_set_mode (GtdListSelector *selector,
+gtd_list_selector_list_set_mode (GtdListSelector *selector,
                                  GtdWindowMode    mode)
 {
-  GtdListSelectorGrid *self;
+  GtdListSelectorList *self;
 
-  g_return_if_fail (GTD_IS_LIST_SELECTOR_GRID (selector));
+  g_return_if_fail (GTD_IS_LIST_SELECTOR_LIST (selector));
 
-  self = GTD_LIST_SELECTOR_GRID (selector);
+  self = GTD_LIST_SELECTOR_LIST (selector);
 
   if (self->mode != mode)
     {
@@ -193,22 +240,22 @@ gtd_list_selector_grid_set_mode (GtdListSelector *selector,
 }
 
 static const gchar*
-gtd_list_selector_grid_get_search_query (GtdListSelector *selector)
+gtd_list_selector_list_get_search_query (GtdListSelector *selector)
 {
-  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID (selector), NULL);
+  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_LIST (selector), NULL);
 
-  return GTD_LIST_SELECTOR_GRID (selector)->search_query;
+  return GTD_LIST_SELECTOR_LIST (selector)->search_query;
 }
 
 static void
-gtd_list_selector_grid_set_search_query (GtdListSelector *selector,
+gtd_list_selector_list_set_search_query (GtdListSelector *selector,
                                          const gchar     *search_query)
 {
-  GtdListSelectorGrid *self;
+  GtdListSelectorList *self;
 
-  g_return_if_fail (GTD_IS_LIST_SELECTOR_GRID (selector));
+  g_return_if_fail (GTD_IS_LIST_SELECTOR_LIST (selector));
 
-  self = GTD_LIST_SELECTOR_GRID (selector);
+  self = GTD_LIST_SELECTOR_LIST (selector);
 
   if (g_strcmp0 (self->search_query, search_query) != 0)
     {
@@ -222,7 +269,7 @@ gtd_list_selector_grid_set_search_query (GtdListSelector *selector,
 }
 
 static GList*
-gtd_list_selector_grid_get_selected_lists (GtdListSelector *selector)
+gtd_list_selector_list_get_selected_lists (GtdListSelector *selector)
 {
   GList *selected;
   GList *children;
@@ -246,30 +293,30 @@ gtd_list_selector_grid_get_selected_lists (GtdListSelector *selector)
 static void
 gtd_list_selector_iface_init (GtdListSelectorInterface *iface)
 {
-  iface->get_mode = gtd_list_selector_grid_get_mode;
-  iface->set_mode = gtd_list_selector_grid_set_mode;
-  iface->get_search_query = gtd_list_selector_grid_get_search_query;
-  iface->set_search_query = gtd_list_selector_grid_set_search_query;
-  iface->get_selected_lists = gtd_list_selector_grid_get_selected_lists;
+  iface->get_mode = gtd_list_selector_list_get_mode;
+  iface->set_mode = gtd_list_selector_list_set_mode;
+  iface->get_search_query = gtd_list_selector_list_get_search_query;
+  iface->set_search_query = gtd_list_selector_list_set_search_query;
+  iface->get_selected_lists = gtd_list_selector_list_get_selected_lists;
 }
 
 static void
-gtd_list_selector_grid_finalize (GObject *object)
+gtd_list_selector_list_finalize (GObject *object)
 {
-  GtdListSelectorGrid *self = (GtdListSelectorGrid *)object;
+  GtdListSelectorList *self = (GtdListSelectorList *)object;
 
   g_clear_pointer (&self->search_query, g_free);
 
-  G_OBJECT_CLASS (gtd_list_selector_grid_parent_class)->finalize (object);
+  G_OBJECT_CLASS (gtd_list_selector_list_parent_class)->finalize (object);
 }
 
 static void
-gtd_list_selector_grid_get_property (GObject    *object,
+gtd_list_selector_list_get_property (GObject    *object,
                                      guint       prop_id,
                                      GValue     *value,
                                      GParamSpec *pspec)
 {
-  GtdListSelectorGrid *self = GTD_LIST_SELECTOR_GRID (object);
+  GtdListSelectorList *self = GTD_LIST_SELECTOR_LIST (object);
 
   switch (prop_id)
     {
@@ -287,7 +334,7 @@ gtd_list_selector_grid_get_property (GObject    *object,
 }
 
 static void
-gtd_list_selector_grid_set_property (GObject      *object,
+gtd_list_selector_list_set_property (GObject      *object,
                                      guint         prop_id,
                                      const GValue *value,
                                      GParamSpec   *pspec)
@@ -310,39 +357,37 @@ gtd_list_selector_grid_set_property (GObject      *object,
 }
 
 static void
-gtd_list_selector_grid_child_activated (GtkFlowBox      *flowbox,
-                                        GtkFlowBoxChild *child)
+gtd_list_selector_list_row_activated (GtkListBox    *listbox,
+                                      GtkListBoxRow *row)
 {
   GtdListSelectorItem *item;
-  GtdListSelectorGrid *self;
+  GtdListSelectorList *self;
 
-  self = GTD_LIST_SELECTOR_GRID (flowbox);
+  self = GTD_LIST_SELECTOR_LIST (listbox);
 
-  if (!GTD_IS_LIST_SELECTOR_GRID_ITEM (child))
+  if (!GTD_IS_LIST_SELECTOR_LIST_ITEM (row))
     return;
 
-  item = GTD_LIST_SELECTOR_ITEM (child);
+  item = GTD_LIST_SELECTOR_ITEM (row);
 
   /* We only mark the item as selected when we're in selection mode */
   if (self->mode == GTD_WINDOW_MODE_SELECTION)
-    {
-      gtd_list_selector_item_set_selected (item, !gtd_list_selector_item_get_selected (item));
-    }
+    gtd_list_selector_item_set_selected (item, !gtd_list_selector_item_get_selected (item));
 
-  g_signal_emit_by_name (flowbox, "list-selected", gtd_list_selector_item_get_list (item));
+  g_signal_emit_by_name (listbox, "list-selected", gtd_list_selector_item_get_list (item));
 }
 
 static void
-gtd_list_selector_grid_class_init (GtdListSelectorGridClass *klass)
+gtd_list_selector_list_class_init (GtdListSelectorListClass *klass)
 {
-  GtkFlowBoxClass *flowbox_class = GTK_FLOW_BOX_CLASS (klass);
+  GtkListBoxClass *listbox_class = GTK_LIST_BOX_CLASS (klass);
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-  flowbox_class->child_activated = gtd_list_selector_grid_child_activated;
+  listbox_class->row_activated = gtd_list_selector_list_row_activated;
 
-  object_class->finalize = gtd_list_selector_grid_finalize;
-  object_class->get_property = gtd_list_selector_grid_get_property;
-  object_class->set_property = gtd_list_selector_grid_set_property;
+  object_class->finalize = gtd_list_selector_list_finalize;
+  object_class->get_property = gtd_list_selector_list_get_property;
+  object_class->set_property = gtd_list_selector_list_set_property;
 
   g_object_class_override_property (object_class,
                                     PROP_MODE,
@@ -354,10 +399,9 @@ gtd_list_selector_grid_class_init (GtdListSelectorGridClass *klass)
 }
 
 static void
-gtd_list_selector_grid_init (GtdListSelectorGrid *self)
+gtd_list_selector_list_init (GtdListSelectorList *self)
 {
   GtdManager *manager;
-  GtkFlowBox *flowbox;
   GtkWidget *widget;
   GList *lists;
   GList *l;
@@ -366,11 +410,11 @@ gtd_list_selector_grid_init (GtdListSelectorGrid *self)
 
   g_signal_connect (manager,
                     "list-added",
-                    G_CALLBACK (gtd_list_selector_grid_list_added),
+                    G_CALLBACK (gtd_list_selector_list_list_added),
                     self);
   g_signal_connect (manager,
                     "list-removed",
-                    G_CALLBACK (gtd_list_selector_grid_list_removed),
+                    G_CALLBACK (gtd_list_selector_list_list_removed),
                     self);
 
   /* Add already loaded lists */
@@ -378,43 +422,40 @@ gtd_list_selector_grid_init (GtdListSelectorGrid *self)
 
   for (l = lists; l != NULL; l = l->next)
     {
-      gtd_list_selector_grid_list_added (manager,
+      gtd_list_selector_list_list_added (manager,
                                          l->data,
                                          self);
     }
 
   g_list_free (lists);
 
-  /* Setup filter and sorting functions */
-  gtk_flow_box_set_sort_func (GTK_FLOW_BOX (self),
-                              (GtkFlowBoxSortFunc) gtd_list_selector_grid_sort_func,
+  /* Setup header, filter and sorting functions */
+  gtk_list_box_set_header_func (GTK_LIST_BOX (self),
+                                (GtkListBoxUpdateHeaderFunc) update_header_func,
+                                NULL,
+                                NULL);
+
+  gtk_list_box_set_sort_func (GTK_LIST_BOX (self),
+                              (GtkListBoxSortFunc) sort_func,
                               NULL,
                               NULL);
 
-  gtk_flow_box_set_filter_func (GTK_FLOW_BOX (self),
-                                (GtkFlowBoxFilterFunc) gtd_list_selector_grid_filter_func,
+  gtk_list_box_set_filter_func (GTK_LIST_BOX (self),
+                                (GtkListBoxFilterFunc) filter_func,
                                 self,
                                 NULL);
+
   /* Setup some properties */
   widget = GTK_WIDGET (self);
-  flowbox = GTK_FLOW_BOX (self);
 
-  gtk_flow_box_set_max_children_per_line (flowbox, 100);
-  gtk_flow_box_set_selection_mode (flowbox, GTK_SELECTION_NONE);
-  gtk_flow_box_set_column_spacing (flowbox, 12);
-  gtk_flow_box_set_row_spacing (flowbox, 12);
-  gtk_flow_box_set_homogeneous (flowbox, TRUE);
-  gtk_container_set_border_width (GTK_CONTAINER (self), 12);
+  gtk_list_box_set_selection_mode (GTK_LIST_BOX (self), GTK_SELECTION_NONE);
   gtk_widget_set_hexpand (widget, TRUE);
   gtk_widget_set_vexpand (widget, TRUE);
-  gtk_widget_set_halign (widget, GTK_ALIGN_START);
-  gtk_widget_set_valign (widget, GTK_ALIGN_START);
   gtk_widget_show_all (widget);
 }
 
 GtkWidget*
-gtd_list_selector_grid_new (void)
+gtd_list_selector_list_new (void)
 {
-  return g_object_new (GTD_TYPE_LIST_SELECTOR_GRID, NULL);
+  return g_object_new (GTD_TYPE_LIST_SELECTOR_LIST, NULL);
 }
-

@@ -33,6 +33,7 @@ EXTRA_DIST=                     \
   ui/edit-pane.ui \
   ui/initial-setup.ui \
   ui/list-selector-grid-item.ui \
+  ui/list-selector-list-item.ui \
   ui/list-selector-panel.ui \
   ui/list-view.ui \
   ui/notification.ui \

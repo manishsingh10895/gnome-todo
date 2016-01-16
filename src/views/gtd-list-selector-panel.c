@@ -21,7 +21,8 @@
 #include "gtd-enum-types.h"
 #include "gtd-list-selector.h"
 #include "gtd-list-selector-grid.h"
-#include "gtd-list-selector-grid-item.h"
+#include "gtd-list-selector-item.h"
+#include "gtd-list-selector-list.h"
 #include "gtd-list-selector-panel.h"
 #include "gtd-manager.h"
 #include "gtd-task-list.h"
@@ -38,7 +39,10 @@ struct _GtdListSelectorPanel
   GtkWidget          *tasklist_view;
 
   GtkWidget          *grid_selector;
+  GtkWidget          *list_selector;
   GMenu              *menu;
+
+  GtdListSelector    *active_selector;
 
   /* Action bar widgets */
   GtkWidget          *actionbar;
@@ -52,6 +56,7 @@ struct _GtdListSelectorPanel
   GtkWidget          *search_button;
   GtkWidget          *selection_button;
   GtkWidget          *view_button;
+  GtkWidget          *view_button_image;
 
   /* Rename widgets */
   GtkWidget          *rename_entry;
@@ -82,6 +87,30 @@ enum {
   N_PROPS
 };
 
+static void
+gtd_list_selector_panel_switch_view (GtdListSelectorPanel *panel)
+{
+  GtkWidget *next_view;
+  const gchar *icon_name;
+
+  if (GTK_WIDGET (panel->active_selector) == panel->grid_selector)
+    {
+      next_view = panel->list_selector;
+      icon_name = "view-grid-symbolic";
+    }
+  else
+    {
+      next_view = panel->grid_selector;
+      icon_name = "view-list-symbolic";
+    }
+
+  gtk_stack_set_visible_child (GTK_STACK (panel->stack), next_view);
+  gtk_image_set_from_icon_name (GTK_IMAGE (panel->view_button_image),
+                                icon_name,
+                                GTK_ICON_SIZE_BUTTON);
+
+  panel->active_selector = GTD_LIST_SELECTOR (next_view);
+}
 
 static void
 gtd_list_selector_panel_select_button_toggled (GtkToggleButton      *button,
@@ -140,7 +169,7 @@ update_action_bar_buttons (GtdListSelectorPanel *panel)
   gboolean all_lists_removable;
   gint selected_lists;
 
-  selection = gtd_list_selector_get_selected_lists (GTD_LIST_SELECTOR (panel->grid_selector));
+  selection = gtd_list_selector_get_selected_lists (panel->active_selector);
   selected_lists = g_list_length (selection);
   all_lists_removable = TRUE;
 
@@ -148,7 +177,7 @@ update_action_bar_buttons (GtdListSelectorPanel *panel)
     {
       GtdTaskList *list;
 
-      list = gtd_list_selector_grid_item_get_list (l->data);
+      list = gtd_list_selector_item_get_list (l->data);
 
       if (!gtd_task_list_is_removable (list))
         {
@@ -255,16 +284,16 @@ gtd_list_selector_panel_rename_task_list (GtdListSelectorPanel *panel)
   if (!gtk_widget_get_sensitive (panel->save_rename_button))
     return;
 
-  selection = gtd_list_selector_get_selected_lists (GTD_LIST_SELECTOR (panel->grid_selector));
+  selection = gtd_list_selector_get_selected_lists (panel->active_selector);
 
   if (selection && selection->data)
     {
-      GtdListSelectorGridItem *item;
+      GtdListSelectorItem *item;
       GtdTaskList *list;
       GtdWindow *window;
 
       item = selection->data;
-      list = gtd_list_selector_grid_item_get_list (item);
+      list = gtd_list_selector_item_get_list (item);
       window = GTD_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel)));
 
       gtd_task_list_set_name (list, gtk_entry_get_text (GTK_ENTRY (panel->rename_entry)));
@@ -281,15 +310,15 @@ gtd_list_selector_panel_rename_button_clicked (GtdListSelectorPanel *panel)
 {
   GList *selection;
 
-  selection = gtd_list_selector_get_selected_lists (GTD_LIST_SELECTOR (panel->grid_selector));
+  selection = gtd_list_selector_get_selected_lists (panel->active_selector);
 
   if (selection && selection->data)
     {
-      GtdListSelectorGridItem *item;
+      GtdListSelectorItem *item;
       GtdTaskList *list;
 
       item = selection->data;
-      list = gtd_list_selector_grid_item_get_list (item);
+      list = gtd_list_selector_item_get_list (item);
 
       gtk_popover_set_relative_to (GTK_POPOVER (panel->rename_popover), GTK_WIDGET (item));
       gtk_entry_set_text (GTK_ENTRY (panel->rename_entry), gtd_task_list_get_name (list));
@@ -343,13 +372,13 @@ gtd_list_selector_panel_delete_button_clicked (GtdListSelectorPanel *panel)
   /* Remove selected lists */
   if (response == GTK_RESPONSE_ACCEPT)
     {
-      children = gtd_list_selector_get_selected_lists (GTD_LIST_SELECTOR (panel->grid_selector));
+      children = gtd_list_selector_get_selected_lists (panel->active_selector);
 
       for (l = children; l != NULL; l = l->next)
         {
           GtdTaskList *list;
 
-          list = gtd_list_selector_grid_item_get_list (l->data);
+          list = gtd_list_selector_item_get_list (l->data);
 
           if (gtd_task_list_is_removable (list))
             gtd_manager_remove_task_list (gtd_manager_get_default (), list);
@@ -375,7 +404,7 @@ gtd_list_selector_panel_get_header_widgets (GtdPanel *panel)
 
   widgets = g_list_append (NULL, self->search_button);
   widgets = g_list_append (widgets, self->selection_button);
-  //widgets = g_list_append (widgets, self->view_button);
+  widgets = g_list_append (widgets, self->view_button);
   widgets = g_list_append (widgets, self->back_button);
   widgets = g_list_append (widgets, self->new_list_button);
 
@@ -549,6 +578,7 @@ gtd_list_selector_panel_class_init (GtdListSelectorPanelClass *klass)
   gtk_widget_class_bind_template_child (widget_class, GtdListSelectorPanel, stack);
   gtk_widget_class_bind_template_child (widget_class, GtdListSelectorPanel, tasklist_view);
   gtk_widget_class_bind_template_child (widget_class, GtdListSelectorPanel, view_button);
+  gtk_widget_class_bind_template_child (widget_class, GtdListSelectorPanel, view_button_image);
 
   gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_back_button_clicked);
   gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_delete_button_clicked);
@@ -558,6 +588,37 @@ gtd_list_selector_panel_class_init (GtdListSelectorPanelClass *klass)
   gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_rename_entry_text_changed);
   gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_rename_task_list);
   gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_select_button_toggled);
+  gtk_widget_class_bind_template_callback (widget_class, gtd_list_selector_panel_switch_view);
+}
+
+static void
+setup_panel (GtdListSelectorPanel *self,
+             GtkWidget            *selector,
+             const gchar          *stack_name,
+             const gchar          *stack_title)
+{
+
+  g_object_bind_property (self,
+                          "mode",
+                          selector,
+                          "mode",
+                          G_BINDING_BIDIRECTIONAL);
+
+  g_object_bind_property (self->search_entry,
+                          "text",
+                          selector,
+                          "search-query",
+                          G_BINDING_BIDIRECTIONAL);
+
+  g_signal_connect (selector,
+                    "list-selected",
+                    G_CALLBACK (gtd_list_selector_panel_list_selected),
+                    self);
+
+  gtk_stack_add_titled (GTK_STACK (self->stack),
+                        selector,
+                        stack_name,
+                        stack_title);
 }
 
 static void
@@ -568,27 +629,20 @@ gtd_list_selector_panel_init (GtdListSelectorPanel *self)
   /* Grid selector */
   self->grid_selector = gtd_list_selector_grid_new ();
 
-  g_object_bind_property (self,
-                          "mode",
-                          self->grid_selector,
-                          "mode",
-                          G_BINDING_BIDIRECTIONAL);
+  setup_panel (self,
+               self->grid_selector,
+               "grid",
+               "Grid");
 
-  g_object_bind_property (self->search_entry,
-                          "text",
-                          self->grid_selector,
-                          "search-query",
-                          G_BINDING_BIDIRECTIONAL);
+  self->active_selector = GTD_LIST_SELECTOR (self->grid_selector);
 
-  g_signal_connect (self->grid_selector,
-                    "list-selected",
-                    G_CALLBACK (gtd_list_selector_panel_list_selected),
-                    self);
+  /* List selector */
+  self->list_selector = gtd_list_selector_list_new ();
 
-  gtk_stack_add_titled (GTK_STACK (self->stack),
-                        self->grid_selector,
-                        "grid",
-                        "Grid");
+  setup_panel (self,
+               self->list_selector,
+               "list",
+               "List");
 
   /* Menu */
   self->menu = g_menu_new ();

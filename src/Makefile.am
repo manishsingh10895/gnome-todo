@@ -47,6 +47,12 @@ gnome_todo_SOURCES = \
 	views/gtd-list-selector-grid.h \
 	views/gtd-list-selector-grid-item.c \
 	views/gtd-list-selector-grid-item.h \
+	views/gtd-list-selector-item.c \
+	views/gtd-list-selector-item.h \
+	views/gtd-list-selector-list.c \
+	views/gtd-list-selector-list.h \
+	views/gtd-list-selector-list-item.c \
+	views/gtd-list-selector-list-item.h \
 	views/gtd-list-selector-panel.c \
 	views/gtd-list-selector-panel.h \
 	gtd-application.c \

@@ -229,11 +229,12 @@
     <property name="can_focus">True</property>
     <property name="receives_default">True</property>
     <property name="halign">end</property>
+    <signal name="clicked" handler="gtd_list_selector_panel_switch_view" object="GtdListSelectorPanel" swapped="yes" />
     <child>
       <object class="GtkImage" id="view_button_image">
         <property name="visible">True</property>
         <property name="can_focus">False</property>
-        <property name="icon_name">view-grid-symbolic</property>
+        <property name="icon_name">view-list-symbolic</property>
       </object>
     </child>
   </object>

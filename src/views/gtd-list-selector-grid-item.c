@@ -20,6 +20,7 @@
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 #include "gtd-list-selector-grid-item.h"
+#include "gtd-list-selector-item.h"
 
 #include <glib/gi18n.h>
 
@@ -37,11 +38,16 @@ struct _GtdListSelectorGridItem
   GtdWindowMode              mode;
 
   /* flags */
-  gint                      selected : 1;
+  gint                      selected;
 
 };
 
-G_DEFINE_TYPE (GtdListSelectorGridItem, gtd_list_selector_grid_item, GTK_TYPE_FLOW_BOX_CHILD)
+static void          gtd_list_selector_item_iface_init           (GtdListSelectorItemInterface *iface);
+
+G_DEFINE_TYPE_EXTENDED (GtdListSelectorGridItem, gtd_list_selector_grid_item, GTK_TYPE_FLOW_BOX_CHILD,
+                        0,
+                        G_IMPLEMENT_INTERFACE (GTD_TYPE_LIST_SELECTOR_ITEM,
+                                               gtd_list_selector_item_iface_init))
 
 #define LUMINANCE(c)              (0.299 * c->red + 0.587 * c->green + 0.114 * c->blue)
 
@@ -326,7 +332,7 @@ gtd_list_selector_grid_item__button_press_event_cb (GtkWidget *widget,
         }
       else
         {
-          gtd_list_selector_grid_item_set_selected (GTD_LIST_SELECTOR_GRID_ITEM (user_data), !item->selected);
+          gtd_list_selector_item_set_selected (GTD_LIST_SELECTOR_ITEM (user_data), !item->selected);
         }
 
       return GDK_EVENT_STOP;
@@ -343,6 +349,50 @@ gtd_list_selector_grid_item_state_flags_changed (GtkWidget     *item,
     GTK_WIDGET_CLASS (gtd_list_selector_grid_item_parent_class)->state_flags_changed (item, flags);
 
   gtd_list_selector_grid_item__update_thumbnail (GTD_LIST_SELECTOR_GRID_ITEM (item));
+}
+
+static GtdTaskList*
+gtd_list_selector_grid_item_get_list (GtdListSelectorItem *item)
+{
+  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item), NULL);
+
+  return GTD_LIST_SELECTOR_GRID_ITEM (item)->list;
+}
+
+static gboolean
+gtd_list_selector_grid_item_get_selected (GtdListSelectorItem *item)
+{
+  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item), FALSE);
+
+  return GTD_LIST_SELECTOR_GRID_ITEM (item)->selected;
+}
+
+static void
+gtd_list_selector_grid_item_set_selected (GtdListSelectorItem *item,
+                                          gboolean             selected)
+{
+  GtdListSelectorGridItem *self;
+
+  g_return_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item));
+
+  self = GTD_LIST_SELECTOR_GRID_ITEM (item);
+
+  if (self->selected != selected)
+    {
+      self->selected = selected;
+
+      gtd_list_selector_grid_item__update_thumbnail (self);
+
+      g_object_notify (G_OBJECT (item), "selected");
+    }
+}
+
+static void
+gtd_list_selector_item_iface_init (GtdListSelectorItemInterface *iface)
+{
+  iface->get_list = gtd_list_selector_grid_item_get_list;
+  iface->get_selected = gtd_list_selector_grid_item_get_selected;
+  iface->set_selected = gtd_list_selector_grid_item_set_selected;
 }
 
 static void
@@ -395,7 +445,8 @@ gtd_list_selector_grid_item_set_property (GObject      *object,
       break;
 
     case PROP_SELECTED:
-      gtd_list_selector_grid_item_set_selected (self, g_value_get_boolean (value));
+      gtd_list_selector_item_set_selected (GTD_LIST_SELECTOR_ITEM (self),
+                                           g_value_get_boolean (value));
       break;
 
     case PROP_TASK_LIST:
@@ -468,43 +519,27 @@ gtd_list_selector_grid_item_class_init (GtdListSelectorGridItemClass *klass)
    *
    * The parent source of the list.
    */
-  g_object_class_install_property (
-        object_class,
-        PROP_MODE,
-        g_param_spec_enum ("mode",
-                           "Mode of this item",
-                           "The mode of this item, inherited from the parent's mode",
-                           GTD_TYPE_WINDOW_MODE,
-                           GTD_WINDOW_MODE_NORMAL,
-                           G_PARAM_READWRITE));
+  g_object_class_override_property (object_class,
+                                    PROP_MODE,
+                                    "mode");
 
   /**
    * GtdListSelectorGridItem::selected:
    *
    * Whether this item is selected when in %GTD_WINDOW_MODE_SELECTION.
    */
-  g_object_class_install_property (
-        object_class,
-        PROP_SELECTED,
-        g_param_spec_boolean ("selected",
-                              "Whether the task list is selected",
-                              "Whether the task list is selected when in selection mode",
-                              FALSE,
-                              G_PARAM_READWRITE));
+  g_object_class_override_property (object_class,
+                                    PROP_SELECTED,
+                                    "selected");
 
   /**
-   * GtdListSelectorGridItem::task-list:
+   * GtdListSelectorGridItem::list:
    *
    * The parent source of the list.
    */
-  g_object_class_install_property (
-        object_class,
-        PROP_TASK_LIST,
-        g_param_spec_object ("task-list",
-                             "Task list of the item",
-                             "The task list associated with this item",
-                             GTD_TYPE_TASK_LIST,
-                             G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+  g_object_class_override_property (object_class,
+                                    PROP_TASK_LIST,
+                                    "task-list");
 
   /* template class */
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/list-selector-grid-item.ui");
@@ -523,59 +558,4 @@ static void
 gtd_list_selector_grid_item_init (GtdListSelectorGridItem *self)
 {
   gtk_widget_init_template (GTK_WIDGET (self));
-}
-
-/**
- * gtd_list_selector_grid_item_get_list:
- * @item: a #GtdListSelectorGridItem
- *
- * Retrieves the internal #GtdTaskList from @item.
- *
- * Returns: (transfer none): the internal #GtdTaskList from @item
- */
-GtdTaskList*
-gtd_list_selector_grid_item_get_list (GtdListSelectorGridItem *item)
-{
-  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item), NULL);
-
-  return item->list;
-}
-
-/**
- * gtd_list_selector_grid_item_get_selected:
- * @item: a #GtdListSelectorGridItem
- *
- * Retrieves whether @item is selected or not.
- *
- * Returns: %TRUE if @item is selected, %FALSE otherwise
- */
-gboolean
-gtd_list_selector_grid_item_get_selected (GtdListSelectorGridItem *item)
-{
-  g_return_val_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item), FALSE);
-
-  return item->selected;
-}
-
-/**
- * gtd_list_selector_grid_item_set_selected:
- * @item: a #GtdListSelectorGridItem
- * @selected: %TRUE if @item is selected, %FALSE otherwise
- *
- * Sets whether @item is selected or not.
- */
-void
-gtd_list_selector_grid_item_set_selected (GtdListSelectorGridItem *item,
-                                          gboolean                 selected)
-{
-  g_return_if_fail (GTD_IS_LIST_SELECTOR_GRID_ITEM (item));
-
-  if (item->selected != selected)
-    {
-      item->selected = selected;
-
-      gtd_list_selector_grid_item__update_thumbnail (item);
-
-      g_object_notify (G_OBJECT (item), "selected");
-    }
 }
