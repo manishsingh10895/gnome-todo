@@ -192,6 +192,8 @@ create_row_for_plugin (GtdPluginDialog *self,
   gtk_widget_show_all (row);
   g_object_ref (row);
 
+  g_clear_object (&builder);
+
   return row;
 }
 
