@@ -29,6 +29,7 @@ struct _GtdPluginDialog
   GtkDialog           parent;
 
   GtkWidget          *back_button;
+  GtkWidget          *extension_list_placeholder;
   GtkWidget          *frame;
   GtkWidget          *listbox;
   GtkWidget          *stack;
@@ -221,11 +222,9 @@ plugin_unloaded (GtdPluginManager *manager,
                  GtdActivatable   *activatable,
                  GtdPluginDialog  *self)
 {
-  gboolean contains;
   GList *children;
   GList *l;
 
-  contains = FALSE;
   children = gtk_container_get_children (GTK_CONTAINER (self->listbox));
 
   for (l = children; l != NULL; l = l->next)
@@ -237,16 +236,8 @@ plugin_unloaded (GtdPluginManager *manager,
       if (row_activatable == activatable)
         {
           gtk_container_remove (GTK_CONTAINER (self->listbox), l->data);
-          contains = TRUE;
           break;
         }
-    }
-
-  /* If there are no extensions left, go back to the 'empty' view */
-  if (g_list_length (children) == 0 ||
-      (g_list_length (children) == 1 && contains))
-    {
-      gtk_stack_set_visible_child_name (GTK_STACK (self->stack), "empty");
     }
 
   g_free (children);
@@ -273,6 +264,7 @@ gtd_plugin_dialog_class_init (GtdPluginDialogClass *klass)
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/plugin-dialog.ui");
 
   gtk_widget_class_bind_template_child (widget_class, GtdPluginDialog, back_button);
+  gtk_widget_class_bind_template_child (widget_class, GtdPluginDialog, extension_list_placeholder);
   gtk_widget_class_bind_template_child (widget_class, GtdPluginDialog, frame);
   gtk_widget_class_bind_template_child (widget_class, GtdPluginDialog, listbox);
   gtk_widget_class_bind_template_child (widget_class, GtdPluginDialog, stack);
@@ -306,6 +298,8 @@ gtd_plugin_dialog_init (GtdPluginDialog *self)
                               sort_extensions,
                               NULL,
                               NULL);
+
+  gtk_list_box_set_placeholder (GTK_LIST_BOX (self->listbox), self->extension_list_placeholder);
 }
 
 GtkWidget*
