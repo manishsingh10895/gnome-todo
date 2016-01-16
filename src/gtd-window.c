@@ -31,7 +31,6 @@
 #include "gtd-provider-dialog.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
-#include "gtd-task-list-item.h"
 #include "gtd-window.h"
 
 #include <glib/gi18n.h>

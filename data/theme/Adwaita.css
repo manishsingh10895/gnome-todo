@@ -6,7 +6,7 @@ task-row {
     border-bottom: 1px solid alpha(@borders, 0.4);
 }
 
-task-list-item.thumbnail {
+grid-item.thumbnail {
     margin-left: 10px;
     margin-right: 10px;
     margin-top: 8px;
@@ -14,11 +14,11 @@ task-list-item.thumbnail {
     font-size: 9px;
 }
 
-task-list-item {
+grid-item {
     background-color: transparent;
 }
 
-task-list-item,
+grid-item,
 task-list-view task-row {
     color: #000003;
 }
@@ -27,7 +27,7 @@ task-list-view task-row:hover {
     background-color: alpha(#ededed, 0.4);
 }
 
-task-list-item.dark,
+grid-item.dark,
 task-list-view.dark task-row {
     color: #eeeeec;
 }

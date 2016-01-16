@@ -4,6 +4,7 @@
     <file alias="gtk/menus.ui">gtk/menus.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/edit-pane.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/initial-setup.ui</file>
+    <file compressed="true" preprocess="xml-stripblanks">ui/list-selector-grid-item.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/list-selector-panel.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/list-view.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/notification.ui</file>
@@ -13,7 +14,6 @@
     <file compressed="true" preprocess="xml-stripblanks">ui/provider-popover.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/provider-row.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/provider-selector.ui</file>
-    <file compressed="true" preprocess="xml-stripblanks">ui/task-list-item.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/task-row.ui</file>
     <file compressed="true" preprocess="xml-stripblanks">ui/window.ui</file>
     <file compressed="true">theme/Adwaita.css</file>

@@ -16,8 +16,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#ifndef GTD_TASK_LIST_ITEM_H
-#define GTD_TASK_LIST_ITEM_H
+#ifndef GTD_LIST_SELECTOR_GRID_ITEM_H
+#define GTD_LIST_SELECTOR_GRID_ITEM_H
 
 #include "gtd-types.h"
 
@@ -25,19 +25,19 @@
 
 G_BEGIN_DECLS
 
-#define GTD_TYPE_TASK_LIST_ITEM (gtd_task_list_item_get_type())
+#define GTD_TYPE_LIST_SELECTOR_GRID_ITEM (gtd_list_selector_grid_item_get_type())
 
-G_DECLARE_FINAL_TYPE (GtdTaskListItem, gtd_task_list_item, GTD, TASK_LIST_ITEM, GtkFlowBoxChild)
+G_DECLARE_FINAL_TYPE (GtdListSelectorGridItem, gtd_list_selector_grid_item, GTD, LIST_SELECTOR_GRID_ITEM, GtkFlowBoxChild)
 
-GtkWidget*              gtd_task_list_item_new                (GtdTaskList          *list);
+GtkWidget*              gtd_list_selector_grid_item_new          (GtdTaskList             *list);
 
-GtdTaskList*            gtd_task_list_item_get_list           (GtdTaskListItem      *item);
+GtdTaskList*            gtd_list_selector_grid_item_get_list     (GtdListSelectorGridItem *item);
 
-gboolean                gtd_task_list_item_get_selected       (GtdTaskListItem      *item);
+gboolean                gtd_list_selector_grid_item_get_selected (GtdListSelectorGridItem *item);
 
-void                    gtd_task_list_item_set_selected       (GtdTaskListItem      *item,
-                                                               gboolean              selected);
+void                    gtd_list_selector_grid_item_set_selected (GtdListSelectorGridItem *item,
+                                                                 gboolean                  selected);
 
 G_END_DECLS
 
-#endif /* GTD_TASK_LIST_ITEM_H */
+#endif /* GTD_LIST_SELECTOR_GRID_ITEM_H */

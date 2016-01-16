@@ -19,9 +19,9 @@
 #include "interfaces/gtd-provider.h"
 #include "gtd-list-selector.h"
 #include "gtd-list-selector-grid.h"
+#include "gtd-list-selector-grid-item.h"
 #include "gtd-manager.h"
 #include "gtd-task-list.h"
-#include "gtd-task-list-item.h"
 
 struct _GtdListSelectorGrid
 {
@@ -53,7 +53,7 @@ gtd_list_selector_grid_list_added (GtdManager          *manager,
 {
   GtkWidget *item;
 
-  item = gtd_task_list_item_new (list);
+  item = gtd_list_selector_grid_item_new (list);
 
   g_object_bind_property (selector,
                           "mode",
@@ -80,7 +80,7 @@ gtd_list_selector_grid_list_removed (GtdManager          *manager,
 
   for (l = children; l != NULL; l = l->next)
     {
-      if (gtd_task_list_item_get_list (l->data) == list)
+      if (gtd_list_selector_grid_item_get_list (l->data) == list)
         gtk_widget_destroy (l->data);
     }
 
@@ -89,9 +89,9 @@ gtd_list_selector_grid_list_removed (GtdManager          *manager,
 
 
 static gint
-gtd_list_selector_grid_sort_func (GtdTaskListItem     *a,
-                                  GtdTaskListItem     *b,
-                                  GtdListSelectorGrid *selector)
+gtd_list_selector_grid_sort_func (GtdListSelectorGridItem *a,
+                                  GtdListSelectorGridItem *b,
+                                  GtdListSelectorGrid     *selector)
 {
   GtdProvider *p1;
   GtdProvider *p2;
@@ -99,10 +99,10 @@ gtd_list_selector_grid_sort_func (GtdTaskListItem     *a,
   GtdTaskList *l2;
   gint retval = 0;
 
-  l1 = gtd_task_list_item_get_list (a);
+  l1 = gtd_list_selector_grid_item_get_list (a);
   p1 = gtd_task_list_get_provider (l1);
 
-  l2 = gtd_task_list_item_get_list (b);
+  l2 = gtd_list_selector_grid_item_get_list (b);
   p2 = gtd_task_list_get_provider (l2);
 
   retval = g_strcmp0 (gtd_provider_get_description (p1), gtd_provider_get_description (p2));
@@ -114,8 +114,8 @@ gtd_list_selector_grid_sort_func (GtdTaskListItem     *a,
 }
 
 static gboolean
-gtd_list_selector_grid_filter_func (GtdTaskListItem     *item,
-                                    GtdListSelectorGrid *selector)
+gtd_list_selector_grid_filter_func (GtdListSelectorGridItem *item,
+                                    GtdListSelectorGrid     *selector)
 {
   GtdTaskList *list;
   gboolean return_value;
@@ -130,7 +130,7 @@ gtd_list_selector_grid_filter_func (GtdTaskListItem     *item,
   if (!selector->search_query)
     return TRUE;
 
-  list = gtd_task_list_item_get_list (item);
+  list = gtd_list_selector_grid_item_get_list (item);
   haystack = NULL;
   search_folded = g_utf8_casefold (selector->search_query, -1);
   list_name_folded = g_utf8_casefold (gtd_task_list_get_name (list), -1);
@@ -183,7 +183,7 @@ gtd_list_selector_grid_set_mode (GtdListSelector *selector,
       if (mode != GTD_WINDOW_MODE_SELECTION)
         {
           gtk_container_foreach (GTK_CONTAINER (self),
-                                 (GtkCallback) gtd_task_list_item_set_selected,
+                                 (GtkCallback) gtd_list_selector_grid_item_set_selected,
                                  FALSE);
         }
 
@@ -234,7 +234,7 @@ gtd_list_selector_grid_get_selected_lists (GtdListSelector *selector)
 
   for (l = children; l != NULL; l = l->next)
     {
-      if (gtd_task_list_item_get_selected (l->data))
+      if (gtd_list_selector_grid_item_get_selected (l->data))
         selected = g_list_append (selected, l->data);
     }
 
@@ -313,21 +313,24 @@ static void
 gtd_list_selector_grid_child_activated (GtkFlowBox      *flowbox,
                                         GtkFlowBoxChild *child)
 {
+  GtdListSelectorGridItem *item;
   GtdListSelectorGrid *self;
-  GtdTaskListItem *item;
 
   self = GTD_LIST_SELECTOR_GRID (flowbox);
 
-  if (!GTD_IS_TASK_LIST_ITEM (child))
+  if (!GTD_IS_LIST_SELECTOR_GRID_ITEM (child))
     return;
 
-  item = GTD_TASK_LIST_ITEM (child);
+  item = GTD_LIST_SELECTOR_GRID_ITEM (child);
 
   /* We only mark the item as selected when we're in selection mode */
   if (self->mode == GTD_WINDOW_MODE_SELECTION)
-    gtd_task_list_item_set_selected (item, !gtd_task_list_item_get_selected (item));
+    {
+      gtd_list_selector_grid_item_set_selected (item,
+                                                !gtd_list_selector_grid_item_get_selected (item));
+    }
 
-  g_signal_emit_by_name (flowbox, "list-selected", gtd_task_list_item_get_list (item));
+  g_signal_emit_by_name (flowbox, "list-selected", gtd_list_selector_grid_item_get_list (item));
 }
 
 static void

@@ -32,6 +32,7 @@ EXTRA_DIST=                     \
   gtk/menus.ui \
   ui/edit-pane.ui \
   ui/initial-setup.ui \
+  ui/list-selector-grid-item.ui \
   ui/list-selector-panel.ui \
   ui/list-view.ui \
   ui/notification.ui \
@@ -41,7 +42,6 @@ EXTRA_DIST=                     \
   ui/provider-popover.ui \
   ui/provider-row.ui \
   ui/provider-selector.ui \
-  ui/task-list-item.ui \
   ui/task-row.ui \
   ui/window.ui \
   theme/Adwaita.css \

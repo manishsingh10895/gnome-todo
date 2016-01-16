@@ -21,10 +21,10 @@
 #include "gtd-enum-types.h"
 #include "gtd-list-selector.h"
 #include "gtd-list-selector-grid.h"
+#include "gtd-list-selector-grid-item.h"
 #include "gtd-list-selector-panel.h"
 #include "gtd-manager.h"
 #include "gtd-task-list.h"
-#include "gtd-task-list-item.h"
 #include "gtd-task-list-view.h"
 #include "gtd-window.h"
 
@@ -148,7 +148,7 @@ update_action_bar_buttons (GtdListSelectorPanel *panel)
     {
       GtdTaskList *list;
 
-      list = gtd_task_list_item_get_list (l->data);
+      list = gtd_list_selector_grid_item_get_list (l->data);
 
       if (!gtd_task_list_is_removable (list))
         {
@@ -259,12 +259,12 @@ gtd_list_selector_panel_rename_task_list (GtdListSelectorPanel *panel)
 
   if (selection && selection->data)
     {
-      GtdTaskListItem *item;
+      GtdListSelectorGridItem *item;
       GtdTaskList *list;
       GtdWindow *window;
 
       item = selection->data;
-      list = gtd_task_list_item_get_list (item);
+      list = gtd_list_selector_grid_item_get_list (item);
       window = GTD_WINDOW (gtk_widget_get_toplevel (GTK_WIDGET (panel)));
 
       gtd_task_list_set_name (list, gtk_entry_get_text (GTK_ENTRY (panel->rename_entry)));
@@ -285,11 +285,11 @@ gtd_list_selector_panel_rename_button_clicked (GtdListSelectorPanel *panel)
 
   if (selection && selection->data)
     {
-      GtdTaskListItem *item;
+      GtdListSelectorGridItem *item;
       GtdTaskList *list;
 
       item = selection->data;
-      list = gtd_task_list_item_get_list (item);
+      list = gtd_list_selector_grid_item_get_list (item);
 
       gtk_popover_set_relative_to (GTK_POPOVER (panel->rename_popover), GTK_WIDGET (item));
       gtk_entry_set_text (GTK_ENTRY (panel->rename_entry), gtd_task_list_get_name (list));
@@ -349,7 +349,7 @@ gtd_list_selector_panel_delete_button_clicked (GtdListSelectorPanel *panel)
         {
           GtdTaskList *list;
 
-          list = gtd_task_list_item_get_list (l->data);
+          list = gtd_list_selector_grid_item_get_list (l->data);
 
           if (gtd_task_list_is_removable (list))
             gtd_manager_remove_task_list (gtd_manager_get_default (), list);
