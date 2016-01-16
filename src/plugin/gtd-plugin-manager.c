@@ -19,6 +19,7 @@
 #include "interfaces/gtd-activatable.h"
 #include "interfaces/gtd-panel.h"
 #include "interfaces/gtd-provider.h"
+#include "gtd-manager.h"
 #include "gtd-plugin-manager.h"
 
 #include <libpeas/peas.h>
@@ -52,9 +53,85 @@ enum
 static guint signals[NUM_SIGNALS] = { 0, };
 
 static void
+save_active_extensions (GtdPluginManager *self)
+{
+  GtdManager *manager;
+  GList *extensions;
+  GList *l;
+  gchar **active_extensions;
+  gint counter;
+
+  manager = gtd_manager_get_default ();
+  counter = 0;
+
+  /* Count the number of active extensions */
+  extensions = g_hash_table_get_values (self->info_to_extension);
+
+  for (l = extensions; l != NULL; l = l->next)
+    {
+      gboolean active;
+
+      g_object_get (l->data,
+                    "active", &active,
+                    NULL);
+
+      if (active)
+        counter++;
+    }
+
+  g_list_free (extensions);
+
+  /* This really shouldn't happen but preventively
+   * check if no extensions are enabled.
+   */
+  if (counter == 0)
+    return;
+
+  /* Allocate the array */
+  active_extensions = g_malloc0_n (counter + 1, sizeof (gchar*));
+
+  /* Gather each extension and append to array if it's active */
+  extensions = g_hash_table_get_keys (self->info_to_extension);
+  counter = 0;
+
+  for (l = extensions; l != NULL; l = l->next)
+    {
+      GtdActivatable *activatable;
+      gboolean active;
+
+      activatable = g_hash_table_lookup (self->info_to_extension, l->data);
+
+      g_object_get (activatable,
+                    "active", &active,
+                    NULL);
+
+      if (active)
+        {
+          const gchar *module_name;
+
+          module_name = peas_plugin_info_get_module_name (l->data);
+
+          active_extensions[counter++] = g_strdup (module_name);
+        }
+    }
+
+  g_list_free (extensions);
+
+  /* Save the setting */
+  g_settings_set_strv (gtd_manager_get_settings (manager),
+                       "active-extensions",
+                       (const gchar* const*) active_extensions);
+
+  g_strfreev (active_extensions);
+}
+
+static void
 gtd_plugin_manager_finalize (GObject *object)
 {
   GtdPluginManager *self = (GtdPluginManager *)object;
+
+  /* Save extensions before finalizing the object */
+  save_active_extensions (self);
 
   g_clear_pointer (&self->info_to_extension, g_hash_table_destroy);
 
@@ -196,8 +273,8 @@ on_plugin_unloaded (PeasEngine       *engine,
   for (l = extension_providers; l != NULL; l = l->next)
     on_provider_removed (activatable, l->data, self);
 
-  /* Deactivate extension */
-  peas_activatable_deactivate (PEAS_ACTIVATABLE (activatable));
+  /* Save the list of active extensions */
+  save_active_extensions (self);
 
   /* Emit the signal */
   g_signal_emit (self, signals[PLUGIN_UNLOADED], 0, info, activatable);
@@ -214,7 +291,13 @@ on_plugin_loaded (PeasEngine       *engine,
     {
       GtdActivatable *activatable;
       PeasExtension *extension;
+      GtdManager *manager;
       const GList *l;
+      gchar **active_extensions;
+
+      manager = gtd_manager_get_default ();
+      active_extensions = g_settings_get_strv (gtd_manager_get_settings (manager),
+                                               "active-extensions");
 
       /*
        * Actually create the plugin object,
@@ -228,7 +311,11 @@ on_plugin_loaded (PeasEngine       *engine,
       /* All extensions shall be GtdActivatable impls */
       activatable = GTD_ACTIVATABLE (extension);
 
-      peas_activatable_activate (PEAS_ACTIVATABLE (activatable));
+      if (g_strv_contains ((const gchar* const*) active_extensions,
+                           peas_plugin_info_get_module_name (info)))
+        {
+          peas_activatable_activate (PEAS_ACTIVATABLE (activatable));
+        }
 
       g_hash_table_insert (self->info_to_extension,
                            info,
@@ -264,6 +351,8 @@ on_plugin_loaded (PeasEngine       *engine,
 
       /* Emit the signal */
       g_signal_emit (self, signals[PLUGIN_LOADED], 0, info, extension);
+
+      g_strfreev (active_extensions);
     }
 }
 
