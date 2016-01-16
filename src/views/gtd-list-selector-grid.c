@@ -313,14 +313,19 @@ static void
 gtd_list_selector_grid_child_activated (GtkFlowBox      *flowbox,
                                         GtkFlowBoxChild *child)
 {
+  GtdListSelectorGrid *self;
   GtdTaskListItem *item;
+
+  self = GTD_LIST_SELECTOR_GRID (flowbox);
 
   if (!GTD_IS_TASK_LIST_ITEM (child))
     return;
 
   item = GTD_TASK_LIST_ITEM (child);
 
-  gtd_task_list_item_set_selected (item, !gtd_task_list_item_get_selected (item));
+  /* We only mark the item as selected when we're in selection mode */
+  if (self->mode == GTD_WINDOW_MODE_SELECTION)
+    gtd_task_list_item_set_selected (item, !gtd_task_list_item_get_selected (item));
 
   g_signal_emit_by_name (flowbox, "list-selected", gtd_task_list_item_get_list (item));
 }
