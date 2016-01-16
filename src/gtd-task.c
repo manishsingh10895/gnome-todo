@@ -342,6 +342,14 @@ gtd_task_init (GtdTask *self)
   ;
 }
 
+/**
+ * gtd_task_new:
+ * @component: (nullable): a #ECalComponent
+ *
+ * Creates a new #GtdTask
+ *
+ * Returns: (transfer full): a #GtdTask
+ */
 GtdTask *
 gtd_task_new (ECalComponent *component)
 {
@@ -385,6 +393,14 @@ gtd_task_get_complete (GtdTask *task)
   return completed;
 }
 
+/**
+ * gtd_task_get_component:
+ * @task: a #GtdTask
+ *
+ * Retrieves the internal #ECalComponent of @task.
+ *
+ * Returns: (transfer none): a #ECalComponent
+ */
 ECalComponent*
 gtd_task_get_component (GtdTask *task)
 {
@@ -403,8 +419,6 @@ gtd_task_get_component (GtdTask *task)
  * @complete: the new value
  *
  * Updates the complete state of @task.
- *
- * Returns:
  */
 void
 gtd_task_set_complete (GtdTask  *task,
@@ -529,12 +543,10 @@ gtd_task_get_description (GtdTask *task)
 /**
  * gtd_task_set_description:
  * @task: a #GtdTask
- * @description: the new description, or %NULL
+ * @description: (nullable): the new description, or %NULL
  *
  * Updates the description of @task. The string is not stripped off of
  * spaces to preserve user data.
- *
- * Returns:
  */
 void
 gtd_task_set_description (GtdTask     *task,
@@ -597,11 +609,9 @@ gtd_task_get_due_date (GtdTask *task)
 /**
  * gtd_task_set_due_date:
  * @task: a #GtdTask
- * @dt: a #GDateTime
+ * @dt: (nullable): a #GDateTime
  *
  * Updates the internal @GtdTask::due-date property.
- *
- * Returns:
  */
 void
 gtd_task_set_due_date (GtdTask   *task,
@@ -700,10 +710,10 @@ gtd_task_get_list (GtdTask *task)
 
 /**
  * gtd_task_set_list:
+ * @task: a #GtdTask
+ * @list: (nullable): a #GtdTaskList
  *
  * Sets the parent #GtdTaskList of @task.
- *
- * Returns:
  */
 void
 gtd_task_set_list (GtdTask     *task,
@@ -763,8 +773,6 @@ gtd_task_get_priority (GtdTask *task)
  * Sets the @task priority inside the parent #GtdTaskList. It
  * is up to the interface to handle two or more #GtdTask with
  * the same priority value.
- *
- * Returns:
  */
 void
 gtd_task_set_priority (GtdTask *task,
@@ -812,12 +820,10 @@ gtd_task_get_title (GtdTask *task)
 /**
  * gtd_task_set_title:
  * @task: a #GtdTask
- * @description: the new title, or %NULL
+ * @title: (nullable): the new title, or %NULL
  *
  * Updates the title of @task. The string is stripped off of
  * leading spaces.
- *
- * Returns:
  */
 void
 gtd_task_set_title (GtdTask     *task,
@@ -852,8 +858,6 @@ gtd_task_set_title (GtdTask     *task,
  *
  * Cancels any editing made on @task after the latest
  * call of @gtd_task_save.
- *
- * Returns:
  */
 void
 gtd_task_abort (GtdTask *task)
@@ -872,8 +876,6 @@ gtd_task_abort (GtdTask *task)
  * @task: a #GtdTask
  *
  * Save any changes made on @task.
- *
- * Returns:
  */
 void
 gtd_task_save (GtdTask *task)
@@ -887,6 +889,15 @@ gtd_task_save (GtdTask *task)
   e_cal_component_commit_sequence (priv->component);
 }
 
+/**
+ * gtd_task_compare:
+ * @t1: (nullable): a #GtdTask
+ * @t2: (nullable): a #GtdTask
+ *
+ * Compare @t1 and @t2.
+ *
+ * Returns: %-1 if @t1 comes before @t2, %1 for the opposite, %0 if they're equal
+ */
 gint
 gtd_task_compare (GtdTask *t1,
                   GtdTask *t2)

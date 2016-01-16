@@ -735,8 +735,6 @@ gtd_window_get_manager (GtdWindow *window)
  * @notification: a #GtdNotification
  *
  * Shows a notification on the top of the main window.
- *
- * Returns:
  */
 void
 gtd_window_notify (GtdWindow       *window,
@@ -757,8 +755,6 @@ gtd_window_notify (GtdWindow       *window,
  * @notification: a #GtdNotification
  *
  * Cancels @notification.
- *
- * Returns:
  */
 void
 gtd_window_cancel_notification (GtdWindow       *window,
@@ -795,8 +791,6 @@ gtd_window_get_mode (GtdWindow *window)
  * @mode: a #GtdWindowMode
  *
  * Sets the current window mode to @mode.
- *
- * Returns:
  */
 void
 gtd_window_set_mode (GtdWindow     *window,

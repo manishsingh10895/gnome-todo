@@ -75,6 +75,14 @@ gtd_panel_default_init (GtdPanelInterface *iface)
 
 }
 
+/**
+ * gtd_panel_get_name:
+ * @panel: a #GtdPanel
+ *
+ * Retrieves the name of @panel
+ *
+ * Returns: (transfer none): the name of @panel
+ */
 const gchar*
 gtd_panel_get_name (GtdPanel *panel)
 {
@@ -84,6 +92,14 @@ gtd_panel_get_name (GtdPanel *panel)
   return GTD_PANEL_GET_IFACE (panel)->get_name (panel);
 }
 
+/**
+ * gtd_panel_get_title:
+ * @panel: a #GtdPanel
+ *
+ * Retrieves the title of @panel
+ *
+ * Returns: (transfer none): the title of @panel
+ */
 const gchar*
 gtd_panel_get_title (GtdPanel *panel)
 {
@@ -93,6 +109,20 @@ gtd_panel_get_title (GtdPanel *panel)
   return GTD_PANEL_GET_IFACE (panel)->get_title (panel);
 }
 
+/**
+ * gtd_panel_get_header_widgets:
+ * @panel: a #GtdPanel
+ *
+ * Retrieves the list of widgets to be placed at headerbar. The
+ * position of the widget is determined by the #GtkWidget::halign
+ * property.
+ *
+ * Widgets with @GTK_ALIGN_START halign will be packed into the
+ * start of the headerbar, and @GTK_ALIGN_END at the end. Other
+ * values are silently ignored.
+ *
+ * Returns: (transfer container) (element-type #GtkWidget): the list of #GtkWidget
+ */
 GList*
 gtd_panel_get_header_widgets (GtdPanel *panel)
 {
@@ -102,6 +132,14 @@ gtd_panel_get_header_widgets (GtdPanel *panel)
   return GTD_PANEL_GET_IFACE (panel)->get_header_widgets (panel);
 }
 
+/**
+ * gtd_panel_get_menu:
+ * @panel: a #GtdPanel
+ *
+ * Retrieves the gear menu of @panel.
+ *
+ * Returns: (transfer none): a #GMenu
+ */
 const GMenu*
 gtd_panel_get_menu (GtdPanel *panel)
 {

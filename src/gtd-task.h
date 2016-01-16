@@ -64,7 +64,7 @@ void                gtd_task_set_list                 (GtdTask              *tas
 gint                gtd_task_get_priority             (GtdTask              *task);
 
 void                gtd_task_set_priority             (GtdTask              *task,
-                                                       gint                  position);
+                                                       gint                  priority);
 
 const gchar*        gtd_task_get_title                (GtdTask              *task);
 

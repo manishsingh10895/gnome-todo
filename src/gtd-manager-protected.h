@@ -25,6 +25,8 @@ G_BEGIN_DECLS
 
 void                 gtd_manager_load_plugins                    (GtdManager         *manager);
 
+GtdPluginManager*    gtd_manager_get_plugin_manager              (GtdManager         *manager);
+
 G_END_DECLS
 
 #endif /* GTD_MANAGER_PROTECTED_H */

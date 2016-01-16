@@ -215,11 +215,11 @@ gtd_object_get_uid (GtdObject *object)
 
 /**
  * gtd_object_set_uid:
+ * @object: a #GtdObject
+ * @uid: the unique identifier of @object
  *
  * Sets the unique identifier of @object to @uid. Only
  * a #GtdBackend should do it.
- *
- * Returns:
  */
 void
 gtd_object_set_uid (GtdObject   *object,
@@ -257,10 +257,10 @@ gtd_object_get_ready (GtdObject *object)
 
 /**
  * gtd_object_set_ready:
+ * @object: a #GtdObject
+ * @ready: whether @object is ready or not
  *
  * Sets the GtdObject::ready property to @ready.
- *
- * Returns:
  */
 void
 gtd_object_set_ready (GtdObject *object,

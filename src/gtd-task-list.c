@@ -200,6 +200,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
 
   /**
    * GtdTaskList::task-added:
+   * @list: a #GtdTaskList
+   * @task: a #GtdTask
    *
    * The ::task-added signal is emmited after a #GtdTask
    * is added to the list.
@@ -217,6 +219,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
 
   /**
    * GtdTaskList::task-removed:
+   * @list: a #GtdTaskList
+   * @task: a #GtdTask
    *
    * The ::task-removed signal is emmited after a #GtdTask
    * is removed from the list.
@@ -234,6 +238,8 @@ gtd_task_list_class_init (GtdTaskListClass *klass)
 
   /**
    * GtdTaskList::task-updated:
+   * @list: a #GtdTaskList
+   * @task: a #GtdTask
    *
    * The ::task-updated signal is emmited after a #GtdTask
    * in the list is updated.
@@ -258,8 +264,7 @@ gtd_task_list_init (GtdTaskList *self)
 
 /**
  * gtd_task_list_new:
- * @uid: the unique identifier of the list, usually set
- * by the backend
+ * @provider: (nullable): a #GtdProvider
  *
  * Creates a new list.
  *
@@ -303,10 +308,10 @@ gtd_task_list_get_color (GtdTaskList *list)
 
 /**
  * gtd_task_list_set_color:
+ * @list: a #GtdTaskList
+ * #color: a #GdkRGBA
  *
  * sets the color of @list.
- *
- * Returns:
  */
 void
 gtd_task_list_set_color (GtdTaskList   *list,
@@ -354,10 +359,10 @@ gtd_task_list_get_name (GtdTaskList *list)
 
 /**
  * gtd_task_list_set_name:
+ * @list: a #GtdTaskList
+ * @name: (nullable): the name of @list
  *
  * Sets the @list name to @name.
- *
- * Returns:
  */
 void
 gtd_task_list_set_name (GtdTaskList *list,
@@ -423,8 +428,6 @@ gtd_task_list_get_tasks (GtdTaskList *list)
  * @task: a #GtdTask
  *
  * Adds or updates @task to @list if it's not already present.
- *
- * Returns:
  */
 void
 gtd_task_list_save_task (GtdTaskList *list,
@@ -455,8 +458,6 @@ gtd_task_list_save_task (GtdTaskList *list,
  * @task: a #GtdTask
  *
  * Removes @task from @list if it's inside the list.
- *
- * Returns:
  */
 void
 gtd_task_list_remove_task (GtdTaskList *list,
@@ -520,6 +521,13 @@ gtd_task_list_is_removable (GtdTaskList *list)
   return priv->removable;
 }
 
+/**
+ * gtd_task_list_set_is_removable:
+ * @list: a #GtdTaskList
+ * @is_removable: %TRUE if @list can be deleted, %FALSE otherwise
+ *
+ * Sets whether @list can be deleted or not.
+ */
 void
 gtd_task_list_set_is_removable (GtdTaskList *list,
                                 gboolean     is_removable)

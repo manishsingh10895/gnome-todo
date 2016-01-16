@@ -31,6 +31,14 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (GtdNotification, gtd_notification, GTD, NOTIFICATION, GtdObject)
 
+/**
+ * GtdNotificationActionFunc:
+ * @notification: the #GtdNotification running the function
+ * @user_data: (closure): user data
+ *
+ * Will be called when the primary or secondary action of @notification
+ * is executed.
+ */
 typedef void (*GtdNotificationActionFunc) (GtdNotification *notification,
                                            gpointer         user_data);
 

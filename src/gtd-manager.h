@@ -77,8 +77,6 @@ void                    gtd_manager_emit_error_message    (GtdManager           
                                                            const gchar          *primary_message,
                                                            const gchar          *secondary_message);
 
-GtdPluginManager*       gtd_manager_get_plugin_manager    (GtdManager           *manager);
-
 G_END_DECLS
 
 #endif /* GTD_MANAGER_H */

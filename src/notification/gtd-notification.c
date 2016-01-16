@@ -270,6 +270,8 @@ gtd_notification_init (GtdNotification *self)
 
 /**
  * gtd_notification_new:
+ * @text: (nullable): text of the notification
+ * @timeout: time for the notification to stay visible
  *
  * Creates a new notification with @text and @timeout. If @timeout is
  * 0, the notification is indefinitely displayed.
@@ -288,11 +290,12 @@ gtd_notification_new (const gchar *text,
 
 /**
  * gtd_notification_set_primary_action:
+ * @notification: a #GtdNotification
+ * @func: (closure user_data) (scope call) (nullable): the primary action function
+ * @user_data: data passed to @func
  *
  * Sets the primary action of @notification, which is triggered
  * on dismiss or timeout.
- *
- * Returns:
  */
 void
 gtd_notification_set_primary_action (GtdNotification           *notification,
@@ -320,11 +323,13 @@ gtd_notification_set_primary_action (GtdNotification           *notification,
 
 /**
  * gtd_notification_set_secondary_action:
+ * @notification: a #GtdNotification
+ * @name: the name of the secondary action
+ * @func: (closure user_data) (scope call) (nullable): the secondary action function
+ * @user_data: data passed to @func
  *
  * Sets the secondary action of @notification, which is triggered
  * only on user explicit input.
- *
- * Returns:
  */
 void
 gtd_notification_set_secondary_action (GtdNotification           *notification,
@@ -361,6 +366,7 @@ gtd_notification_set_secondary_action (GtdNotification           *notification,
 
 /**
  * gtd_notification_get_text:
+ * @notification: a #GtdNotification
  *
  * Gets the text of @notification.
  *
@@ -376,10 +382,10 @@ gtd_notification_get_text (GtdNotification *notification)
 
 /**
  * gtd_notification_set_text:
+ * @notification: a #GtdNotification
+ * @text: the user-visible text of @notification
  *
  * Sets the text of @notification to @text.
- *
- * Returns:
  */
 void
 gtd_notification_set_text (GtdNotification *notification,
@@ -417,10 +423,10 @@ gtd_notification_get_timeout (GtdNotification *notification)
 
 /**
  * gtd_notification_set_timeout:
+ * @notification: a #GtdNotification
+ * @timeout: the time to wait before running @notification, in miliseconds
  *
  * Sets the timeout of @notification to @timeout.
- *
- * Returns:
  */
 void
 gtd_notification_set_timeout (GtdNotification *notification,
@@ -442,10 +448,9 @@ gtd_notification_set_timeout (GtdNotification *notification,
 
 /**
  * gtd_notification_execute_primary_action:
+ * @notification: a #GtdNotification
  *
  * Executes the primary action of @notification if set.
- *
- * Returns:
  */
 void
 gtd_notification_execute_primary_action (GtdNotification *notification)
@@ -464,10 +469,9 @@ gtd_notification_execute_primary_action (GtdNotification *notification)
 
 /**
  * gtd_notification_execute_secondary_action:
+ * @notification: a #GtdNotification
  *
  * Executes the secondary action of @notification if any.
- *
- * Returns:
  */
 void
 gtd_notification_execute_secondary_action (GtdNotification *notification)
@@ -490,11 +494,10 @@ gtd_notification_execute_secondary_action (GtdNotification *notification)
 
 /**
  * gtd_notification_start:
+ * @notification: a #GtdNotification
  *
  * Starts the timeout of notification. Use @gtd_notification_stop
  * to stop it.
- *
- * Returns:
  */
 void
 gtd_notification_start (GtdNotification *notification)
@@ -521,11 +524,10 @@ gtd_notification_start (GtdNotification *notification)
 
 /**
  * gtd_notification_stop:
+ * @notification: a #GtdNotification
  *
  * Stops the timeout of notification. Use @gtd_notification_start
  * to start it.
- *
- * Returns:
  */
 void
 gtd_notification_stop (GtdNotification *notification)

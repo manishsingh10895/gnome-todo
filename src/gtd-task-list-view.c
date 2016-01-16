@@ -839,7 +839,7 @@ gtd_task_list_view_init (GtdTaskListView *self)
  *
  * Creates a new #GtdTaskListView
  *
- * Returns: a newly allocated #GtdTaskListView
+ * Returns: (transfer full): a newly allocated #GtdTaskListView
  */
 GtkWidget*
 gtd_task_list_view_new (void)
@@ -874,10 +874,9 @@ gtd_task_list_view_get_list (GtdTaskListView *view)
 /**
  * gtd_task_list_view_set_list:
  * @view: a #GtdTaskListView
+ * @list: (element-type #GtdTask) (nullable): a list of tasks
  *
  * Copies the tasks from @list to @view.
- *
- * Returns:
  */
 void
 gtd_task_list_view_set_list (GtdTaskListView *view,
@@ -930,8 +929,6 @@ gtd_task_list_view_get_readonly (GtdTaskListView *view)
  * @view: a #GtdTaskListView
  *
  * Sets the GtdTaskListView::readonly property of @view.
- *
- * Returns:
  */
 void
 gtd_task_list_view_set_readonly (GtdTaskListView *view,
@@ -990,8 +987,6 @@ gtd_task_list_view_get_task_list (GtdTaskListView *view)
  * @list: a #GtdTaskList
  *
  * Sets the internal #GtdTaskList of @view.
- *
- * Returns:
  */
 void
 gtd_task_list_view_set_task_list (GtdTaskListView *view,
@@ -1087,8 +1082,6 @@ gtd_task_list_view_get_show_list_name (GtdTaskListView *view)
  * @show_list_name: %TRUE to show list names, %FALSE to hide it
  *
  * Whether @view should should it's tasks' list name.
- *
- * Returns:
  */
 void
 gtd_task_list_view_set_show_list_name (GtdTaskListView *view,
@@ -1116,7 +1109,7 @@ gtd_task_list_view_set_show_list_name (GtdTaskListView *view,
 }
 
 /**
- * gtd_task_list_view_get)show_completed:
+ * gtd_task_list_view_get_show_completed:
  * @view: a #GtdTaskListView
  *
  * Returns %TRUE if completed tasks are visible, %FALSE otherwise.
@@ -1137,8 +1130,6 @@ gtd_task_list_view_get_show_completed (GtdTaskListView *view)
  * @show_completed: %TRUE to show completed tasks, %FALSE to hide them
  *
  * Sets the ::show-completed property to @show_completed.
- *
- * Returns:
  */
 void
 gtd_task_list_view_set_show_completed (GtdTaskListView *view,

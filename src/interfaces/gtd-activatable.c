@@ -85,6 +85,8 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 
   /**
    * GtdActivatable::panel-added:
+   * @activatable: a #GtdActivatable
+   * @panel: a #GtdPanel
    *
    * The ::panel-added signal is emmited after a #GtdPanel
    * is connected.
@@ -102,6 +104,8 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 
   /**
    * GtdActivatable::panel-removed:
+   * @activatable: a #GtdActivatable
+   * @panel: a #GtdPanel
    *
    * The ::panel-removed signal is emmited after a #GtdPanel
    * is removed from the list.
@@ -119,6 +123,8 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 
   /**
    * GtdActivatable::provider-added:
+   * @activatable: a #GtdActivatable
+   * @provider: a #GtdProvider
    *
    * The ::provider-added signal is emmited after a #GtdProvider
    * is connected.
@@ -136,6 +142,8 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 
   /**
    * GtdActivatable::provider-changed:
+   * @activatable: a #GtdActivatable
+   * @provider: a #GtdProvider
    *
    * The ::provider-changed signal is emmited after a #GtdProvider
    * has any of it's properties changed.
@@ -153,6 +161,8 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
 
   /**
    * GtdActivatable::provider-removed:
+   * @activatable: a #GtdActivatable
+   * @provider: a #GtdProvider
    *
    * The ::provider-removed signal is emmited after a #GtdProvider
    * is disconnected.
@@ -169,6 +179,14 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                             GTD_TYPE_PROVIDER);
 }
 
+/**
+ * gtd_activatable_get_preferences_panel:
+ * @activatable: a #GtdActivatable
+ *
+ * Retrieve the preferences panel of @activatable if any.
+ *
+ * Returns: (transfer none): a #GtkWidget, or %NULL
+ */
 GtkWidget*
 gtd_activatable_get_preferences_panel (GtdActivatable *activatable)
 {
@@ -178,6 +196,14 @@ gtd_activatable_get_preferences_panel (GtdActivatable *activatable)
   return GTD_ACTIVATABLE_GET_IFACE (activatable)->get_preferences_panel (activatable);
 }
 
+/**
+ * gtd_activatable_get_panels:
+ * @activatable: a #GtdActivatable
+ *
+ * Retrieve the panel list of @activatable if any.
+ *
+ * Returns: (transfer none) (element-type #GtdPanel): a #GList
+ */
 GList*
 gtd_activatable_get_panels (GtdActivatable *activatable)
 {
@@ -187,6 +213,14 @@ gtd_activatable_get_panels (GtdActivatable *activatable)
   return GTD_ACTIVATABLE_GET_IFACE (activatable)->get_panels (activatable);
 }
 
+/**
+ * gtd_activatable_get_providers:
+ * @activatable: a #GtdActivatable
+ *
+ * Retrieve the providers of @activatable if any.
+ *
+ * Returns: (transfer none) (element-type #GtdProvider): a #GList
+ */
 GList*
 gtd_activatable_get_providers (GtdActivatable *activatable)
 {

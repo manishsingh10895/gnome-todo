@@ -166,6 +166,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::list-added:
+   * @manager: a #GtdManager
+   * @list: a #GtdTaskList
    *
    * The ::list-added signal is emmited after a #GtdTaskList
    * is connected.
@@ -181,8 +183,10 @@ gtd_manager_class_init (GtdManagerClass *klass)
                                       1,
                                       GTD_TYPE_TASK_LIST);
 
-/**
+  /**
    * GtdManager::list-changed:
+   * @manager: a #GtdManager
+   * @list: a #GtdTaskList
    *
    * The ::list-changed signal is emmited after a #GtdTaskList
    * has any of it's properties changed.
@@ -200,6 +204,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::list-removed:
+   * @manager: a #GtdManager
+   * @list: a #GtdTaskList
    *
    * The ::list-removed signal is emmited after a #GtdTaskList
    * is disconnected.
@@ -217,10 +223,12 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::show-error-message:
+   * @manager: a #GtdManager
+   * @primary_text: the primary message
+   * @secondary_text: the detailed explanation of the error
    *
    * Notifies about errors, and sends the error message for widgets
    * to display.
-   *
    */
   signals[SHOW_ERROR_MESSAGE] = g_signal_new ("show-error-message",
                                               GTD_TYPE_MANAGER,
@@ -236,6 +244,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::panel-added:
+   * @manager: a #GtdManager
+   * @panel: a #GtdPanel
    *
    * The ::panel-added signal is emmited after a #GtdPanel
    * is added.
@@ -253,6 +263,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::panel-removed:
+   * @manager: a #GtdManager
+   * @panel: a #GtdPanel
    *
    * The ::panel-removed signal is emmited after a #GtdPanel
    * is removed from the list.
@@ -270,6 +282,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::provider-added:
+   * @manager: a #GtdManager
+   * @provider: a #GtdProvider
    *
    * The ::provider-added signal is emmited after a #GtdProvider
    * is added.
@@ -287,6 +301,8 @@ gtd_manager_class_init (GtdManagerClass *klass)
 
   /**
    * GtdManager::provider-removed:
+   * @manager: a #GtdManager
+   * @provider: a #GtdProvider
    *
    * The ::provider-removed signal is emmited after a #GtdProvider
    * is removed from the list.
@@ -480,8 +496,6 @@ gtd_manager_new (void)
  * @task: a #GtdTask
  *
  * Ask for @task's parent list source to create @task.
- *
- * Returns:
  */
 void
 gtd_manager_create_task (GtdManager *manager,
@@ -505,8 +519,6 @@ gtd_manager_create_task (GtdManager *manager,
  * @task: a #GtdTask
  *
  * Ask for @task's parent list source to remove @task.
- *
- * Returns:
  */
 void
 gtd_manager_remove_task (GtdManager *manager,
@@ -530,8 +542,6 @@ gtd_manager_remove_task (GtdManager *manager,
  * @task: a #GtdTask
  *
  * Ask for @task's parent list source to update @task.
- *
- * Returns:
  */
 void
 gtd_manager_update_task (GtdManager *manager,
@@ -551,11 +561,10 @@ gtd_manager_update_task (GtdManager *manager,
 
 /**
  * gtd_manager_create_task_list:
- *
+ * @manager: a #GtdManager
+ * @list: a #GtdTaskList
  *
  * Creates a new task list at the given source.
- *
- * Returns:
  */
 void
 gtd_manager_create_task_list (GtdManager  *manager,
@@ -577,8 +586,6 @@ gtd_manager_create_task_list (GtdManager  *manager,
  * @list: a #GtdTaskList
  *
  * Deletes @list from the registry.
- *
- * Returns:
  */
 void
 gtd_manager_remove_task_list (GtdManager  *manager,
@@ -605,8 +612,6 @@ gtd_manager_remove_task_list (GtdManager  *manager,
  * @list: a #GtdTaskList
  *
  * Save or create @list.
- *
- * Returns:
  */
 void
 gtd_manager_save_task_list (GtdManager  *manager,
@@ -628,7 +633,7 @@ gtd_manager_save_task_list (GtdManager  *manager,
  *
  * Retrieves the list of #GtdTaskList already loaded.
  *
- * Returns: (transfer full): a newly allocated list of #GtdTaskList, or %NULL if none.
+ * Returns: (transfer container) (element-type #GtdTaskList): a newly allocated list of #GtdTaskList, or %NULL if none.
  */
 GList*
 gtd_manager_get_task_lists (GtdManager *manager)
@@ -639,11 +644,12 @@ gtd_manager_get_task_lists (GtdManager *manager)
 }
 
 /**
- * gtd_manager_get_storage_locations:
+ * gtd_manager_get_providers:
+ * @manager: a #GtdManager
  *
- * Retrieves the list of available #GtdStorage.
+ * Retrieves the list of available #GtdProvider.
  *
- * Returns: (transfer full): (type #GtdStorage): a newly allocated #GList of
+ * Returns: (transfer container) (element-type #GtdProvider): a newly allocated #GList of
  * #GtdStorage. Free with @g_list_free after use.
  */
 GList*
@@ -656,11 +662,12 @@ gtd_manager_get_providers (GtdManager *manager)
 
 /**
  * gtd_manager_get_panels:
+ * @manager: a #GtdManager
  *
  * Retrieves the list of currently loaded #GtdPanel
  * instances.
  *
- * Returns: (transger full): a #GList of #GtdPanel
+ * Returns: (transfer container) (element-type #GtdPanel): a #GList of #GtdPanel
  */
 GList*
 gtd_manager_get_panels (GtdManager *manager)
@@ -689,11 +696,9 @@ gtd_manager_get_default_provider (GtdManager *manager)
 /**
  * gtd_manager_set_default_storage:
  * @manager: a #GtdManager
- * @default_storage: the default storage location.
+ * @default_storage: (nullable): the default storage location.
  *
  * Sets the default storage location id.
- *
- * Returns:
  */
 void
 gtd_manager_set_default_provider (GtdManager  *manager,
@@ -753,8 +758,6 @@ gtd_manager_get_is_first_run (GtdManager *manager)
  * @is_first_run: %TRUE to make it first run, %FALSE otherwise.
  *
  * Sets the 'first-run' setting.
- *
- * Returns:
  */
 void
 gtd_manager_set_is_first_run (GtdManager *manager,

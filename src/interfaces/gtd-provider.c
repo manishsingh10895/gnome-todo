@@ -98,6 +98,8 @@ gtd_provider_default_init (GtdProviderInterface *iface)
 
   /**
    * GtdProvider::list-added:
+   * @provider: a #GtdProvider
+   * @list: a #GtdTaskList
    *
    * The ::list-added signal is emmited after a #GtdTaskList
    * is connected.
@@ -113,8 +115,10 @@ gtd_provider_default_init (GtdProviderInterface *iface)
                                       1,
                                       GTD_TYPE_TASK_LIST);
 
-/**
+  /**
    * GtdProvider::list-changed:
+   * @provider: a #GtdProvider
+   * @list: a #GtdTaskList
    *
    * The ::list-changed signal is emmited after a #GtdTaskList
    * has any of it's properties changed.
@@ -131,7 +135,9 @@ gtd_provider_default_init (GtdProviderInterface *iface)
                                         GTD_TYPE_TASK_LIST);
 
   /**
-   * GtdManager::list-removed:
+   * GtdProvider::list-removed:
+   * @provider: a #GtdProvider
+   * @list: a #GtdTaskList
    *
    * The ::list-removed signal is emmited after a #GtdTaskList
    * is disconnected.
@@ -148,6 +154,14 @@ gtd_provider_default_init (GtdProviderInterface *iface)
                                         GTD_TYPE_TASK_LIST);
 }
 
+/**
+ * gtd_provider_get_id:
+ * @provider: a #GtdProvider
+ *
+ * Retrieves the identifier of @provider.
+ *
+ * Returns: (transfer none): the id of @provider
+ */
 const gchar*
 gtd_provider_get_id (GtdProvider *provider)
 {
@@ -157,6 +171,14 @@ gtd_provider_get_id (GtdProvider *provider)
   return GTD_PROVIDER_GET_IFACE (provider)->get_id (provider);
 }
 
+/**
+ * gtd_provider_get_name:
+ * @provider: a #GtdProvider
+ *
+ * Retrieves the user-visible name of @provider.
+ *
+ * Returns: (transfer none): the name of @provider
+ */
 const gchar*
 gtd_provider_get_name (GtdProvider *provider)
 {
@@ -166,6 +188,14 @@ gtd_provider_get_name (GtdProvider *provider)
   return GTD_PROVIDER_GET_IFACE (provider)->get_name (provider);
 }
 
+/**
+ * gtd_provider_get_description:
+ * @provider: a #GtdProvider
+ *
+ * Retrieves the description of @provider.
+ *
+ * Returns: (transfer none): the description of @provider
+ */
 const gchar*
 gtd_provider_get_description (GtdProvider *provider)
 {
@@ -175,6 +205,16 @@ gtd_provider_get_description (GtdProvider *provider)
   return GTD_PROVIDER_GET_IFACE (provider)->get_description (provider);
 }
 
+/**
+ * gtd_provider_get_enabled:
+ * @provider: a #GtdProvider
+ *
+ * Retrieves whether @provider is enabled or not. A disabled
+ * provider cannot be selected to be default nor be selected
+ * to add tasks to it.
+ *
+ * Returns: %TRUE if provider is enabled, %FALSE otherwise.
+ */
 gboolean
 gtd_provider_get_enabled (GtdProvider *provider)
 {
@@ -184,6 +224,14 @@ gtd_provider_get_enabled (GtdProvider *provider)
   return GTD_PROVIDER_GET_IFACE (provider)->get_enabled (provider);
 }
 
+/**
+ * gtd_provider_get_icon:
+ * @provider: a #GtdProvider
+ *
+ * The icon of @provider.
+ *
+ * Returns: (transfer none): a #GIcon
+ */
 GIcon*
 gtd_provider_get_icon (GtdProvider *provider)
 {
@@ -202,6 +250,13 @@ gtd_provider_get_edit_panel (GtdProvider *provider)
   return GTD_PROVIDER_GET_IFACE (provider)->get_edit_panel (provider);
 }
 
+/**
+ * gtd_provider_create_task:
+ * @provider: a #GtdProvider
+ * @task: a #GtdTask
+ *
+ * Creates the given task in @provider.
+ */
 void
 gtd_provider_create_task (GtdProvider *provider,
                           GtdTask     *task)
@@ -212,6 +267,13 @@ gtd_provider_create_task (GtdProvider *provider,
   GTD_PROVIDER_GET_IFACE (provider)->create_task (provider, task);
 }
 
+/**
+ * gtd_provider_update_task:
+ * @provider: a #GtdProvider
+ * @task: a #GtdTask
+ *
+ * Updates the given task in @provider.
+ */
 void
 gtd_provider_update_task (GtdProvider *provider,
                           GtdTask     *task)
@@ -222,6 +284,13 @@ gtd_provider_update_task (GtdProvider *provider,
   GTD_PROVIDER_GET_IFACE (provider)->update_task (provider, task);
 }
 
+/**
+ * gtd_provider_remove_task:
+ * @provider: a #GtdProvider
+ * @task: a #GtdTask
+ *
+ * Removes the given task from @provider.
+ */
 void
 gtd_provider_remove_task (GtdProvider *provider,
                           GtdTask     *task)
@@ -232,6 +301,13 @@ gtd_provider_remove_task (GtdProvider *provider,
   GTD_PROVIDER_GET_IFACE (provider)->remove_task (provider, task);
 }
 
+/**
+ * gtd_provider_create_task_list:
+ * @provider: a #GtdProvider
+ * @list: a #GtdTaskList
+ *
+ * Creates the given list in @provider.
+ */
 void
 gtd_provider_create_task_list (GtdProvider *provider,
                                GtdTaskList *list)
@@ -242,6 +318,13 @@ gtd_provider_create_task_list (GtdProvider *provider,
   GTD_PROVIDER_GET_IFACE (provider)->create_task_list (provider, list);
 }
 
+/**
+ * gtd_provider_update_task_list:
+ * @provider: a #GtdProvider
+ * @list: a #GtdTaskList
+ *
+ * Updates the given list in @provider.
+ */
 void
 gtd_provider_update_task_list (GtdProvider *provider,
                                GtdTaskList *list)
@@ -251,7 +334,13 @@ gtd_provider_update_task_list (GtdProvider *provider,
 
   GTD_PROVIDER_GET_IFACE (provider)->update_task_list (provider, list);
 }
-
+/**
+ * gtd_provider_remove_task_list:
+ * @provider: a #GtdProvider
+ * @list: a #GtdTaskList
+ *
+ * Removes the given list from @provider.
+ */
 void
 gtd_provider_remove_task_list (GtdProvider *provider,
                                GtdTaskList *list)
@@ -261,7 +350,14 @@ gtd_provider_remove_task_list (GtdProvider *provider,
 
   GTD_PROVIDER_GET_IFACE (provider)->remove_task_list (provider, list);
 }
-
+/**
+ * gtd_provider_get_task_lists:
+ * @provider: a #GtdProvider
+ *
+ * Retrieves the tasklists that this provider contains.
+ *
+ * Returns: (transfer container) (element-type #GtdTaskList): the list of tasks, or %NULL
+ */
 GList*
 gtd_provider_get_task_lists (GtdProvider *provider)
 {
