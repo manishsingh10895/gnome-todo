@@ -275,6 +275,7 @@ setup_plugins (GtdPluginManager *self)
   const GList *l;
 
   engine = peas_engine_get_default ();
+  peas_engine_enable_loader (engine, "python3");
 
   /* Load plugins */
   plugins = peas_engine_get_plugin_list (engine);

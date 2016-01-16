@@ -24,7 +24,8 @@ DISTCLEANFILES = \
 	po/.intltool-merge-cache
 
 DISTCHECK_CONFIGURE_FLAGS = \
-	--enable-appstream-util
+	--enable-appstream-util \
+	--enable-introspection
 
 # Remove doc directory on uninstall
 uninstall-local:

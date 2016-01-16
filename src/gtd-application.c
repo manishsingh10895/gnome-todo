@@ -30,6 +30,7 @@
 #include <glib.h>
 #include <glib-object.h>
 #include <gio/gio.h>
+#include <girepository.h>
 #include <glib/gi18n.h>
 
 typedef struct
@@ -280,6 +281,18 @@ gtd_application_startup (GApplication *application)
   gtd_manager_load_plugins (priv->manager);
 }
 
+static gboolean
+gtd_application_local_command_line (GApplication   *application,
+                                    gchar        ***arguments,
+                                    gint           *exit_status)
+{
+  g_application_add_option_group (application, g_irepository_get_option_group());
+
+  return G_APPLICATION_CLASS (gtd_application_parent_class)->local_command_line (application,
+                                                                                 arguments,
+                                                                                 exit_status);
+}
+
 static void
 gtd_application_class_init (GtdApplicationClass *klass)
 {
@@ -290,6 +303,7 @@ gtd_application_class_init (GtdApplicationClass *klass)
 
   application_class->activate = gtd_application_activate;
   application_class->startup = gtd_application_startup;
+  application_class->local_command_line = gtd_application_local_command_line;
 }
 
 static void

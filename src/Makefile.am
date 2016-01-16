@@ -133,3 +133,63 @@ EXTRA_DIST = \
     gtd-enum-types.c.template
 
 -include $(top_srcdir)/git.mk
+
+
+#==================================
+# GObject introspection
+#==================================
+if HAVE_INTROSPECTION
+-include $(INTROSPECTION_MAKEFILE)
+
+INTROSPECTION_GIRS =
+INTROSPECTION_SCANNER_ARGS = \
+	--add-include-path=$(srcdir) --warn-all
+INTROSPECTION_COMPILER_ARGS = \
+	--includedir=$(srcdir)
+
+introspection_sources = \
+	interfaces/gtd-activatable.c \
+	interfaces/gtd-activatable.h \
+	interfaces/gtd-panel.c \
+	interfaces/gtd-panel.h \
+	interfaces/gtd-provider.c \
+	interfaces/gtd-provider.h \
+	notification/gtd-notification.c \
+	notification/gtd-notification.h \
+	gtd-enums.h \
+	gtd-manager.c \
+	gtd-manager.h \
+	gtd-object.c \
+	gtd-object.h \
+	gtd-task.c \
+	gtd-task.h \
+	gtd-task-list.c \
+	gtd-task-list.h \
+	gtd-task-list-view.c \
+	gtd-task-list-view.h \
+	gtd-window.c \
+	gtd-window.h \
+	gtd-types.h \
+	$(NULL)
+
+Todo-1.0.gir: gnome-todo
+Todo_1_0_gir_INCLUDES = Gio-2.0 GObject-2.0 Gtk-3.0
+Todo_1_0_gir_CFLAGS = $(gnome_todo_CFLAGS)
+Todo_1_0_gir_PROGRAM = $(builddir)/gnome-todo
+Todo_1_0_gir_SCANNERFLAGS = \
+	-n Todo \
+	--identifier-prefix Gtd  \
+	--symbol-prefix gtd
+Todo_1_0_gir_FILES = $(introspection_sources)
+INTROSPECTION_GIRS += Todo-1.0.gir
+
+girdir = $(datadir)/gir-1.0
+gir_DATA = $(INTROSPECTION_GIRS)
+
+typelibdir = $(libdir)/girepository-1.0
+typelib_DATA = $(INTROSPECTION_GIRS:.gir=.typelib)
+
+CLEANFILES += \
+	$(gir_DATA) \
+	$(typelib_DATA)
+endif

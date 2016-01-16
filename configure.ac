@@ -53,6 +53,12 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [GETTEXT package name])
 
 dnl ================================================================
+dnl GObject introspection support
+dnl ================================================================
+GOBJECT_INTROSPECTION_CHECK([1.42.0])
+
+
+dnl ================================================================
 dnl Misc
 dnl ================================================================
 AC_PATH_PROG(GLIB_MKENUMS, glib-mkenums)
