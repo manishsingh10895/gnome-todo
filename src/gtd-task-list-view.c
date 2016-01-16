@@ -57,6 +57,9 @@ typedef struct
 
   /* action */
   GActionGroup          *action_group;
+
+  GtdTaskListViewHeaderFunc header_func;
+  gpointer                  header_user_data;
 } GtdTaskListViewPrivate;
 
 struct _GtdTaskListView
@@ -142,6 +145,32 @@ undo_remove_task_action (GtdNotification *notification,
     gtd_task_list_save_task (priv->task_list, data->task);
 
   g_free (data);
+}
+
+static void
+internal_header_func (GtdTaskRow      *row,
+                      GtdTaskRow      *before,
+                      GtdTaskListView *view)
+{
+  GtdTask *row_task;
+  GtdTask *before_task;
+
+  if (!view->priv->header_func || row == view->priv->new_task_row)
+    return;
+
+  row_task = before_task = NULL;
+
+  if (row)
+    row_task = gtd_task_row_get_task (row);
+
+  if (before)
+    before_task = gtd_task_row_get_task (before);
+
+  view->priv->header_func (GTK_LIST_BOX_ROW (row),
+                           row_task,
+                           GTK_LIST_BOX_ROW (before),
+                           before_task,
+                           view->priv->header_user_data);
 }
 
 static void
@@ -1201,5 +1230,49 @@ gtd_task_list_view_set_show_completed (GtdTaskListView *view,
       gtd_task_list_view__update_empty_state (view);
 
       g_object_notify (G_OBJECT (view), "show-completed");
+    }
+}
+
+/**
+ * gtd_task_list_view_set_header_func:
+ * @view: a #GtdTaskListView
+ * @func: (closure user_data) (scope call) (nullable): the header function
+ * @user_data: data passed to @func
+ *
+ * Sets @func as the header function of @view. You can safely call
+ * %gtk_list_box_row_set_header from within @func.
+ *
+ * Do not unref nor free any of the passed data.
+ */
+void
+gtd_task_list_view_set_header_func (GtdTaskListView           *view,
+                                    GtdTaskListViewHeaderFunc  func,
+                                    gpointer                   user_data)
+{
+  GtdTaskListViewPrivate *priv;
+
+  g_return_if_fail (GTD_IS_TASK_LIST_VIEW (view));
+
+  priv = view->priv;
+
+  if (func)
+    {
+      priv->header_func = func;
+      priv->header_user_data = user_data;
+
+      gtk_list_box_set_header_func (priv->listbox,
+                                    (GtkListBoxUpdateHeaderFunc) internal_header_func,
+                                    view,
+                                    NULL);
+    }
+  else
+    {
+      priv->header_func = NULL;
+      priv->header_user_data = NULL;
+
+      gtk_list_box_set_header_func (priv->listbox,
+                                    NULL,
+                                    NULL,
+                                    NULL);
     }
 }

@@ -29,6 +29,23 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (GtdTaskListView, gtd_task_list_view, GTD, TASK_LIST_VIEW, GtkOverlay)
 
+/**
+ * GtdTaskListViewHeaderFunc:
+ * @row: the current #GtkListBoxRow
+ * @row_task: the #GtdTask that @row represents
+ * @before: the #GtkListBoxRow before @row
+ * @before_task: the #GtdTask that @before represents
+ * @user_data: (closure): user data
+ *
+ * Will be called when the primary or secondary action of @notification
+ * is executed.
+ */
+typedef void (*GtdTaskListViewHeaderFunc) (GtkListBoxRow        *row,
+                                           GtdTask              *row_task,
+                                           GtkListBoxRow        *before,
+                                           GtdTask              *before_task,
+                                           gpointer              user_data);
+
 GtkWidget*                gtd_task_list_view_new                (void);
 
 GList*                    gtd_task_list_view_get_list           (GtdTaskListView        *view);
@@ -53,8 +70,13 @@ void                      gtd_task_list_view_set_show_list_name (GtdTaskListView
 
 gboolean                  gtd_task_list_view_get_show_completed (GtdTaskListView        *view);
 
-void                      gtd_task_list_view_set_show_completed      (GtdTaskListView        *view,
+void                      gtd_task_list_view_set_show_completed (GtdTaskListView        *view,
                                                                  gboolean                show_completed);
+
+void                      gtd_task_list_view_set_header_func    (GtdTaskListView           *view,
+                                                                 GtdTaskListViewHeaderFunc  func,
+                                                                 gpointer                   user_data);
+
 G_END_DECLS
 
 #endif /* GTD_TASK_LIST_VIEW_H */
