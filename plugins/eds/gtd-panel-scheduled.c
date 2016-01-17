@@ -51,6 +51,141 @@ enum {
   N_PROPS
 };
 
+static gchar*
+get_string_for_date (GDateTime *dt,
+                     gint      *span)
+{
+  GDateTime *now;
+  gchar *str;
+  gint days_diff;
+
+  /* This case should never happen */
+  if (!dt)
+    return g_strdup (_("No date set"));
+
+  now = g_date_time_new_now_local ();
+  days_diff = g_date_time_difference (dt, now) / G_TIME_SPAN_DAY;
+
+  if (days_diff < -1)
+    {
+      str = g_strdup_printf (_("%d days ago"), -days_diff);
+    }
+  else if (days_diff == -1)
+    {
+      str = g_strdup (_("Yesterday"));
+    }
+  else if (days_diff == 0)
+    {
+      str = g_strdup (_("Today"));
+    }
+  else if (days_diff == 1)
+    {
+      str = g_strdup (_("Tomorrow"));
+    }
+  else if (days_diff > 1 && days_diff < 7)
+    {
+      str = g_date_time_format (dt, "%A"); // Weekday name
+    }
+  else if (days_diff >= 7 && days_diff < (365 + g_date_time_get_year (dt) % 4 == 0))
+    {
+      str = g_date_time_format (dt, "%B"); // Full month name
+    }
+  else
+    {
+      str = g_strdup_printf ("%d", g_date_time_get_year (dt));
+    }
+
+  if (span)
+    *span = days_diff;
+
+  g_clear_pointer (&now, g_date_time_unref);
+
+  return str;
+}
+
+static GtkWidget*
+create_label (const gchar *text,
+              gint         span,
+              gboolean     first_header)
+{
+  GtkStyleContext *context;
+  GtkWidget *label;
+  GtkWidget *box;
+
+  label = g_object_new (GTK_TYPE_LABEL,
+                        "label", text,
+                        "margin-left", 12,
+                        "margin-bottom", 6,
+                        "margin-top", first_header ? 6 : 18,
+                        "xalign", 0,
+                        "hexpand", TRUE,
+                        NULL);
+
+  context = gtk_widget_get_style_context (label);
+  gtk_style_context_add_class (context, span < 0 ? "date-overdue" : "date-scheduled");
+
+  box = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+
+  gtk_container_add (GTK_CONTAINER (box), label);
+  gtk_container_add (GTK_CONTAINER (box), gtk_separator_new (GTK_ORIENTATION_HORIZONTAL));
+
+  gtk_widget_show_all (box);
+
+  return box;
+}
+
+static void
+gtd_panel_scheduled_header_func (GtkListBoxRow     *row,
+                                 GtdTask           *row_task,
+                                 GtkListBoxRow     *before,
+                                 GtdTask           *before_task,
+                                 GtdPanelScheduled *panel)
+{
+  GDateTime *dt;
+  gchar *text;
+  gint span;
+
+  dt = gtd_task_get_due_date (row_task);
+
+  if (!before)
+    {
+      text = get_string_for_date (dt, &span);
+
+      gtk_list_box_row_set_header (row, create_label (text,
+                                                      span,
+                                                      TRUE));
+
+      g_free (text);
+    }
+  else
+    {
+      GDateTime *before_dt;
+      gint diff;
+
+      before_dt = gtd_task_get_due_date (before_task);
+      diff = g_date_time_difference (dt, before_dt) / G_TIME_SPAN_DAY;
+
+      if (diff != 0)
+        {
+          text = get_string_for_date (dt, &span);
+
+          gtk_list_box_row_set_header (row, create_label (text,
+                                                          span,
+                                                          FALSE));
+
+          g_free (text);
+        }
+      else
+        {
+          gtk_list_box_row_set_header (row, NULL);
+        }
+
+      g_clear_pointer (&before_dt, g_date_time_unref);
+    }
+
+  g_clear_pointer (&dt, g_date_time_unref);
+}
+
 static void
 gtd_panel_scheduled_clear (GtdPanelScheduled *panel)
 {
@@ -279,6 +414,10 @@ gtd_panel_scheduled_init (GtdPanelScheduled *self)
   gtk_widget_set_hexpand (self->view, TRUE);
   gtk_widget_set_vexpand (self->view, TRUE);
   gtk_container_add (GTK_CONTAINER (self), self->view);
+
+  gtd_task_list_view_set_header_func (GTD_TASK_LIST_VIEW (self->view),
+                                      (GtdTaskListViewHeaderFunc) gtd_panel_scheduled_header_func,
+                                      self);
 
   gtk_widget_show_all (GTK_WIDGET (self));
 }
