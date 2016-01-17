@@ -4,7 +4,10 @@ AM_CPPFLAGS = \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	-DUI_DATA_DIR=\""$(pkgdatadir)/style"\" \
 	-I$(srcdir)/provider \
-	-I$(srcdir)/notification
+	-I$(srcdir)/notification \
+	-I$(srcdir)/interfaces \
+	-I$(srcdir)/plugin \
+	-I$(srcdir)/views
 
 bin_PROGRAMS = gnome-todo
 
@@ -178,16 +181,16 @@ introspection_sources = \
 	gtd-types.h \
 	$(NULL)
 
-Todo-1.0.gir: gnome-todo
-Todo_1_0_gir_INCLUDES = Gio-2.0 GObject-2.0 Gtk-3.0
-Todo_1_0_gir_CFLAGS = $(gnome_todo_CFLAGS)
-Todo_1_0_gir_PROGRAM = $(builddir)/gnome-todo
-Todo_1_0_gir_SCANNERFLAGS = \
-	-n Todo \
+Gtd-1.0.gir: gnome-todo
+Gtd_1_0_gir_INCLUDES = Gio-2.0 GObject-2.0 Gtk-3.0
+Gtd_1_0_gir_CFLAGS = $(gnome_todo_CFLAGS)
+Gtd_1_0_gir_PROGRAM = $(builddir)/gnome-todo
+Gtd_1_0_gir_SCANNERFLAGS = \
+	-n Gtd \
 	--identifier-prefix Gtd  \
 	--symbol-prefix gtd
-Todo_1_0_gir_FILES = $(introspection_sources)
-INTROSPECTION_GIRS += Todo-1.0.gir
+Gtd_1_0_gir_FILES = $(introspection_sources)
+INTROSPECTION_GIRS += Gtd-1.0.gir
 
 girdir = $(datadir)/gir-1.0
 gir_DATA = $(INTROSPECTION_GIRS)

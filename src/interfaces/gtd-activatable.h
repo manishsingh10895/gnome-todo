@@ -20,6 +20,7 @@
 #define GTD_ACTIVATABLE_H
 
 #include <glib.h>
+#include <glib-object.h>
 #include <gtk/gtk.h>
 #include <libpeas/peas.h>
 
@@ -27,11 +28,15 @@ G_BEGIN_DECLS
 
 #define GTD_TYPE_ACTIVATABLE (gtd_activatable_get_type ())
 
-G_DECLARE_INTERFACE (GtdActivatable, gtd_activatable, GTD, ACTIVATABLE, PeasActivatable)
+G_DECLARE_INTERFACE (GtdActivatable, gtd_activatable, GTD, ACTIVATABLE, GObject)
 
 struct _GtdActivatableInterface
 {
-  PeasActivatableInterface parent;
+  GTypeInterface    parent;
+
+  void             (*activate)                             (GtdActivatable     *activatable);
+
+  void             (*deactivate)                           (GtdActivatable     *activatable);
 
   GList*           (*get_header_widgets)                   (GtdActivatable     *activatable);
 
@@ -41,6 +46,10 @@ struct _GtdActivatableInterface
 
   GList*           (*get_providers)                        (GtdActivatable     *activatable);
 };
+
+void                 gtd_activatable_activate                    (GtdActivatable     *activatable);
+
+void                 gtd_activatable_deactivate                  (GtdActivatable     *activatable);
 
 GList*               gtd_activatable_get_header_widgets          (GtdActivatable     *activatable);
 

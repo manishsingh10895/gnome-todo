@@ -98,9 +98,9 @@ transform_to (GBinding     *binding,
 }
 
 static void
-enabled_switch_changed (GtkSwitch       *sw,
-                        GParamSpec      *pspec,
-                        PeasActivatable *activatable)
+enabled_switch_changed (GtkSwitch      *sw,
+                        GParamSpec     *pspec,
+                        GtdActivatable *activatable)
 {
   gboolean active;
 
@@ -113,9 +113,9 @@ enabled_switch_changed (GtkSwitch       *sw,
     return;
 
   if (gtk_switch_get_active (sw))
-    peas_activatable_activate (activatable);
+    gtd_activatable_activate (activatable);
   else
-    peas_activatable_deactivate (activatable);
+    gtd_activatable_deactivate (activatable);
 }
 
 static GtkWidget*

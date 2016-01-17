@@ -20,7 +20,7 @@
 #include "gtd-panel.h"
 #include "gtd-provider.h"
 
-G_DEFINE_INTERFACE (GtdActivatable, gtd_activatable, PEAS_TYPE_ACTIVATABLE)
+G_DEFINE_INTERFACE (GtdActivatable, gtd_activatable, G_TYPE_OBJECT)
 
 enum
 {
@@ -60,28 +60,6 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                                             "The preferences panel of the plugins",
                                                             GTK_TYPE_WIDGET,
                                                             G_PARAM_READABLE));
-
-  /**
-   * GtdActivatable::panels:
-   *
-   * A list of #GtdPanel this plugin carries.
-   */
-  g_object_interface_install_property (iface,
-                                       g_param_spec_pointer ("panels",
-                                                             "Panels this widget has",
-                                                             "A list of panel this widget has",
-                                                             G_PARAM_READABLE));
-
-  /**
-   * GtdActivatable::providers:
-   *
-   * A list of #GtdProvider this plugin carries.
-   */
-  g_object_interface_install_property (iface,
-                                       g_param_spec_pointer ("providers",
-                                                             "Providers this widget has",
-                                                             "A list of providers this widget has",
-                                                             G_PARAM_READABLE));
 
   /**
    * GtdActivatable::panel-added:
@@ -177,6 +155,39 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
                                             G_TYPE_NONE,
                                             1,
                                             GTD_TYPE_PROVIDER);
+}
+
+/**
+ * gtd_activatable_activate:
+ * @activatable: a #GtdActivatable
+ *
+ * Activates the extension. This is the starting point where
+ * the implementation does everything it needs to do. Avoid
+ * doing it earlier than this call.
+ */
+void
+gtd_activatable_activate (GtdActivatable *activatable)
+{
+  g_return_if_fail (GTD_IS_ACTIVATABLE (activatable));
+  g_return_if_fail (GTD_ACTIVATABLE_GET_IFACE (activatable)->activate);
+
+  GTD_ACTIVATABLE_GET_IFACE (activatable)->activate (activatable);
+}
+
+/**
+ * gtd_activatable_deactivate:
+ * @activatable: a #GtdActivatable
+ *
+ * Deactivates the extension. Here, the extension should remove
+ * all providers and panels it set.
+ */
+void
+gtd_activatable_deactivate (GtdActivatable *activatable)
+{
+  g_return_if_fail (GTD_IS_ACTIVATABLE (activatable));
+  g_return_if_fail (GTD_ACTIVATABLE_GET_IFACE (activatable)->activate);
+
+  GTD_ACTIVATABLE_GET_IFACE (activatable)->deactivate (activatable);
 }
 
 /**

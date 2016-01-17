@@ -314,7 +314,7 @@ on_plugin_loaded (PeasEngine       *engine,
       if (g_strv_contains ((const gchar* const*) active_extensions,
                            peas_plugin_info_get_module_name (info)))
         {
-          peas_activatable_activate (PEAS_ACTIVATABLE (activatable));
+          gtd_activatable_activate (activatable);
         }
 
       g_hash_table_insert (self->info_to_extension,

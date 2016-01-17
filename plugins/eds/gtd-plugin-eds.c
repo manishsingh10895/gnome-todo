@@ -41,7 +41,7 @@
 
 struct _GtdPluginEds
 {
-  PeasExtensionBaseClass  parent;
+  GObject                 parent;
 
   GtkCssProvider         *provider;
   ESourceRegistry        *registry;
@@ -59,10 +59,7 @@ enum
 {
   PROP_0,
   PROP_ACTIVE,
-  PROP_OBJECT,
   PROP_PREFERENCES_PANEL,
-  PROP_PROVIDERS,
-  PROP_PANELS,
   LAST_PROP
 };
 
@@ -75,20 +72,16 @@ const gchar *supported_accounts[] = {
 
 static void          gtd_activatable_iface_init                  (GtdActivatableInterface  *iface);
 
-static void          peas_activatable_iface_init                 (PeasActivatableInterface *iface);
-
-G_DEFINE_DYNAMIC_TYPE_EXTENDED (GtdPluginEds, gtd_plugin_eds, PEAS_TYPE_EXTENSION_BASE,
+G_DEFINE_DYNAMIC_TYPE_EXTENDED (GtdPluginEds, gtd_plugin_eds, G_TYPE_OBJECT,
                                 0,
-                                G_IMPLEMENT_INTERFACE_DYNAMIC (PEAS_TYPE_ACTIVATABLE,
-                                                               peas_activatable_iface_init)
                                 G_IMPLEMENT_INTERFACE_DYNAMIC (GTD_TYPE_ACTIVATABLE,
                                                                gtd_activatable_iface_init))
 
 /*
- * PeasActivatable interface implementation
+ * GtdActivatable interface implementation
  */
 static void
-gtd_plugin_eds_activate (PeasActivatable *activatable)
+gtd_plugin_eds_activate (GtdActivatable *activatable)
 {
   GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
 
@@ -98,7 +91,7 @@ gtd_plugin_eds_activate (PeasActivatable *activatable)
 }
 
 static void
-gtd_plugin_eds_deactivate (PeasActivatable *activatable)
+gtd_plugin_eds_deactivate (GtdActivatable *activatable)
 {
   GtdPluginEds *plugin = GTD_PLUGIN_EDS (activatable);
 
@@ -107,16 +100,6 @@ gtd_plugin_eds_deactivate (PeasActivatable *activatable)
   g_object_notify (G_OBJECT (activatable), "active");
 }
 
-static void
-peas_activatable_iface_init (PeasActivatableInterface *iface)
-{
-  iface->activate = gtd_plugin_eds_activate;
-  iface->deactivate = gtd_plugin_eds_deactivate;
-}
-
-/*
- * GtdActivatable interface implementation
- */
 static GList*
 gtd_plugin_eds_get_header_widgets (GtdActivatable *activatable)
 {
@@ -148,6 +131,8 @@ gtd_plugin_eds_get_providers (GtdActivatable *activatable)
 static void
 gtd_activatable_iface_init (GtdActivatableInterface *iface)
 {
+  iface->activate = gtd_plugin_eds_activate;
+  iface->deactivate = gtd_plugin_eds_deactivate;
   iface->get_header_widgets = gtd_plugin_eds_get_header_widgets;
   iface->get_preferences_panel = gtd_plugin_eds_get_preferences_panel;
   iface->get_panels = gtd_plugin_eds_get_panels;
@@ -311,11 +296,10 @@ gtd_plugin_eds_source_registry_finish_cb (GObject      *source_object,
 
   /* Load the local provider */
   provider = gtd_provider_local_new (registry);
-  g_signal_emit_by_name (self, "provider-added", provider);
 
   self->providers = g_list_append (self->providers, provider);
 
-  g_object_notify (G_OBJECT (self), "providers");
+  g_signal_emit_by_name (self, "provider-added", provider);
 
   /* We only start loading Goa accounts after
    * ESourceRegistry is get, since it'd be way
@@ -351,36 +335,8 @@ gtd_plugin_eds_get_property (GObject    *object,
       g_value_set_boolean (value, self->active);
       break;
 
-    case PROP_OBJECT:
-      g_value_set_object (value, NULL);
-      break;
-
     case PROP_PREFERENCES_PANEL:
       g_value_set_object (value, NULL);
-      break;
-
-    case PROP_PANELS:
-      g_value_set_pointer (value, self->panels);
-      break;
-
-    case PROP_PROVIDERS:
-      g_value_set_pointer (value, self->providers);
-      break;
-
-    default:
-      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-    }
-}
-
-static void
-gtd_plugin_eds_set_property (GObject      *object,
-                             guint         prop_id,
-                             const GValue *value,
-                             GParamSpec   *pspec)
-{
-  switch (prop_id)
-    {
-    case PROP_OBJECT:
       break;
 
     default:
@@ -395,27 +351,14 @@ gtd_plugin_eds_class_init (GtdPluginEdsClass *klass)
 
   object_class->finalize = gtd_plugin_eds_finalize;
   object_class->get_property = gtd_plugin_eds_get_property;
-  object_class->set_property = gtd_plugin_eds_set_property;
 
   g_object_class_override_property (object_class,
                                     PROP_ACTIVE,
                                     "active");
 
   g_object_class_override_property (object_class,
-                                    PROP_OBJECT,
-                                    "object");
-
-  g_object_class_override_property (object_class,
-                                    PROP_PANELS,
-                                    "panels");
-
-  g_object_class_override_property (object_class,
                                     PROP_PREFERENCES_PANEL,
                                     "preferences-panel");
-
-  g_object_class_override_property (object_class,
-                                    PROP_PROVIDERS,
-                                    "providers");
 }
 
 static void
