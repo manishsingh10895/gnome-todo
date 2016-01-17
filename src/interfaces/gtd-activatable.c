@@ -185,7 +185,7 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
  *
  * Retrieve the list header widgets of @activatable if any.
  *
- * Returns: (transfer container) (element-type #GtkWidget): a #GList
+ * Returns: (transfer container) (element-type Gtk.Widget): a #GList
  */
 GList*
 gtd_activatable_get_header_widgets (GtdActivatable *activatable)
@@ -219,7 +219,7 @@ gtd_activatable_get_preferences_panel (GtdActivatable *activatable)
  *
  * Retrieve the panel list of @activatable if any.
  *
- * Returns: (transfer none) (element-type #GtdPanel): a #GList
+ * Returns: (transfer none) (element-type Gtd.Panel): a #GList
  */
 GList*
 gtd_activatable_get_panels (GtdActivatable *activatable)
@@ -236,7 +236,7 @@ gtd_activatable_get_panels (GtdActivatable *activatable)
  *
  * Retrieve the providers of @activatable if any.
  *
- * Returns: (transfer none) (element-type #GtdProvider): a #GList
+ * Returns: (transfer none) (element-type Gtd.Provider): a #GList
  */
 GList*
 gtd_activatable_get_providers (GtdActivatable *activatable)

@@ -665,7 +665,7 @@ gtd_manager_save_task_list (GtdManager  *manager,
  *
  * Retrieves the list of #GtdTaskList already loaded.
  *
- * Returns: (transfer container) (element-type #GtdTaskList): a newly allocated list of #GtdTaskList, or %NULL if none.
+ * Returns: (transfer container) (element-type Gtd.TaskList): a newly allocated list of #GtdTaskList, or %NULL if none.
  */
 GList*
 gtd_manager_get_task_lists (GtdManager *manager)
@@ -681,7 +681,7 @@ gtd_manager_get_task_lists (GtdManager *manager)
  *
  * Retrieves the list of available #GtdProvider.
  *
- * Returns: (transfer container) (element-type #GtdProvider): a newly allocated #GList of
+ * Returns: (transfer container) (element-type Gtd.Provider): a newly allocated #GList of
  * #GtdStorage. Free with @g_list_free after use.
  */
 GList*
@@ -699,7 +699,7 @@ gtd_manager_get_providers (GtdManager *manager)
  * Retrieves the list of currently loaded #GtdPanel
  * instances.
  *
- * Returns: (transfer container) (element-type #GtdPanel): a #GList of #GtdPanel
+ * Returns: (transfer container) (element-type Gtd.Panel): a #GList of #GtdPanel
  */
 GList*
 gtd_manager_get_panels (GtdManager *manager)

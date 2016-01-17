@@ -884,7 +884,7 @@ gtd_task_list_view_new (void)
  * if a #GtdTaskList is set, the #GtdTaskList's list
  * of task will be returned.
  *
- * Returns: (element-type GtdTaskList) (transfer full): the internal list of
+ * Returns: (element-type Gtd.TaskList) (transfer full): the internal list of
  * tasks. Free with @g_list_free after use.
  */
 GList*
@@ -903,7 +903,7 @@ gtd_task_list_view_get_list (GtdTaskListView *view)
 /**
  * gtd_task_list_view_set_list:
  * @view: a #GtdTaskListView
- * @list: (element-type #GtdTask) (nullable): a list of tasks
+ * @list: (element-type Gtd.Task) (nullable): a list of tasks
  *
  * Copies the tasks from @list to @view.
  */
