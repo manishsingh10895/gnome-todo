@@ -1,3 +1,7 @@
 SUBDIRS = eds
 
+if BUILD_TODOIST_PLUGIN
+SUBDIRS += todoist
+endif
+
 MAINTAINERCLEANFILES = Makefile.in

@@ -83,7 +83,13 @@ APPSTREAM_XML
 dnl ================================================================
 dnl Plugins
 dnl ================================================================
+
+# Evolution-Data-Server (builtin)
 GNOME_TODO_ADD_PLUGIN([eds], [Evolution-Data-Server], [yes])
+
+# Todoist
+GNOME_TODO_ADD_PLUGIN([todoist], [Todoist], [yes])
+
 
 AC_CONFIG_FILES([
       Makefile
@@ -111,6 +117,9 @@ echo "
 	project flags: ${GNOME_TODO_CFLAGS} ${GNOME_TODO_LIBS} ${LIBS}
         warning flags: ${GNOME_TODO_WARN_CFLAGS} ${GNOME_TODO_WARN_LDFLAGS}
         release:       ${ax_is_release}
+
+   Plugins:
+        Todoist:      ${enable_todoist_plugin}
 
         Now type 'make' to build $PACKAGE
 "
