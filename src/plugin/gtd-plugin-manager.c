@@ -377,30 +377,25 @@ static void
 setup_engine (GtdPluginManager *self)
 {
   PeasEngine *engine;
-  const gchar* const *config_dirs;
   gchar *plugin_dir;
-  gint i;
 
-  config_dirs = g_get_system_data_dirs ();
   engine = peas_engine_get_default ();
 
-  for (i = 0; config_dirs[i]; i++)
-    {
-      plugin_dir = g_build_filename (config_dirs[i],
-                                     "gnome-todo",
-                                     "plugins",
-                                     NULL);
+  /* Let Peas search for plugins in the specified directory */
+  plugin_dir = g_build_filename (PACKAGE_LIB_DIR,
+                                 "plugins",
+                                 NULL);
 
-      /* Let Peas search for plugins in the specified directory */
-      peas_engine_add_search_path (engine,
-                                   plugin_dir,
-                                   NULL);
+  peas_engine_add_search_path (engine,
+                               plugin_dir,
+                               NULL);
 
-      g_free (plugin_dir);
-    }
+  g_free (plugin_dir);
 
   /* User-installed plugins shall be detected too */
-  plugin_dir = g_build_filename (g_get_user_config_dir (),
+  plugin_dir = g_build_filename (g_get_home_dir (),
+                                 ".local",
+                                 "lib"
                                  "gnome-todo",
                                  "plugins",
                                  NULL);

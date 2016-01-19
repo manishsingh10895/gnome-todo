@@ -2,6 +2,7 @@ AM_CPPFLAGS = \
 	-DPACKAGE_LOCALE_DIR=\""$(localedir)"\" \
 	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
+	-DPACKAGE_LIB_DIR=\""$(pkglibdir)"\" \
 	-DUI_DATA_DIR=\""$(pkgdatadir)/style"\" \
 	-I$(srcdir)/provider \
 	-I$(srcdir)/notification \
