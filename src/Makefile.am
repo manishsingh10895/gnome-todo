@@ -188,7 +188,13 @@ Gtd_1_0_gir_PROGRAM = $(builddir)/gnome-todo
 Gtd_1_0_gir_SCANNERFLAGS = \
 	-n Gtd \
 	--identifier-prefix Gtd  \
-	--symbol-prefix gtd
+	--symbol-prefix gtd \
+	-I$(srcdir) \
+	-I$(srcdir)/provider \
+	-I$(srcdir)/notification \
+	-I$(srcdir)/interfaces \
+	-I$(srcdir)/plugin \
+	-I$(srcdir)/views
 Gtd_1_0_gir_FILES = $(introspection_sources)
 INTROSPECTION_GIRS += Gtd-1.0.gir
 

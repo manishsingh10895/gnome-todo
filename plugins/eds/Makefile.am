@@ -42,9 +42,15 @@ libeds_la_LDFLAGS = \
 resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --generate-dependencies \
                 --sourcedir=$(top_srcdir)/plugins/eds $(top_srcdir)/plugins/eds/eds.gresource.xml)
 
-gtd-plugin-eds-resources.c: eds.gresource.xml $(resource_files)
+gtd-plugin-eds-resources.c: $(top_srcdir)/plugins/eds/eds.gresource.xml $(resource_files)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/plugins/eds --generate-source $<
 
+CLEANFILES = \
+	$(BUILT_SOURCES)
 
-
-EXTRA_DIST = eds.plugin.in
+EXTRA_DIST = \
+	$(resource_files) \
+	eds.plugin.in \
+	eds.gresource.xml \
+	edit-pane.ui \
+	theme/Adwaita.css
