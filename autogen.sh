@@ -23,7 +23,6 @@ fi
 
 set -x
 aclocal --install || exit $?
-glib-gettextize --force --copy || exit $?
 intltoolize --force --copy --automake || exit $?
 autoreconf --verbose --force --install -Wno-portability || exit $?
 
