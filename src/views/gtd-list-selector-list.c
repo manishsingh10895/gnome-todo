@@ -262,7 +262,7 @@ gtd_list_selector_list_set_search_query (GtdListSelector *selector,
       g_clear_pointer (&self->search_query, g_free);
       self->search_query = g_strdup (search_query);
 
-      gtk_flow_box_invalidate_filter (GTK_FLOW_BOX (self));
+      gtk_list_box_invalidate_filter (GTK_LIST_BOX (self));
 
       g_object_notify (G_OBJECT (self), "search-query");
     }
