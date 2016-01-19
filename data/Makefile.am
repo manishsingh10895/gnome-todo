@@ -1,5 +1,8 @@
 SUBDIRS = icons
 
+pkgconfigdir = ${libdir}/pkgconfig
+pkgconfig_DATA = gnome-todo.pc
+
 desktopdir = $(datadir)/applications
 desktop_in_files = org.gnome.Todo.desktop.in
 desktop_DATA = $(desktop_in_files:.desktop.in=.desktop)
@@ -29,6 +32,7 @@ EXTRA_DIST=                     \
   appdata/org.gnome.Todo.appdata.xml \
   org.gnome.Todo.desktop \
   todo.gresource.xml \
+  gnome-todo.pc.in \
   gtk/menus.ui \
   ui/edit-pane.ui \
   ui/initial-setup.ui \
