@@ -1,4 +1,4 @@
-plugindir = @GNOME_TODO_PLUGIN_DIR@
+plugindir = ${pkgdatadir}/plugins
 
 GNOME_TODO_PLUGIN_CFLAGS = \
 	$(GNOME_TODO_CFLAGS) \
@@ -6,3 +6,7 @@ GNOME_TODO_PLUGIN_CFLAGS = \
 
 GNOME_TODO_PLUGIN_WARN_CFLAGS = \
 	$(GNOME_TODO_WARN_CFLAGS)
+
+GNOME_TODO_PLUGIN_LDFLAGS = \
+        -avoid-version \
+        -module

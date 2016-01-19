@@ -86,8 +86,6 @@ dnl Plugins
 dnl ================================================================
 GNOME_TODO_ADD_PLUGIN([eds], [Evolution-Data-Server], [yes])
 
-AC_SUBST([GNOME_TODO_PLUGIN_DIR], [${libdir}])
-
 AC_CONFIG_FILES([
       Makefile
       src/Makefile
