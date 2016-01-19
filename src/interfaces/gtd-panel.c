@@ -121,7 +121,7 @@ gtd_panel_get_title (GtdPanel *panel)
  * start of the headerbar, and @GTK_ALIGN_END at the end. Other
  * values are silently ignored.
  *
- * Returns: (transfer container) (element-type #GtkWidget): the list of #GtkWidget
+ * Returns: (transfer container) (element-type Gtk.Widget): the list of #GtkWidget
  */
 GList*
 gtd_panel_get_header_widgets (GtdPanel *panel)

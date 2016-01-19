@@ -356,7 +356,7 @@ gtd_provider_remove_task_list (GtdProvider *provider,
  *
  * Retrieves the tasklists that this provider contains.
  *
- * Returns: (transfer container) (element-type #GtdTaskList): the list of tasks, or %NULL
+ * Returns: (transfer container) (element-type Gtd.TaskList): the list of tasks, or %NULL
  */
 GList*
 gtd_provider_get_task_lists (GtdProvider *provider)
