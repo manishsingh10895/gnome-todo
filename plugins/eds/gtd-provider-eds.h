@@ -20,7 +20,7 @@
 #define GTD_PROVIDER_EDS_H
 
 #include <glib.h>
-#include <gnome-todo/gnome-todo.h>
+#include <gnome-todo.h>
 #include <libecal/libecal.h>
 #include <libedataserverui/libedataserverui.h>
 

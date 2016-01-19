@@ -20,7 +20,7 @@
 #define GTD_TASK_LIST_EDS_H
 
 #include <glib-object.h>
-#include <gnome-todo/gnome-todo.h>
+#include <gnome-todo.h>
 #include <libecal/libecal.h>
 
 G_BEGIN_DECLS

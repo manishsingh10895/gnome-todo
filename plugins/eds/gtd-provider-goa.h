@@ -22,7 +22,7 @@
 #include "gtd-provider-eds.h"
 
 #include <glib.h>
-#include <gnome-todo/gnome-todo.h>
+#include <gnome-todo.h>
 #include <goa/goa.h>
 
 G_BEGIN_DECLS

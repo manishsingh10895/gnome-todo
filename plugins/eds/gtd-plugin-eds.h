@@ -20,7 +20,7 @@
 #define GTD_EDS_PLUGIN_H
 
 #include <glib.h>
-#include <gnome-todo/gtd-activatable.h>
+#include <gnome-todo.h>
 
 G_BEGIN_DECLS
 
