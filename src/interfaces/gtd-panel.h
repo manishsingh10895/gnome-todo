@@ -19,8 +19,6 @@
 #ifndef GTD_PANEL_H
 #define GTD_PANEL_H
 
-#include "gtd-types.h"
-
 #include <glib-object.h>
 #include <glib.h>
 #include <gtk/gtk.h>
