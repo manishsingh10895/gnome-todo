@@ -16,10 +16,10 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "gtd-activatable.h"
-#include "gtd-panel.h"
-#include "gtd-provider.h"
-#include "gtd-notification.h"
+#include "interfaces/gtd-activatable.h"
+#include "interfaces/gtd-panel.h"
+#include "interfaces/gtd-provider.h"
+#include "notification/gtd-notification.h"
 #include "gtd-enums.h"
 #include "gtd-manager.h"
 #include "gtd-object.h"

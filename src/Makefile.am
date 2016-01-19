@@ -100,7 +100,7 @@ gnome_todo_LDADD = \
 # Export headers to [PREFIX]/include/gnome-todo
 #
 gnome_todo_includedir = $(includedir)/gnome-todo
-gnome_todo_include_HEADERS = \
+nobase_gnome_todo_include_HEADERS = \
 	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.h \
 	interfaces/gtd-provider.h \

@@ -24,7 +24,6 @@
 
 #include <glib/gi18n.h>
 #include <glib-object.h>
-#include <gnome-todo/gnome-todo.h>
 
 /**
  * The #GtdPluginEds is a class that loads all the

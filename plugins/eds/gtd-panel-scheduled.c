@@ -19,7 +19,7 @@
 #include "gtd-panel-scheduled.h"
 
 #include <glib/gi18n.h>
-#include <gnome-todo/gnome-todo.h>
+#include <gnome-todo.h>
 
 struct _GtdPanelScheduled
 {
