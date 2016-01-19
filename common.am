@@ -1,4 +1,4 @@
-plugindir = ${pkgdatadir}/plugins
+plugindir = ${pkglibdir}/plugins
 
 GNOME_TODO_PLUGIN_CFLAGS = \
 	$(GNOME_TODO_CFLAGS) \
