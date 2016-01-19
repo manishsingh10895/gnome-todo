@@ -93,6 +93,7 @@ AC_CONFIG_FILES([
       src/Makefile
       data/Makefile
       data/icons/Makefile
+      data/gnome-todo.pc
       data/org.gnome.Todo.desktop.in
       plugins/Makefile
       po/Makefile.in
