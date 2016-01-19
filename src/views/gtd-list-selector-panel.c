@@ -79,7 +79,6 @@ G_DEFINE_TYPE_EXTENDED (GtdListSelectorPanel, gtd_list_selector_panel, GTK_TYPE_
 
 enum {
   PROP_0,
-  PROP_HEADER_WIDGETS,
   PROP_MODE,
   PROP_MENU,
   PROP_NAME,
@@ -453,10 +452,6 @@ gtd_list_selector_panel_get_property (GObject    *object,
 
   switch (prop_id)
     {
-    case PROP_HEADER_WIDGETS:
-      g_value_set_pointer (value, gtd_list_selector_panel_get_header_widgets (self));
-      break;
-
     case PROP_MODE:
       g_value_set_enum (value, GTD_LIST_SELECTOR_PANEL (object)->mode);
       break;
@@ -527,10 +522,6 @@ gtd_list_selector_panel_class_init (GtdListSelectorPanelClass *klass)
 
   object_class->get_property = gtd_list_selector_panel_get_property;
   object_class->set_property = gtd_list_selector_panel_set_property;
-
-  g_object_class_override_property (object_class,
-                                    PROP_HEADER_WIDGETS,
-                                    "header-widgets");
 
   g_object_class_override_property (object_class,
                                     PROP_MENU,

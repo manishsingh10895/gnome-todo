@@ -44,7 +44,6 @@ G_DEFINE_TYPE_EXTENDED (GtdPanelScheduled, gtd_panel_scheduled, GTK_TYPE_BOX,
 
 enum {
   PROP_0,
-  PROP_HEADER_WIDGETS,
   PROP_MENU,
   PROP_NAME,
   PROP_TITLE,
@@ -326,10 +325,6 @@ gtd_panel_scheduled_get_property (GObject    *object,
 
   switch (prop_id)
     {
-    case PROP_HEADER_WIDGETS:
-      g_value_set_pointer (value, NULL);
-      break;
-
     case PROP_MENU:
       g_value_set_object (value, NULL);
       break;
@@ -365,7 +360,6 @@ gtd_panel_scheduled_class_init (GtdPanelScheduledClass *klass)
   object_class->get_property = gtd_panel_scheduled_get_property;
   object_class->set_property = gtd_panel_scheduled_set_property;
 
-  g_object_class_override_property (object_class, PROP_HEADER_WIDGETS, "header-widgets");
   g_object_class_override_property (object_class, PROP_MENU, "menu");
   g_object_class_override_property (object_class, PROP_NAME, "name");
   g_object_class_override_property (object_class, PROP_TITLE, "title");

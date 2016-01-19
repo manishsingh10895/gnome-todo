@@ -51,17 +51,6 @@ gtd_panel_default_init (GtdPanelInterface *iface)
                                                             G_PARAM_READABLE));
 
   /**
-   * GtdPanel::header-widgets:
-   *
-   * A #GList of widgets to be added to the headerbar.
-   */
-  g_object_interface_install_property (iface,
-                                       g_param_spec_pointer ("header-widgets",
-                                                             "The header widgets",
-                                                             "The widgets to be added in the headerbar",
-                                                             G_PARAM_READABLE));
-
-  /**
    * GtdPanel::menu:
    *
    * A #GMenu of entries of the window menu.
