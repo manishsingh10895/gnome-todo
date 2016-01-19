@@ -1,9 +1,8 @@
 include $(top_srcdir)/common.am
 
-plugindir = $(datadir)/gnome-todo/plugins
-
-plugin_LTLIBRARIES = libeds.la
-plugin_DATA = eds.plugin
+edsplugindir = $(plugindir)/eds
+edsplugin_LTLIBRARIES = libeds.la
+edsplugin_DATA = eds.plugin
 
 BUILT_SOURCES = \
 	gtd-plugin-eds-resources.c
@@ -35,7 +34,7 @@ libeds_la_LIBADD = \
 	$(GNOME_TODO_LIBS)
 
 libeds_la_LDFLAGS = \
-	-Wl -module \
+	$(GNOME_TODO_PLUGIN_LDFLAGS) \
 	$(GNOME_TODO_WARN_LDFLAGS)
 
 # generate binary-bundle resources
