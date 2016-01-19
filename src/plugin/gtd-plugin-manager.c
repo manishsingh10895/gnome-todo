@@ -395,7 +395,7 @@ setup_engine (GtdPluginManager *self)
   /* User-installed plugins shall be detected too */
   plugin_dir = g_build_filename (g_get_home_dir (),
                                  ".local",
-                                 "lib"
+                                 "lib",
                                  "gnome-todo",
                                  "plugins",
                                  NULL);
