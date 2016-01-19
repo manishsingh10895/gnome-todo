@@ -76,7 +76,7 @@ gtd_panel_default_init (GtdPanelInterface *iface)
 }
 
 /**
- * gtd_panel_get_name:
+ * gtd_panel_get_panel_name:
  * @panel: a #GtdPanel
  *
  * Retrieves the name of @panel
@@ -84,16 +84,16 @@ gtd_panel_default_init (GtdPanelInterface *iface)
  * Returns: (transfer none): the name of @panel
  */
 const gchar*
-gtd_panel_get_name (GtdPanel *panel)
+gtd_panel_get_panel_name (GtdPanel *panel)
 {
   g_return_val_if_fail (GTD_IS_PANEL (panel), NULL);
-  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_name, NULL);
+  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_panel_name, NULL);
 
-  return GTD_PANEL_GET_IFACE (panel)->get_name (panel);
+  return GTD_PANEL_GET_IFACE (panel)->get_panel_name (panel);
 }
 
 /**
- * gtd_panel_get_title:
+ * gtd_panel_get_panel_title:
  * @panel: a #GtdPanel
  *
  * Retrieves the title of @panel
@@ -101,12 +101,12 @@ gtd_panel_get_name (GtdPanel *panel)
  * Returns: (transfer none): the title of @panel
  */
 const gchar*
-gtd_panel_get_title (GtdPanel *panel)
+gtd_panel_get_panel_title (GtdPanel *panel)
 {
   g_return_val_if_fail (GTD_IS_PANEL (panel), NULL);
-  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_title, NULL);
+  g_return_val_if_fail (GTD_PANEL_GET_IFACE (panel)->get_panel_title, NULL);
 
-  return GTD_PANEL_GET_IFACE (panel)->get_title (panel);
+  return GTD_PANEL_GET_IFACE (panel)->get_panel_title (panel);
 }
 
 /**

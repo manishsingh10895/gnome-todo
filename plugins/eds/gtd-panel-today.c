@@ -196,13 +196,13 @@ gtd_panel_today_update_today_timeout_cb (GtdPanelToday *panel)
  * GtdPanel iface init
  **********************/
 static const gchar*
-gtd_panel_today_get_name (GtdPanel *panel)
+gtd_panel_today_get_panel_name (GtdPanel *panel)
 {
   return GTD_PANEL_TODAY_NAME;
 }
 
 static const gchar*
-gtd_panel_today_get_title (GtdPanel *panel)
+gtd_panel_today_get_panel_title (GtdPanel *panel)
 {
   return GTD_PANEL_TODAY (panel)->title;
 }
@@ -222,8 +222,8 @@ gtd_panel_today_get_menu (GtdPanel *panel)
 static void
 gtd_panel_iface_init (GtdPanelInterface *iface)
 {
-  iface->get_name = gtd_panel_today_get_name;
-  iface->get_title = gtd_panel_today_get_title;
+  iface->get_panel_name = gtd_panel_today_get_panel_name;
+  iface->get_panel_title = gtd_panel_today_get_panel_title;
   iface->get_header_widgets = gtd_panel_today_get_header_widgets;
   iface->get_menu = gtd_panel_today_get_menu;
 }

@@ -423,13 +423,13 @@ gtd_list_selector_panel_get_menu (GtdPanel *panel)
 }
 
 static const gchar*
-gtd_list_selector_panel_get_name (GtdPanel *panel)
+gtd_list_selector_panel_get_panel_name (GtdPanel *panel)
 {
   return "panel-lists";
 }
 
 static const gchar*
-gtd_list_selector_panel_get_title (GtdPanel *panel)
+gtd_list_selector_panel_get_panel_title (GtdPanel *panel)
 {
   return _("Lists");
 }
@@ -439,8 +439,8 @@ gtd_panel_iface_init (GtdPanelInterface *iface)
 {
   iface->get_header_widgets = gtd_list_selector_panel_get_header_widgets;
   iface->get_menu = gtd_list_selector_panel_get_menu;
-  iface->get_name = gtd_list_selector_panel_get_name;
-  iface->get_title = gtd_list_selector_panel_get_title;
+  iface->get_panel_name = gtd_list_selector_panel_get_panel_name;
+  iface->get_panel_title = gtd_list_selector_panel_get_panel_title;
 }
 
 static void
@@ -466,11 +466,11 @@ gtd_list_selector_panel_get_property (GObject    *object,
       break;
 
     case PROP_NAME:
-      g_value_set_string (value, gtd_list_selector_panel_get_name (self));
+      g_value_set_string (value, gtd_list_selector_panel_get_panel_name (self));
       break;
 
     case PROP_TITLE:
-      g_value_set_string (value, gtd_list_selector_panel_get_title (self));
+      g_value_set_string (value, gtd_list_selector_panel_get_panel_title (self));
       break;
 
     default:

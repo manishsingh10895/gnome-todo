@@ -297,7 +297,7 @@ gtd_window__panel_title_changed (GObject    *object,
 
   gtk_container_child_set (GTK_CONTAINER (priv->stack),
                            GTK_WIDGET (object),
-                           "title", gtd_panel_get_title (GTD_PANEL (object)),
+                           "title", gtd_panel_get_panel_title (GTD_PANEL (object)),
                            NULL);
 }
 
@@ -310,8 +310,8 @@ gtd_window__panel_added (GtdManager *manager,
 
   gtk_stack_add_titled (priv->stack,
                         GTK_WIDGET (panel),
-                        gtd_panel_get_name (panel),
-                        gtd_panel_get_title (panel));
+                        gtd_panel_get_panel_name (panel),
+                        gtd_panel_get_panel_title (panel));
 
   g_signal_connect (panel,
                     "notify::title",

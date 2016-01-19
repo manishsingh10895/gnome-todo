@@ -33,18 +33,18 @@ struct _GtdPanelInterface
 {
   GTypeInterface parent;
 
-  const gchar*       (*get_name)                           (GtdPanel        *panel);
+  const gchar*       (*get_panel_name)                     (GtdPanel        *panel);
 
-  const gchar*       (*get_title)                          (GtdPanel        *panel);
+  const gchar*       (*get_panel_title)                    (GtdPanel        *panel);
 
   GList*             (*get_header_widgets)                 (GtdPanel        *panel);
 
   const GMenu*       (*get_menu)                           (GtdPanel        *panel);
 };
 
-const gchar*         gtd_panel_get_name                          (GtdPanel           *panel);
+const gchar*         gtd_panel_get_panel_name                    (GtdPanel           *panel);
 
-const gchar*         gtd_panel_get_title                         (GtdPanel           *panel);
+const gchar*         gtd_panel_get_panel_title                   (GtdPanel           *panel);
 
 GList*               gtd_panel_get_header_widgets                (GtdPanel           *panel);
 
