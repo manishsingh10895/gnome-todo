@@ -1,4 +1,13 @@
 ==============
+Version 3.19.4
+==============
+
+Project:
+        * Add a plugin subsystem
+        * Add list-based tasklist selector
+        * Port to use CSS names
+
+==============
 Version 3.18.0
 ==============
 
