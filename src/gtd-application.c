@@ -92,8 +92,9 @@ gtd_application_show_about (GSimpleAction *simple,
   int created_year = 2015;
 
   static const gchar *authors[] = {
-    "Georges Basile Stavracas Neto <georges.stavracas@gmail.com>",
     "Emmanuele Bassi <ebassi@gnome.org>",
+    "Georges Basile Stavracas Neto <georges.stavracas@gmail.com>",
+    "Patrick Griffis <tingping@tingping.se>",
     NULL
   };
 
