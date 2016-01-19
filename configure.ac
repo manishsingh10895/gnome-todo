@@ -41,7 +41,6 @@ AC_CACHE_SAVE
 PKG_PROG_PKG_CONFIG
 
 GLIB_GSETTINGS
-AM_GLIB_GNU_GETTEXT
 
 dnl ***************************************************************************
 dnl Internationalization
