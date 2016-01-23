@@ -17,5 +17,10 @@
   <url type="bugtracker">https://github.com/GeorgesStavracas/gnome-todo/issues</url>
   <project_group>GNOME</project_group>
 
+  <kudos>
+    <kudo>AppMenu</kudo>
+    <kudo>ModernToolkit</kudo>
+  </kudos>
+
   <update_contact>georges.stavracas@gmail.com.</update_contact>
 </component>
