@@ -3,22 +3,22 @@
 # This file is distributed under the same license as the gnome-todo package.
 #
 # Balázs Meskó <meskobalazs at gmail dot com>, 2015.
-# Gabor Kelemen <kelemeng at ubuntu dot com>, 2015.
+# Gabor Kelemen <kelemeng at ubuntu dot com>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-25 07:20+0000\n"
-"PO-Revision-Date: 2015-10-25 16:27+0100\n"
-"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
+"POT-Creation-Date: 2016-01-19 22:45+0000\n"
+"PO-Revision-Date: 2016-01-25 01:23+0100\n"
+"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -45,16 +45,16 @@ msgid "Change default storage location…"
 msgstr "Alapértelmezett tárhely módosítása…"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Bővítmények"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_Névjegy"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "_Kilépés"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed tasks…"
-msgstr "Befejezett feladatok törlése…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -98,51 +98,62 @@ msgid ""
 msgstr "Ez-e a Tennivalók első indítása (a kezdeti beállítás futtatása miatt)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Alapértelmezett hely, ahová az új listák kerülnek"
+msgid "Default provider to add new lists to"
+msgstr "Alapértelmezett szolgáltató, ahová az új listák kerülnek"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
-msgstr "Az alapértelmezett hely azonosítója, ahová az új listák kerülnek"
+msgid "The identifier of the default provider to add new lists to"
+msgstr ""
+"Az alapértelmezett szolgáltató azonosítója, ahová az új listák kerülnek"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Aktív bővítmények listája"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Az aktív bővítmények listája"
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:612
 msgid "Details"
 msgstr "Részletek"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Jegyzetek"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Esedékesség"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Fontosság"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Nincs"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Alacsony"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Közepes"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Magas"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Törlés"
 
-#: ../data/ui/edit-pane.ui.h:10
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
 msgctxt "taskdate"
 msgid "None"
 msgstr "Nincs"
@@ -155,15 +166,36 @@ msgstr "Üdvözöljük"
 msgid "Login to online accounts to access your tasks"
 msgstr "Jelentkezzen be online fiókokba a feladatai eléréséhez"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:355
 msgid "Cancel"
 msgstr "Mégse"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:390
 msgid "Done"
 msgstr "Kész"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Átnevezés"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:433
+msgid "Lists"
+msgstr "Listák"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Feladatok"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Feladatlista neve"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Új lista"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -177,55 +209,59 @@ msgstr "A listákhoz feladatokat a <b>Listák</b> nézetben adhat hozzá."
 msgid "Show or hide completed tasks"
 msgstr "Befejezett feladatok megjelenítése vagy elrejtése"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Nem találhatók bővítmények"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "Válassza ki az alapértelmezett helyet az új listákhoz:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Alapértelmezett tárhely"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Létrehozás"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Listanév"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Válassza ki a tárolási helyet"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Ki"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Kattintson egy új Google fiók hozzáadásához"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Kattintson egy új ownCloud fiók hozzáadásához"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Kattintson egy új Microsoft Exchange fiók hozzáadásához"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Vagy tárolhatja a feladatait ezen a számítógépen"
 
@@ -233,173 +269,177 @@ msgstr "Vagy tárolhatja a feladatait ezen a számítógépen"
 msgid "New task…"
 msgstr "Új feladat…"
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Listák"
+#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nincs dátum beállítva"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:70
+#, c-format
+msgid "%d days ago"
+msgstr "%d nappal ezelőtt"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Tegnap"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Ma"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Holnap"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:257
+#: ../plugins/eds/gtd-panel-scheduled.c:262
+#: ../plugins/eds/gtd-panel-scheduled.c:392
 msgid "Scheduled"
 msgstr "Ütemezett"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Átnevezés"
+#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:641
+msgid "Clear completed tasks…"
+msgstr "Befejezett feladatok törlése…"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Új lista"
+#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+msgid "Error loading GNOME Online Accounts"
+msgstr "Hiba a GNOME Online fiókok betöltése során"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Feladatlista neve"
+#: ../plugins/eds/gtd-plugin-eds.c:289
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Hiba az Evolution-Data-Server háttérszolgáltató betöltése során"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Hiba a CSS erőforrásból történő betöltése során"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Nem sikerült a feladatok lekérése a listából"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Sikeres kapcsolódás a feladatlista-forráshoz"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Nem sikerült a kapcsolódás a feladatlista-forráshoz"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Nem sikerült a hitelesítési adatok bekérése"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Nem sikerült a hitelesítési adatok bekérése a következőhöz:"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Hitelesítési hiba"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Nem sikerült a feladatkezelő betöltése"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Hiba a feladat létrehozásakor"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Hiba a feladat módosításakor"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Hiba a feladat eltávolításakor"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Hiba a feladatlista létrehozásakor"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Hiba a feladatlista eltávolításakor"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Hiba a feladatlista mentésekor"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Helyi"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Ezen a számítógépen"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Hiba a feladatlista létrehozásakor"
+
+#: ../src/gtd-application.c:111
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d A Tennivalók szerzői"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:116
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d A Tennivalók szerzői"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
+#: ../src/gtd-window.c:1014
 msgid "To Do"
 msgstr "Tennivaló"
 
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Hiba a CSS erőforrásból történő betöltése során"
-
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Nincs dátum beállítva"
-
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Hiba a GNOME Online fiókok betöltése során"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Hiba a feladatlista mentésekor"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Hiba a feladatlista eltávolításakor"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Hiba a feladatlista létrehozásakor"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Hiba a feladat létrehozásakor"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Hiba a feladat eltávolításakor"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Hiba a feladat módosításakor"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Nem sikerült a hitelesítési adatok bekérése"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Nem sikerült a hitelesítési adatok bekérése a következőhöz:"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Hitelesítési hiba"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Nem sikerült a feladatok lekérése a listából"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Sikeres kapcsolódás a feladatlista-forráshoz"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Nem sikerült a kapcsolódás a feladatlista-forráshoz"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "A már betöltött feladatlista kihagyása "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Nem sikerült a feladatkezelő betöltése"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Nincsenek feladatok"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:290
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "A feladat (<b>%s</b>) törölve"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:321
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Holnap"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Tegnap"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Törli a kiválasztott feladatlistákat?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Feladatlisták törlése"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Új szín beállítása a feladatlistához"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:876
 msgid "Loading your task lists…"
 msgstr "Feladatlisták betöltése…"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:1008
 msgid "Click a task list to select"
 msgstr "Válasszon egy feladatlistát"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Hiba a feladatlista létrehozásakor"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Nincsenek feladatok"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86
-#: ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Ezen a számítógépen"
+#: ../src/views/gtd-list-selector-panel.c:154
+msgid "Setting new color for task list"
+msgstr "Új szín beállítása a feladatlistához"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Helyi"
+#: ../src/views/gtd-list-selector-panel.c:348
+msgid "Remove the selected task lists?"
+msgstr "Törli a kiválasztott feladatlistákat?"
+
+#: ../src/views/gtd-list-selector-panel.c:351
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
+
+#: ../src/views/gtd-list-selector-panel.c:363
+msgid "Remove task lists"
+msgstr "Feladatlisták törlése"
+
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "A már betöltött feladatlista kihagyása "
