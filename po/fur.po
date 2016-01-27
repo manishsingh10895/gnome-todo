@@ -8,14 +8,14 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-10-28 10:37+0000\n"
-"PO-Revision-Date: 2015-10-28 16:13+0100\n"
+"POT-Creation-Date: 2016-01-26 22:43+0000\n"
+"PO-Revision-Date: 2016-01-27 10:50+0100\n"
+"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "X-Generator: Poedit 1.8.5\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -44,16 +44,16 @@ msgid "Change default storage location…"
 msgstr "Modifiche posizion di archiviazion predefinide..."
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Estensions"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_Informazions"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "_Jes"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed tasks…"
-msgstr "Plate ativitâts completadis..."
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -99,51 +99,61 @@ msgstr ""
 "configurazion iniziâl)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Posizion predefinide pe zonte des gnovis listis"
+msgid "Default provider to add new lists to"
+msgstr "Provider predefinît pe zonte des gnovis listis"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
-msgstr ""
+msgid "The identifier of the default provider to add new lists to"
+msgstr "Il identificatîf dal provider predefinît pe zonte des gnovis listis"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Liste estensions ativis"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "La liste des estensions ativis"
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:612
 msgid "Details"
 msgstr "Detais"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Notis"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Date di scjadence"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Prioritât"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Nissune"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Basse"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Medie"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Alte"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Elimine"
 
-#: ../data/ui/edit-pane.ui.h:10
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
 msgctxt "taskdate"
 msgid "None"
 msgstr "Nissune"
@@ -156,15 +166,36 @@ msgstr "Benvignût"
 msgid "Login to online accounts to access your tasks"
 msgstr "Acedi ai account online par ministrâ lis tôs ativitâts"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:355
 msgid "Cancel"
 msgstr "Anule"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:390
 msgid "Done"
 msgstr "Fat"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Cambie non"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:433
+msgid "Lists"
+msgstr "Listis"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Ativitâts"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Non de liste di ativitâts"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Gnove liste"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -178,57 +209,61 @@ msgstr "Tu puedis zontâ ativitâts tes listis inte visualizazion <b>Listis</b>"
 msgid "Show or hide completed tasks"
 msgstr "Mostre o plate lis ativitâts completadis"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Nissune estension cjatade"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr ""
 "Selezione la posizion di archiviazion predefinide par creâ lis listis di "
 "ativitâts:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Posizion di archiviazion predefinide"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Cree"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Non liste"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Selezione une posizion di archiviazion"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Off"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Fâs clic par zontâ un gnûf account Google"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Fâs clic par zontâ un gnûf account ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Fâs clic par zontâ un gnûf account Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "O archiviâ lis ativitâts su chest computer"
 
@@ -236,175 +271,179 @@ msgstr "O archiviâ lis ativitâts su chest computer"
 msgid "New task…"
 msgstr "Gnove ativitât..."
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Listis"
+#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nissune date impostade"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:70
+#, c-format
+msgid "%d days ago"
+msgstr "%d zornadis indaûr"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Îr"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:78
+#: ../plugins/eds/gtd-panel-today.c:147 ../plugins/eds/gtd-panel-today.c:152
+#: ../plugins/eds/gtd-panel-today.c:314 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Vuê"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Doman"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:257
+#: ../plugins/eds/gtd-panel-scheduled.c:262
+#: ../plugins/eds/gtd-panel-scheduled.c:392
 msgid "Scheduled"
 msgstr "Planificât"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Cambie non"
+#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:641
+msgid "Clear completed tasks…"
+msgstr "Plate ativitâts completadis..."
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Gnove liste"
+#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+msgid "Error loading GNOME Online Accounts"
+msgstr "Erôr tal cjariâ i account online GNOME"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Non de liste di ativitâts"
+#: ../plugins/eds/gtd-plugin-eds.c:289
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Erôr tal cjariâ il backend Evolution-Data-Server"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Erôr tal cjariâ il CSS de sorzint"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Erôr tal recuperâ lis ativitâts de liste"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Conession ae sorzint des listis di ativitâts lade a bon fin"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Conession ae sorzint des listis di ativitâts falide"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "No soi rivât a domandâ lis credenziâi"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "No soi rivât a domandâ lis credenziâi par"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Autenticazion falide"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Erôr tal cjariâ il gjestôr ativitâts"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Erôr tal creâ l'ativitât"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Erôr tal inzornâ l'ativitât"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Erôr tal gjavâ l'ativitât"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Erôr tal creâ la liste ativitâts"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Erôr tal gjavâ la liste ativitâts"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Erôr tal salvâ la liste ativitâts"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Locâl"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Su chest computer"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Erôr tal creâ une gnove liste di ativitâts"
+
+#: ../src/gtd-application.c:111
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d i autôrs di To Do"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:116
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d i autôrs di To Do"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
+#: ../src/gtd-window.c:1014
 msgid "To Do"
 msgstr "To  Do"
 
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Erôr tal cjariâ il CSS de sorzint"
-
-#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Nissune date impostade"
-
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Erôr tal cjariâ i account online GNOME"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Erôr tal salvâ la liste ativitâts"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Erôr tal gjavâ la liste ativitâts"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Erôr tal creâ la liste ativitâts"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Erôr tal creâ l'ativitât"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Erôr tal gjavâ l'ativitât"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Erôr tal inzornâ l'ativitât"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr ""
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr ""
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Autenticazion falide"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Erôr tal recuperâ lis ativitâts de liste"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Conession ae sorzint des listis di ativitâts lade a bon fin"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Conession ae sorzint des listis di ativitâts falide"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Saltât liste di ativitât za cjariade "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Erôr tal cjariâ il gjestôr ativitâts"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Nissune ativitât"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:290
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Ativitât <b>%s</b> gjavade"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:321
 msgid "Undo"
 msgstr "Anule"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Doman"
+#: ../src/gtd-window.c:876
+msgid "Loading your task lists…"
+msgstr "Daûr a cjariâ listis di ativitâts..."
 
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Îr"
+#: ../src/gtd-window.c:1008
+msgid "Click a task list to select"
+msgstr "Fâs clic suntune liste di ativitâts par selezionâle"
 
-#: ../src/gtd-window.c:307
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Nissune ativitât"
+
+#: ../src/views/gtd-list-selector-panel.c:154
+msgid "Setting new color for task list"
+msgstr "Impostazion gnûf colôr pe liste ativitâts"
+
+#: ../src/views/gtd-list-selector-panel.c:348
 msgid "Remove the selected task lists?"
 msgstr "Gjavâ lis listis di ativitâts selezionadis?"
 
-#: ../src/gtd-window.c:310
+#: ../src/views/gtd-list-selector-panel.c:351
 msgid "Once removed, the task lists cannot be recovered."
 msgstr ""
 "Une volte gjavadis, lis listis di ativitâts no podaran jessi plui "
 "recuperadis."
 
-#: ../src/gtd-window.c:322
+#: ../src/views/gtd-list-selector-panel.c:363
 msgid "Remove task lists"
 msgstr "Gjave listis di ativitâts"
 
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Impostazion gnûf colôr pe liste ativitâts"
-
-#: ../src/gtd-window.c:1128
-msgid "Loading your task lists…"
-msgstr "Daûr a cjariâ listis di ativitâts..."
-
-#: ../src/gtd-window.c:1256
-msgid "Click a task list to select"
-msgstr "Fâs clic suntune liste di ativitâts par selezionâle"
-
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Erôr tal creâ une gnove liste di ativitâts"
-
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86
-#: ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Su chest computer"
-
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Locâl"
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "Saltât liste di ativitât za cjariade "
