@@ -2,7 +2,7 @@
 _Name=Todo
 _Comment=Manage your personal tasks
 Exec=gnome-todo
-Icon=gnome-todo
+Icon=org.gnome.Todo
 Terminal=false
 Type=Application
 StartupNotify=true

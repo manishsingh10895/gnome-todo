@@ -1,19 +1,19 @@
 NULL =
 
 hicolor_icon16dir = $(datadir)/icons/hicolor/16x16/apps
-hicolor_icon16_DATA = hicolor/16x16/apps/gnome-todo.png
+hicolor_icon16_DATA = hicolor/16x16/apps/org.gnome.Todo.png
 hicolor_icon22dir = $(datadir)/icons/hicolor/22x22/apps
-hicolor_icon22_DATA = hicolor/22x22/apps/gnome-todo.png
+hicolor_icon22_DATA = hicolor/22x22/apps/org.gnome.Todo.png
 hicolor_icon32dir = $(datadir)/icons/hicolor/32x32/apps
-hicolor_icon32_DATA = hicolor/32x32/apps/gnome-todo.png
+hicolor_icon32_DATA = hicolor/32x32/apps/org.gnome.Todo.png
 hicolor_icon48dir = $(datadir)/icons/hicolor/48x48/apps
-hicolor_icon48_DATA = hicolor/48x48/apps/gnome-todo.png
+hicolor_icon48_DATA = hicolor/48x48/apps/org.gnome.Todo.png
 hicolor_icon256dir = $(datadir)/icons/hicolor/256x256/apps
-hicolor_icon256_DATA = hicolor/256x256/apps/gnome-todo.png
+hicolor_icon256_DATA = hicolor/256x256/apps/org.gnome.Todo.png
 hicolor_icon512dir = $(datadir)/icons/hicolor/512x512/apps
-hicolor_icon512_DATA = hicolor/512x512/apps/gnome-todo.png
+hicolor_icon512_DATA = hicolor/512x512/apps/org.gnome.Todo.png
 hicolor_iconsymbolicdir = $(datadir)/icons/hicolor/symbolic/apps
-hicolor_iconsymbolic_DATA = hicolor/symbolic/apps/gnome-todo-symbolic.svg
+hicolor_iconsymbolic_DATA = hicolor/symbolic/apps/org.gnome.Todo-symbolic.svg
 hicolor_icon_files = \
 	$(hicolor_icon16_DATA) \
 	$(hicolor_icon22_DATA) \
@@ -22,7 +22,7 @@ hicolor_icon_files = \
 	$(hicolor_icon256_DATA) \
 	$(hicolor_icon512_DATA) \
 	$(hicolor_iconsymbolic_DATA) \
-	hicolor/gnome-todo.svg
+	hicolor/org.gnome.Todo.svg
 
 gtk_update_icon_cache = gtk-update-icon-cache -f -t $(datadir)/icons/hicolor
 

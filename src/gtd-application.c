@@ -124,7 +124,7 @@ gtd_application_show_about (GSimpleAction *simple,
                          "license-type", GTK_LICENSE_GPL_3_0,
                          "authors", authors,
                          "artists", artists,
-                         "logo-icon-name", "gnome-todo",
+                         "logo-icon-name", "org.gnome.Todo",
                          "translator-credits", _("translator-credits"),
                          NULL);
   g_free (copyright);
