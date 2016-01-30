@@ -53,85 +53,9 @@ enum
 static guint signals[NUM_SIGNALS] = { 0, };
 
 static void
-save_active_extensions (GtdPluginManager *self)
-{
-  GtdManager *manager;
-  GList *extensions;
-  GList *l;
-  gchar **active_extensions;
-  gint counter;
-
-  manager = gtd_manager_get_default ();
-  counter = 0;
-
-  /* Count the number of active extensions */
-  extensions = g_hash_table_get_values (self->info_to_extension);
-
-  for (l = extensions; l != NULL; l = l->next)
-    {
-      gboolean active;
-
-      g_object_get (l->data,
-                    "active", &active,
-                    NULL);
-
-      if (active)
-        counter++;
-    }
-
-  g_list_free (extensions);
-
-  /* This really shouldn't happen but preventively
-   * check if no extensions are enabled.
-   */
-  if (counter == 0)
-    return;
-
-  /* Allocate the array */
-  active_extensions = g_malloc0_n (counter + 1, sizeof (gchar*));
-
-  /* Gather each extension and append to array if it's active */
-  extensions = g_hash_table_get_keys (self->info_to_extension);
-  counter = 0;
-
-  for (l = extensions; l != NULL; l = l->next)
-    {
-      GtdActivatable *activatable;
-      gboolean active;
-
-      activatable = g_hash_table_lookup (self->info_to_extension, l->data);
-
-      g_object_get (activatable,
-                    "active", &active,
-                    NULL);
-
-      if (active)
-        {
-          const gchar *module_name;
-
-          module_name = peas_plugin_info_get_module_name (l->data);
-
-          active_extensions[counter++] = g_strdup (module_name);
-        }
-    }
-
-  g_list_free (extensions);
-
-  /* Save the setting */
-  g_settings_set_strv (gtd_manager_get_settings (manager),
-                       "active-extensions",
-                       (const gchar* const*) active_extensions);
-
-  g_strfreev (active_extensions);
-}
-
-static void
 gtd_plugin_manager_finalize (GObject *object)
 {
   GtdPluginManager *self = (GtdPluginManager *)object;
-
-  /* Save extensions before finalizing the object */
-  save_active_extensions (self);
 
   g_clear_pointer (&self->info_to_extension, g_hash_table_destroy);
 
@@ -273,9 +197,6 @@ on_plugin_unloaded (PeasEngine       *engine,
   for (l = extension_providers; l != NULL; l = l->next)
     on_provider_removed (activatable, l->data, self);
 
-  /* Save the list of active extensions */
-  save_active_extensions (self);
-
   /* Emit the signal */
   g_signal_emit (self, signals[PLUGIN_UNLOADED], 0, info, activatable);
 
@@ -357,29 +278,15 @@ on_plugin_loaded (PeasEngine       *engine,
 }
 
 static void
-setup_plugins (GtdPluginManager *self)
-{
-  PeasEngine *engine;
-  const GList *plugins;
-  const GList *l;
-
-  engine = peas_engine_get_default ();
-  peas_engine_enable_loader (engine, "python3");
-
-  /* Load plugins */
-  plugins = peas_engine_get_plugin_list (engine);
-
-  for (l = plugins; l != NULL; l = l->next)
-    peas_engine_load_plugin (engine, l->data);
-}
-
-static void
 setup_engine (GtdPluginManager *self)
 {
   PeasEngine *engine;
   gchar *plugin_dir;
 
   engine = peas_engine_get_default ();
+
+  /* Enable Python3 plugins */
+  peas_engine_enable_loader (engine, "python3");
 
   /* Let Peas search for plugins in the specified directory */
   plugin_dir = g_build_filename (PACKAGE_LIB_DIR,
@@ -439,7 +346,17 @@ gtd_plugin_manager_new (void)
 void
 gtd_plugin_manager_load_plugins (GtdPluginManager *self)
 {
-  setup_plugins (self);
+  PeasEngine *engine;
+  GSettings *settings;
+
+  engine = peas_engine_get_default ();
+  settings = gtd_manager_get_settings (gtd_manager_get_default ());
+
+  g_settings_bind (settings,
+		   "active-extensions",
+		   engine,
+		   "loaded-plugins",
+		   G_SETTINGS_BIND_DEFAULT);
 }
 
 GList*
