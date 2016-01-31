@@ -359,6 +359,15 @@ gtd_plugin_manager_load_plugins (GtdPluginManager *self)
 		   G_SETTINGS_BIND_DEFAULT);
 }
 
+GtdActivatable*
+gtd_plugin_manager_get_plugin (GtdPluginManager *self,
+                               PeasPluginInfo   *info)
+{
+  g_return_val_if_fail (GTD_IS_PLUGIN_MANAGER (self), NULL);
+
+  return g_hash_table_lookup (self->info_to_extension, info);
+}
+
 GList*
 gtd_plugin_manager_get_loaded_plugins (GtdPluginManager *self)
 {

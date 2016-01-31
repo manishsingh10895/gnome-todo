@@ -21,6 +21,7 @@
 #include "gtd-manager-protected.h"
 #include "gtd-plugin-manager.h"
 #include "gtd-plugin-dialog.h"
+#include "gtd-plugin-dialog-row.h"
 
 #include <libpeas/peas.h>
 
@@ -46,8 +47,10 @@ back_button_clicked (GtkWidget       *button,
 }
 
 static void
-preferences_button_clicked (GtkWidget       *button,
-                            GtdPluginDialog *self)
+show_preferences_cb (GtdPluginDialogRow *row,
+                     PeasPluginInfo     *info,
+                     GtdActivatable     *plugin,
+                     GtdPluginDialog    *self)
 {
   GtdActivatable *activatable;
   GtkWidget *old_panel;
@@ -63,9 +66,7 @@ preferences_button_clicked (GtkWidget       *button,
     }
 
   /* Second, setup the new panel */
-  activatable = g_object_get_data (G_OBJECT (gtk_widget_get_ancestor (button, GTK_TYPE_LIST_BOX_ROW)),
-                                   "plugin");
-
+  activatable = gtd_plugin_dialog_row_get_plugin (row);
   panel = gtd_activatable_get_preferences_panel (activatable);
 
   if (panel)
@@ -79,123 +80,25 @@ preferences_button_clicked (GtkWidget       *button,
   gtk_widget_show (self->back_button);
 }
 
-static gboolean
-transform_to (GBinding     *binding,
-              const GValue *from_value,
-              GValue       *to_value,
-              gpointer      user_data)
-{
-  gboolean active;
-
-  active = g_value_get_boolean (from_value);
-
-  if (active)
-    active &= gtd_activatable_get_preferences_panel (GTD_ACTIVATABLE (user_data)) != NULL;
-
-  g_value_set_boolean (to_value, active);
-
-  return TRUE;
-}
-
 static void
-enabled_switch_changed (GtkSwitch      *sw,
-                        GParamSpec     *pspec,
-                        GtdActivatable *activatable)
+add_plugin (GtdPluginDialog *dialog,
+            PeasPluginInfo *info,
+            GtdActivatable *activatable)
 {
-  gboolean active;
+  GtkWidget *row;
 
-  g_object_get (activatable,
-                "active", &active,
-                NULL);
-
-  /* We don't want to (de)activate the extension twice */
-  if (active == gtk_switch_get_active (sw))
+  if (peas_plugin_info_is_hidden (info) || peas_plugin_info_is_builtin (info))
     return;
 
-  if (gtk_switch_get_active (sw))
-    gtd_activatable_activate (activatable);
-  else
-    gtd_activatable_deactivate (activatable);
-}
+  /* Create a row for the plugin */
+  row = gtd_plugin_dialog_row_new (info, activatable);
 
-static GtkWidget*
-create_row_for_plugin (GtdPluginDialog *self,
-                       PeasPluginInfo  *info,
-                       GtdActivatable  *activatable)
-{
-  GtkBuilder *builder;
-  GtkWidget *button;
-  GtkWidget *label;
-  GtkWidget *icon;
-  GtkWidget *row;
-  GtkWidget *sw;
+  g_signal_connect (row,
+                    "show-preferences",
+                    G_CALLBACK (show_preferences_cb),
+                    dialog);
 
-  /* Builder */
-  builder = gtk_builder_new_from_resource ("/org/gnome/todo/ui/plugin-row.ui");
-
-  /* Row */
-  row = GTK_WIDGET (gtk_builder_get_object (builder, "row"));
-
-  /* Icon */
-  icon = GTK_WIDGET (gtk_builder_get_object (builder, "icon"));
-  gtk_image_set_from_icon_name (GTK_IMAGE (icon),
-                                peas_plugin_info_get_icon_name (info),
-                                GTK_ICON_SIZE_DND);
-
-  /* Name label */
-  label = GTK_WIDGET (gtk_builder_get_object (builder, "name_label"));
-  gtk_label_set_label (GTK_LABEL (label), peas_plugin_info_get_name (info));
-
-  /* Description label */
-  label = GTK_WIDGET (gtk_builder_get_object (builder, "description_label"));
-  gtk_label_set_label (GTK_LABEL (label), peas_plugin_info_get_description (info));
-
-  /* Switch */
-  sw = GTK_WIDGET (gtk_builder_get_object (builder, "enabled_switch"));
-
-  g_signal_connect (sw,
-                    "notify::active",
-                    G_CALLBACK (enabled_switch_changed),
-                    activatable);
-
-  g_object_bind_property (activatable,
-                          "active",
-                          sw,
-                          "active",
-                          G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE);
-
-  /* Preferences button */
-  button = GTK_WIDGET (gtk_builder_get_object (builder, "preferences_button"));
-
-  g_signal_connect (button,
-                    "clicked",
-                    G_CALLBACK (preferences_button_clicked),
-                    self);
-
-  g_object_bind_property_full (sw,
-                               "active",
-                               button,
-                               "sensitive",
-                               G_BINDING_DEFAULT | G_BINDING_SYNC_CREATE,
-                               transform_to,
-                               NULL,
-                               activatable,
-                               NULL);
-
-  g_object_set_data (G_OBJECT (row),
-                     "plugin",
-                     activatable);
-
-  g_object_set_data (G_OBJECT (row),
-                     "info",
-                     info);
-
-  gtk_widget_show_all (row);
-  g_object_ref (row);
-
-  g_clear_object (&builder);
-
-  return row;
+  gtk_container_add (GTK_CONTAINER (dialog->listbox), row);
 }
 
 static void
@@ -204,16 +107,32 @@ plugin_loaded (GtdPluginManager *manager,
                GtdActivatable   *activatable,
                GtdPluginDialog  *self)
 {
-  GtkWidget *row;
+  gboolean contains_plugin;
+  GList *children;
+  GList *l;
 
-  if (peas_plugin_info_is_hidden (info))
-    return;
+  contains_plugin = FALSE;
+  children = gtk_container_get_children (GTK_CONTAINER (self->listbox));
 
-  row = create_row_for_plugin (self, info, activatable);
+  for (l = children; l != NULL; l = l->next)
+    {
+      if (gtd_plugin_dialog_row_get_info (l->data) == info)
+        {
+          gtd_plugin_dialog_row_set_plugin (l->data, activatable);
+          contains_plugin = TRUE;
+          break;
+        }
+    }
 
-  gtk_container_add (GTK_CONTAINER (self->listbox), row);
-
-  gtk_stack_set_visible_child_name (GTK_STACK (self->stack), "list");
+  /* If we just loaded a plugin that is not yet added
+   * to the plugin list, we shall do it now.
+   */
+  if (!contains_plugin)
+    {
+      add_plugin (self,
+                  info,
+                  activatable);
+    }
 }
 
 static void
@@ -229,13 +148,9 @@ plugin_unloaded (GtdPluginManager *manager,
 
   for (l = children; l != NULL; l = l->next)
     {
-      GtdActivatable *row_activatable;
-
-      row_activatable = g_object_get_data (l->data, "plugin");
-
-      if (row_activatable == activatable)
+      if (gtd_plugin_dialog_row_get_info (l->data) == info)
         {
-          gtk_container_remove (GTK_CONTAINER (self->listbox), l->data);
+          gtd_plugin_dialog_row_set_plugin (l->data, NULL);
           break;
         }
     }
@@ -244,14 +159,14 @@ plugin_unloaded (GtdPluginManager *manager,
 }
 
 static gint
-sort_extensions (GtkListBoxRow *row1,
-                 GtkListBoxRow *row2,
-                 gpointer       user_data)
+sort_extensions (GtdPluginDialogRow *row1,
+                 GtdPluginDialogRow *row2,
+                 gpointer            user_data)
 {
   PeasPluginInfo *info1, *info2;
 
-  info1 = g_object_get_data (G_OBJECT (row1), "info");
-  info2 = g_object_get_data (G_OBJECT (row2), "info");
+  info1 = gtd_plugin_dialog_row_get_info (row1);
+  info2 = gtd_plugin_dialog_row_get_info (row2);
 
   return g_strcmp0 (peas_plugin_info_get_name (info1), peas_plugin_info_get_name (info2));
 }
@@ -277,12 +192,30 @@ gtd_plugin_dialog_init (GtdPluginDialog *self)
 {
   GtdPluginManager *plugin_manager;
   GtdManager *manager;
+  PeasEngine *engine;
+  const GList *plugin;
 
+  engine = peas_engine_get_default ();
   manager = gtd_manager_get_default ();
   plugin_manager = gtd_manager_get_plugin_manager (manager);
 
   gtk_widget_init_template (GTK_WIDGET (self));
 
+  /* Add discovered plugins to the list */
+  for (plugin = peas_engine_get_plugin_list (engine);
+       plugin != NULL;
+       plugin = plugin->next)
+    {
+      GtdActivatable *activatable;
+
+      activatable = gtd_plugin_manager_get_plugin (plugin_manager, plugin->data);
+
+      add_plugin (self,
+                  plugin->data,
+                  activatable);
+    }
+
+  /* Connect GtdPluginManager signals */
   g_signal_connect (plugin_manager,
                     "plugin-loaded",
                     G_CALLBACK (plugin_loaded),
@@ -295,7 +228,7 @@ gtd_plugin_dialog_init (GtdPluginDialog *self)
 
   /* Sort extensions by their display name */
   gtk_list_box_set_sort_func (GTK_LIST_BOX (self->listbox),
-                              sort_extensions,
+                              (GtkListBoxSortFunc) sort_extensions,
                               NULL,
                               NULL);
 

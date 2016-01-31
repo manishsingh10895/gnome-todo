@@ -20,6 +20,7 @@
 #define GTD_PLUGIN_MANAGER_H
 
 #include <glib-object.h>
+#include <libpeas/peas.h>
 
 #include "gtd-object.h"
 #include "gtd-types.h"
@@ -33,6 +34,9 @@ G_DECLARE_FINAL_TYPE (GtdPluginManager, gtd_plugin_manager, GTD, PLUGIN_MANAGER,
 GtdPluginManager*    gtd_plugin_manager_new                      (void);
 
 void                 gtd_plugin_manager_load_plugins             (GtdPluginManager   *self);
+
+GtdActivatable*      gtd_plugin_manager_get_plugin               (GtdPluginManager   *self,
+                                                                  PeasPluginInfo     *info);
 
 GList*               gtd_plugin_manager_get_loaded_plugins       (GtdPluginManager   *self);
 

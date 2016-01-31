@@ -43,6 +43,8 @@ gnome_todo_SOURCES = \
 	provider/gtd-provider-selector.h \
 	plugin/gtd-plugin-dialog.c \
 	plugin/gtd-plugin-dialog.h \
+	plugin/gtd-plugin-dialog-row.c \
+	plugin/gtd-plugin-dialog-row.h \
 	plugin/gtd-plugin-manager.c \
 	plugin/gtd-plugin-manager.h \
 	views/gtd-list-selector.c \

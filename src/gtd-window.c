@@ -170,69 +170,22 @@ remove_widgets (GtdWindow *window,
 }
 
 static void
-on_active_change (GtdActivatable *activatable,
-                  GParamSpec     *pspec,
-                  GtdWindow      *window)
-{
-  GtdWindowPrivate *priv;
-  GList *header_widgets;
-  gboolean active;
-
-  priv = gtd_window_get_instance_private (window);
-  header_widgets = gtd_activatable_get_header_widgets (activatable);
-
-  g_object_get (activatable,
-                "active", &active,
-                NULL);
-
-  if (active)
-    {
-      add_widgets (window,
-                   priv->extension_box_start,
-                   priv->extension_box_end,
-                   header_widgets);
-    }
-  else
-    {
-      remove_widgets (window,
-                      priv->extension_box_start,
-                      priv->extension_box_end,
-                      header_widgets);
-    }
-
-  g_list_free (header_widgets);
-}
-
-static void
 plugin_loaded (GtdWindow      *window,
                gpointer        unused_field,
                GtdActivatable *activatable)
 {
-  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
-  gboolean active;
+  GtdWindowPrivate *priv;
+  GList *header_widgets;
 
-  g_object_get (activatable,
-                "active", &active,
-                NULL);
+  priv = gtd_window_get_instance_private (window);
+  header_widgets = gtd_activatable_get_header_widgets (activatable);
 
-  if (active)
-    {
-      GList *header_widgets;
+  add_widgets (window,
+               priv->extension_box_start,
+               priv->extension_box_end,
+               header_widgets);
 
-      header_widgets = gtd_activatable_get_header_widgets (activatable);
-
-      add_widgets (window,
-                   priv->extension_box_start,
-                   priv->extension_box_end,
-                   header_widgets);
-
-      g_list_free (header_widgets);
-    }
-
-  g_signal_connect (activatable,
-                    "notify::active",
-                    G_CALLBACK (on_active_change),
-                    window);
+  g_list_free (header_widgets);
 }
 
 static void
@@ -240,28 +193,16 @@ plugin_unloaded (GtdWindow      *window,
                  gpointer        unused_field,
                  GtdActivatable *activatable)
 {
-  GtdWindowPrivate *priv = gtd_window_get_instance_private (window);
-  gboolean active;
+  GtdWindowPrivate *priv;
+  GList *header_widgets;
 
-  g_object_get (activatable,
-                "active", &active,
-                NULL);
+  priv = gtd_window_get_instance_private (window);
+  header_widgets = gtd_activatable_get_header_widgets (activatable);
 
-  if (active)
-    {
-      GList *header_widgets;
-
-      header_widgets = gtd_activatable_get_header_widgets (activatable);
-
-      remove_widgets (window,
-                      priv->extension_box_start,
-                      priv->extension_box_end,
-                      header_widgets);
-    }
-
-  g_signal_handlers_disconnect_by_func (activatable,
-                                        on_active_change,
-                                        window);
+  remove_widgets (window,
+                  priv->extension_box_start,
+                  priv->extension_box_end,
+                  header_widgets);
 }
 
 static void

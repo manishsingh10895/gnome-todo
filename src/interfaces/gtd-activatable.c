@@ -38,18 +38,6 @@ static void
 gtd_activatable_default_init (GtdActivatableInterface *iface)
 {
   /**
-   * GtdActivatable::active:
-   *
-   * Whether the plugin is active or not.
-   */
-  g_object_interface_install_property (iface,
-                                       g_param_spec_boolean ("active",
-                                                             "Whether the plugin is active",
-                                                             "Whether the plugin is active or not",
-                                                             FALSE,
-                                                             G_PARAM_READABLE));
-
-  /**
    * GtdActivatable::preferences-panel:
    *
    * The preferences panel of the plugin, or %NULL.
