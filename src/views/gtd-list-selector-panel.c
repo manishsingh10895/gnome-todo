@@ -43,6 +43,7 @@ struct _GtdListSelectorPanel
   GMenu              *menu;
 
   GtdListSelector    *active_selector;
+  GtdListSelectorViewType active_view;
 
   /* Action bar widgets */
   GtkWidget          *actionbar;
@@ -83,32 +84,62 @@ enum {
   PROP_MENU,
   PROP_NAME,
   PROP_TITLE,
+  PROP_VIEW,
   N_PROPS
 };
 
 static void
+gtd_list_selector_panel_set_view (GtdListSelectorPanel    *self,
+                                  GtdListSelectorViewType  view)
+{
+  GSettings *settings;
+
+  /* Load last active view */
+  settings = gtd_manager_get_settings (gtd_manager_get_default ());
+
+  switch (view)
+    {
+    case GTD_LIST_SELECTOR_VIEW_GRID:
+      self->active_selector = GTD_LIST_SELECTOR (self->grid_selector);
+      gtk_image_set_from_icon_name (GTK_IMAGE (self->view_button_image),
+                                    "view-list-symbolic",
+                                    GTK_ICON_SIZE_BUTTON);
+      break;
+
+    case GTD_LIST_SELECTOR_VIEW_LIST:
+      self->active_selector = GTD_LIST_SELECTOR (self->list_selector);
+      gtk_image_set_from_icon_name (GTK_IMAGE (self->view_button_image),
+                                    "view-grid-symbolic",
+                                    GTK_ICON_SIZE_BUTTON);
+      break;
+
+    default:
+      self->active_selector = GTD_LIST_SELECTOR (self->grid_selector);
+      g_warning ("Couldn't detect stored view, defaulting to 'grid'");
+    }
+
+  gtk_stack_set_visible_child (GTK_STACK (self->stack), GTK_WIDGET (self->active_selector));
+
+  /* Save the current view */
+  g_settings_set_enum (settings,
+                       "view",
+                       view);
+
+  self->active_view = view;
+  g_object_notify (G_OBJECT (self), "view");
+}
+
+static void
 gtd_list_selector_panel_switch_view (GtdListSelectorPanel *panel)
 {
-  GtkWidget *next_view;
-  const gchar *icon_name;
+  GtdListSelectorViewType next_view;
 
   if (GTK_WIDGET (panel->active_selector) == panel->grid_selector)
-    {
-      next_view = panel->list_selector;
-      icon_name = "view-grid-symbolic";
-    }
+    next_view = GTD_LIST_SELECTOR_VIEW_LIST;
   else
-    {
-      next_view = panel->grid_selector;
-      icon_name = "view-list-symbolic";
-    }
+    next_view = GTD_LIST_SELECTOR_VIEW_GRID;
 
-  gtk_stack_set_visible_child (GTK_STACK (panel->stack), next_view);
-  gtk_image_set_from_icon_name (GTK_IMAGE (panel->view_button_image),
-                                icon_name,
-                                GTK_ICON_SIZE_BUTTON);
-
-  panel->active_selector = GTD_LIST_SELECTOR (next_view);
+  gtd_list_selector_panel_set_view (panel, next_view);
 }
 
 static void
@@ -468,6 +499,10 @@ gtd_list_selector_panel_get_property (GObject    *object,
       g_value_set_string (value, gtd_list_selector_panel_get_panel_title (self));
       break;
 
+    case PROP_VIEW:
+      g_value_set_enum (value, GTD_LIST_SELECTOR_PANEL (self)->active_view);
+      break;
+
     default:
       G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
     }
@@ -507,6 +542,10 @@ gtd_list_selector_panel_set_property (GObject      *object,
     {
     case PROP_MODE:
       gtd_list_selector_panel_set_mode (self, g_value_get_enum (value));
+      break;
+
+    case PROP_VIEW:
+      gtd_list_selector_panel_set_view (self, g_value_get_enum (value));
       break;
 
     default:
@@ -549,6 +588,20 @@ gtd_list_selector_panel_class_init (GtdListSelectorPanelClass *klass)
                                                       "The mode of the selector",
                                                       GTD_TYPE_WINDOW_MODE,
                                                       GTD_WINDOW_MODE_NORMAL,
+                                                      G_PARAM_READWRITE));
+
+  /**
+   * GtdListSelectorPanel::view:
+   *
+   * Which view is the current view (list or grid).
+   */
+  g_object_class_install_property (object_class,
+                                   PROP_VIEW,
+                                   g_param_spec_enum ("view",
+                                                      "View of the selector",
+                                                      "The current view of the selector",
+                                                      GTD_TYPE_LIST_SELECTOR_VIEW_TYPE,
+                                                      GTD_LIST_SELECTOR_VIEW_GRID,
                                                       G_PARAM_READWRITE));
 
   gtk_widget_class_set_template_from_resource (widget_class, "/org/gnome/todo/ui/list-selector-panel.ui");
@@ -615,6 +668,8 @@ setup_panel (GtdListSelectorPanel *self,
 static void
 gtd_list_selector_panel_init (GtdListSelectorPanel *self)
 {
+  GSettings *settings;
+
   gtk_widget_init_template (GTK_WIDGET (self));
 
   /* Grid selector */
@@ -625,8 +680,6 @@ gtd_list_selector_panel_init (GtdListSelectorPanel *self)
                "grid",
                "Grid");
 
-  self->active_selector = GTD_LIST_SELECTOR (self->grid_selector);
-
   /* List selector */
   self->list_selector = gtd_list_selector_list_new ();
 
@@ -634,6 +687,11 @@ gtd_list_selector_panel_init (GtdListSelectorPanel *self)
                self->list_selector,
                "list",
                "List");
+
+  /* Load last active view */
+  settings = gtd_manager_get_settings (gtd_manager_get_default ());
+
+  gtd_list_selector_panel_set_view (self, g_settings_get_enum (settings, "view"));
 
   /* Menu */
   self->menu = g_menu_new ();

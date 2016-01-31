@@ -29,6 +29,12 @@ typedef enum
   GTD_WINDOW_MODE_SELECTION
 } GtdWindowMode;
 
+typedef enum
+{
+  GTD_LIST_SELECTOR_VIEW_GRID,
+  GTD_LIST_SELECTOR_VIEW_LIST
+} GtdListSelectorViewType;
+
 G_END_DECLS
 
 #endif /* GTD_ENUMS_H */

@@ -17,6 +17,10 @@ appdata_in_files = $(srcdir)/appdata/org.gnome.Todo.appdata.xml.in
 
 @INTLTOOL_DESKTOP_RULE@
 
+gsettings_ENUM_NAMESPACE = org.gnome.todo
+gsettings_ENUM_FILES = \
+	$(top_srcdir)/src/gtd-enums.h
+
 gsettings_SCHEMAS = org.gnome.todo.gschema.xml
 
 @GSETTINGS_RULES@

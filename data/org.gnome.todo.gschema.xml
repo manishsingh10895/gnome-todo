@@ -31,5 +31,10 @@
             <summary>List of active extensions</summary>
             <description>The list of active extensions</description>
         </key>
+        <key name="view" enum="org.gnome.todo.GtdListSelectorViewType">
+            <default>'grid'</default>
+            <summary>The current list selector</summary>
+            <description>The current list selector. Can be 'grid' or 'list'.</description>
+        </key>
     </schema>
 </schemalist>
