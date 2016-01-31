@@ -1,4 +1,20 @@
 ==============
+Version 3.19.5
+==============
+
+Project:
+        * Vastly improve the plugin system (Patrick Griffis)
+        * Add kudos information in AppData (Richard Hughes)
+        * Adapt icon names to use the application id (Cosimo Cecchi)
+        * Many code cleanups and fixes
+
+Translations:
+        * Friulian (Fabio Tomat)
+        * German (Matio Blättermann)
+        * Hungarian (Baláz Meskó)
+        * Slovak (Dušan Kazik)
+
+==============
 Version 3.19.4
 ==============
 
