@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-20 22:43+0000\n"
-"PO-Revision-Date: 2016-01-21 11:20+0100\n"
+"POT-Creation-Date: 2016-01-31 15:30+0000\n"
+"PO-Revision-Date: 2016-01-31 20:42+0100\n"
 "Last-Translator: Mario Blättermann <mario.blaettermann@gmail.com>\n"
 "Language-Team: Deutsch <gnome-de@gnome.org>\n"
 "Language: de\n"
@@ -118,7 +118,7 @@ msgid "The list of active extensions"
 msgstr "Liste der aktiven Erweiterungen"
 
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
-#: ../src/gtd-window.c:612
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Details"
 
@@ -310,15 +310,15 @@ msgstr "Geplant"
 msgid "Clear completed tasks…"
 msgstr "Abgeschlossene Aufgaben entfernen …"
 
-#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
 msgstr "Fehler beim Laden der GNOME-Online-Konten"
 
-#: ../plugins/eds/gtd-plugin-eds.c:289
+#: ../plugins/eds/gtd-plugin-eds.c:278
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Fehler beim Laden des Backends für evolution-data-server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
 msgid "Error loading CSS from resource"
 msgstr "Fehler beim Laden des CSS aus der Resource"
 
@@ -399,7 +399,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d Die Aufgaben-Autoren"
 
 #: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:1014
+#: ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Aufgaben"
 
@@ -418,13 +418,21 @@ msgstr "Aufgabe <b>%s</b> entfernt"
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: ../src/gtd-window.c:876
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Laden Ihrer Aufgabenlisten …"
 
-#: ../src/gtd-window.c:1008
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Klicken Sie auf eine Aufgabenliste, um sie auszuwählen"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Fehler beim Laden der Erweiterung"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Fehler beim Entladen der Erweiterung"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
