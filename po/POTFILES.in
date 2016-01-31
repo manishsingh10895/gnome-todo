@@ -26,5 +26,6 @@ src/gtd-edit-pane.c
 src/gtd-task-list-view.c
 src/gtd-task-row.c
 src/gtd-window.c
+src/plugin/gtd-plugin-dialog-row.c
 src/views/gtd-list-selector-grid-item.c
 src/views/gtd-list-selector-panel.c
