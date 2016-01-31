@@ -155,7 +155,7 @@ plugin_unloaded (GtdPluginManager *manager,
         }
     }
 
-  g_free (children);
+  g_list_free (children);
 }
 
 static gint
