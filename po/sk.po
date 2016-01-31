@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-20 22:43+0000\n"
-"PO-Revision-Date: 2016-01-21 08:55+0100\n"
+"POT-Creation-Date: 2016-01-31 15:30+0000\n"
+"PO-Revision-Date: 2016-01-31 19:18+0100\n"
 "Last-Translator: Dušan Kazik <prescott66@gmail.com>\n"
 "Language-Team: slovenčina <>\n"
 "Language: sk\n"
@@ -118,7 +118,7 @@ msgid "The list of active extensions"
 msgstr "Zoznam aktívnych rozšírení"
 
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
-#: ../src/gtd-window.c:612
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Podrobnosti"
 
@@ -319,15 +319,15 @@ msgstr "Naplánované"
 msgid "Clear completed tasks…"
 msgstr "Vymazať dokončené úlohy…"
 
-#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
 msgstr "Chyba pri načítavaní Účtov služieb prostredia GNOME"
 
-#: ../plugins/eds/gtd-plugin-eds.c:289
+#: ../plugins/eds/gtd-plugin-eds.c:278
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Chyba pri načítaní podporného programu Evolution-Data-Server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
 msgid "Error loading CSS from resource"
 msgstr "Chyba pri načítavaní CSS zo zdroja"
 
@@ -408,7 +408,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Autorské práva © %d–%d Autori aplikácie Úlohy"
 
 #: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:1014
+#: ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Úlohy"
 
@@ -425,13 +425,21 @@ msgstr "Úloha <b>%s</b> bola odstránená"
 msgid "Undo"
 msgstr "Vrátiť späť"
 
-#: ../src/gtd-window.c:876
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Načítavanie vašich zoznamov úloh…"
 
-#: ../src/gtd-window.c:1008
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Kliknutím na zoznam úloh ho vyberiete"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Chyba pri načítavaní zásuvného modulu"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Chyba pri uvoľňovaní zásuvného modulu"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
