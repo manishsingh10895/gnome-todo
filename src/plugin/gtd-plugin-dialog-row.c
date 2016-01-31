@@ -46,10 +46,10 @@ enum
 
 enum
 {
-	PROP_0,
+  PROP_0,
   PROP_INFO,
   PROP_PLUGIN,
-	N_PROPS
+  N_PROPS
 };
 
 static guint signals[NUM_SIGNALS] = { 0, };
@@ -112,11 +112,11 @@ loaded_switch_changed (GtdPluginDialogRow *row)
 static void
 gtd_plugin_dialog_row_finalize (GObject *object)
 {
-	GtdPluginDialogRow *self = (GtdPluginDialogRow *)object;
+  GtdPluginDialogRow *self = (GtdPluginDialogRow *)object;
 
   g_clear_object (&self->plugin);
 
-	G_OBJECT_CLASS (gtd_plugin_dialog_row_parent_class)->finalize (object);
+  G_OBJECT_CLASS (gtd_plugin_dialog_row_parent_class)->finalize (object);
 }
 
 static void
@@ -142,10 +142,10 @@ gtd_plugin_dialog_row_get_property (GObject    *object,
                                     GValue     *value,
                                     GParamSpec *pspec)
 {
-	GtdPluginDialogRow *self = GTD_PLUGIN_DIALOG_ROW (object);
+  GtdPluginDialogRow *self = GTD_PLUGIN_DIALOG_ROW (object);
 
-	switch (prop_id)
-	  {
+  switch (prop_id)
+    {
     case PROP_INFO:
       g_value_set_boxed (value, self->info);
       break;
@@ -154,9 +154,9 @@ gtd_plugin_dialog_row_get_property (GObject    *object,
       g_value_set_object (value, self->plugin);
       break;
 
-	  default:
-	    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-	  }
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
 }
 
 static void
@@ -165,10 +165,10 @@ gtd_plugin_dialog_row_set_property (GObject      *object,
                                     const GValue *value,
                                     GParamSpec   *pspec)
 {
-	GtdPluginDialogRow *self = GTD_PLUGIN_DIALOG_ROW (object);
+  GtdPluginDialogRow *self = GTD_PLUGIN_DIALOG_ROW (object);
 
-	switch (prop_id)
-	  {
+  switch (prop_id)
+    {
     case PROP_INFO:
       self->info = g_value_get_boxed (value);
       g_object_notify (object, "info");
@@ -178,21 +178,21 @@ gtd_plugin_dialog_row_set_property (GObject      *object,
       gtd_plugin_dialog_row_set_plugin (self, g_value_get_object (value));
       break;
 
-	  default:
-	    G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
-	  }
+    default:
+      G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id, pspec);
+    }
 }
 
 static void
 gtd_plugin_dialog_row_class_init (GtdPluginDialogRowClass *klass)
 {
   GtkWidgetClass *widget_class = GTK_WIDGET_CLASS (klass);
-	GObjectClass *object_class = G_OBJECT_CLASS (klass);
+  GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
-	object_class->finalize = gtd_plugin_dialog_row_finalize;
+  object_class->finalize = gtd_plugin_dialog_row_finalize;
   object_class->constructed = gtd_plugin_dialog_row_constructed;
-	object_class->get_property = gtd_plugin_dialog_row_get_property;
-	object_class->set_property = gtd_plugin_dialog_row_set_property;
+  object_class->get_property = gtd_plugin_dialog_row_get_property;
+  object_class->set_property = gtd_plugin_dialog_row_set_property;
 
   g_object_class_install_property (object_class,
                                    PROP_INFO,
@@ -245,7 +245,7 @@ GtkWidget*
 gtd_plugin_dialog_row_new (PeasPluginInfo *info,
                            GtdActivatable *activatable)
 {
-	return g_object_new (GTD_TYPE_PLUGIN_DIALOG_ROW,
+  return g_object_new (GTD_TYPE_PLUGIN_DIALOG_ROW,
                        "info", info,
                        "plugin", activatable,
                        NULL);
