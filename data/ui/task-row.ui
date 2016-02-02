@@ -32,6 +32,7 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">False</property>
                     <property name="halign">center</property>
+                    <property name="valign">center</property>
                     <property name="vexpand">True</property>
                     <property name="draw_indicator">True</property>
                   </object>
