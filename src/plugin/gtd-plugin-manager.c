@@ -197,10 +197,33 @@ on_plugin_unloaded (PeasEngine       *engine,
   for (l = extension_providers; l != NULL; l = l->next)
     on_provider_removed (activatable, l->data, self);
 
+  /* Deactivates the extension */
+  gtd_activatable_deactivate (activatable);
+
   /* Emit the signal */
   g_signal_emit (self, signals[PLUGIN_UNLOADED], 0, info, activatable);
 
+  /* Disconnect old signals */
+  g_signal_handlers_disconnect_by_func (activatable,
+                                        on_panel_added,
+                                        self);
+
+  g_signal_handlers_disconnect_by_func (activatable,
+                                        on_panel_removed,
+                                        self);
+
+  g_signal_handlers_disconnect_by_func (activatable,
+                                        on_provider_added,
+                                        self);
+
+  g_signal_handlers_disconnect_by_func (activatable,
+                                        on_provider_removed,
+                                        self);
+
   g_hash_table_remove (self->info_to_extension, info);
+
+  /* Destroy the extension */
+  g_clear_object (&activatable);
 }
 
 static void
@@ -212,13 +235,7 @@ on_plugin_loaded (PeasEngine       *engine,
     {
       GtdActivatable *activatable;
       PeasExtension *extension;
-      GtdManager *manager;
       const GList *l;
-      gchar **active_extensions;
-
-      manager = gtd_manager_get_default ();
-      active_extensions = g_settings_get_strv (gtd_manager_get_settings (manager),
-                                               "active-extensions");
 
       /*
        * Actually create the plugin object,
@@ -231,12 +248,6 @@ on_plugin_loaded (PeasEngine       *engine,
 
       /* All extensions shall be GtdActivatable impls */
       activatable = GTD_ACTIVATABLE (extension);
-
-      if (g_strv_contains ((const gchar* const*) active_extensions,
-                           peas_plugin_info_get_module_name (info)))
-        {
-          gtd_activatable_activate (activatable);
-        }
 
       g_hash_table_insert (self->info_to_extension,
                            info,
@@ -270,10 +281,11 @@ on_plugin_loaded (PeasEngine       *engine,
                         G_CALLBACK (on_panel_removed),
                         self);
 
+      /* Activate extension */
+      gtd_activatable_activate (activatable);
+
       /* Emit the signal */
       g_signal_emit (self, signals[PLUGIN_LOADED], 0, info, extension);
-
-      g_strfreev (active_extensions);
     }
 }
 

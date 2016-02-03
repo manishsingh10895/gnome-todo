@@ -152,6 +152,10 @@ gtd_activatable_default_init (GtdActivatableInterface *iface)
  * Activates the extension. This is the starting point where
  * the implementation does everything it needs to do. Avoid
  * doing it earlier than this call.
+ *
+ * This function is called after the extension is loaded and
+ * the signals are connected. If you want to do anything before
+ * that, the _init function should be used instead.
  */
 void
 gtd_activatable_activate (GtdActivatable *activatable)
@@ -168,6 +172,11 @@ gtd_activatable_activate (GtdActivatable *activatable)
  *
  * Deactivates the extension. Here, the extension should remove
  * all providers and panels it set.
+ *
+ * This function is called before the extension is removed. At
+ * this point, the plugin manager already removed all providers
+ * and widgets this extension exported. If you want to do anything
+ * after the extension is removed, use GObject::finalize instead.
  */
 void
 gtd_activatable_deactivate (GtdActivatable *activatable)
