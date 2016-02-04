@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-26 22:43+0000\n"
-"PO-Revision-Date: 2016-01-27 10:50+0100\n"
+"POT-Creation-Date: 2016-02-04 10:43+0000\n"
+"PO-Revision-Date: 2016-02-04 18:10+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -114,8 +114,16 @@ msgstr "Liste estensions ativis"
 msgid "The list of active extensions"
 msgstr "La liste des estensions ativis"
 
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr ""
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr ""
+
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
-#: ../src/gtd-window.c:612
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Detais"
 
@@ -167,7 +175,7 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Acedi ai account online par ministrâ lis tôs ativitâts"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
-#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:355
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Anule"
 
@@ -181,7 +189,7 @@ msgid "Rename"
 msgstr "Cambie non"
 
 #: ../data/ui/list-selector-panel.ui.h:3
-#: ../src/views/gtd-list-selector-panel.c:433
+#: ../src/views/gtd-list-selector-panel.c:465
 msgid "Lists"
 msgstr "Listis"
 
@@ -305,19 +313,19 @@ msgstr "Planificât"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:400
 #: ../plugins/eds/gtd-panel-today.c:322
-#: ../src/views/gtd-list-selector-panel.c:641
+#: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
 msgstr "Plate ativitâts completadis..."
 
-#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
 msgstr "Erôr tal cjariâ i account online GNOME"
 
-#: ../plugins/eds/gtd-plugin-eds.c:289
+#: ../plugins/eds/gtd-plugin-eds.c:278
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Erôr tal cjariâ il backend Evolution-Data-Server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
 msgid "Error loading CSS from resource"
 msgstr "Erôr tal cjariâ il CSS de sorzint"
 
@@ -398,7 +406,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d i autôrs di To Do"
 
 #: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:1014
+#: ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "To  Do"
 
@@ -415,33 +423,41 @@ msgstr "Ativitât <b>%s</b> gjavade"
 msgid "Undo"
 msgstr "Anule"
 
-#: ../src/gtd-window.c:876
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Daûr a cjariâ listis di ativitâts..."
 
-#: ../src/gtd-window.c:1008
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Fâs clic suntune liste di ativitâts par selezionâle"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Erôr tal cjariâ il plugin"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Erôr tal scjariâ il plugin"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
 msgstr "Nissune ativitât"
 
-#: ../src/views/gtd-list-selector-panel.c:154
+#: ../src/views/gtd-list-selector-panel.c:185
 msgid "Setting new color for task list"
 msgstr "Impostazion gnûf colôr pe liste ativitâts"
 
-#: ../src/views/gtd-list-selector-panel.c:348
+#: ../src/views/gtd-list-selector-panel.c:379
 msgid "Remove the selected task lists?"
 msgstr "Gjavâ lis listis di ativitâts selezionadis?"
 
-#: ../src/views/gtd-list-selector-panel.c:351
+#: ../src/views/gtd-list-selector-panel.c:382
 msgid "Once removed, the task lists cannot be recovered."
 msgstr ""
 "Une volte gjavadis, lis listis di ativitâts no podaran jessi plui "
 "recuperadis."
 
-#: ../src/views/gtd-list-selector-panel.c:363
+#: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Gjave listis di ativitâts"
 
