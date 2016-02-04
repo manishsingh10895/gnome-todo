@@ -1,0 +1,462 @@
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-to"
+"do&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-02-04 14:42+0000\n"
+"PO-Revision-Date: 2016-02-04 23:34+0200\n"
+"Last-Translator: Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>\n"
+"Language-Team: Latvian <lata-l10n@googlegroups.com>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1
+msgid "Todo"
+msgstr "Darāmie darbi"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Todo manager for GNOME"
+msgstr "GNOME darāmo darbu pārvaldnieks"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME Todo is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME darāmie darbi ir vienkāršs uzdevumu pārvaldnieks, kas ir integrēts ar "
+"GNOME vidi."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Jauns saraksts…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Mainīt noklusējuma krātuves vietu…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Paplašinājumi"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_About"
+msgstr "P_ar"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "_Quit"
+msgstr "_Iziet"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Pārvaldiet savus personīgos uzdevumus"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Uzdevums;Produktivitāte;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Logs maksimizēts"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Loga stāvoklis — maksimizēts"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Loga izmērs"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Loga izmērs (platums un augstums)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Loga novietojums"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Loga novietojums (x un y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Pirmā “GNOME darāmo darbu saraksts” palaišana"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Vai šī ir pirmā “GNOME darāmo darbu” palaišana (lai izpildītu sākuma "
+"inicializāciju)?"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default provider to add new lists to"
+msgstr "Noklusējuma pakalpojuma sniedzējas, kam pievienot jaunus sarakstus"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default provider to add new lists to"
+msgstr ""
+"Identifikators noklusējuma pakalpojuma sniedzējam, kam pievienot jaunus "
+"sarakstus"
+
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Aktīvo paplašinājumu saraksts"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Aktīvo paplašinājumu saraksts"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Pašreizējais saraksta selektors"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Pašreizējais saraksta selektors. Var būt “grid” vai “list”."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
+msgid "Details"
+msgstr "Sīkāka informācija"
+
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Piezīmes"
+
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Izpildes datums"
+
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritāte"
+
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
+msgctxt "taskpriority"
+msgid "None"
+msgstr "Nav"
+
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Zema"
+
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Vidēja"
+
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
+msgid "High"
+msgstr "Augsta"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
+msgid "Delete"
+msgstr "Dzēst"
+
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Nav"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Laipni lūdzam"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Ierakstieties tiešsaistes kontos, lai piekļūtu saviem uzdevumiem"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
+msgid "Cancel"
+msgstr "Atcelt"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:390
+msgid "Done"
+msgstr "Pabeigts"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Pārdēvēt"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Saraksti"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Uzdevumi"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Uzdevumu saraksta nosaukums"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Jauns saraksts"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Nav atrastu uzdevumu"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Jūs varat sarakstiem pievienot uzdevumus skatā <b>saraksti</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Rādīt vai slēpt izpildītos uzdevumus"
+
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Nav atrastu paplašinājumu"
+
+#: ../data/ui/provider-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Izvēlieties noklusējuma krātuves vietu, kur veidot uzdevumu sarakstus:"
+
+#: ../data/ui/provider-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Noklusējuma krātuves vieta"
+
+#: ../data/ui/provider-popover.ui.h:1
+msgid "Create"
+msgstr "Izveidot"
+
+#: ../data/ui/provider-popover.ui.h:3
+msgid "List Name"
+msgstr "Saraksta nosaukums"
+
+#: ../data/ui/provider-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Izvēlieties krātuves vietu"
+
+#: ../data/ui/provider-row.ui.h:1
+msgid "Off"
+msgstr "Izslēgts"
+
+#: ../data/ui/provider-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Spiediet, lai pievienotu Google kontu"
+
+#: ../data/ui/provider-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/provider-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Spiediet, lai pievienotu ownCloud kontu"
+
+#: ../data/ui/provider-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/provider-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Spiediet, lai pievienotu Microsoft Exchange kontu"
+
+#: ../data/ui/provider-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/provider-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Vai arī varat glabāt uzdevumus šajā datorā"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Jauns uzdevums…"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nav iestatīts datums"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:70
+#, c-format
+msgid "%d days ago"
+msgstr "Pirms %d dienām"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Vakar"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
+msgid "Today"
+msgstr "Šodien"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Rīt"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:257
+#: ../plugins/eds/gtd-panel-scheduled.c:262
+#: ../plugins/eds/gtd-panel-scheduled.c:392
+msgid "Scheduled"
+msgstr "Ieplānots"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Attīrīt pabeigtos uzdevumus…"
+
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Kļūda, ielādējot GNOME tiešsaistes kontus"
+
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Kļūda, ielādējot Evolution-Data-Server aizmuguri"
+
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Kļūda, ielādējot CSS no resursa"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Kļūda, saņemot uzdevumus no saraksta"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Uzdevumu saraksta avots ir veiksmīgi savienots"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Neizdevās savienoties ar uzdevumu saraksta avotu"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Neizdevās vaicāt akreditācijas datus"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Neizdevās vaicāt akreditācijas datus priekš"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Neizdevās autentificēt"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Kļūda, ielādējot uzdevumu pārvaldnieku"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Kļūda, izveidojot uzdevumu"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Kļūda, atjauninot uzdevumu"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Kļūda, noņemot uzdevumu"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Kļūda, izveidojot uzdevumu sarakstu"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Kļūda, noņemot uzdevumu sarakstu"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Kļūda, saglabājot uzdevumu sarakstu"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokāls"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Šajā datorā"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Kļūda, izveidojot jaunu uzdevumu sarakstu"
+
+#: ../src/gtd-application.c:111
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Autortiesības © %d “darāmo darbu” autori"
+
+#: ../src/gtd-application.c:116
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Autortiesības © %d-%d “darāmo darbu” autori"
+
+#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
+#: ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "Darāmie darbi"
+
+#: ../src/gtd-application.c:128
+msgid "translator-credits"
+msgstr "Rūdolfs Mazurs <rudolfs.mazurs@gmail.com>"
+
+#: ../src/gtd-task-list-view.c:290
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Uzdevums <b>%s</b> ir izņemts"
+
+#: ../src/gtd-task-list-view.c:321
+msgid "Undo"
+msgstr "Atsaukt"
+
+#: ../src/gtd-window.c:817
+msgid "Loading your task lists…"
+msgstr "Ielādē jūsu darbu sarakstus…"
+
+#: ../src/gtd-window.c:949
+msgid "Click a task list to select"
+msgstr "Spiediet uz uzdevumu, lai to izvēlētos"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Kļūda, ielādējot spraudni"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Kļūda, noņemot spraudni"
+
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Nav uzdevumu"
+
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Iestata jaunu krāsu uzdevumu sarakstam"
+
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Izņemt izvēlēto uzdevumu sarakstu?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Ja tiks izņemts, uzdevumu sarakstu vairs nevarēs atgūt."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Izņemt uzdevumu sarakstus"
+
