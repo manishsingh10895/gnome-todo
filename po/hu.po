@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-19 22:45+0000\n"
-"PO-Revision-Date: 2016-01-25 01:23+0100\n"
+"POT-Creation-Date: 2016-02-02 22:32+0000\n"
+"PO-Revision-Date: 2016-01-31 18:52+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -114,8 +114,16 @@ msgstr "Aktív bővítmények listája"
 msgid "The list of active extensions"
 msgstr "Az aktív bővítmények listája"
 
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Az aktuális listaválasztó"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Az aktuális listaválasztó. Lehetséges értékek: „grid” (rács) vagy „list” (lista)."
+
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
-#: ../src/gtd-window.c:612
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Részletek"
 
@@ -167,7 +175,7 @@ msgid "Login to online accounts to access your tasks"
 msgstr "Jelentkezzen be online fiókokba a feladatai eléréséhez"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
-#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:355
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Mégse"
 
@@ -181,7 +189,7 @@ msgid "Rename"
 msgstr "Átnevezés"
 
 #: ../data/ui/list-selector-panel.ui.h:3
-#: ../src/views/gtd-list-selector-panel.c:433
+#: ../src/views/gtd-list-selector-panel.c:465
 msgid "Lists"
 msgstr "Listák"
 
@@ -303,19 +311,19 @@ msgstr "Ütemezett"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:400
 #: ../plugins/eds/gtd-panel-today.c:322
-#: ../src/views/gtd-list-selector-panel.c:641
+#: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
 msgstr "Befejezett feladatok törlése…"
 
-#: ../plugins/eds/gtd-plugin-eds.c:260 ../plugins/eds/gtd-plugin-eds.c:264
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
 msgstr "Hiba a GNOME Online fiókok betöltése során"
 
-#: ../plugins/eds/gtd-plugin-eds.c:289
+#: ../plugins/eds/gtd-plugin-eds.c:278
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Hiba az Evolution-Data-Server háttérszolgáltató betöltése során"
 
-#: ../plugins/eds/gtd-plugin-eds.c:392 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
 msgid "Error loading CSS from resource"
 msgstr "Hiba a CSS erőforrásból történő betöltése során"
 
@@ -396,7 +404,7 @@ msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d A Tennivalók szerzői"
 
 #: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:1014
+#: ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Tennivaló"
 
@@ -413,31 +421,39 @@ msgstr "A feladat (<b>%s</b>) törölve"
 msgid "Undo"
 msgstr "Visszavonás"
 
-#: ../src/gtd-window.c:876
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Feladatlisták betöltése…"
 
-#: ../src/gtd-window.c:1008
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Válasszon egy feladatlistát"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Hiba a bővítmény betöltésekor"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Hiba a bővítmény eltávolításakor"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
 msgstr "Nincsenek feladatok"
 
-#: ../src/views/gtd-list-selector-panel.c:154
+#: ../src/views/gtd-list-selector-panel.c:185
 msgid "Setting new color for task list"
 msgstr "Új szín beállítása a feladatlistához"
 
-#: ../src/views/gtd-list-selector-panel.c:348
+#: ../src/views/gtd-list-selector-panel.c:379
 msgid "Remove the selected task lists?"
 msgstr "Törli a kiválasztott feladatlistákat?"
 
-#: ../src/views/gtd-list-selector-panel.c:351
+#: ../src/views/gtd-list-selector-panel.c:382
 msgid "Once removed, the task lists cannot be recovered."
 msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
 
-#: ../src/views/gtd-list-selector-panel.c:363
+#: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Feladatlisták törlése"
 
