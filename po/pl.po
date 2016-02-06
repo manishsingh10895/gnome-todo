@@ -4,14 +4,14 @@
 # pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
 # gnomepl@aviary.pl
 # -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Piotr Drąg <piotrdrag@gmail.com>, 2015.
-# Aviary.pl <gnomepl@aviary.pl>, 2015.
+# Piotr Drąg <piotrdrag@gmail.com>, 2015-2016.
+# Aviary.pl <gnomepl@aviary.pl>, 2015-2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-02 03:49+0200\n"
-"PO-Revision-Date: 2015-09-02 03:50+0200\n"
+"POT-Creation-Date: 2016-02-06 16:50+0100\n"
+"PO-Revision-Date: 2016-02-06 16:52+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -49,16 +49,16 @@ msgid "Change default storage location…"
 msgstr "Zmień domyślne położenie zadań…"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Rozszerzenia"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_O programie"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "Za_kończ"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed task…"
-msgstr "Wyczyść ukończone zadania…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -104,48 +104,72 @@ msgstr ""
 "początkowe ustawienie)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Domyślne położenie, do którego dodawać nowe listy"
+msgid "Default provider to add new lists to"
+msgstr "Domyślny dostawca, do którego dodawać nowe listy"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
-msgstr "Identyfikator domyślnego położenia, do którego dodawać nowe listy"
+msgid "The identifier of the default provider to add new lists to"
+msgstr "Identyfikator domyślnego dostawcy, do którego dodawać nowe listy"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Lista aktywnych rozszerzeń"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Lista aktywnych rozszerzeń"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Bieżący widok list"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Bieżący widok list. Może wynosić „grid” (siatka) lub „list” (lista)."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Szczegóły"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Uwagi"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Termin"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Priorytet"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Brak"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Niski"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Średni"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Wysoki"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Usuń"
+
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Brak"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -155,15 +179,36 @@ msgstr "Witamy"
 msgid "Login to online accounts to access your tasks"
 msgstr "Zalogowanie do kont online umożliwi dostęp do zadań"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Anuluj"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:340
+#: ../src/gtd-task-list-view.c:390
 msgid "Done"
 msgstr "Gotowe"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Zmień nazwę"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Listy"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Zadania"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Nazwa listy zadań"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Nowa lista"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -177,55 +222,59 @@ msgstr "Można dodawać zadania do listy w widoku <b>Listy</b>"
 msgid "Show or hide completed tasks"
 msgstr "Wyświetla lub ukrywa ukończone zadania"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Nie odnaleziono żadnych rozszerzeń"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "Proszę wybrać domyślne położenie zadań do tworzenia list:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Domyślne położenie zadań"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Utwórz"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Nazwa listy"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Wybór położenia zadań"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Wyłącz"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Kliknięcie dodaje nowe konto Google"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Kliknięcie dodaje nowe konto ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Kliknięcie dodaje nowe konto Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Można też przechowywać zadania na tym komputerze"
 
@@ -233,175 +282,184 @@ msgstr "Można też przechowywać zadania na tym komputerze"
 msgid "New task…"
 msgstr "Nowe zadanie…"
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Listy"
+#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nie ustawiono daty"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:70
+#, c-format
+msgid "%d days ago"
+msgstr "%d dni temu"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
+msgid "Yesterday"
+msgstr "Wczoraj"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Jutro"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:257
+#: ../plugins/eds/gtd-panel-scheduled.c:262
+#: ../plugins/eds/gtd-panel-scheduled.c:392
 msgid "Scheduled"
 msgstr "Zaplanowane"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Zmień nazwę"
+#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Wyczyść ukończone zadania…"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Nowa lista"
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Błąd podczas wczytywania Kont online GNOME"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Nazwa listy zadań"
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Błąd podczas wczytywania mechanizmu Evolution-Data-Server"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Błąd podczas wczytywania pliku CSS z zasobu"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Błąd podczas pobierania zadań z listy"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Pomyślnie połączono ze źródłem listy zadań"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Połączenie ze źródłem listy zadań się nie powiodło"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Zapytanie o dane uwierzytelniające się nie powiodło"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Nie powiodło się zapytanie o dane uwierzytelniające dla"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Niepowodzenie uwierzytelnienia"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Błąd podczas wczytywania menedżera zadań"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Błąd podczas tworzenia zadania"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Błąd podczas aktualizowania zadania"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Błąd podczas usuwania zadania"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Błąd podczas tworzenia listy zadań"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Błąd podczas usuwania listy zadań"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Błąd podczas zapisywania listy zadań"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokalne"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Na tym komputerze"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Błąd podczas tworzenia nowej listy zadań"
+
+#: ../src/gtd-application.c:111
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d Autorzy Menedżera zadań"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:116
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d Autorzy Menedżera zadań"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
+#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
+#: ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Zadania"
 
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr ""
-"Piotr Drąg <piotrdrag@gmail.com>, 2015\n"
-"Aviary.pl <gnomepl@aviary.pl>, 2015"
+"Piotr Drąg <piotrdrag@gmail.com>, 2015-2016\n"
+"Aviary.pl <gnomepl@aviary.pl>, 2015-2016"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Błąd podczas wczytywania pliku CSS z zasobu"
-
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Nie ustawiono daty"
-
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Błąd podczas wczytywania Kont online GNOME"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Błąd podczas zapisywania listy zadań"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Błąd podczas usuwania listy zadań"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Błąd podczas tworzenia listy zadań"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Błąd podczas tworzenia zadania"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Błąd podczas usuwania zadania"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Błąd podczas aktualizowania zadania"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Zapytanie o dane uwierzytelniające się nie powiodło"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Nie powiodło się zapytanie o dane uwierzytelniające dla"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Niepowodzenie uwierzytelnienia"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Błąd podczas pobierania zadań z listy"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Pomyślnie połączono ze źródłem listy zadań"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Połączenie ze źródłem listy zadań się nie powiodło"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Pomijanie już wczytanej listy zadań "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Błąd podczas wczytywania menedżera zadań"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Brak zadań"
-
-#: ../src/gtd-task-list-view.c:251
+#: ../src/gtd-task-list-view.c:290
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Usunięto zadanie <b>%s</b>"
 
-#: ../src/gtd-task-list-view.c:271
+#: ../src/gtd-task-list-view.c:321
 msgid "Undo"
 msgstr "Cofnij"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Jutro"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Wczoraj"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Usunąć zaznaczone listy zadań?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "Nie można będzie ich przywrócić po usunięciu."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Usuń listy zadań"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Ustawianie nowego koloru listy zadań"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Wczytywanie list zadań…"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Kliknięcie listy zadań zaznacza ją"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Błąd podczas tworzenia nowej listy zadań"
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Błąd podczas wczytywania wtyczki"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86
-#: ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Na tym komputerze"
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Błąd podczas usuwania wtyczki"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Lokalne"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Brak zadań"
+
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Ustawianie nowego koloru listy zadań"
+
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Usunąć zaznaczone listy zadań?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Nie można będzie ich przywrócić po usunięciu."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Usuń listy zadań"
