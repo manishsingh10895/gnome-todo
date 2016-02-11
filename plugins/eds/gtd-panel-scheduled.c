@@ -185,6 +185,42 @@ gtd_panel_scheduled_header_func (GtkListBoxRow     *row,
   g_clear_pointer (&dt, g_date_time_unref);
 }
 
+static gint
+gtd_panel_scheduled_sort_func (GtkListBoxRow     *row1,
+                               GtdTask           *row1_task,
+                               GtkListBoxRow     *row2,
+                               GtdTask           *row2_task,
+                               GtdPanelScheduled *panel)
+{
+  GDateTime *dt1;
+  GDateTime *dt2;
+  gint retval;
+
+  dt1 = dt2 = NULL;
+
+  if (row1_task)
+    dt1 = gtd_task_get_due_date (row1_task);
+  if (row2_task)
+    dt2 = gtd_task_get_due_date (row2_task);
+
+  if (!dt1 && !dt2)
+    retval = 0;
+  else if (!dt1)
+    retval = 1;
+  else if (!dt2)
+    retval = -1;
+  else
+    retval = g_date_time_compare (dt1, dt2);
+
+  g_clear_pointer (&dt1, g_date_time_unref);
+  g_clear_pointer (&dt2, g_date_time_unref);
+
+  if (retval != 0)
+    return retval;
+
+  return g_strcmp0 (gtd_task_get_title (row1_task), gtd_task_get_title (row2_task));
+}
+
 static void
 gtd_panel_scheduled_clear (GtdPanelScheduled *panel)
 {
@@ -412,6 +448,10 @@ gtd_panel_scheduled_init (GtdPanelScheduled *self)
   gtd_task_list_view_set_header_func (GTD_TASK_LIST_VIEW (self->view),
                                       (GtdTaskListViewHeaderFunc) gtd_panel_scheduled_header_func,
                                       self);
+
+  gtd_task_list_view_set_sort_func (GTD_TASK_LIST_VIEW (self->view),
+                                    (GtdTaskListViewSortFunc) gtd_panel_scheduled_sort_func,
+                                    self);
 
   gtk_widget_show_all (GTK_WIDGET (self));
 }
