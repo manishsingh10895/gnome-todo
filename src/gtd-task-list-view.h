@@ -55,10 +55,10 @@ typedef void (*GtdTaskListViewHeaderFunc) (GtkListBoxRow        *row,
  *
  * The sorting function called on every task.
  */
-typedef gint (*GtdTaskListViewSortFunc)   (GtkListBoxRow        *row,
-                                           GtdTask              *row_task,
-                                           GtkListBoxRow        *before,
-                                           GtdTask              *before_task,
+typedef gint (*GtdTaskListViewSortFunc)   (GtkListBoxRow        *row1,
+                                           GtdTask              *row1_task,
+                                           GtkListBoxRow        *row2,
+                                           GtdTask              *row2_task,
                                            gpointer              user_data);
 
 GtkWidget*                gtd_task_list_view_new                (void);
