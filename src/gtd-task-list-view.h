@@ -37,10 +37,25 @@ G_DECLARE_FINAL_TYPE (GtdTaskListView, gtd_task_list_view, GTD, TASK_LIST_VIEW, 
  * @before_task: the #GtdTask that @before represents
  * @user_data: (closure): user data
  *
- * Will be called when the primary or secondary action of @notification
- * is executed.
+ * The header function called on every task.
  */
 typedef void (*GtdTaskListViewHeaderFunc) (GtkListBoxRow        *row,
+                                           GtdTask              *row_task,
+                                           GtkListBoxRow        *before,
+                                           GtdTask              *before_task,
+                                           gpointer              user_data);
+
+/**
+ * GtdTaskListViewSortFunc:
+ * @row: the current #GtkListBoxRow
+ * @row_task: the #GtdTask that @row represents
+ * @before: the #GtkListBoxRow before @row
+ * @before_task: the #GtdTask that @before represents
+ * @user_data: (closure): user data
+ *
+ * The sorting function called on every task.
+ */
+typedef gint (*GtdTaskListViewSortFunc)   (GtkListBoxRow        *row,
                                            GtdTask              *row_task,
                                            GtkListBoxRow        *before,
                                            GtdTask              *before_task,
@@ -75,6 +90,10 @@ void                      gtd_task_list_view_set_show_completed (GtdTaskListView
 
 void                      gtd_task_list_view_set_header_func    (GtdTaskListView           *view,
                                                                  GtdTaskListViewHeaderFunc  func,
+                                                                 gpointer                   user_data);
+
+void                      gtd_task_list_view_set_sort_func      (GtdTaskListView           *view,
+                                                                 GtdTaskListViewSortFunc    func,
                                                                  gpointer                   user_data);
 
 G_END_DECLS

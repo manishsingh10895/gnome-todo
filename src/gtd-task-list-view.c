@@ -58,8 +58,13 @@ typedef struct
   /* action */
   GActionGroup          *action_group;
 
+  /* Custom header function data */
   GtdTaskListViewHeaderFunc header_func;
   gpointer                  header_user_data;
+
+  /* Custom sorting function data */
+  GtdTaskListViewSortFunc sort_func;
+  gpointer                sort_user_data;
 } GtdTaskListViewPrivate;
 
 struct _GtdTaskListView
@@ -171,6 +176,37 @@ internal_header_func (GtdTaskRow      *row,
                            GTK_LIST_BOX_ROW (before),
                            before_task,
                            view->priv->header_user_data);
+}
+
+static gint
+internal_sort_func (GtdTaskRow      *row1,
+                    GtdTaskRow      *row2,
+                    GtdTaskListView *view)
+{
+  GtdTask *row1_task;
+  GtdTask *row2_task;
+
+  if (!view->priv->sort_func)
+    return 0;
+
+  if (gtd_task_row_get_new_task_mode (row1))
+    return 1;
+  else if (gtd_task_row_get_new_task_mode (row2))
+    return -1;
+
+  row1_task = row2_task = NULL;
+
+  if (row1)
+    row1_task = gtd_task_row_get_task (row1);
+
+  if (row2)
+    row2_task = gtd_task_row_get_task (row2);
+
+  return view->priv->sort_func (GTK_LIST_BOX_ROW (row1),
+                                row1_task,
+                                GTK_LIST_BOX_ROW (row2),
+                                row2_task,
+                                view->priv->header_user_data);
 }
 
 static void
@@ -1274,5 +1310,48 @@ gtd_task_list_view_set_header_func (GtdTaskListView           *view,
                                     NULL,
                                     NULL,
                                     NULL);
+    }
+}
+
+/**
+ * gtd_task_list_view_set_sort_func:
+ * @view: a #GtdTaskListView
+ * @func: (closure user_data) (scope call) (nullable): the sort function
+ * @user_data: data passed to @func
+ *
+ * Sets @func as the sorting function of @view.
+ *
+ * Do not unref nor free any of the passed data.
+ */
+void
+gtd_task_list_view_set_sort_func (GtdTaskListView         *view,
+                                  GtdTaskListViewSortFunc  func,
+                                  gpointer                 user_data)
+{
+  GtdTaskListViewPrivate *priv;
+
+  g_return_if_fail (GTD_IS_TASK_LIST_VIEW (view));
+
+  priv = gtd_task_list_view_get_instance_private (view);
+
+  if (func)
+    {
+      priv->sort_func = func;
+      priv->header_user_data = user_data;
+
+      gtk_list_box_set_sort_func (priv->listbox,
+                                  (GtkListBoxSortFunc) internal_sort_func,
+                                  view,
+                                  NULL);
+    }
+  else
+    {
+      priv->sort_func = NULL;
+      priv->sort_user_data = NULL;
+
+      gtk_list_box_set_sort_func (priv->listbox,
+                                  (GtkListBoxSortFunc) gtd_task_list_view__listbox_sort_func,
+                                  NULL,
+                                  NULL);
     }
 }
