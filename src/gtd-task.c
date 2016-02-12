@@ -906,6 +906,8 @@ gtd_task_compare (GtdTask *t1,
   GDateTime *dt2;
   gboolean completed1;
   gboolean completed2;
+  gchar *txt1;
+  gchar *txt2;
   gint p1;
   gint p2;
   gint retval;
@@ -964,5 +966,15 @@ gtd_task_compare (GtdTask *t1,
   /*
    * If they're equal up to now, compare by title.
    */
-  return g_strcmp0 (gtd_task_get_title (t1), gtd_task_get_title (t2));
+  txt1 = txt2 = NULL;
+
+  txt1 = g_utf8_casefold (gtd_task_get_title (t1), -1);
+  txt2 = g_utf8_casefold (gtd_task_get_title (t2), -1);
+
+  retval = g_strcmp0 (txt1, txt2);
+
+  g_free (txt1);
+  g_free (txt2);
+
+  return retval;
 }

@@ -207,6 +207,8 @@ gtd_panel_scheduled_sort_func (GtkListBoxRow     *row1,
   GDateTime *dt1;
   GDateTime *dt2;
   gint retval;
+  gchar *t1;
+  gchar *t2;
 
   dt1 = dt2 = NULL;
 
@@ -230,7 +232,17 @@ gtd_panel_scheduled_sort_func (GtkListBoxRow     *row1,
   if (retval != 0)
     return retval;
 
-  return g_strcmp0 (gtd_task_get_title (row1_task), gtd_task_get_title (row2_task));
+  t1 = t2 = NULL;
+
+  t1 = g_utf8_casefold (gtd_task_get_title (row1_task), -1);
+  t2 = g_utf8_casefold (gtd_task_get_title (row2_task), -1);
+
+  retval = g_strcmp0 (t1, t2);
+
+  g_free (t1);
+  g_free (t2);
+
+  return retval;
 }
 
 static void
