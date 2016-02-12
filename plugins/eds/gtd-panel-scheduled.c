@@ -80,8 +80,7 @@ get_string_for_date (GDateTime *dt,
 
   if (days_diff < 0)
     {
-      str = g_strdup_printf (g_dngettext (NULL, _("Yesterday"), _("%d days ago"), -days_diff),
-                             -days_diff);
+      str = g_strdup_printf (g_dngettext (NULL, "Yesterday", "%d days ago", -days_diff), -days_diff);
     }
   else if (days_diff == 0)
     {
