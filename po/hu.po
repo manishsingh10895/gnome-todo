@@ -9,16 +9,16 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-02 22:32+0000\n"
-"PO-Revision-Date: 2016-01-31 18:52+0100\n"
-"Last-Translator: Gabor Kelemen <kelemeng at ubuntu dot com>\n"
+"POT-Creation-Date: 2016-02-12 12:46+0000\n"
+"PO-Revision-Date: 2016-02-12 15:51+0100\n"
+"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.6\n"
+"X-Generator: Poedit 1.8.5\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
 #: ../data/org.gnome.Todo.desktop.in.in.h:1
@@ -120,7 +120,9 @@ msgstr "Az aktuális listaválasztó"
 
 #: ../data/org.gnome.todo.gschema.xml.h:14
 msgid "The current list selector. Can be 'grid' or 'list'."
-msgstr "Az aktuális listaválasztó. Lehetséges értékek: „grid” (rács) vagy „list” (lista)."
+msgstr ""
+"Az aktuális listaválasztó. Lehetséges értékek: „grid” (rács) vagy "
+"„list” (lista)."
 
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
 #: ../src/gtd-window.c:553
@@ -180,7 +182,7 @@ msgid "Cancel"
 msgstr "Mégse"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:390
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Kész"
 
@@ -277,39 +279,37 @@ msgstr "Vagy tárolhatja a feladatait ezen a számítógépen"
 msgid "New task…"
 msgstr "Új feladat…"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Nincs dátum beállítva"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:70
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-msgid "%d days ago"
-msgstr "%d nappal ezelőtt"
-
-#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
 msgid "Yesterday"
-msgstr "Tegnap"
+msgid_plural "%d days ago"
+msgstr[0] "Tegnap"
+msgstr[1] "%d nappal ezelőtt"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
-#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/eds/gtd-panel-scheduled.c:87
+#: ../plugins/eds/gtd-panel-today.c:147 ../plugins/eds/gtd-panel-today.c:152
+#: ../plugins/eds/gtd-panel-today.c:314 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Ma"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "Holnap"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:257
-#: ../plugins/eds/gtd-panel-scheduled.c:262
-#: ../plugins/eds/gtd-panel-scheduled.c:392
+#: ../plugins/eds/gtd-panel-scheduled.c:316
+#: ../plugins/eds/gtd-panel-scheduled.c:321
+#: ../plugins/eds/gtd-panel-scheduled.c:451
 msgid "Scheduled"
 msgstr "Ütemezett"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-scheduled.c:459
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -412,12 +412,12 @@ msgstr "Tennivaló"
 msgid "translator-credits"
 msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
 
-#: ../src/gtd-task-list-view.c:290
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "A feladat (<b>%s</b>) törölve"
 
-#: ../src/gtd-task-list-view.c:321
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Visszavonás"
 
@@ -456,6 +456,9 @@ msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Feladatlisták törlése"
+
+#~ msgid "%d days ago"
+#~ msgstr "%d nappal ezelőtt"
 
 #~ msgid "Skipping already loaded task list "
 #~ msgstr "A már betöltött feladatlista kihagyása "
