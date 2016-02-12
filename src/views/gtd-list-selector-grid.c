@@ -97,6 +97,8 @@ gtd_list_selector_grid_sort_func (GtdListSelectorItem *a,
   GtdProvider *p2;
   GtdTaskList *l1;
   GtdTaskList *l2;
+  gchar *name1;
+  gchar *name2;
   gint retval = 0;
 
   l1 = gtd_list_selector_item_get_list (a);
@@ -110,7 +112,15 @@ gtd_list_selector_grid_sort_func (GtdListSelectorItem *a,
   if (retval != 0)
     return retval;
 
-  return g_strcmp0 (gtd_task_list_get_name (l1), gtd_task_list_get_name (l2));
+  name1 = g_utf8_casefold (gtd_task_list_get_name (l1), -1);
+  name2 = g_utf8_casefold (gtd_task_list_get_name (l2), -1);
+
+  retval = g_strcmp0 (name1, name2);
+
+  g_free (name1);
+  g_free (name2);
+
+  return retval;
 }
 
 static gboolean
