@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-06 16:50+0100\n"
-"PO-Revision-Date: 2016-02-06 16:52+0100\n"
+"POT-Creation-Date: 2016-02-14 19:00+0100\n"
+"PO-Revision-Date: 2016-02-14 19:01+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -185,7 +185,7 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:390
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Gotowe"
 
@@ -282,39 +282,38 @@ msgstr "Można też przechowywać zadania na tym komputerze"
 msgid "New task…"
 msgstr "Nowe zadanie…"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Nie ustawiono daty"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:70
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-msgid "%d days ago"
-msgstr "%d dni temu"
-
-#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
 msgid "Yesterday"
-msgstr "Wczoraj"
+msgid_plural "%d days ago"
+msgstr[0] "Wczoraj"
+msgstr[1] "%d dni temu"
+msgstr[2] "%d dni temu"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
 #: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
 #: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Dzisiaj"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "Jutro"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:257
-#: ../plugins/eds/gtd-panel-scheduled.c:262
-#: ../plugins/eds/gtd-panel-scheduled.c:392
+#: ../plugins/eds/gtd-panel-scheduled.c:316
+#: ../plugins/eds/gtd-panel-scheduled.c:321
+#: ../plugins/eds/gtd-panel-scheduled.c:451
 msgid "Scheduled"
 msgstr "Zaplanowane"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-scheduled.c:459
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -419,12 +418,12 @@ msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2015-2016\n"
 "Aviary.pl <gnomepl@aviary.pl>, 2015-2016"
 
-#: ../src/gtd-task-list-view.c:290
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Usunięto zadanie <b>%s</b>"
 
-#: ../src/gtd-task-list-view.c:321
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Cofnij"
 
