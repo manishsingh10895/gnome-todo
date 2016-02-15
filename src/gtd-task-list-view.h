@@ -47,10 +47,10 @@ typedef void (*GtdTaskListViewHeaderFunc) (GtkListBoxRow        *row,
 
 /**
  * GtdTaskListViewSortFunc:
- * @row: the current #GtkListBoxRow
- * @row_task: the #GtdTask that @row represents
- * @before: the #GtkListBoxRow before @row
- * @before_task: the #GtdTask that @before represents
+ * @row1: the current #GtkListBoxRow
+ * @row1_task: the #GtdTask that @row represents
+ * @row2: the #GtkListBoxRow before @row
+ * @row2_task: the #GtdTask that @before represents
  * @user_data: (closure): user data
  *
  * The sorting function called on every task.
