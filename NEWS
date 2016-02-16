@@ -1,4 +1,25 @@
 ==============
+Version 3.19.90
+==============
+
+Project:
+        * Improved documentation for the plugin API
+        * Ignore casefolding when sorting tasks & lists (Isaque Galdino)
+        * Fix Scheduled headers and translations
+        * Improved Scheduled panel (Isaque Galdino)
+
+Translations:
+        * Brazilian Portuguese (Rafael Fontanelle)
+        * Chinese Taiwan (Chao-Hsiung Liao)
+        * Friulian (Fabio Tomat)
+        * Hungarian (Gábor Kelemen, Balázs Meskó )
+        * Kazakh (Baurzhan Muftakhidinov)
+        * Latvian (Rūdolfs Mazurs)
+        * Polish (Piotr Drag)
+        * Slovak (Dušan Kazik)
+        * Spanish (Daniel Mustieles)
+
+==============
 Version 3.19.5
 ==============
 
