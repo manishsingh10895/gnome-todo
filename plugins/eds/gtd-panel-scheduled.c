@@ -209,12 +209,16 @@ gtd_panel_scheduled_sort_func (GtkListBoxRow     *row1,
   gchar *t1;
   gchar *t2;
 
-  dt1 = dt2 = NULL;
+  if (!row1_task && !row2_task)
+    return  0;
+  if (!row1_task)
+    return  1;
+  if (!row2_task)
+    return -1;
 
-  if (row1_task)
-    dt1 = gtd_task_get_due_date (row1_task);
-  if (row2_task)
-    dt2 = gtd_task_get_due_date (row2_task);
+  /* First, compare by ::due-date. */
+  dt1 = gtd_task_get_due_date (row1_task);
+  dt2 = gtd_task_get_due_date (row2_task);
 
   if (!dt1 && !dt2)
     retval = 0;
@@ -231,6 +235,40 @@ gtd_panel_scheduled_sort_func (GtkListBoxRow     *row1,
   if (retval != 0)
     return retval;
 
+  /* Second, compare by ::complete. */
+  retval = gtd_task_get_complete (row1_task) -
+           gtd_task_get_complete (row2_task);
+
+  if (retval != 0)
+    return retval;
+
+  /* Third, compare by ::priority. */
+  retval = gtd_task_get_priority (row1_task) -
+           gtd_task_get_priority (row2_task);
+
+  if (retval != 0)
+    return retval;
+
+  /* Fourth, compare by ::creation-date. */
+  dt1 = gtd_task_get_creation_date (row1_task);
+  dt2 = gtd_task_get_creation_date (row2_task);
+
+  if (!dt1 && !dt2)
+    retval =  0;
+  else if (!dt1)
+    retval =  1;
+  else if (!dt2)
+    retval = -1;
+  else
+    retval = g_date_time_compare (dt1, dt2);
+
+  g_clear_pointer (&dt1, g_date_time_unref);
+  g_clear_pointer (&dt2, g_date_time_unref);
+
+  if (retval != 0)
+    return retval;
+
+  /* Finally, compare by ::title. */
   t1 = t2 = NULL;
 
   t1 = g_utf8_casefold (gtd_task_get_title (row1_task), -1);

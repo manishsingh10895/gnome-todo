@@ -46,6 +46,8 @@ void                gtd_task_set_complete             (GtdTask              *tas
 
 ECalComponent*      gtd_task_get_component            (GtdTask              *task);
 
+GDateTime*          gtd_task_get_creation_date        (GtdTask              *task);
+
 const gchar*        gtd_task_get_description          (GtdTask              *task);
 
 void                gtd_task_set_description          (GtdTask              *task,

@@ -39,6 +39,7 @@ enum
   PROP_COMPLETE,
   PROP_COMPONENT,
   PROP_DESCRIPTION,
+  PROP_CREATION_DATE,
   PROP_DUE_DATE,
   PROP_LIST,
   PROP_PRIORITY,
@@ -138,6 +139,10 @@ gtd_task_get_property (GObject    *object,
 
     case PROP_COMPONENT:
       g_value_set_object (value, priv->component);
+      break;
+
+    case PROP_CREATION_DATE:
+      g_value_set_boxed (value, gtd_task_get_creation_date (self));
       break;
 
     case PROP_DESCRIPTION:
@@ -261,6 +266,20 @@ gtd_task_class_init (GtdTaskClass *klass)
                               "The #ECalComponent this task handles.",
                               E_TYPE_CAL_COMPONENT,
                               G_PARAM_READWRITE | G_PARAM_CONSTRUCT_ONLY));
+
+  /**
+   * GtdTask::creation-date:
+   *
+   * The @GDateTime that represents the time in which the task was created.
+   */
+  g_object_class_install_property (
+        object_class,
+        PROP_CREATION_DATE,
+        g_param_spec_boxed ("creation-date",
+                            "Creation date of the task",
+                            "The day the task was created.",
+                            G_TYPE_DATE_TIME,
+                            G_PARAM_READABLE));
 
   /**
    * GtdTask::description:
@@ -479,6 +498,40 @@ gtd_task_set_complete (GtdTask  *task,
 
       g_object_notify (G_OBJECT (task), "complete");
     }
+}
+
+/**
+ * gtd_task_get_creation_date:
+ * @task: a #GtdTask
+ *
+ * Returns the #GDateTime that represents the task's creation date.
+ * The value is referenced for thread safety. Returns %NULL if
+ * no date is set.
+ *
+ * Returns: (transfer full): the internal #GDateTime referenced
+ * for thread safety, or %NULL. Unreference it after use.
+ */
+GDateTime*
+gtd_task_get_creation_date (GtdTask *task)
+{
+  GtdTaskPrivate *priv;
+  icaltimetype *idt;
+  GDateTime *dt;
+
+  g_return_val_if_fail (GTD_IS_TASK (task), NULL);
+  priv = gtd_task_get_instance_private (task);
+
+  idt = NULL;
+  dt = NULL;
+
+  e_cal_component_get_created (priv->component, &idt);
+
+  if (idt)
+    dt = gtd_task__convert_icaltime (idt);
+
+  g_clear_pointer (&idt, e_cal_component_free_icaltimetype);
+
+  return dt;
 }
 
 /**
@@ -959,6 +1012,27 @@ gtd_task_compare (GtdTask *t1,
     g_date_time_unref (dt1);
   if (dt2)
     g_date_time_unref (dt2);
+
+  if (retval != 0)
+    return retval;
+
+  /*
+   * Fourth, compare by ::creation-date.
+   */
+  dt1 = gtd_task_get_creation_date (t1);
+  dt2 = gtd_task_get_creation_date (t2);
+
+  if (!dt1 && !dt2)
+    retval =  0;
+  else if (!dt1)
+    retval =  1;
+  else if (!dt2)
+    retval = -1;
+  else
+    retval = g_date_time_compare (dt1, dt2);
+
+  g_clear_pointer (&dt1, g_date_time_unref);
+  g_clear_pointer (&dt2, g_date_time_unref);
 
   if (retval != 0)
     return retval;
