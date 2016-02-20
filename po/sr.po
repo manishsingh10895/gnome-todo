@@ -290,7 +290,7 @@ msgstr "Није постављен датум"
 #, c-format
 msgid "Yesterday"
 msgid_plural "%d days ago"
-msgstr[0] "Јуче"
+msgstr[0] "Пре %d дана"
 msgstr[1] "Пре %d дана"
 msgstr[2] "Пре %d дана"
 msgstr[3] "Пре једног дана"
