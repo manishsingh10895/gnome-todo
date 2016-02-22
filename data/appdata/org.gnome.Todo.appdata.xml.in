@@ -4,12 +4,12 @@
   <id>org.gnome.Todo.desktop</id>
   <metadata_license>CC0</metadata_license>
   <project_license>GPL-3.0+</project_license>
-  <_name>Todo</_name>
-  <_summary>Todo manager for GNOME</_summary>
+  <_name>To Do</_name>
+  <_summary>Task manager for GNOME</_summary>
 
   <description>
     <_p>
-      GNOME Todo is a simple task management application designed to integrate with GNOME.
+      GNOME To Do is a simple task management application designed to integrate with GNOME.
     </_p>
   </description>
 

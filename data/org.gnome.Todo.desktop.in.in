@@ -1,5 +1,5 @@
 [Desktop Entry]
-_Name=Todo
+_Name=To Do
 _Comment=Manage your personal tasks
 Exec=gnome-todo
 Icon=org.gnome.Todo
