@@ -16,6 +16,9 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#ifndef GNOME_TODO_H
+#define GNOME_TODO_H
+
 #include "engine/gtd-manager.h"
 #include "interfaces/gtd-activatable.h"
 #include "interfaces/gtd-panel.h"
@@ -28,3 +31,5 @@
 #include "gtd-task-list-view.h"
 #include "gtd-window.h"
 #include "gtd-types.h"
+
+#endif /* GNOME_TODO_H */
