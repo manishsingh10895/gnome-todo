@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo.master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-15 10:41+0000\n"
-"PO-Revision-Date: 2016-02-16 13:25+0100\n"
+"POT-Creation-Date: 2016-02-23 10:38+0000\n"
+"PO-Revision-Date: 2016-02-23 12:44+0100\n"
 "Last-Translator: Daniel Mustieles <daniel.mustieles@gmail.com>\n"
 "Language-Team: Español; Castellano <gnome-es-list@gnome.org>\n"
 "Language: \n"
@@ -22,17 +22,22 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.6\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
+#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+msgid "To Do"
 msgstr "Tareas pendientes"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Gestor de tareas pendientes para GNOME"
+#| msgid "Todo manager for GNOME"
+msgid "Task manager for GNOME"
+msgstr "Gestor de tareas para GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+#| msgid ""
+#| "GNOME Todo is a simple task management application designed to integrate "
+#| "with GNOME."
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "Tareas pendientes de GNOME es un sencillo gestor de tareas diseñado para "
@@ -288,7 +293,6 @@ msgstr "No hay fecha establecida"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-#| msgid "Yesterday"
 msgid "Yesterday"
 msgid_plural "%d days ago"
 msgstr[0] "Ayer"
@@ -406,14 +410,17 @@ msgstr "Copyright © %d los autores de Tareas pendientes"
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d los autores de Tareas pendientes"
 
-#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:955
-msgid "To Do"
-msgstr "Tareas pendientes"
-
 #: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr "Daniel Mustieles <daniel.mustieles@gmail.com>, 2015"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Error al cargar el complemento"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Error al descargar el complemento"
 
 #: ../src/gtd-task-list-view.c:326
 #, c-format
@@ -431,14 +438,6 @@ msgstr "Cargando su lista de tareas…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Pulse sobre una tarea para seleccionarla"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "Error al cargar el complemento"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "Error al descargar el complemento"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
@@ -459,6 +458,9 @@ msgstr "Una vez eliminada, la lista de tareas no se podrá recuperar."
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Eliminar lista de tareas"
+
+#~ msgid "Todo"
+#~ msgstr "Tareas pendientes"
 
 #~ msgid "%d days ago"
 #~ msgstr "Hace %d días"
