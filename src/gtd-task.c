@@ -50,24 +50,17 @@ enum
 static GDateTime*
 gtd_task__convert_icaltime (const icaltimetype *date)
 {
-  GTimeZone *tz;
   GDateTime *dt;
-  gboolean is_date;
 
   if (!date)
     return NULL;
 
-  is_date = date->is_date ? TRUE : FALSE;
-
-  tz = g_time_zone_new_utc ();
-
-  dt = g_date_time_new (tz,
-                        date->year,
-                        date->month,
-                        date->day,
-                        is_date ? date->hour : 0,
-                        is_date ? date->minute : 0,
-                        is_date ? date->second : 0.0);
+  dt = g_date_time_new_utc (date->year,
+                            date->month,
+                            date->day,
+                            date->is_date ? 0 : date->hour,
+                            date->is_date ? 0 : date->minute,
+                            date->is_date ? 0 : date->second);
 
   return dt;
 }
