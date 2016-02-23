@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-14 19:00+0100\n"
-"PO-Revision-Date: 2016-02-14 19:01+0100\n"
+"POT-Creation-Date: 2016-02-23 19:44+0100\n"
+"PO-Revision-Date: 2016-02-23 19:45+0100\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
 "Language-Team: Polish <gnomepl@aviary.pl>\n"
 "Language: pl\n"
@@ -24,17 +24,18 @@ msgstr ""
 "X-Poedit-Country: Poland\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
+#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+msgid "To Do"
 msgstr "Zadania"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
+msgid "Task manager for GNOME"
 msgstr "Menedżer zadań dla środowiska GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "Menedżer zadań GNOME to prosty program do zarządzania zadaniami, "
@@ -307,13 +308,13 @@ msgid "Tomorrow"
 msgstr "Jutro"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:316
-#: ../plugins/eds/gtd-panel-scheduled.c:321
-#: ../plugins/eds/gtd-panel-scheduled.c:451
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Zaplanowane"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -407,16 +408,19 @@ msgstr "Copyright © %d Autorzy Menedżera zadań"
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d Autorzy Menedżera zadań"
 
-#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:955
-msgid "To Do"
-msgstr "Zadania"
-
 #: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2015-2016\n"
 "Aviary.pl <gnomepl@aviary.pl>, 2015-2016"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Błąd podczas wczytywania wtyczki"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Błąd podczas usuwania wtyczki"
 
 #: ../src/gtd-task-list-view.c:326
 #, c-format
@@ -434,14 +438,6 @@ msgstr "Wczytywanie list zadań…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Kliknięcie listy zadań zaznacza ją"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "Błąd podczas wczytywania wtyczki"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "Błąd podczas usuwania wtyczki"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
