@@ -450,7 +450,7 @@ gtd_task_set_complete (GtdTask  *task,
 
       if (complete)
         {
-          GDateTime *now = g_date_time_new_now_local ();
+          GDateTime *now = g_date_time_new_now_utc ();
 
           percent = 100;
           status = ICAL_STATUS_COMPLETED;
