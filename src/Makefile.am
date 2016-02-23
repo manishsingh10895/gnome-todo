@@ -4,10 +4,10 @@ AM_CPPFLAGS = \
 	-DPACKAGE_DATA_DIR=\""$(pkgdatadir)"\" \
 	-DPACKAGE_LIB_DIR=\""$(pkglibdir)"\" \
 	-DUI_DATA_DIR=\""$(pkgdatadir)/style"\" \
+	-I$(srcdir)/engine \
 	-I$(srcdir)/provider \
 	-I$(srcdir)/notification \
 	-I$(srcdir)/interfaces \
-	-I$(srcdir)/plugin \
 	-I$(srcdir)/views
 
 bin_PROGRAMS = gnome-todo
@@ -23,6 +23,11 @@ ENUM_TYPES = \
 
 gnome_todo_SOURCES = \
 	$(BUILT_SOURCES) \
+	engine/gtd-manager.c \
+	engine/gtd-manager.h \
+	engine/gtd-manager-protected.h \
+	engine/gtd-plugin-manager.c \
+	engine/gtd-plugin-manager.h \
 	interfaces/gtd-activatable.c \
 	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.c \
@@ -41,12 +46,6 @@ gnome_todo_SOURCES = \
 	provider/gtd-provider-row.h \
 	provider/gtd-provider-selector.c \
 	provider/gtd-provider-selector.h \
-	plugin/gtd-plugin-dialog.c \
-	plugin/gtd-plugin-dialog.h \
-	plugin/gtd-plugin-dialog-row.c \
-	plugin/gtd-plugin-dialog-row.h \
-	plugin/gtd-plugin-manager.c \
-	plugin/gtd-plugin-manager.h \
 	views/gtd-list-selector.c \
 	views/gtd-list-selector.h \
 	views/gtd-list-selector-grid.c \
@@ -70,11 +69,12 @@ gnome_todo_SOURCES = \
 	gtd-enums.h \
 	gtd-initial-setup-window.c \
 	gtd-initial-setup-window.h \
-	gtd-manager.c \
-	gtd-manager.h \
-	gtd-manager-protected.h \
 	gtd-object.c \
 	gtd-object.h \
+	gtd-plugin-dialog.c \
+	gtd-plugin-dialog.h \
+	gtd-plugin-dialog-row.c \
+	gtd-plugin-dialog-row.h \
 	gtd-task.c \
 	gtd-task.h \
 	gtd-task-list.c \
@@ -104,12 +104,12 @@ gnome_todo_LDADD = \
 #
 gnome_todo_includedir = $(includedir)/gnome-todo
 nobase_gnome_todo_include_HEADERS = \
+	engine/gtd-manager.h \
 	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.h \
 	interfaces/gtd-provider.h \
 	notification/gtd-notification.h \
 	gtd-enums.h \
-	gtd-manager.h \
 	gtd-object.h \
 	gtd-task.h \
 	gtd-task-list.h \
@@ -160,6 +160,8 @@ INTROSPECTION_COMPILER_ARGS = \
 	--includedir=$(srcdir)
 
 introspection_sources = \
+	engine/gtd-manager.c \
+	engine/gtd-manager.h \
 	interfaces/gtd-activatable.c \
 	interfaces/gtd-activatable.h \
 	interfaces/gtd-panel.c \
@@ -169,8 +171,6 @@ introspection_sources = \
 	notification/gtd-notification.c \
 	notification/gtd-notification.h \
 	gtd-enums.h \
-	gtd-manager.c \
-	gtd-manager.h \
 	gtd-object.c \
 	gtd-object.h \
 	gtd-task.c \
@@ -193,10 +193,10 @@ Gtd_1_0_gir_SCANNERFLAGS = \
 	--identifier-prefix Gtd  \
 	--symbol-prefix gtd \
 	-I$(srcdir) \
+	-I$(srcdir)/engine \
 	-I$(srcdir)/provider \
 	-I$(srcdir)/notification \
 	-I$(srcdir)/interfaces \
-	-I$(srcdir)/plugin \
 	-I$(srcdir)/views
 Gtd_1_0_gir_FILES = $(introspection_sources)
 INTROSPECTION_GIRS += Gtd-1.0.gir

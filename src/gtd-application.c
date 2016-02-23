@@ -20,11 +20,11 @@
 #include "config.h"
 #endif
 
-#include "plugin/gtd-plugin-dialog.h"
 #include "gtd-application.h"
 #include "gtd-initial-setup-window.h"
 #include "gtd-manager.h"
 #include "gtd-manager-protected.h"
+#include "gtd-plugin-dialog.h"
 #include "gtd-window.h"
 
 #include <glib.h>

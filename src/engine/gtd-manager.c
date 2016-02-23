@@ -18,9 +18,9 @@
 
 #include "interfaces/gtd-provider.h"
 #include "interfaces/gtd-panel.h"
-#include "plugin/gtd-plugin-manager.h"
 #include "gtd-manager.h"
 #include "gtd-manager-protected.h"
+#include "gtd-plugin-manager.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
 

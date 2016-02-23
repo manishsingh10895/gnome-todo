@@ -16,12 +16,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+#include "engine/gtd-manager.h"
 #include "interfaces/gtd-activatable.h"
 #include "interfaces/gtd-panel.h"
 #include "interfaces/gtd-provider.h"
 #include "notification/gtd-notification.h"
 #include "gtd-enums.h"
-#include "gtd-manager.h"
 #include "gtd-object.h"
 #include "gtd-task.h"
 #include "gtd-task-list.h"
