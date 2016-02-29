@@ -1,15 +1,15 @@
 # Norwegian bokmål translation of gnome-todo.
 # Copyright (C) 1998-2004, 2005 Free Software Foundation, Inc.
-# Kjartan Maraas <kmaraas@gnome.org>, 1998-2015.
+# Kjartan Maraas <kmaraas@gnome.org>, 1998-2016.
 # Terance Edward Sola <terance@lyse.net>, 2005.
 # Torstein Adolf Winterseth <kvikende@fsfe.org>, 2010.
 # Alexander Strand <godsetalex@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-todo 3.18.x\n"
+"Project-Id-Version: gnome-todo 3.19.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-14 19:51+0100\n"
-"PO-Revision-Date: 2015-11-14 19:52+0100\n"
+"POT-Creation-Date: 2016-02-29 21:46+0100\n"
+"PO-Revision-Date: 2016-02-29 21:48+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -19,21 +19,20 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
+#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+msgid "To Do"
 msgstr "Oppgaver"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Oppgaveliste for GNOME"
+msgid "Task manager for GNOME"
+msgstr "Oppgavestyring for GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
-msgstr ""
-"GNOME oppgaver er et enkelt oppgavehåndteringsprogram som er integrert med "
-"GNOME."
+msgstr "GNOME oppgaver er et enkelt program for oppgavestyring som er integrert med GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -44,16 +43,16 @@ msgid "Change default storage location…"
 msgstr "Endre forvalgt lagringslokasjon …"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Utvidelser"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_Om"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "A_vslutt"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed tasks…"
-msgstr "Fjern fullførte oppgaver …"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -99,51 +98,71 @@ msgstr ""
 "initielt oppsett)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
+#, fuzzy
+msgid "Default provider to add new lists to"
 msgstr "Forvalgt plassering nye lister skal legges til"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
+#, fuzzy
+msgid "The identifier of the default provider to add new lists to"
 msgstr "Identifikator for forvalgt plassering for nye lister"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr ""
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr ""
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr ""
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr ""
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Detaljer"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Notater"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Ferdig-dato"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Prioritet"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Ingen"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Lav"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Middels"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Høy"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Slett"
 
-#: ../data/ui/edit-pane.ui.h:10
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
 msgctxt "taskdate"
 msgid "None"
 msgstr "Ingen"
@@ -156,15 +175,36 @@ msgstr "Velkommen"
 msgid "Login to online accounts to access your tasks"
 msgstr "Logg inn i kontoer på nettet for å aksessere dine oppgaver"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Ferdig"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Endre navn"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Lister"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Oppgaver"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Navn på oppgavelisten"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Ny liste"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -178,55 +218,59 @@ msgstr "Du kan legge til oppgaver i listene i visningen <b>Lister</b>"
 msgid "Show or hide completed tasks"
 msgstr "Vis eller skjul fullførte oppgaver"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Fant ingen utvidelser"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "Velg forvalgt lagringslokasjon ved oppretting av oppgavelister:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Forvalgt lagringslokasjon"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Opprett"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Listenavn"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Velg en lagringslokasjon"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Av"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Klikk for å legge til et notat"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Klikk for å legge til en ny ownCloud-konto"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Klikk for å legge til en ny Microsoft Exchange-konto"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Eller du kan bare lagre dine oppgaver på denne datamaskinen"
 
@@ -234,172 +278,175 @@ msgstr "Eller du kan bare lagre dine oppgaver på denne datamaskinen"
 msgid "New task…"
 msgstr "Ny oppgave …"
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Lister"
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Ingen dato satt"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "I går"
+msgstr[1] "%d dager siden"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "I dag"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "I morgen"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Planlagt"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Endre navn"
+#: ../plugins/eds/gtd-panel-scheduled.c:497
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Fjern fullførte oppgaver …"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Ny liste"
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Feil ved lasting av kontoer på nettet"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Navn på oppgavelisten"
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Feil ved lasting av motor for Evolution-Data-Server"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Feil ved lasting av CSS fra ressurs"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Feil ved henting av oppgave fra liste"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Fullførte tilkobling til oppgavelistelistekilde"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Klarte ikke å koble til oppgavelistekilde"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Klarte ikke å spørre etter påloggingsinformasjon"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Klarte ikke å spørre etter påloggingsinformasjon for"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Autentisering feilet"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Feil ved lasting av oppgavehåndterer"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Feil ved oppretting av oppgave"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Feil ved oppdatering av oppgave"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Feil under fjerning av oppgave"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Feil ved opretting oppgaveliste"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Feil under fjerning av oppgaveliste"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Feil ved lagring av oppgaveliste"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokal"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "På denne datamaskinen"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Feil ved opretting av ny oppgaveliste"
+
+#: ../src/gtd-application.c:111
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Opphavsrett © %d Oppgaveforfatterene"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:116
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Opphavsrett © %d-%d Oppgavelisteutviklerene"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
-msgid "To Do"
-msgstr "Oppgaver"
-
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:128
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Feil ved lasting av CSS fra ressurs"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Feil ved lasting av tillegg"
 
-#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Ingen dato satt"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Feil ved utlasting av tillegg"
 
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Feil ved lasting av kontoer på nettet"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Feil ved lagring av oppgaveliste"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Feil under fjerning av oppgaveliste"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Feil ved opretting oppgaveliste"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Feil ved oppretting av oppgave"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Feil under fjerning av oppgave"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Feil ved oppdatering av oppgave"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Klarte ikke å spørre etter påloggingsinformasjon"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Klarte ikke å spørre etter påloggingsinformasjon for"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Autentisering feilet"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Feil ved henting av oppgave fra liste"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Fullførte tilkobling til oppgavelistelistekilde"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Klarte ikke å koble til oppgavelistekilde"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Hopper over oppgaveliste som allerede er lastet "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Feil ved lasting av oppgavehåndterer"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Ingen oppgaver"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Oppgave <b>%s</b> fjernet"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Angre"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "I morgen"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "I går"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Fjerne valgte oppgavelister?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "Når oppgavelistne blir fjernet kan de ikke gjenopprettes."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Fjern oppgavelister"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Setter ny farge for oppgaveliste"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Laster dine oppgavelister …"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Klikk på en oppgaveliste for å velge den"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Feil ved opretting av ny oppgaveliste"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Ingen oppgaver"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "På denne datamaskinen"
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Setter ny farge for oppgaveliste"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Lokal"
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Fjerne valgte oppgavelister?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Når oppgavelistne blir fjernet kan de ikke gjenopprettes."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Fjern oppgavelister"
