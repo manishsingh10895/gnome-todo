@@ -667,12 +667,18 @@ void
 gtd_task_row_destroy (GtdTaskRow *row)
 {
   g_return_if_fail (GTD_IS_TASK_ROW (row));
-  g_return_if_fail (gtk_revealer_get_child_revealed (row->priv->revealer));
 
-  g_signal_connect_swapped (row->priv->revealer,
-                            "notify::child-revealed",
-                            G_CALLBACK (gtk_widget_destroy),
-                            row);
+  if (gtk_revealer_get_child_revealed (row->priv->revealer))
+    {
+      gtk_widget_destroy (GTK_WIDGET (row));
+    }
+  else
+    {
+      g_signal_connect_swapped (row->priv->revealer,
+                                "notify::child-revealed",
+                                G_CALLBACK (gtk_widget_destroy),
+                                row);
 
-  gtk_revealer_set_reveal_child (row->priv->revealer, FALSE);
+      gtk_revealer_set_reveal_child (row->priv->revealer, FALSE);
+    }
 }
