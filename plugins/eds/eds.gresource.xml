@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<gresources>
-  <gresource prefix="/org/gnome/todo">
-    <file compressed="true" alias="ui/eds/edit-pane.ui">edit-pane.ui</file>
-    <file compressed="true" alias="theme/eds/Adwaita.css" >theme/Adwaita.css</file>
-  </gresource>
-</gresources>

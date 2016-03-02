@@ -28,7 +28,7 @@ G_BEGIN_DECLS
 
 G_DECLARE_FINAL_TYPE (GtdPluginEds, gtd_plugin_eds, GTD, PLUGIN_EDS, PeasExtensionBase)
 
-G_MODULE_EXPORT void  peas_register_types                        (PeasObjectModule   *module);
+G_MODULE_EXPORT void  gtd_plugin_eds_register_types                        (PeasObjectModule   *module);
 
 G_END_DECLS
 

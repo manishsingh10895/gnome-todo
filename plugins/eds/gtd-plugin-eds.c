@@ -384,7 +384,7 @@ gtd_plugin_eds_class_finalize (GtdPluginEdsClass *klass)
 }
 
 G_MODULE_EXPORT void
-peas_register_types (PeasObjectModule *module)
+gtd_plugin_eds_register_types (PeasObjectModule *module)
 {
   gtd_plugin_eds_register_type (G_TYPE_MODULE (module));
 

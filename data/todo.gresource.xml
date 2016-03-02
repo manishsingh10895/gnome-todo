@@ -21,4 +21,11 @@
     <file compressed="true">theme/bg.png</file>
     <file compressed="true">theme/bg.svg</file>
   </gresource>
+
+  <!--EDS Plugin-->
+  <gresource prefix="/org/gnome/todo">
+    <file compressed="true" alias="ui/eds/edit-pane.ui">../plugins/eds/edit-pane.ui</file>
+    <file compressed="true" alias="theme/eds/Adwaita.css">../plugins/eds/theme/Adwaita.css</file>
+    <file alias="plugins/eds/eds.plugin">../plugins/eds/eds.plugin</file>
+  </gresource>
 </gresources>

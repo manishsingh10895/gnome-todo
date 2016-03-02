@@ -10,4 +10,5 @@ Builtin = true
 Hidden = true
 License = GPL
 Loader = C
+Embedded = gtd_plugin_eds_register_types
 Depends =

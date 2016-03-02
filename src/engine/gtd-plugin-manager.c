@@ -322,6 +322,9 @@ setup_engine (GtdPluginManager *self)
   peas_engine_add_search_path (engine,
                                plugin_dir,
                                NULL);
+  peas_engine_prepend_search_path (engine,
+                                   "resource:///org/gnome/todo/plugins",
+                                   "resource:///org/gnome/todo/plugins");
 
   g_free (plugin_dir);
 
