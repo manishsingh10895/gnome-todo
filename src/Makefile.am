@@ -99,10 +99,10 @@ gnome_todo_LDFLAGS = \
 
 gnome_todo_LDADD = \
 	$(GNOME_TODO_LIBS) \
-	$(top_srcdir)/plugins/eds/libeds.a
+	$(top_builddir)/plugins/eds/libeds.a
 
 gnome_todo_DEPENDENCIES = \
-	$(top_srcdir)/plugins/eds/libeds.a
+	$(top_builddir)/plugins/eds/libeds.a
 
 #
 # Export headers to [PREFIX]/include/gnome-todo

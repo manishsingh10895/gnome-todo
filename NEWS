@@ -1,4 +1,28 @@
 ==============
+Version 3.19.91
+==============
+
+Project:
+        * Consistently use To Do naming (Daniel Aleksander)
+        * Also consider creation date when sorting tasks (Isaque Galdino)
+        * Make EDS an embedded plugin (Saiful B. Khan)
+
+Translations:
+        * Brazilian Portuguese (Artur de Aquino)
+        * Czech (Marek Černocký)
+        * Hebrew (Yosef Or Boczko)
+        * Galician (Fran Dieguez)
+        * German (Bernd Homuth)
+        * Greek (Efstathios  Iosifidis)
+        * Hungarian (Gábor Kelemen, Balázs Meskó )
+        * Latvian (Rūdolfs Mazurs)
+        * Norwegan bokmål (Kjartan Maraas)
+        * Occitan (Cédric Valmary)
+        * Polish (Piotr Drag)
+        * Serbian (Мирослав Николић)
+        * Spanish (Daniel Mustieles)
+
+==============
 Version 3.19.90
 ==============
 
