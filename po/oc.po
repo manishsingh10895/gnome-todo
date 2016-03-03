@@ -1,0 +1,794 @@
+# Occitan translation of gnome-todo.
+# Copyright (C) 1998-2012 Free Software Foundation, Inc.
+# This file is under the same license as the gnome-todo package.
+# Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo HEAD\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-02-23 00:54+0000\n"
+"PO-Revision-Date: 2016-02-25 18:20+0200\n"
+"Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
+"Language-Team: Tot En Òc\n"
+"Language: oc\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
+#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "To Do"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+#| msgid "Todo manager for GNOME"
+msgid "Task manager for GNOME"
+msgstr "Lo gestionari de prètzfaches de GNOME"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+#| msgid ""
+#| "GNOME Todo is a simple task management application designed to integrate "
+#| "with GNOME."
+msgid ""
+"GNOME To Do is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"GNOME Prètzfaches es un simple gestionari de prètzfaches destinat a èsser "
+"integrat dins GNOME."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Lista Novèla..."
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Modificacion de l'emplaçament d'emmagazinatge per defaut..."
+
+#: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Extensions"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_About"
+msgstr "A _prepaus"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "_Quit"
+msgstr "_Quitar"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Gerir vòstres prètzfaches personals"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr "Prètzfach;Productivitat;"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Fenèstra maximizada"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Estat de maximizacion de la fenèstra"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Talha de la fenèstra"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Talha de la fenèstra (largor e nautor)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Posicion de la fenèstra"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Posicion de la fenèstra (x e y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Primièra aviada de GNOME To Do"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Indica se s'agís de la primièra aviada de GNOME To Do (per aviar la "
+"configuracion iniciala)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+#| msgid "Default location to add new lists to"
+msgid "Default provider to add new lists to"
+msgstr "Emplaçament per defaut per l'apondon de listas novèlas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+#| msgid "The identifier of the default location to add new lists to"
+msgid "The identifier of the default provider to add new lists to"
+msgstr ""
+"L'identificant de l'emplaçament per defaut per l'apondn de listas novèlas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:11
+#| msgid "List of the task"
+msgid "List of active extensions"
+msgstr "Lista de las extensions activas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+#| msgid "Task list of the item"
+msgid "The list of active extensions"
+msgstr "La lista de las extensions activas"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Lo selector de lista actual"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr ""
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
+msgid "Details"
+msgstr "Detalhs"
+
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Nòtas"
+
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Data d'escasença"
+
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Prioritat"
+
+# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
+#| msgid "None"
+msgctxt "taskpriority"
+msgid "None"
+msgstr "Pas cap"
+
+# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Bassa"
+
+# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Mejana"
+
+# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
+msgid "High"
+msgstr "Nauta"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
+msgid "Delete"
+msgstr "Suprimir"
+
+# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
+#| msgid "None"
+msgctxt "taskdate"
+msgid "None"
+msgstr "Pas cap"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Benvenguda"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "S’autentificar a de comptes en linha per accedir a vòstres prètzfaches"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
+msgid "Cancel"
+msgstr "Anullar"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:426
+msgid "Done"
+msgstr "Acabat"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Renomenar"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Listas"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+#| msgid "No tasks"
+msgid "Tasks"
+msgstr "Prètzfaches"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Nom de la lista de prètzfaches"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Lista Novèla"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Cap de prètzfach pas trobat"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Podètz apondre de prètzfaches dins la vista en <b>Lista</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Afichar o amagar los prètzfaches acabats"
+
+#: ../data/ui/plugin-dialog.ui.h:1
+#| msgid "No tasks found"
+msgid "No extensions found"
+msgstr "Cap d'extension pas trobada"
+
+#: ../data/ui/provider-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr ""
+"Seleccionar l'emplaçament per défaut ont crear de listas de prètzfaches :"
+
+#: ../data/ui/provider-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Emplaçament d'emmagazinatge per defaut"
+
+#: ../data/ui/provider-popover.ui.h:1
+msgid "Create"
+msgstr "Crear"
+
+#: ../data/ui/provider-popover.ui.h:3
+msgid "List Name"
+msgstr "Nom de la lista"
+
+#: ../data/ui/provider-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Seleccionar un emplaçament d'emmagazinatge"
+
+#: ../data/ui/provider-row.ui.h:1
+msgid "Off"
+msgstr "Desactivar"
+
+#: ../data/ui/provider-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Clicar per apondre un novèl compte Google"
+
+#: ../data/ui/provider-selector.ui.h:2
+msgid "Google"
+msgstr "Google"
+
+#: ../data/ui/provider-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Clicar per apondre un novèl compte ownCloud"
+
+#: ../data/ui/provider-selector.ui.h:4
+msgid "ownCloud"
+msgstr "ownCloud"
+
+#: ../data/ui/provider-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Clicar per apondre un novèl compte Microsoft Exchange"
+
+#: ../data/ui/provider-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Microsoft Exchange"
+
+#: ../data/ui/provider-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr ""
+"Siquenon, podètz juste enregistrar vòstres prètzfaches sus aqueste ordenador"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Prètzfach novèl..."
+
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Cap de data pas definida"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+#| msgid "Yesterday"
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "Ièr"
+msgstr[1] "I a %d jorns"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
+msgid "Today"
+msgstr "Uèi"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Deman"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:316
+#: ../plugins/eds/gtd-panel-scheduled.c:321
+#: ../plugins/eds/gtd-panel-scheduled.c:451
+msgid "Scheduled"
+msgstr "Previst per"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+#| msgid "Clear completed task…"
+msgid "Clear completed tasks…"
+msgstr "Escafar los prètzfaches acabats…"
+
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Error de cargament dels Comptes en linha GNOME"
+
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr ""
+
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+msgid "Error loading CSS from resource"
+msgstr "Error de cargament del CSS demnpuèi las fonts"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Error de recuperacion del prètzfach en provenéncia de la lista"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Font de la lista de prètzfaches connectada amb succès"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Fracàs de connexion amb la font de la lista de prètzfaches"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Fracàs de demanda d'identificacion"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Fracàs de demanda d'identificacion per"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Fracàs d'autentificacion"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Error de cargament del gestionari de prètzfaches"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Error de creacion del prètzfach"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Error de mesa a jorn del prètzfach"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Error de supression del prètzfach"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Error al moment de la creacion de la lista de prètzfaches"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Error de supression de la lista de prètzfaches"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Error d'enregistrament del prètzfach"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Local"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Sus aqueste ordenador"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Error al moment de la creacion de la novèla lista de prètzfaches"
+
+#: ../src/gtd-application.c:111
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Copyright © %d Los autors de To Do"
+
+#: ../src/gtd-application.c:116
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Copyright © %d-%d Los autors de To Do"
+
+#: ../src/gtd-application.c:128
+msgid "translator-credits"
+msgstr "Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>"
+
+#: ../src/gtd-task-list-view.c:326
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Prètzfach <b>%s</b> suprimit"
+
+#: ../src/gtd-task-list-view.c:357
+msgid "Undo"
+msgstr "Anullar"
+
+#: ../src/gtd-window.c:817
+msgid "Loading your task lists…"
+msgstr "Cargament de vòstra lista de prètzfaches..."
+
+#: ../src/gtd-window.c:949
+msgid "Click a task list to select"
+msgstr "Clicatz sus una lista de prètzfaches per la seleccionar"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+#| msgid "Error loading task manager"
+msgid "Error loading plugin"
+msgstr "Error de cargament del plugin"
+
+#: ../src/plugin/gtd-plugin-dialog-row.c:95
+#| msgid "Error loading task manager"
+msgid "Error unloading plugin"
+msgstr ""
+
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Pas cap de prètzfach"
+
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Definicion d'una novèla color per la lista de prètzfaches"
+
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Suprimir la lista de prètzfaches seleccionada ?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Un còp suprimida, la lista de prètzfaches es perduda definitivament."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Suprimir la lista de prètzfaches"
+
+#~ msgid "Todo"
+#~ msgstr "Tâches"
+
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "Liste de tâches ignorée car déjà chargée"
+
+#~ msgid "Manager of this application"
+#~ msgstr "Gestionnaire de cette application"
+
+#~ msgid "The manager of the application"
+#~ msgstr "Le gestionnaire de l'application"
+
+#~ msgid "Task being edited"
+#~ msgstr "Tâche en cours de modification"
+
+#~ msgid "The task that is actually being edited"
+#~ msgstr "La tâche actuellement en cours de modification"
+
+#~ msgid "Manager of the task"
+#~ msgstr "Gestionnaire de la tâche"
+
+#~ msgid "The singleton manager instance of the task"
+#~ msgstr "L'unique instance du gestionnaire de la tâche "
+
+#~ msgid "The online accounts client of the manager"
+#~ msgstr "Le client des comptes en ligne du gestionnaire"
+
+#~ msgid ""
+#~ "The read-only GNOME online accounts client loaded and owned by the manager"
+#~ msgstr ""
+#~ "Le client des comptes en ligne GNOME chargé en lecture seule et propriété "
+#~ "du gestionnaire"
+
+#~ msgid "Whether GNOME Online Accounts client is ready"
+#~ msgstr "Indique si le client des Comptes en ligne GNOME est prêt"
+
+#~ msgid "Whether the read-only GNOME online accounts client is loaded"
+#~ msgstr ""
+#~ "Indique si le client des Comptes en ligne GNOME en lecture seule est "
+#~ "chargé"
+
+#~ msgid "The source registry of the manager"
+#~ msgstr "Le registre des sources du gestionnaire"
+
+#~ msgid "The read-only source registry loaded and owned by the manager"
+#~ msgstr ""
+#~ "Le registre des sources est chargé en lecture seule et détenu par le "
+#~ "gestionnaire"
+
+#~ msgid "Unique identifier of the object"
+#~ msgstr "Identifiant unique de l'objet"
+
+#~ msgid "The unique identifier of the object, defined by the backend"
+#~ msgstr "L'identifiant unique de l'objet, défini par le moteur de recherches"
+
+#~ msgid "Ready state of the object"
+#~ msgstr "L'objet est marqué prêt"
+
+#~ msgid "Whether the object is marked as ready or not"
+#~ msgstr "Indique si l'objet est marqué comme prêt ou non"
+
+#~ msgid "Whether the task is completed or not"
+#~ msgstr "Indique si la tâche est terminée ou non"
+
+#~ msgid "Whether the task is marked as completed by the user"
+#~ msgstr "Indique si la tâche est marquée comme terminée par l'utilisateur"
+
+#~ msgid "Component of the task"
+#~ msgstr "Composition de la tâche"
+
+#~ msgid "The #ECalComponent this task handles."
+#~ msgstr "Le #ECalComponent que cette tâche gère."
+
+#~ msgid "Description of the task"
+#~ msgstr "Description de la tâche"
+
+#~ msgid "Optional string describing the task"
+#~ msgstr "Chaîne optionnelle décrivant la tâche"
+
+#~ msgid "End date of the task"
+#~ msgstr "Date de fin de la tâche"
+
+#~ msgid "The day the task is supposed to be completed"
+#~ msgstr "Le jour où la tâche est sensée être terminée"
+
+#~ msgid "The list that owns this task"
+#~ msgstr "La liste propriétaire de cette tâche"
+
+#~ msgid "Priority of the task"
+#~ msgstr "Priorité de la tâche"
+
+#~ msgid ""
+#~ "The priority of the task. 0 means no priority set, and tasks will be "
+#~ "sorted alphabetically."
+#~ msgstr ""
+#~ "La priorité de la tâche. 0 signifie qu'il n'y a pas de priorité définie "
+#~ "et que les tâches seront triées dans l'ordre alphabétique."
+
+#~ msgid "Title of the task"
+#~ msgstr "Titre de la tâche"
+
+#~ msgid "The title of the task"
+#~ msgstr "Le titre de la tâche"
+
+#~ msgid "Color of the list"
+#~ msgstr "Couleur de la liste"
+
+#~ msgid "The color of the list"
+#~ msgstr "La couleur de la liste"
+
+#~ msgid "Whether the task list is removable"
+#~ msgstr "Indique si la tâche est supprimable "
+
+#~ msgid "Whether the task list can be removed from the system"
+#~ msgstr "Indique si la liste de tâches peut être supprimée du système"
+
+#~ msgid "Name of the list"
+#~ msgstr "Nom de la liste"
+
+#~ msgid "The name of the list"
+#~ msgstr "Le nom de la liste"
+
+#~ msgid "Data origin of the list"
+#~ msgstr "Provenance des données de la liste"
+
+#~ msgid "The data origin location of the list"
+#~ msgstr "La provenance des données de la liste"
+
+#~ msgid "Source of the list"
+#~ msgstr "Source de la liste"
+
+#~ msgid "The parent source that handles the list"
+#~ msgstr "La source parente qui gère la liste"
+
+#~ msgid "Mode of this item"
+#~ msgstr "Mode de cet élément"
+
+#~ msgid "The mode of this item, inherited from the parent's mode"
+#~ msgstr "Le mode de cet élément, hérité du mode du parent"
+
+#~ msgid "Whether the task list is selected"
+#~ msgstr "Indique si la liste de tâches est sélectionnée"
+
+#~ msgid "Whether the task list is selected when in selection mode"
+#~ msgstr ""
+#~ "Indique si la liste de tâches est sélectionnée lorsqu'elle est en mode "
+#~ "sélection"
+
+#~ msgid "The task list associated with this item"
+#~ msgstr "La liste de tâches associée à cet élément"
+
+#~ msgid "Manager of this window's application"
+#~ msgstr "Gestionnaire de la fenêtre de cette application"
+
+#~ msgid "The manager of the window's application"
+#~ msgstr "Les gestionnaire de la fenêtre de cette application"
+
+#~ msgid "Whether the list is readonly"
+#~ msgstr "Indique si cette liste est en lecture seule"
+
+#~ msgid ""
+#~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
+#~ msgstr ""
+#~ "Indique si cette liste est en lecture seule, c.à.d. affiche ou non la "
+#~ "ligne Nouvelle Tâche"
+
+#~ msgid "Whether task rows show the list name"
+#~ msgstr "Indique si les lignes de tâches affichent le nom de la liste"
+
+#~ msgid "Whether task rows show the list name at the end of the row"
+#~ msgstr ""
+#~ "Indique si les lignes de tâches affichent le nom de la liste à la fin de "
+#~ "chaque ligne"
+
+#~ msgid "Whether completed tasks are shown"
+#~ msgstr "Indique si les tâches terminées doivent être affichées"
+
+#~ msgid "Whether completed tasks are visible or not"
+#~ msgstr "Indique si les tâches terminées doivent être visibles"
+
+#~ msgid "If the row is used to add a new task"
+#~ msgstr "Si cette ligne est utilisée pour ajouter une nouvelle tâche"
+
+#~ msgid "Whether the row is used to add a new task"
+#~ msgstr "Indique si cette ligne est utilisée pour ajouter une nouvelle tâche"
+
+#~ msgid "Task of the row"
+#~ msgstr "Tâche de la ligne"
+
+#~ msgid "The task that this row represents"
+#~ msgstr "La tâche que cette ligne représente"
+
+#~ msgid "Mode of this window"
+#~ msgstr "Mode de cette fenêtre"
+
+#~ msgid "The interaction mode of the window"
+#~ msgstr "Le mode d’interaction de la fenêtre"
+
+#~ msgid "Whether the storage is enabled"
+#~ msgstr "Indique si le stockage est activé"
+
+#~ msgid "Whether the storage is available to be used."
+#~ msgstr "Indique si le stockage est prêt à être utilisé."
+
+#~ msgid "Icon of the storage"
+#~ msgstr "Icône du support de stockage"
+
+#~ msgid "The icon representing the storage location."
+#~ msgstr "L'icône indiquant l'emplacement du stockage."
+
+#~ msgid "Identifier of the storage"
+#~ msgstr "Identifiant du stockage"
+
+#~ msgid "The unique identifier of the storage location."
+#~ msgstr "L'identifiant unique de l'emplacement de stockage."
+
+#~ msgid "Whether the storage is the default"
+#~ msgstr "Indique si le support de stockage est celui par défaut"
+
+#~ msgid "Whether the storage is the default storage location to be used."
+#~ msgstr ""
+#~ "Indique si le support de stockage est l'emplacement par défaut à utiliser."
+
+#~ msgid "Name of the storage"
+#~ msgstr "Nom du support de stockage"
+
+#~ msgid "The user-visible name of the storage location."
+#~ msgstr "Le nom visible à l'utilisateur de l'emplacement de stockage."
+
+#~ msgid "Name of the data provider of the storage"
+#~ msgstr "Nom du fournisseur de données du support de stockage"
+
+#~ msgid "The user-visible name of the data provider of the storage location."
+#~ msgstr ""
+#~ "Le nom visible à l'utilisateur du fournisseur de données de l'emplacement "
+#~ "de stockage."
+
+#~ msgid "GoaObject of the storage"
+#~ msgstr "GoaObject du support de stockage"
+
+#~ msgid "The GoaObject this storage location represents."
+#~ msgstr "Le GoaObject que cet emplacement de stockage représente."
+
+#~ msgid "Parent of the storage"
+#~ msgstr "Parent du support de stockage"
+
+#~ msgid "The parent source identifier of the storage location."
+#~ msgstr "L'identifiant de source parente de l'emplacement de stockage."
+
+#~ msgid "Storage of the row"
+#~ msgstr "Stockage de la ligne"
+
+#~ msgid "The storage that this row holds"
+#~ msgstr "Le stockage que contient cette ligne"
+
+#~ msgid "Show local storage row"
+#~ msgstr "Afficher la ligne du stockage local"
+
+#~ msgid "Whether should show a local storage row instead of a checkbox"
+#~ msgstr ""
+#~ "Indique s'il faut afficher une ligne de stockage local à la place d'une "
+#~ "case à cocher"
+
+#~ msgid "Show stub rows"
+#~ msgstr "Afficher les lignes incomplètes"
+
+#~ msgid "Whether should show stub rows for non-added accounts"
+#~ msgstr ""
+#~ "Indique s'il faut afficher les lignes incomplètes de comptes n'ayant pas "
+#~ "été ajoutés"
+
+#~ msgid "Selects default storage row"
+#~ msgstr "Sélectionne la ligne de stockage par défaut"
+
+#~ msgid "Whether should select the default storage row"
+#~ msgstr "Indique s'il faut sélectionner la ligne de stockage par défaut"
+
+#~ msgid "Whether the notification has a primary action"
+#~ msgstr "Indique si la notification a une action principale"
+
+#~ msgid ""
+#~ "Whether the notification has the primary action, activated on timeout or "
+#~ "dismiss"
+#~ msgstr ""
+#~ "Indique si la notification a une action principale, activée par "
+#~ "dépassement de sa durée de vie ou par rejet"
+
+#~ msgid "Whether the notification has a secondary action"
+#~ msgstr "Indique si la notification a une action secondaire"
+
+#~ msgid ""
+#~ "Whether the notification has the secondary action, activated by the user"
+#~ msgstr ""
+#~ "Indique si la notification a une action secondaire, activée par "
+#~ "l'utilisateur"
+
+#~ msgid "Text of the secondary action button"
+#~ msgstr "Texte du bouton de l'action secondaire"
+
+#~ msgid "The text of the secondary action button"
+#~ msgstr "Le texte du bouton de l'action secondaire"
+
+#~ msgid "Notification message"
+#~ msgstr "Message de notification"
+
+#~ msgid "The main message of the notification"
+#~ msgstr "Le message principal de la notification"
+
+#~ msgid "Notification timeout"
+#~ msgstr "Temps d'affichage de la notification"
+
+#~ msgid "The time the notification is displayed"
+#~ msgstr "Affiche le temps d'affichage de la notification"
+
+#~ msgid "Account of the storage"
+#~ msgstr "Compte du support de stockage"
