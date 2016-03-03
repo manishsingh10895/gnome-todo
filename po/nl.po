@@ -2,15 +2,16 @@
 # Copyright (C) 2015 gnome-todo's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-todo package.
 #
-# Justin van Steijn <justin50@live.nl>, 2015.
-# Hannie Dumoleyn <hannie@ubuntu-nl.org>, 2015.
+# Justin van Steijn <justin50@live.nl>, 2015, 2016.
+# Hannie Dumoleyn <hannie@ubuntu-nl.org>, 2015, 2016.
+# Nathan Follens <nthn@unseen.is>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-19 10:40+0000\n"
-"PO-Revision-Date: 2015-12-28 09:33+0100\n"
+"POT-Creation-Date: 2016-03-03 01:00+0000\n"
+"PO-Revision-Date: 2016-03-03 12:58+0100\n"
 "Last-Translator: Hannie Dumoleyn <hannie@ubuntu-nl.org>\n"
 "Language-Team: Dutch <gnome-nl-list@gnome.org>\n"
 "Language: nl\n"
@@ -21,17 +22,18 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
 msgstr "Taken"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
+msgid "Task manager for GNOME"
 msgstr "Takenbeheer voor Gnome"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "Gnome Taken is een eenvoudig taakbeheerprogramma ontworpen om te integreren "
@@ -46,16 +48,16 @@ msgid "Change default storage location…"
 msgstr "De standaardopslaglocatie wijzigen…"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Extensies"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_Info"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "_Afsluiten"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed tasks…"
-msgstr "Voltooide taken wissen…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -63,7 +65,7 @@ msgstr "Uw persoonlijke taken beheren"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Taak;Productiviteit;"
+msgstr "Task;Productivity;Taak;Productiviteit;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -101,52 +103,70 @@ msgstr ""
 "te voeren) is of niet"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Standaardlocatie om nieuwe lijsten aan toe te voegen"
+msgid "Default provider to add new lists to"
+msgstr "Standaardprovider om nieuwe lijsten aan toe te voegen"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
+msgid "The identifier of the default provider to add new lists to"
 msgstr ""
-"De identificatie van de standaardlocatie om nieuwe lijsten aan toe te voegen"
+"De identificatie van de standaardprovider om nieuwe lijsten aan toe te voegen"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Lijst met extensies"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "De lijst met actieve extensies"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "De huidige lijstkiezer"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "De huidige lijstkiezer. Kan 'grid' (raster) of 'list' (lijst) zijn."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Details"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Notities"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Verloopdatum"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Prioriteit"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Geen"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Laag"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Gemiddeld"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Hoog"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Verwijderen"
 
-#: ../data/ui/edit-pane.ui.h:10
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
 msgctxt "taskdate"
 msgid "None"
 msgstr "Geen"
@@ -159,15 +179,36 @@ msgstr "Welkom"
 msgid "Login to online accounts to access your tasks"
 msgstr "Bij online-accounts aanmelden om toegang te krijgen tot uw taken"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Annuleren"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Gereed"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Hernoemen"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Lijsten"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Taken"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Naam van de takenlijst"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Nieuwe lijst"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -181,55 +222,59 @@ msgstr "U kunt taken toevoegen aan lijsten in de <b>Lijsten</b>-weergave"
 msgid "Show or hide completed tasks"
 msgstr "Voltooide taken weergeven of verbergen"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Geen extensies gevonden"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "De standaardopslaglocatie selecteren om takenlijsten op te slaan:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Standaardopslaglocatie"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Maken"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Lijstnaam"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Een opslaglocatie selecteren"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Uit"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Klik om een nieuw Google-account toe te voegen"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Klik om een nieuw ownCloud-account toe te voegen"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Klik om een nieuw Microsoft Exchange-account toe te voegen"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Of u kunt taken gewoon opslaan op deze computer"
 
@@ -237,177 +282,188 @@ msgstr "Of u kunt taken gewoon opslaan op deze computer"
 msgid "New task…"
 msgstr "Nieuwe taak..."
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Lijsten"
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Geen datum ingesteld"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "Gisteren"
+msgstr[1] "%d dagen geleden"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Vandaag"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Morgen"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Gepland"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Hernoemen"
+#: ../plugins/eds/gtd-panel-scheduled.c:497
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Voltooide taken wissen…"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Nieuwe lijst"
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Fout bij laden van Gnome Online-accounts"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Naam van de takenlijst"
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Fout bij laden van Evolution-Data-Server-backend"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
+msgid "Error loading CSS from resource"
+msgstr "Fout bij laden van CSS van de bron"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Ophalen taken van lijst mislukt"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Takenlijstbron succesvol verbonden"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Verbinden met takenlijstbron mislukt"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Vragen om aanmeldgegevens mislukt"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Vragen om aanmeldgegevens mislukt voor"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Authentificatiefout"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Laden van takenbeheer mislukt"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Fout bij aanmaken van taak"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Fout bij bijwerken van taak"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Fout bij verwijderen van taak"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Fout bij aanmaken van takenlijst"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Fout bij verwijderen van takenlijst"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Fout bij opslaan van takenlijst"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokaal"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Op deze computer"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Maken van nieuwe takenlijst mislukt"
+
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d de auteurs van Taken"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d de auteurs van Taken"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
-msgid "To Do"
-msgstr "Taken"
-
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr ""
 "Gnome-NL\n"
 "\n"
-"Justin van Steijn"
+"Justin van Steijn\n"
+"Nathan Follens\n"
+"Hannie Dumoleyn\n"
+"\n"
+"Kijk voor meer info op http://nl.gnome.org/"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Fout tijdens laden van CSS van de bron"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Fout bij laden van plug-in"
 
-#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Geen datum ingesteld"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Fout bij lossen van plug-in"
 
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Fout tijdens laden van Gnome Online-accounts"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Fout tijdens opslaan van takenlijst"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Fout tijdens verwijderen van takenlijst"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Fout tijdens aanmaken van takenlijst"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Fout tijdens aanmaken van taak"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Fout tijdens verwijderen van taak"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Fout tijdens bijwerken van taak"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Vragen om aanmeldgegevens mislukt"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Vragen om aanmeldgegevens mislukt voor"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Authentificatiefout"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Ophalen taken van lijst mislukt"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Takenlijstbron succesvol verbonden"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Verbinden met takenlijstbron mislukt"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Overslaan van reeds geladen takenlijst "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Laden van takenbeheer mislukt"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Geen taken"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Taak <b>%s</b> verwijderd"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Ongedaan maken"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Morgen"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Gisteren"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Geselecteerde takenlijsten verwijderen?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "Eenmaal verwijderd, kunnen de takenlijsten niet worden teruggehaald."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Takenlijsten verwijderen"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Nieuwe kleur voor takenlijst instellen"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Uw takenlijsten worden geladen…"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Klik op een takenlijst om te selecteren"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Maken van nieuwe takenlijst mislukt"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Geen taken"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Op deze computer"
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Nieuwe kleur voor takenlijst instellen"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Lokaal"
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Geselecteerde takenlijsten verwijderen?"
 
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Eenmaal verwijderd, kunnen de takenlijsten niet worden teruggehaald."
 
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Takenlijsten verwijderen"
+
+#~ msgid "Todo"
+#~ msgstr "Taken"
+
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "Overslaan van reeds geladen takenlijst "
