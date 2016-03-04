@@ -1,40 +1,47 @@
 # Hungarian translation for gnome-todo.
-# Copyright (C) 2015. Free Software Foundation, Inc.
+# Copyright (C) 2015-2016 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-todo package.
 #
 # Balázs Meskó <meskobalazs at gmail dot com>, 2015.
 # Gabor Kelemen <kelemeng at ubuntu dot com>, 2015, 2016.
+# Balázs Úr <urbalazs at gmail dot com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-12 12:46+0000\n"
-"PO-Revision-Date: 2016-02-12 15:51+0100\n"
-"Last-Translator: Meskó Balázs <meskobalazs@gmail.com>\n"
+"POT-Creation-Date: 2016-03-04 10:45+0000\n"
+"PO-Revision-Date: 2016-03-04 19:42+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <openscope at googlegroups dot com>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.8.5\n"
+"X-Generator: Lokalize 1.2\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
-msgstr "Tennivalók"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "Tennivaló"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
+#| msgid "Todo manager for GNOME"
+msgid "Task manager for GNOME"
 msgstr "Tennivaló-kezelő a GNOME-hoz"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+#| msgid ""
+#| "GNOME Todo is a simple task management application designed to integrate "
+#| "with GNOME."
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"A GNOME Tennivalók egy egyszerű tennivaló-kezelő alkalmazás a GNOME-hoz."
+"A GNOME Tennivalók egy egyszerű tennivaló-kezelő alkalmazás, amelyet úgy "
+"terveztek, hogy illeszkedjen a GNOME-hoz."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -292,9 +299,9 @@ msgstr[0] "Tegnap"
 msgstr[1] "%d nappal ezelőtt"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:87
-#: ../plugins/eds/gtd-panel-today.c:147 ../plugins/eds/gtd-panel-today.c:152
-#: ../plugins/eds/gtd-panel-today.c:314 ../src/gtd-task-row.c:140
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Ma"
 
@@ -303,13 +310,13 @@ msgid "Tomorrow"
 msgstr "Holnap"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:316
-#: ../plugins/eds/gtd-panel-scheduled.c:321
-#: ../plugins/eds/gtd-panel-scheduled.c:451
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Ütemezett"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -323,7 +330,7 @@ msgstr "Hiba a GNOME Online fiókok betöltése során"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Hiba az Evolution-Data-Server háttérszolgáltató betöltése során"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "Hiba a CSS erőforrásból történő betöltése során"
 
@@ -393,24 +400,27 @@ msgstr "Ezen a számítógépen"
 msgid "Error creating new task list"
 msgstr "Hiba a feladatlista létrehozásakor"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d A Tennivalók szerzői"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d A Tennivalók szerzői"
 
-#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:955
-msgid "To Do"
-msgstr "Tennivaló"
-
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Meskó Balázs <meskobalazs at gmail dot com>"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Hiba a bővítmény betöltésekor"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Hiba a bővítmény eltávolításakor"
 
 #: ../src/gtd-task-list-view.c:326
 #, c-format
@@ -428,14 +438,6 @@ msgstr "Feladatlisták betöltése…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Válasszon egy feladatlistát"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "Hiba a bővítmény betöltésekor"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "Hiba a bővítmény eltávolításakor"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
@@ -456,6 +458,9 @@ msgstr "A törlés után a feladatlisták nem állíthatóak vissza."
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Feladatlisták törlése"
+
+#~ msgid "Todo"
+#~ msgstr "Tennivalók"
 
 #~ msgid "%d days ago"
 #~ msgstr "%d nappal ezelőtt"
