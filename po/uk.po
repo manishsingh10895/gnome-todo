@@ -404,7 +404,7 @@ msgstr "© %d–%d автори «Треба Зробити»"
 
 #: ../src/gtd-application.c:130
 msgid "translator-credits"
-msgstr "Коростіль Данило <ted.korostiled@gmail.com>"
+msgstr "Daniel Korostil <ted.korostiled@gmail.com>"
 
 #: ../src/gtd-plugin-dialog-row.c:95
 msgid "Error loading plugin"
