@@ -3,46 +3,43 @@
 # Copyright (C) 2015 THE gnome-todo'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-todo package.
 # Марко М. Костић (Marko M. Kostić) <marko.m.kostic@gmail.com>, 2015.
-# Милош Поповић <gpopac@gmail.com>, 2015.
+# Милош Поповић <gpopac@gmail.com>, 2015, 2016.
 # Мирослав Николић <miroslavnikolic@rocketmail.com>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-23 00:54+0000\n"
-"PO-Revision-Date: 2016-02-23 09:06+0200\n"
-"Last-Translator: Мирослав Николић <miroslavnikolic@rocketmail.com>\n"
+"POT-Creation-Date: 2016-03-11 22:39+0000\n"
+"PO-Revision-Date: 2016-03-12 00:45+0200\n"
+"Last-Translator: Милош Поповић <gpopac@gmail.com>\n"
 "Language-Team: Serbian <gnom@prevod.org>\n"
 "Language: sr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : "
-"n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Virtaal 0.7.1\n"
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
-#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Роковник"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-#| msgid "Todo manager for GNOME"
 msgid "Task manager for GNOME"
-msgstr "Управник задатака за Гном"
+msgstr "Роковник за Гном"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
-#| msgid ""
-#| "GNOME Todo is a simple task management application designed to integrate "
-#| "with GNOME."
 msgid ""
 "GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "Гномов роковник је једноставан програм за управљање задацима осмишљен да се "
-"обједини са Гномом."
+"уклопи уз Гном."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -70,7 +67,9 @@ msgstr "Управљајте личним задацима"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "задаци;продуктивност;"
+msgstr ""
+"задаци;продуктивност;заказано;zadaci;produktivnost;zakazano;Task;Productivity"
+";"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -113,7 +112,7 @@ msgstr "Подразумевана путања за смештај нових �
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
 msgid "The identifier of the default provider to add new lists to"
-msgstr "Одредник подразумеване путање за смештај нових спискова"
+msgstr "Одређује место подразумеване путање за смештај нових спискова"
 
 #: ../data/org.gnome.todo.gschema.xml.h:11
 msgid "List of active extensions"
@@ -264,11 +263,11 @@ msgstr "Гугл"
 
 #: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
-msgstr "Притисните да додате нови налог Властитог облака"
+msgstr "Притисните да додате нови налог за мојОблака (ownCloud)"
 
 #: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
-msgstr "Властити облак"
+msgstr "мојОблак"
 
 #: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
@@ -298,7 +297,7 @@ msgid_plural "%d days ago"
 msgstr[0] "Пре %d дана"
 msgstr[1] "Пре %d дана"
 msgstr[2] "Пре %d дана"
-msgstr[3] "Пре једног дана"
+msgstr[3] "Јуче"
 
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
@@ -312,13 +311,13 @@ msgid "Tomorrow"
 msgstr "Сутра"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:316
-#: ../plugins/eds/gtd-panel-scheduled.c:321
-#: ../plugins/eds/gtd-panel-scheduled.c:451
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Заказано"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -326,19 +325,19 @@ msgstr "Очисти завршене задатке..."
 
 #: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
-msgstr "Грешка учитавања Гномових налога на мрежи"
+msgstr "Грешка приликом учитавања Гномових налога на мрежи"
 
 #: ../plugins/eds/gtd-plugin-eds.c:278
 msgid "Error loading Evolution-Data-Server backend"
-msgstr "Грешка учитавања позадинца сервера података Еволуције"
+msgstr "Грешка приликом учитавања позадинца сервера података Еволуције"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
-msgstr "Грешка учитавања ЦСС-а из ресурса"
+msgstr "Грешка приликом учитавања ЦСС-а из ресурса"
 
 #: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
 msgid "Error fetching tasks from list"
-msgstr "Грешка добављања задатака из списка"
+msgstr "Грешка приликом добављања задатака из списка"
 
 #: ../plugins/eds/gtd-provider-eds.c:187
 msgid "Task list source successfully connected"
@@ -346,7 +345,7 @@ msgstr "Извор списка са задацима је успешно пов
 
 #: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
 msgid "Failed to connect to task list source"
-msgstr "Грешка повезивања на извор списка са задацима"
+msgstr "Грешка приликом повезивања на извор списка са задацима"
 
 #: ../plugins/eds/gtd-provider-eds.c:311
 msgid "Failed to prompt for credentials"
@@ -402,23 +401,31 @@ msgstr "На овом рачунару"
 msgid "Error creating new task list"
 msgstr "Грешка приликом прављења новог списка са задацима"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Ауторска права © %d аутори Гномовог роковника"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Ауторска права © %d–%d аутори Гномовог роковника"
 
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr ""
 "Марко М. Костић <marko.m.kostic@gmail.com>\n"
 "Милош Поповић <gpopac@gmail.com>\n"
 "\n"
 "http://prevod.org — превод на српски језик"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Не могу да учитам прикључак"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Не могу да искључим прикључакџ"
 
 #: ../src/gtd-task-list-view.c:326
 #, c-format
@@ -436,14 +443,6 @@ msgstr "Учитавам ваше спискове са задацима…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Кликните на списак са задацима да бисте га изабрали"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "Грешка учитавања прикључка"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "Грешка искључивања прикључка"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
