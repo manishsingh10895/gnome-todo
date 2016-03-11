@@ -1,0 +1,468 @@
+# Serbian translations for gnome-todo package
+# Prevodi na srpski jezik za paket „gnome-todo“.
+# Copyright (C) 2015 THE gnome-todo'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-todo package.
+# Marko M. Kostić (Marko M. Kostić) <marko.m.kostic@gmail.com>, 2015.
+# Miloš Popović <gpopac@gmail.com>, 2015, 2016.
+# Miroslav Nikolić <miroslavnikolic@rocketmail.com>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-todo\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"todo&keywords=I18N+L10N&component=general\n"
+"POT-Creation-Date: 2016-03-11 22:39+0000\n"
+"PO-Revision-Date: 2016-03-12 00:45+0200\n"
+"Last-Translator: Miloš Popović <gpopac@gmail.com>\n"
+"Language-Team: Serbian <gnom@prevod.org>\n"
+"Language: sr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Virtaal 0.7.1\n"
+"X-Project-Style: gnome\n"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "Rokovnik"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
+msgid "Task manager for GNOME"
+msgstr "Rokovnik za Gnom"
+
+#: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
+msgid ""
+"GNOME To Do is a simple task management application designed to integrate "
+"with GNOME."
+msgstr ""
+"Gnomov rokovnik je jednostavan program za upravljanje zadacima osmišljen da se "
+"uklopi uz Gnom."
+
+#: ../data/gtk/menus.ui.h:1
+msgid "New List…"
+msgstr "Novi spisak…"
+
+#: ../data/gtk/menus.ui.h:2
+msgid "Change default storage location…"
+msgstr "Promeni putanju podrazumevanog skladišta…"
+
+#: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Proširenja"
+
+#: ../data/gtk/menus.ui.h:4
+msgid "_About"
+msgstr "_O programu"
+
+#: ../data/gtk/menus.ui.h:5
+msgid "_Quit"
+msgstr "_Izađi"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:2
+msgid "Manage your personal tasks"
+msgstr "Upravljajte ličnim zadacima"
+
+#: ../data/org.gnome.Todo.desktop.in.in.h:3
+msgid "Task;Productivity;"
+msgstr ""
+"zadaci;produktivnost;zakazano;zadaci;produktivnost;zakazano;Task;Productivity"
+";"
+
+#: ../data/org.gnome.todo.gschema.xml.h:1
+msgid "Window maximized"
+msgstr "Uvećan prozor"
+
+#: ../data/org.gnome.todo.gschema.xml.h:2
+msgid "Window maximized state"
+msgstr "Stanje uvećanja prozora"
+
+#: ../data/org.gnome.todo.gschema.xml.h:3
+msgid "Window size"
+msgstr "Veličina prozora"
+
+#: ../data/org.gnome.todo.gschema.xml.h:4
+msgid "Window size (width and height)."
+msgstr "Veličina prozora (širina i visina)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:5
+msgid "Window position"
+msgstr "Položaj prozora"
+
+#: ../data/org.gnome.todo.gschema.xml.h:6
+msgid "Window position (x and y)."
+msgstr "Položaj prozora (x i y)."
+
+#: ../data/org.gnome.todo.gschema.xml.h:7
+msgid "First run of GNOME To Do"
+msgstr "Prvo pokretanje Gnomovog Rokovnika"
+
+#: ../data/org.gnome.todo.gschema.xml.h:8
+msgid ""
+"Whether it's the first run of GNOME To Do (to run the initial setup) or not"
+msgstr ""
+"Da li je Gnomov rokovnik prvi put pokrenut ili ne (zarad pokretanja početnog "
+"podešavanja)"
+
+#: ../data/org.gnome.todo.gschema.xml.h:9
+msgid "Default provider to add new lists to"
+msgstr "Podrazumevana putanja za smeštaj novih spiskova"
+
+#: ../data/org.gnome.todo.gschema.xml.h:10
+msgid "The identifier of the default provider to add new lists to"
+msgstr "Određuje mesto podrazumevane putanje za smeštaj novih spiskova"
+
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Spisak aktivnih proširenja"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Spisak aktivnih proširenja"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Izbirač tekućeg spiska"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Izbirač tekućeg spiska. Može biti „grid“ (mreža) ili „list“ (spisak)."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
+msgid "Details"
+msgstr "Pojedinosti"
+
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
+msgid "Notes"
+msgstr "Beleške"
+
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
+msgid "Due Date"
+msgstr "Krajnji rok"
+
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
+msgid "Priority"
+msgstr "Važnost"
+
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
+msgctxt "taskpriority"
+msgid "None"
+msgstr "Ništa"
+
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
+msgid "Low"
+msgstr "Mala"
+
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
+msgid "Medium"
+msgstr "Srednja"
+
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
+msgid "High"
+msgstr "Velika"
+
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
+msgid "Delete"
+msgstr "Obriši"
+
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Ništa"
+
+#: ../data/ui/initial-setup.ui.h:1
+msgid "Welcome"
+msgstr "Dobrodošli"
+
+#: ../data/ui/initial-setup.ui.h:2
+msgid "Login to online accounts to access your tasks"
+msgstr "Prijavite se na vaše naloge na mreži zarad pristupa vašim zadacima"
+
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
+msgid "Cancel"
+msgstr "Otkaži"
+
+#: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
+#: ../src/gtd-task-list-view.c:426
+msgid "Done"
+msgstr "Gotovo"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Preimenuj"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Spiskovi"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Zadaci"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Naziv novog spiska sa zadacima"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Novi spisak"
+
+#: ../data/ui/list-view.ui.h:1
+msgid "No tasks found"
+msgstr "Nema zadataka"
+
+#: ../data/ui/list-view.ui.h:2
+msgid "You can add tasks to lists in the <b>Lists</b> view"
+msgstr "Možete dodati nove zadatke na spisak u pregledu <b>Spiskovi</b>"
+
+#: ../data/ui/list-view.ui.h:3
+msgid "Show or hide completed tasks"
+msgstr "Prikaži ili sakrij završene zadatke"
+
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Nisam našao proširenja"
+
+#: ../data/ui/provider-dialog.ui.h:1
+msgid "Select the default storage location to create task lists:"
+msgstr "Izaberite podrazumevanu putanju za pravljenje spiskova sa zadacima:"
+
+#: ../data/ui/provider-dialog.ui.h:2
+msgid "Default storage location"
+msgstr "Podrazumevana putanja skladišta"
+
+#: ../data/ui/provider-popover.ui.h:1
+msgid "Create"
+msgstr "Napravi"
+
+#: ../data/ui/provider-popover.ui.h:3
+msgid "List Name"
+msgstr "Naziv spiska"
+
+#: ../data/ui/provider-popover.ui.h:4
+msgid "Select a storage location"
+msgstr "Izaberite mesto skladišta"
+
+#: ../data/ui/provider-row.ui.h:1
+msgid "Off"
+msgstr "Isključeno"
+
+#: ../data/ui/provider-selector.ui.h:1
+msgid "Click to add a new Google account"
+msgstr "Pritisnite da dodate novi Gugl nalog"
+
+#: ../data/ui/provider-selector.ui.h:2
+msgid "Google"
+msgstr "Gugl"
+
+#: ../data/ui/provider-selector.ui.h:3
+msgid "Click to add a new ownCloud account"
+msgstr "Pritisnite da dodate novi nalog za mojOblaka (ownCloud)"
+
+#: ../data/ui/provider-selector.ui.h:4
+msgid "ownCloud"
+msgstr "mojOblak"
+
+#: ../data/ui/provider-selector.ui.h:5
+msgid "Click to add a new Microsoft Exchange account"
+msgstr "Pritisnite da dodate novi nalog Majkrosoftove razmene"
+
+#: ../data/ui/provider-selector.ui.h:6
+msgid "Microsoft Exchange"
+msgstr "Majkrosoftova razmena"
+
+#: ../data/ui/provider-selector.ui.h:7
+msgid "Or you can just store your tasks on this computer"
+msgstr "Ili samo čuvajte vaše zadatke na ovom računaru"
+
+#: ../data/ui/task-row.ui.h:1
+msgid "New task…"
+msgstr "Novi zadatak…"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Nije postavljen datum"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "Pre %d dana"
+msgstr[1] "Pre %d dana"
+msgstr[2] "Pre %d dana"
+msgstr[3] "Juče"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
+msgid "Today"
+msgstr "Danas"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Sutra"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
+msgid "Scheduled"
+msgstr "Zakazano"
+
+#: ../plugins/eds/gtd-panel-scheduled.c:497
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Očisti završene zadatke..."
+
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Greška prilikom učitavanja Gnomovih naloga na mreži"
+
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Greška prilikom učitavanja pozadinca servera podataka Evolucije"
+
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
+msgid "Error loading CSS from resource"
+msgstr "Greška prilikom učitavanja CSS-a iz resursa"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Greška prilikom dobavljanja zadataka iz spiska"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Izvor spiska sa zadacima je uspešno povezan"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Greška prilikom povezivanja na izvor spiska sa zadacima"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Nisam uspeo da upitam za pristupne parametre"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Nisam uspeo da upitam za pristupne parametre za"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Neuspeh prilikom prijavljivanja"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Greška prilikom učitavanja upravnika zadataka"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Greška prilikom pravljenja zadatka"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Greška prilikom ažuriranja zadatka"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Greška prilikom uklanjanja zadatka"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Greška prilikom pravljenja spiska sa zadacima"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Greška prilikom uklanjanja spiska sa zadacima"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Greška prilikom čuvanja spiska sa zadacima"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokalno"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Na ovom računaru"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Greška prilikom pravljenja novog spiska sa zadacima"
+
+#: ../src/gtd-application.c:113
+#, c-format
+msgid "Copyright © %d The To Do authors"
+msgstr "Autorska prava © %d autori Gnomovog rokovnika"
+
+#: ../src/gtd-application.c:118
+#, c-format
+msgid "Copyright © %d–%d The To Do authors"
+msgstr "Autorska prava © %d–%d autori Gnomovog rokovnika"
+
+#: ../src/gtd-application.c:130
+msgid "translator-credits"
+msgstr ""
+"Marko M. Kostić <marko.m.kostic@gmail.com>\n"
+"Miloš Popović <gpopac@gmail.com>\n"
+"\n"
+"http://prevod.org — prevod na srpski jezik"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Ne mogu da učitam priključak"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Ne mogu da isključim priključakdž"
+
+#: ../src/gtd-task-list-view.c:326
+#, c-format
+msgid "Task <b>%s</b> removed"
+msgstr "Zadatak <b>%s</b> uklonjen"
+
+#: ../src/gtd-task-list-view.c:357
+msgid "Undo"
+msgstr "Opozovi"
+
+#: ../src/gtd-window.c:817
+msgid "Loading your task lists…"
+msgstr "Učitavam vaše spiskove sa zadacima…"
+
+#: ../src/gtd-window.c:949
+msgid "Click a task list to select"
+msgstr "Kliknite na spisak sa zadacima da biste ga izabrali"
+
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Nema zadataka"
+
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Postavljam novu boju spiska sa zadacima"
+
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Da uklonim izabrane spiskove sa zadacima?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Nakon uklanjanja, spisak sa zadacima ne može da se povrati."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Ukloni spiskove sa zadacima"
+
+#~ msgid "Todo"
+#~ msgstr "Rokovnik"
