@@ -1,16 +1,16 @@
 # Danish translation for gnome-todo.
-# Copyright (C) 2015 gnome-todo's developers
+# Copyright (C) 2015-2016 gnome-todo's developers
 # This file is distributed under the same license as the gnome-todo package.
 #
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2015.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2015, 2016.
 # scootergrisen, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-16 03:26+0100\n"
-"PO-Revision-Date: 2016-02-11 23:13+0200\n"
+"POT-Creation-Date: 2016-03-20 23:31+0100\n"
+"PO-Revision-Date: 2016-03-20 03:12+0100\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -28,17 +28,15 @@ msgid "To Do"
 msgstr "To Do"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-#, fuzzy
 msgid "Task manager for GNOME"
-msgstr "Todo-håndtering til GNOME"
+msgstr "Opgavehåndtering til GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
-#, fuzzy
 msgid ""
 "GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"GNOME Todo er et simpelt program til opgavehåndtering, designet integreret "
+"GNOME To Do er et simpelt program til opgavehåndtering, designet integreret "
 "med GNOME."
 
 #: ../data/gtk/menus.ui.h:1
@@ -289,11 +287,11 @@ msgid "No date set"
 msgstr "Ingen dato angivet"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
-#, fuzzy, c-format
+#, c-format
 msgid "Yesterday"
 msgid_plural "%d days ago"
 msgstr[0] "I går"
-msgstr[1] "I går"
+msgstr[1] "For %d dage siden"
 
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87
