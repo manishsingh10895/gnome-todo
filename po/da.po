@@ -1,17 +1,16 @@
 # Danish translation for gnome-todo.
-# Copyright (C) 2015 gnome-todo's developers
+# Copyright (C) 2015-2016 gnome-todo's developers
 # This file is distributed under the same license as the gnome-todo package.
 #
-# Ask Hjorth Larsen <asklarsen@gmail.com>, 2015.
+# Ask Hjorth Larsen <asklarsen@gmail.com>, 2015, 2016.
 # scootergrisen, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-01-31 20:05+0000\n"
-"PO-Revision-Date: 2016-02-11 23:13+0200\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-03-20 23:31+0100\n"
+"PO-Revision-Date: 2016-03-20 03:12+0100\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "Language: da\n"
@@ -23,20 +22,21 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
-msgstr "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "To Do"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Todo-håndtering til GNOME"
+msgid "Task manager for GNOME"
+msgstr "Opgavehåndtering til GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"GNOME Todo er et simpelt program til opgavehåndtering, designet integreret "
+"GNOME To Do er et simpelt program til opgavehåndtering, designet integreret "
 "med GNOME."
 
 #: ../data/gtk/menus.ui.h:1
@@ -103,22 +103,18 @@ msgstr ""
 "eller ikke"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-#| msgid "Default location to add new lists to"
 msgid "Default provider to add new lists to"
 msgstr "Standardudbyder for tilføjelse af nye lister"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-#| msgid "The identifier of the default location to add new lists to"
 msgid "The identifier of the default provider to add new lists to"
 msgstr "Identifikation af standardudbyderen for tilføjelse af nye lister"
 
 #: ../data/org.gnome.todo.gschema.xml.h:11
-#| msgid "List of the task"
 msgid "List of active extensions"
 msgstr "Liste med aktive udvidelser"
 
 #: ../data/org.gnome.todo.gschema.xml.h:12
-#| msgid "Task list of the item"
 msgid "The list of active extensions"
 msgstr "Listen med aktive udvidelser"
 
@@ -148,7 +144,6 @@ msgid "Priority"
 msgstr "Prioritet"
 
 #: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
-#| msgid "None"
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Ingen"
@@ -171,7 +166,6 @@ msgid "Delete"
 msgstr "Slet"
 
 #: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
-#| msgid "None"
 msgctxt "taskdate"
 msgid "None"
 msgstr "Ingen"
@@ -190,7 +184,7 @@ msgid "Cancel"
 msgstr "Annullér"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:390
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Færdig"
 
@@ -199,12 +193,11 @@ msgid "Rename"
 msgstr "Omdøb"
 
 #: ../data/ui/list-selector-panel.ui.h:3
-#: ../src/views/gtd-list-selector-panel.c:464
+#: ../src/views/gtd-list-selector-panel.c:465
 msgid "Lists"
 msgstr "Lister"
 
 #: ../data/ui/list-selector-panel.ui.h:4
-#| msgid "No tasks"
 msgid "Tasks"
 msgstr "Opgaver"
 
@@ -229,7 +222,6 @@ msgid "Show or hide completed tasks"
 msgstr "Vis eller skjul færdiggjorte opgaver"
 
 #: ../data/ui/plugin-dialog.ui.h:1
-#| msgid "No tasks found"
 msgid "No extensions found"
 msgstr "Ingen udvidelser fundet"
 
@@ -289,42 +281,39 @@ msgstr "Eller du kan blot gemme dine opgaver på denne computer"
 msgid "New task…"
 msgstr "Ny opgave…"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Ingen dato angivet"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:70
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-msgid "%d days ago"
-msgstr "%d dage siden"
-
-#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
 msgid "Yesterday"
-msgstr "I går"
+msgid_plural "%d days ago"
+msgstr[0] "I går"
+msgstr[1] "For %d dage siden"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:78 ../plugins/eds/gtd-panel-today.c:147
-#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/eds/gtd-panel-scheduled.c:87
+#: ../plugins/eds/gtd-panel-today.c:147 ../plugins/eds/gtd-panel-today.c:152
+#: ../plugins/eds/gtd-panel-today.c:314 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "I dag"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "I morgen"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:257
-#: ../plugins/eds/gtd-panel-scheduled.c:262
-#: ../plugins/eds/gtd-panel-scheduled.c:392
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Planlagt"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
-#: ../src/views/gtd-list-selector-panel.c:699
-#| msgid "Clear completed task…"
+#: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
 msgstr "Ryd færdiggjorte opgaver…"
 
@@ -336,7 +325,7 @@ msgstr "Fejl ved indlæsning af GNOME Onlinekonti"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Fejl ved indlæsning af Evolution-Data-Server-backend"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "Fejl ved indlæsning af CSS fra ressource"
 
@@ -406,22 +395,17 @@ msgstr "På denne computer"
 msgid "Error creating new task list"
 msgstr "Fejl ved oprettelse af ny opgaveliste"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Ophavsret © %d Forfatterne af To Do"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Ophavsret © %d–%d Forfatterne af To Do"
 
-#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:955
-msgid "To Do"
-msgstr "To Do"
-
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr ""
 "Ask Hjorth Larsen\n"
@@ -430,12 +414,20 @@ msgstr ""
 "Dansk-gruppen <dansk@dansk-gruppen.dk>\n"
 "Mere info: http://www.dansk-gruppen.dk"
 
-#: ../src/gtd-task-list-view.c:290
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Fejl ved start af plugin"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Fejl ved stop af plugin"
+
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Opgaven <b>%s</b> fjernet"
 
-#: ../src/gtd-task-list-view.c:321
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Fortryd"
 
@@ -446,16 +438,6 @@ msgstr "Indlæser dine opgavelister…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Klik på en opgaveliste for at markere"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
-msgid "Error loading plugin"
-msgstr "Fejl ved start af plugin"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
-msgid "Error unloading plugin"
-msgstr "Fejl ved stop af plugin"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
@@ -476,3 +458,9 @@ msgstr "Når de er fjernet, kan de ikke gendannes."
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Fjern opgavelister"
+
+#~ msgid "Todo"
+#~ msgstr "Todo"
+
+#~ msgid "%d days ago"
+#~ msgstr "%d dage siden"
