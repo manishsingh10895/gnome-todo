@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-04 10:43+0000\n"
-"PO-Revision-Date: 2016-02-04 18:10+0100\n"
+"POT-Creation-Date: 2016-03-20 10:49+0000\n"
+"PO-Revision-Date: 2016-03-20 22:52+0100\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -17,23 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
-msgstr "ToDo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "To Do"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Gjestôr des robis di fâ par GNOME"
+msgid "Task manager for GNOME"
+msgstr "Gjestôr des ativitâts par GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"GNOME ToDo a je une semplice aplicazion di gjestion des ativitâts progjetade "
-"par integrâsi cul ambient GNOME."
+"GNOME To Do e je une semplice aplicazion di gjestion des ativitâts "
+"progjetade par integrâsi cun GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -116,11 +118,11 @@ msgstr "La liste des estensions ativis"
 
 #: ../data/org.gnome.todo.gschema.xml.h:13
 msgid "The current list selector"
-msgstr ""
+msgstr "Il seletôr de liste atuâl"
 
 #: ../data/org.gnome.todo.gschema.xml.h:14
 msgid "The current list selector. Can be 'grid' or 'list'."
-msgstr ""
+msgstr "Il seletôr de liste atuâl. Al pues sedi 'grid' o 'list'."
 
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
 #: ../src/gtd-window.c:553
@@ -180,7 +182,7 @@ msgid "Cancel"
 msgstr "Anule"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:390
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Fat"
 
@@ -279,39 +281,37 @@ msgstr "O archiviâ lis ativitâts su chest computer"
 msgid "New task…"
 msgstr "Gnove ativitât..."
 
-#: ../plugins/eds/gtd-panel-scheduled.c:63 ../src/gtd-edit-pane.c:147
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
 msgid "No date set"
 msgstr "Nissune date impostade"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:70
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-msgid "%d days ago"
-msgstr "%d zornadis indaûr"
-
-#: ../plugins/eds/gtd-panel-scheduled.c:74 ../src/gtd-task-row.c:148
 msgid "Yesterday"
-msgstr "Îr"
+msgid_plural "%d days ago"
+msgstr[0] "Îr"
+msgstr[1] "%d zornadis indaûr"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:78
+#: ../plugins/eds/gtd-panel-scheduled.c:87
 #: ../plugins/eds/gtd-panel-today.c:147 ../plugins/eds/gtd-panel-today.c:152
 #: ../plugins/eds/gtd-panel-today.c:314 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Vuê"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:82 ../src/gtd-task-row.c:144
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
 msgid "Tomorrow"
 msgstr "Doman"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:257
-#: ../plugins/eds/gtd-panel-scheduled.c:262
-#: ../plugins/eds/gtd-panel-scheduled.c:392
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Planificât"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:400
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -325,7 +325,7 @@ msgstr "Erôr tal cjariâ i account online GNOME"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Erôr tal cjariâ il backend Evolution-Data-Server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "Erôr tal cjariâ il CSS de sorzint"
 
@@ -395,31 +395,34 @@ msgstr "Su chest computer"
 msgid "Error creating new task list"
 msgstr "Erôr tal creâ une gnove liste di ativitâts"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d i autôrs di To Do"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d i autôrs di To Do"
 
-#: ../src/gtd-application.c:121 ../src/gtd-application.c:147
-#: ../src/gtd-window.c:955
-msgid "To Do"
-msgstr "To  Do"
-
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Fabio Tomat <f.t.public@gmail.com>"
 
-#: ../src/gtd-task-list-view.c:290
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Erôr tal cjariâ il plugin"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Erôr tal scjariâ il plugin"
+
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Ativitât <b>%s</b> gjavade"
 
-#: ../src/gtd-task-list-view.c:321
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Anule"
 
@@ -430,14 +433,6 @@ msgstr "Daûr a cjariâ listis di ativitâts..."
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Fâs clic suntune liste di ativitâts par selezionâle"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "Erôr tal cjariâ il plugin"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "Erôr tal scjariâ il plugin"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
@@ -460,6 +455,12 @@ msgstr ""
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "Gjave listis di ativitâts"
+
+#~ msgid "Todo"
+#~ msgstr "ToDo"
+
+#~ msgid "%d days ago"
+#~ msgstr "%d zornadis indaûr"
 
 #~ msgid "Skipping already loaded task list "
 #~ msgstr "Saltât liste di ativitât za cjariade "
