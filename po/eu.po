@@ -2,34 +2,35 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2015.
+# Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2015, 2016.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-todo master\n"
+"Project-Id-Version: gnome-todo gnome-3-20\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-14 12:32+0200\n"
-"PO-Revision-Date: 2015-10-13 22:57+0200\n"
-"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@zundan.com>\n"
-"Language-Team: Basque <Basque <librezale@librezale.org>>\n"
+"POT-Creation-Date: 2016-03-23 13:55+0100\n"
+"PO-Revision-Date: 2016-03-23 13:54+0100\n"
+"Last-Translator: dooteo <dooteo@zundan.com>\n"
+"Language-Team: Basque <librezale@librezale.org>\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
 msgstr "Egitekoak"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Egitekoen kudeatzailea GNOMErako"
+msgid "Task manager for GNOME"
+msgstr "GNOMEren Egitekoen kudeatzailea"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "GNOMEren Egitekoak zereginak kudeatzeko aplikazio xume bat da GNOMErekin "
@@ -44,17 +45,16 @@ msgid "Change default storage location…"
 msgstr "Aldatu biltegi lehenetsiaren kokalekua…"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Hedapenak"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "Honi _buruz"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "I_rten"
-
-#: ../data/gtk/menus.ui.h:5
-#, fuzzy
-msgid "Clear completed tasks…"
-msgstr "Garbitu burututako zeregina…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -100,49 +100,73 @@ msgstr ""
 "exekuzioa den edo ez."
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Kokaleku lehenetsia horra zerrenda berriak gehitzeko"
+msgid "Default provider to add new lists to"
+msgstr "Kokaleku lehenetsia (horra zerrenda berriak gehitzeko)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
+msgid "The identifier of the default provider to add new lists to"
 msgstr ""
 "Kokaleku lehenetsiaren identifikatzailea horri zerrenda berriak gehitzeko"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Hedapen aktiboen zerrenda"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Hedapen aktiboen zerrenda"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Uneko zerrendaren hautatzailea"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Uneko zerrendaren hautatzailea'. 'grid' edo 'list' izan daiteke."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Xehetasunak"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Oharrak"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Mugaeguna"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Lehentasuna"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
+msgctxt "taskpriority"
 msgid "None"
 msgstr "Bat ere ez"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Baxua"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Ertaina"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Altua"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Ezabatu"
+
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
+msgctxt "taskdate"
+msgid "None"
+msgstr "Bat ere ez"
 
 #: ../data/ui/initial-setup.ui.h:1
 msgid "Welcome"
@@ -152,15 +176,36 @@ msgstr "Ongi etorri"
 msgid "Login to online accounts to access your tasks"
 msgstr "Hasi saioa lineako kontuetan zure zereginak atzitzeko"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Utzi"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Eginda"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Aldatu izena"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Zerrendak"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Zereginak"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Zereginen zerrendaren izena"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Zerrenda berria"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -174,55 +219,59 @@ msgstr "Zereginak gehi diezaiekezu zerrendei <b>Zerrendak</b> ikuspegian"
 msgid "Show or hide completed tasks"
 msgstr "Erakutsi edo ezkutatu burututako zereginak"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Ez da hedapenik aurkitu"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "Hautatu biltegi lehenetsiaren kokalekua zereginen zerrendak sortzeko:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Biltegi lehenetsiaren kokalekua"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Sortu"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Zerrenda-izena"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Hautatu biltegi baten kokalekua"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Desaktibatu"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Egin klik Google-eko kontu berri bat gehitzeko"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Egin klik ownCloud-eko kontu berri bat gehitzeko"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Egin klik 'Microsoft Exchange'-ko kontu berri bat gehitzeko"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Edo zure zereginak ordenagailu honetan gorde ditzakezu"
 
@@ -230,173 +279,181 @@ msgstr "Edo zure zereginak ordenagailu honetan gorde ditzakezu"
 msgid "New task…"
 msgstr "Zeregin berria…"
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Zerrendak"
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Data ezarri gabe"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "Atzo"
+msgstr[1] "duela %d egun"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Gaur"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Bihar"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Planifikatua"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Aldatu izena"
+#: ../plugins/eds/gtd-panel-scheduled.c:497
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Garbitu burututako zereginak…"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Zerrenda berria"
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Errorea GNOMEren Lineako Kontuak kargatzean"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Zereginen zerrendaren izena"
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Errorea Evolution-Data-Server motorra kargatzean"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
+msgid "Error loading CSS from resource"
+msgstr "Errorea CSS iturburutik kargatzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Errorea zereginak zerrendatik eskuratzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Zereginen zerrendaren iturburura ongi konektatuta"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Huts egin du zereginen zerrenden iturburuarekin konektatzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Huts egin du kredentzialak eskatzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Huts egin du honen kredentzialak eskatzean:"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Autentifikazioak huts egin du"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Errorea zereginen kudeatzailea kargatzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Errorea zeregina sortzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Errorea zeregina eguneratzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Errorea zeregina kentzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Errorea zereginen zerrenda sortzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Errorea zereginen zerrenda kentzean"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Errorea zereginen zerrenda gordetzean"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Lokala"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Ordenagailu honetan"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Errorea zereginen zerrenda berria sortzean"
+
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright-a © %d 'To Do'-ko (Egitekoak) egileak"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright-a © %d-%d 'To Do'-ko (Egitekoak) egileak"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
-msgid "To Do"
-msgstr "Egitekoak"
-
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Iñaki Larrañaga Murgoitio <dooteo@zundan.com>"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Errorea CSS iturburutik kargatzean"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Errorea osagaia kargatzean"
 
-#: ../src/gtd-edit-pane.c:151 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Data ezarri gabe"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Errorea osagaia deskargatzean"
 
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Errorea GNOMEren Lineako Kontuak kargatzean"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Errorea zereginen zerrenda gordetzean"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Errorea zereginen zerrenda kentzean"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Errorea zereginen zerrenda sortzean"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Errorea zeregina sortzean"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Errorea zeregina kentzean"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Errorea zeregina eguneratzean"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Huts egin du kredentzialak eskatzean"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Huts egin du honen kredentzialak eskatzean:"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Autentifikazioak huts egin du"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Errorea zereginak zerrendatik eskuratzean"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Zereginen zerrendaren iturburura ongi konektatuta"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Huts egin du zereginen zerrenden iturburuarekin konektatzean"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Jadanik kargatutako zereginen zerrenda saltatzen "
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Errorea zereginen kudeatzailea kargatzean"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Zereginik ez"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "<b>%s</b> zeregina kenduta"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Desegin"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Bihar"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Atzo"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Kendu hautatutako zereginen zerrendak?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "Behin kendutakoan, zereginen zerrendak ezin izango dira berreskuratu."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Kendu zereginen zerrendak"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Zereginen zerrendaren kolore berriaren ezarpena"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Zure zereginen zerrenda kargatzen…"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Egin klik zereginen zerrendan hautatzeko"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Errorea zereginen zerrenda berria sortzean"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Zereginik ez"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86
-#: ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Ordenagailu honetan"
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Zereginen zerrendaren kolore berriaren ezarpena"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Lokala"
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Kendu hautatutako zereginen zerrendak?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Behin kendutakoan, zereginen zerrendak ezin izango dira berreskuratu."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Kendu zereginen zerrendak"
+
+#~ msgid "Todo"
+#~ msgstr "Egitekoak"
+
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "Jadanik kargatutako zereginen zerrenda saltatzen "
