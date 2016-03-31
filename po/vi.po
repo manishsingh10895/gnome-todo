@@ -1,15 +1,15 @@
 # Vietnamese translations for gnome-todo package
 # Bản dịch Tiếng Việt dành cho gói gnome-todo.
 # This file is distributed under the same license as the gnome-todo package.
-# Trần Ngọc Quân <vnwildman@gmail.com>, 2015.
+# Trần Ngọc Quân <vnwildman@gmail.com>, 2015, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2015-12-07 22:37+0000\n"
-"PO-Revision-Date: 2015-12-08 07:58+0700\n"
+"POT-Creation-Date: 2016-03-30 22:01+0000\n"
+"PO-Revision-Date: 2016-03-31 13:58+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <gnome-vi-list@gnome.org>\n"
 "Language: vi\n"
@@ -20,17 +20,18 @@ msgstr ""
 "X-Generator: Gtranslator 2.91.7\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1
-msgid "Todo"
-msgstr "Cần làm"
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
+msgid "To Do"
+msgstr "Việc cần làm"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-msgid "Todo manager for GNOME"
-msgstr "Ứng dụng quản lý các nhiệm vụ cần làm cho môi trường GNOME"
+msgid "Task manager for GNOME"
+msgstr "Ứng dụng quản lý các nhiệm vụ dành cho môi trường GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
 msgid ""
-"GNOME Todo is a simple task management application designed to integrate "
+"GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
 "GNOME Todo là ứng dụng quản lý nhiệm vụ đơn giản được thiết kế để hợp nhất "
@@ -45,16 +46,16 @@ msgid "Change default storage location…"
 msgstr "Đổi vị trí lưu trữ mặc định…"
 
 #: ../data/gtk/menus.ui.h:3
+msgid "Extensions"
+msgstr "Phần mở rộng"
+
+#: ../data/gtk/menus.ui.h:4
 msgid "_About"
 msgstr "_Giới thiệu"
 
-#: ../data/gtk/menus.ui.h:4
+#: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
 msgstr "_Thoát"
-
-#: ../data/gtk/menus.ui.h:5
-msgid "Clear completed tasks…"
-msgstr "Xóa các nhiệm vụ đã hoàn tất…"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
@@ -99,51 +100,69 @@ msgstr ""
 "Hoặc đây là lần đầu chạy GNOME To Do (để chạy cài đặt lần đầu) hoặc không"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-msgid "Default location to add new lists to"
-msgstr "Vị trí mặc định để thêm các danh sách mới vào"
+msgid "Default provider to add new lists to"
+msgstr "Nhà cung cấp mặc định để thêm các danh sách mới vào"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-msgid "The identifier of the default location to add new lists to"
-msgstr "Định danh của vị trí mặc định để thêm các danh sách mới vào"
+msgid "The identifier of the default provider to add new lists to"
+msgstr "Định danh của nhà cung cấp mặc định để thêm các danh sách mới vào"
 
-#: ../data/ui/edit-pane.ui.h:1 ../src/gtd-window.c:813
+#: ../data/org.gnome.todo.gschema.xml.h:11
+msgid "List of active extensions"
+msgstr "Liệt kê các phần mở rộng đang hoạt động"
+
+#: ../data/org.gnome.todo.gschema.xml.h:12
+msgid "The list of active extensions"
+msgstr "Danh sách của các phần mở rộng đang hoạt động"
+
+#: ../data/org.gnome.todo.gschema.xml.h:13
+msgid "The current list selector"
+msgstr "Bộ chọn danh sách hiện tại"
+
+#: ../data/org.gnome.todo.gschema.xml.h:14
+msgid "The current list selector. Can be 'grid' or 'list'."
+msgstr "Bộ chọn danh sách hiện tại. Có thể là “grid” hoặc “list”."
+
+#: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
+#: ../src/gtd-window.c:553
 msgid "Details"
 msgstr "Chi tiết"
 
-#: ../data/ui/edit-pane.ui.h:2
+#: ../data/ui/edit-pane.ui.h:2 ../plugins/eds/edit-pane.ui.h:2
 msgid "Notes"
 msgstr "Ghi chú"
 
-#: ../data/ui/edit-pane.ui.h:3
+#: ../data/ui/edit-pane.ui.h:3 ../plugins/eds/edit-pane.ui.h:3
 msgid "Due Date"
 msgstr "Ngày tới hạn"
 
-#: ../data/ui/edit-pane.ui.h:4
+#: ../data/ui/edit-pane.ui.h:4 ../plugins/eds/edit-pane.ui.h:4
 msgid "Priority"
 msgstr "Độ ưu tiên"
 
-#: ../data/ui/edit-pane.ui.h:5
+#: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Không"
 
-#: ../data/ui/edit-pane.ui.h:6
+#: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Thấp"
 
-#: ../data/ui/edit-pane.ui.h:7
+#: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Trung bình"
 
-#: ../data/ui/edit-pane.ui.h:8
+#: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Cao"
 
-#: ../data/ui/edit-pane.ui.h:9 ../data/ui/window.ui.h:5
+#: ../data/ui/edit-pane.ui.h:9 ../data/ui/list-selector-panel.ui.h:2
+#: ../plugins/eds/edit-pane.ui.h:9
 msgid "Delete"
 msgstr "Xóa"
 
-#: ../data/ui/edit-pane.ui.h:10
+#: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
 msgctxt "taskdate"
 msgid "None"
 msgstr "Không "
@@ -157,15 +176,36 @@ msgid "Login to online accounts to access your tasks"
 msgstr ""
 "Đăng nhập vào các tài khoản trực tuyến để truy cập các công tác của bạn"
 
-#: ../data/ui/initial-setup.ui.h:3 ../data/ui/storage-popover.ui.h:2
-#: ../data/ui/window.ui.h:7 ../src/gtd-window.c:314
+#: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
+#: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
 msgid "Cancel"
 msgstr "Thôi"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:363
+#: ../src/gtd-task-list-view.c:426
 msgid "Done"
 msgstr "Xong"
+
+#: ../data/ui/list-selector-panel.ui.h:1
+msgid "Rename"
+msgstr "Đổi tên"
+
+#: ../data/ui/list-selector-panel.ui.h:3
+#: ../src/views/gtd-list-selector-panel.c:465
+msgid "Lists"
+msgstr "Danh sách"
+
+#: ../data/ui/list-selector-panel.ui.h:4
+msgid "Tasks"
+msgstr "Nhiệm vụ"
+
+#: ../data/ui/list-selector-panel.ui.h:5
+msgid "Name of the task list"
+msgstr "Tên của danh sách nhiệm vụ"
+
+#: ../data/ui/list-selector-panel.ui.h:6
+msgid "New List"
+msgstr "Danh sách mới"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
@@ -181,55 +221,59 @@ msgstr ""
 msgid "Show or hide completed tasks"
 msgstr "Hiện hay ẩn các nhiệm vụ đã hoàn thành"
 
-#: ../data/ui/storage-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:1
+msgid "No extensions found"
+msgstr "Không tìm thấy phần mở rộng nào"
+
+#: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr "Chọn vị trí lưu mặc định để tạo danh sách nhiệm vụ:"
 
-#: ../data/ui/storage-dialog.ui.h:2
+#: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
 msgstr "Vị trí lưu mặc định"
 
-#: ../data/ui/storage-popover.ui.h:1
+#: ../data/ui/provider-popover.ui.h:1
 msgid "Create"
 msgstr "Tạo"
 
-#: ../data/ui/storage-popover.ui.h:3
+#: ../data/ui/provider-popover.ui.h:3
 msgid "List Name"
 msgstr "Tên danh sách"
 
-#: ../data/ui/storage-popover.ui.h:4
+#: ../data/ui/provider-popover.ui.h:4
 msgid "Select a storage location"
 msgstr "Chọn vị trí lưu trữ"
 
-#: ../data/ui/storage-row.ui.h:1
+#: ../data/ui/provider-row.ui.h:1
 msgid "Off"
 msgstr "Tắt"
 
-#: ../data/ui/storage-selector.ui.h:1
+#: ../data/ui/provider-selector.ui.h:1
 msgid "Click to add a new Google account"
 msgstr "Bấm vào để thêm tài khoản Google mới"
 
-#: ../data/ui/storage-selector.ui.h:2
+#: ../data/ui/provider-selector.ui.h:2
 msgid "Google"
 msgstr "Google"
 
-#: ../data/ui/storage-selector.ui.h:3
+#: ../data/ui/provider-selector.ui.h:3
 msgid "Click to add a new ownCloud account"
 msgstr "Bấm vào để thêm tài khoản ownCloud mới"
 
-#: ../data/ui/storage-selector.ui.h:4
+#: ../data/ui/provider-selector.ui.h:4
 msgid "ownCloud"
 msgstr "ownCloud"
 
-#: ../data/ui/storage-selector.ui.h:5
+#: ../data/ui/provider-selector.ui.h:5
 msgid "Click to add a new Microsoft Exchange account"
 msgstr "Bấm vào để thêm tài khoản Microsoft Exchange mới"
 
-#: ../data/ui/storage-selector.ui.h:6
+#: ../data/ui/provider-selector.ui.h:6
 msgid "Microsoft Exchange"
 msgstr "Microsoft Exchange"
 
-#: ../data/ui/storage-selector.ui.h:7
+#: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr "Hoặc là bạn chỉ lưu các nhiệm vụ trên máy tính này"
 
@@ -237,172 +281,180 @@ msgstr "Hoặc là bạn chỉ lưu các nhiệm vụ trên máy tính này"
 msgid "New task…"
 msgstr "Nhiệm vụ mới…"
 
-#: ../data/ui/window.ui.h:1
-msgid "Lists"
-msgstr "Danh sách"
+#: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
+#: ../src/gtd-task-row.c:170
+msgid "No date set"
+msgstr "Chưa đặt ngày"
 
-#: ../data/ui/window.ui.h:2 ../src/gtd-task-row.c:140 ../src/gtd-window.c:517
-#: ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
+#, c-format
+msgid "Yesterday"
+msgid_plural "%d days ago"
+msgstr[0] "%d hôm trước"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
+#: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
+#: ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Hôm nay"
 
-#: ../data/ui/window.ui.h:3 ../src/gtd-window.c:517 ../src/gtd-window.c:522
+#: ../plugins/eds/gtd-panel-scheduled.c:91 ../src/gtd-task-row.c:144
+msgid "Tomorrow"
+msgstr "Ngày mai"
+
+#. Setup a title
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Lịch trình"
 
-#: ../data/ui/window.ui.h:4
-msgid "Rename"
-msgstr "Đổi tên"
+#: ../plugins/eds/gtd-panel-scheduled.c:497
+#: ../plugins/eds/gtd-panel-today.c:322
+#: ../src/views/gtd-list-selector-panel.c:700
+msgid "Clear completed tasks…"
+msgstr "Xóa các nhiệm vụ đã hoàn tất…"
 
-#: ../data/ui/window.ui.h:6
-msgid "New List"
-msgstr "Danh sách mới"
+#: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
+msgid "Error loading GNOME Online Accounts"
+msgstr "Có lỗi khi tải ứng dụng Tài khoản trực tuyến GNOME"
 
-#: ../data/ui/window.ui.h:8
-msgid "Name of the task list"
-msgstr "Tên của danh sách nhiệm vụ"
+#: ../plugins/eds/gtd-plugin-eds.c:278
+msgid "Error loading Evolution-Data-Server backend"
+msgstr "Gặp lỗi khi tải phần ứng dụng chạy phía sau Evolution-Data-Server"
 
-#: ../src/gtd-application.c:91
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
+msgid "Error loading CSS from resource"
+msgstr "Có lỗi khi đang tải CSS từ nguồn"
+
+#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+msgid "Error fetching tasks from list"
+msgstr "Gặp lỗi khi lấy các nhiệm vụ từ danh sách"
+
+#: ../plugins/eds/gtd-provider-eds.c:187
+msgid "Task list source successfully connected"
+msgstr "Việc kết nối nguồn danh sách nhiệm vụ đã thành công"
+
+#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+msgid "Failed to connect to task list source"
+msgstr "Gặp lỗi khi kết nối đến nguồn danh sách nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:311
+msgid "Failed to prompt for credentials"
+msgstr "Gặp lỗi khi hỏi đáp cho chứng thư"
+
+#: ../plugins/eds/gtd-provider-eds.c:334
+msgid "Failed to prompt for credentials for"
+msgstr "Gặp lỗi khi hỏi đáp cho chứng thư cho"
+
+#: ../plugins/eds/gtd-provider-eds.c:388
+msgid "Authentication failure"
+msgstr "Việc xác thực gặp lỗi nghiêm trọng"
+
+#: ../plugins/eds/gtd-provider-eds.c:440
+msgid "Error loading task manager"
+msgstr "Có lỗi xảy ra khi đang tải bộ quản lý nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+msgid "Error creating task"
+msgstr "Có lỗi khi tạo nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+msgid "Error updating task"
+msgstr "Có lỗi khi cập nhật nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+msgid "Error removing task"
+msgstr "Có lỗi khi xóa bỏ nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+msgid "Error creating task list"
+msgstr "Có lỗi khi tạo danh sách nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+msgid "Error removing task list"
+msgstr "Có lỗi khi gỡ bỏ danh sách nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-task-list-eds.c:69
+msgid "Error saving task list"
+msgstr "Có lỗi khi ghi danh sách nhiệm vụ"
+
+#: ../plugins/eds/gtd-provider-local.c:60
+msgid "Local"
+msgstr "Nội bộ"
+
+#: ../plugins/eds/gtd-provider-local.c:66
+msgid "On This Computer"
+msgstr "Trên máy tính này"
+
+#: ../plugins/eds/gtd-provider-local.c:133
+#: ../plugins/eds/gtd-provider-local.c:137
+msgid "Error creating new task list"
+msgstr "Có lỗi xảy ra khi đang tạo danh sách nhiệm vụ"
+
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Tác quyền © %d Các tác giả To Do"
 
-#: ../src/gtd-application.c:96
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Tác quyền © %d–%d Các tác giả To Do"
 
-#: ../src/gtd-application.c:101 ../src/gtd-application.c:127
-#: ../src/gtd-window.c:694 ../src/gtd-window.c:1269
-msgid "To Do"
-msgstr "To Do"
-
-#: ../src/gtd-application.c:108
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Nhóm Việt hóa GNOME <gnome-vi-list@gnome.org>"
 
-#: ../src/gtd-application.c:215
-msgid "Error loading CSS from resource"
-msgstr "Có lỗi khi đang tải CSS từ nguồn"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Có lỗi xảy ra khi đang tải phần bổ sung"
 
-#: ../src/gtd-edit-pane.c:149 ../src/gtd-task-row.c:170
-msgid "No date set"
-msgstr "Chưa đặt ngày"
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "Có lỗi xảy ra khi thôi tải phần bổ sung"
 
-#: ../src/gtd-manager.c:386 ../src/gtd-manager.c:390
-msgid "Error loading GNOME Online Accounts"
-msgstr "Có lỗi khi tải GNOME Online Accounts"
-
-#: ../src/gtd-manager.c:418 ../src/gtd-manager.c:422 ../src/gtd-task-list.c:87
-msgid "Error saving task list"
-msgstr "Có lỗi khi ghi danh sách nhiệm vụ"
-
-#: ../src/gtd-manager.c:441 ../src/gtd-manager.c:445
-msgid "Error removing task list"
-msgstr "Có lỗi khi gỡ bỏ danh sách nhiệm vụ"
-
-#: ../src/gtd-manager.c:469 ../src/gtd-manager.c:473
-msgid "Error creating task list"
-msgstr "Có lỗi khi tạo danh sách nhiệm vụ"
-
-#: ../src/gtd-manager.c:534 ../src/gtd-manager.c:538
-msgid "Error creating task"
-msgstr "Có lỗi khi tạo nhiệm vụ"
-
-#: ../src/gtd-manager.c:601 ../src/gtd-manager.c:605
-msgid "Error removing task"
-msgstr "Có lỗi khi xóa bỏ nhiệm vụ"
-
-#: ../src/gtd-manager.c:652 ../src/gtd-manager.c:656
-msgid "Error updating task"
-msgstr "Có lỗi khi cập nhật nhiệm vụ"
-
-#: ../src/gtd-manager.c:689
-msgid "Failed to prompt for credentials"
-msgstr "Gặp lỗi khi hỏi đáp cho chứng thư"
-
-#: ../src/gtd-manager.c:712
-msgid "Failed to prompt for credentials for"
-msgstr "Gặp lỗi khi hỏi đáp cho chứng thư cho"
-
-#: ../src/gtd-manager.c:764
-msgid "Authentication failure"
-msgstr "Việc xác thực gặp lỗi nghiêm trọng"
-
-#: ../src/gtd-manager.c:828 ../src/gtd-manager.c:832
-msgid "Error fetching tasks from list"
-msgstr "Gặp lỗi khi lấy các nhiệm vụ từ danh sách"
-
-#: ../src/gtd-manager.c:898
-msgid "Task list source successfully connected"
-msgstr "Việc kết nối nguồn danh sách nhiệm vụ đã thành công"
-
-#: ../src/gtd-manager.c:905 ../src/gtd-manager.c:910
-msgid "Failed to connect to task list source"
-msgstr "Gặp lỗi khi kết nối đến nguồn danh sách nhiệm vụ"
-
-#: ../src/gtd-manager.c:939
-msgid "Skipping already loaded task list "
-msgstr "Bỏ qua danh sách nhiệm vụ đã được tải"
-
-#: ../src/gtd-manager.c:977
-msgid "Error loading task manager"
-msgstr "Có lỗi xảy ra khi đang tải bộ quản lý nhiệm vụ"
-
-#: ../src/gtd-task-list-item.c:233
-msgid "No tasks"
-msgstr "Không có nhiệm vụ nào"
-
-#: ../src/gtd-task-list-view.c:263
+#: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Nhiệm vụ <b>%s</b> đã bị xóa bỏ"
 
-#: ../src/gtd-task-list-view.c:294
+#: ../src/gtd-task-list-view.c:357
 msgid "Undo"
 msgstr "Hoàn lại"
 
-#: ../src/gtd-task-row.c:144
-msgid "Tomorrow"
-msgstr "Ngày mai"
-
-#: ../src/gtd-task-row.c:148
-msgid "Yesterday"
-msgstr "Hôm qua"
-
-#: ../src/gtd-window.c:307
-msgid "Remove the selected task lists?"
-msgstr "Xóa bỏ các danh sách nhiệm vụ đã chọn?"
-
-#: ../src/gtd-window.c:310
-msgid "Once removed, the task lists cannot be recovered."
-msgstr "Một khi đã xóa, danh sách nhiệm vụ sẽ không thể phục hồi được."
-
-#: ../src/gtd-window.c:322
-msgid "Remove task lists"
-msgstr "Xóa bỏ danh sách nhiệm vụ"
-
-#: ../src/gtd-window.c:578
-msgid "Setting new color for task list"
-msgstr "Cài đặt màu mới cho danh sách nhiệm vụ"
-
-#: ../src/gtd-window.c:1128
+#: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
 msgstr "Đang tải các danh sách nhiệm vụ…"
 
-#: ../src/gtd-window.c:1256
+#: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "Bấm vào danh sách nhiệm vụ để chọn"
 
-#: ../src/storage/gtd-storage-goa.c:77 ../src/storage/gtd-storage-local.c:69
-msgid "Error creating new task list"
-msgstr "Có lỗi xảy ra khi đang tạo danh sách nhiệm vụ"
+#: ../src/views/gtd-list-selector-grid-item.c:233
+msgid "No tasks"
+msgstr "Không có nhiệm vụ nào"
 
-#. Create task list
-#: ../src/storage/gtd-storage-local.c:86 ../src/storage/gtd-storage-local.c:134
-msgid "On This Computer"
-msgstr "Trên máy tính này"
+#: ../src/views/gtd-list-selector-panel.c:185
+msgid "Setting new color for task list"
+msgstr "Cài đặt màu mới cho danh sách nhiệm vụ"
 
-#: ../src/storage/gtd-storage-local.c:133
-msgid "Local"
-msgstr "Nội bộ"
+#: ../src/views/gtd-list-selector-panel.c:379
+msgid "Remove the selected task lists?"
+msgstr "Xóa bỏ các danh sách nhiệm vụ đã chọn?"
+
+#: ../src/views/gtd-list-selector-panel.c:382
+msgid "Once removed, the task lists cannot be recovered."
+msgstr "Một khi đã xóa, danh sách nhiệm vụ sẽ không thể phục hồi được."
+
+#: ../src/views/gtd-list-selector-panel.c:394
+msgid "Remove task lists"
+msgstr "Xóa bỏ danh sách nhiệm vụ"
+
+#~ msgid "Todo"
+#~ msgstr "Cần làm"
+
+#~ msgid "Skipping already loaded task list "
+#~ msgstr "Bỏ qua danh sách nhiệm vụ đã được tải"
