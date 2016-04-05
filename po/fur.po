@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-20 10:49+0000\n"
-"PO-Revision-Date: 2016-03-20 22:52+0100\n"
+"POT-Creation-Date: 2016-04-05 10:02+0000\n"
+"PO-Revision-Date: 2016-04-05 13:34+0200\n"
 "Last-Translator: Fabio Tomat <f.t.public@gmail.com>\n"
 "Language-Team: Friulian <fur@li.org>\n"
 "Language: fur\n"
@@ -97,12 +97,12 @@ msgstr "Prime esecuzion di GNOME ToDo"
 msgid ""
 "Whether it's the first run of GNOME To Do (to run the initial setup) or not"
 msgstr ""
-"Indiche se a je la prime volte che al ven inviât GNOME ToDo (par eseguî la "
+"Indiche se e je la prime volte che al ven inviât GNOME ToDo (par eseguî la "
 "configurazion iniziâl)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
 msgid "Default provider to add new lists to"
-msgstr "Provider predefinît pe zonte des gnovis listis"
+msgstr "Furnidôr predefinît pe zonte des gnovis listis"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
 msgid "The identifier of the default provider to add new lists to"
@@ -284,7 +284,7 @@ msgstr "Gnove ativitât..."
 #: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
 msgid "No date set"
-msgstr "Nissune date impostade"
+msgstr "Nissune date impuestade"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
