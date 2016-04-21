@@ -94,7 +94,7 @@ gnome_todo_CFLAGS = \
 
 gnome_todo_LDFLAGS = \
 	-Wl,--export-dynamic \
-	-u gtd_plugin_eds_register_types \
+	-Wl,--undefined=gtd_plugin_eds_register_types \
 	$(GNOME_TODO_WARN_LDFLAGS)
 
 gnome_todo_LDADD = \
