@@ -51,6 +51,9 @@ GETTEXT_PACKAGE=AC_PACKAGE_TARNAME
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE", [GETTEXT package name])
 
+AS_IF([test "x$USE_NLS" != "xno"],
+      [AC_DEFINE([ENABLE_NLS], [1], [Native language support is enabled])])
+
 dnl ================================================================
 dnl GObject introspection support
 dnl ================================================================
