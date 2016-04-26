@@ -153,6 +153,87 @@ EXTRA_DIST = \
 
 
 #==================================
+# Documentation
+#==================================
+if ENABLE_GTK_DOC
+
+noinst_LTLIBRARIES = libgnome-todo.la
+
+libgnome_todo_la_SOURCES = \
+	engine/gtd-manager.c \
+	engine/gtd-manager.h \
+	engine/gtd-manager-protected.h \
+	engine/gtd-plugin-manager.c \
+	engine/gtd-plugin-manager.h \
+	interfaces/gtd-activatable.c \
+	interfaces/gtd-activatable.h \
+	interfaces/gtd-panel.c \
+	interfaces/gtd-panel.h \
+	interfaces/gtd-provider.c \
+	interfaces/gtd-provider.h \
+	notification/gtd-notification.c \
+	notification/gtd-notification.h \
+	notification/gtd-notification-widget.c \
+	notification/gtd-notification-widget.h \
+	provider/gtd-provider-dialog.c \
+	provider/gtd-provider-dialog.h \
+	provider/gtd-provider-popover.c \
+	provider/gtd-provider-popover.h \
+	provider/gtd-provider-row.c \
+	provider/gtd-provider-row.h \
+	provider/gtd-provider-selector.c \
+	provider/gtd-provider-selector.h \
+	views/gtd-list-selector.c \
+	views/gtd-list-selector.h \
+	views/gtd-list-selector-grid.c \
+	views/gtd-list-selector-grid.h \
+	views/gtd-list-selector-grid-item.c \
+	views/gtd-list-selector-grid-item.h \
+	views/gtd-list-selector-item.c \
+	views/gtd-list-selector-item.h \
+	views/gtd-list-selector-list.c \
+	views/gtd-list-selector-list.h \
+	views/gtd-list-selector-list-item.c \
+	views/gtd-list-selector-list-item.h \
+	views/gtd-list-selector-panel.c \
+	views/gtd-list-selector-panel.h \
+	gtd-application.c \
+	gtd-application.h \
+	gtd-arrow-frame.c \
+	gtd-arrow-frame.h \
+	gtd-edit-pane.c \
+	gtd-edit-pane.h \
+	gtd-enums.h \
+	gtd-initial-setup-window.c \
+	gtd-initial-setup-window.h \
+	gtd-object.c \
+	gtd-object.h \
+	gtd-plugin-dialog.c \
+	gtd-plugin-dialog.h \
+	gtd-plugin-dialog-row.c \
+	gtd-plugin-dialog-row.h \
+	gtd-task.c \
+	gtd-task.h \
+	gtd-task-list.c \
+	gtd-task-list.h \
+	gtd-task-list-view.c \
+	gtd-task-list-view.h \
+	gtd-task-row.c \
+	gtd-task-row.h \
+	gtd-types.h \
+	gtd-window.c \
+	gtd-window.h
+
+libgnome_todo_la_CFLAGS = \
+	$(GNOME_TODO_CFLAGS) \
+	$(GNOME_TODO_WARN_CFLAGS)
+
+libgnome_todo_la_LDFLAGS = \
+	-Wl,--export-dynamic
+
+endif
+
+#==================================
 # GObject introspection
 #==================================
 if HAVE_INTROSPECTION
