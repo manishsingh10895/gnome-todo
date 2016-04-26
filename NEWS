@@ -1,4 +1,18 @@
 ==============
+Version 3.20.1
+==============
+
+Project:
+        * Fixed unstranslated string
+        * Fix translations not being applied
+
+Translations:
+        * Basque (Inaki Larranaga Murgoitio)
+        * Friulian (Fabio Tomat)
+        * Vietnamese (Trần Ngọc Quân)
+        * Persian (Arash Mousavi)
+
+==============
 Version 3.20.0
 ==============
 
