@@ -6,10 +6,10 @@
 # Alexander Strand <godsetalex@gmail.com>
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-todo 3.19.x\n"
+"Project-Id-Version: gnome-todo 3.20.x\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-29 21:46+0100\n"
-"PO-Revision-Date: 2016-02-29 21:48+0100\n"
+"POT-Creation-Date: 2016-05-01 14:46+0200\n"
+"PO-Revision-Date: 2016-05-01 14:48+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmål <i18n-nb@lister.ping.uio.no>\n"
 "Language: Norsk bokmål\n"
@@ -19,8 +19,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
-#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Oppgaver"
 
@@ -32,7 +32,9 @@ msgstr "Oppgavestyring for GNOME"
 msgid ""
 "GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
-msgstr "GNOME oppgaver er et enkelt program for oppgavestyring som er integrert med GNOME."
+msgstr ""
+"GNOME oppgaver er et enkelt program for oppgavestyring som er integrert med "
+"GNOME."
 
 #: ../data/gtk/menus.ui.h:1
 msgid "New List…"
@@ -42,7 +44,7 @@ msgstr "Ny liste …"
 msgid "Change default storage location…"
 msgstr "Endre forvalgt lagringslokasjon …"
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "Utvidelser"
 
@@ -98,30 +100,28 @@ msgstr ""
 "initielt oppsett)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-#, fuzzy
 msgid "Default provider to add new lists to"
-msgstr "Forvalgt plassering nye lister skal legges til"
+msgstr "Forvalgt tilbyder nye lister skal legges til i"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-#, fuzzy
 msgid "The identifier of the default provider to add new lists to"
-msgstr "Identifikator for forvalgt plassering for nye lister"
+msgstr "Identifikator for forvalgt tilbyder for nye lister"
 
 #: ../data/org.gnome.todo.gschema.xml.h:11
 msgid "List of active extensions"
-msgstr ""
+msgstr "Liste med aktive utvidelser"
 
 #: ../data/org.gnome.todo.gschema.xml.h:12
 msgid "The list of active extensions"
-msgstr ""
+msgstr "Liste med aktive utvidelser"
 
 #: ../data/org.gnome.todo.gschema.xml.h:13
 msgid "The current list selector"
-msgstr ""
+msgstr "Aktiv listevelger"
 
 #: ../data/org.gnome.todo.gschema.xml.h:14
 msgid "The current list selector. Can be 'grid' or 'list'."
-msgstr ""
+msgstr "Aktiv listevelger. Kan være «grid» eller «list»."
 
 #: ../data/ui/edit-pane.ui.h:1 ../plugins/eds/edit-pane.ui.h:1
 #: ../src/gtd-window.c:553
@@ -218,7 +218,7 @@ msgstr "Du kan legge til oppgaver i listene i visningen <b>Lister</b>"
 msgid "Show or hide completed tasks"
 msgstr "Vis eller skjul fullførte oppgaver"
 
-#: ../data/ui/plugin-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "Fant ingen utvidelser"
 
@@ -322,7 +322,7 @@ msgstr "Feil ved lasting av kontoer på nettet"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Feil ved lasting av motor for Evolution-Data-Server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "Feil ved lasting av CSS fra ressurs"
 
@@ -392,17 +392,17 @@ msgstr "På denne datamaskinen"
 msgid "Error creating new task list"
 msgstr "Feil ved opretting av ny oppgaveliste"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Opphavsrett © %d Oppgaveforfatterene"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Opphavsrett © %d-%d Oppgavelisteutviklerene"
 
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Kjartan Maraas <kmaraas@gnome.org>"
 
