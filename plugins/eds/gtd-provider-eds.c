@@ -40,7 +40,6 @@ typedef struct
   ECredentialsPrompter *credentials_prompter;
 
   GHashTable           *clients;
-  gint                  loaded_sources;
 
   gint                  lazy_load_id;
 } GtdProviderEdsPrivate;
@@ -142,10 +141,6 @@ gtd_provider_eds_on_client_connected (GObject      *source_object,
   priv = gtd_provider_eds_get_instance_private (self);
   source = e_client_get_source (E_CLIENT (source_object));
   client = E_CAL_CLIENT (e_cal_client_connect_finish (result, &error));
-
-  /* Update ready flag */
-  priv->loaded_sources--;
-  gtd_object_set_ready (GTD_OBJECT (user_data), priv->loaded_sources <= 0);
 
   if (!error)
     {
@@ -459,15 +454,6 @@ gtd_provider_eds_load_registry (GtdProviderEds  *provider)
 
   /* Load task list sources */
   sources = e_source_registry_list_sources (priv->source_registry, E_SOURCE_EXTENSION_TASK_LIST);
-
-  /* While load_sources > 0, Gtd::ready = FALSE */
-  priv->loaded_sources = g_list_length (sources);
-
-  gtd_object_set_ready (GTD_OBJECT (provider), priv->loaded_sources == 0);
-
-  g_debug ("%s: number of sources to load: %d",
-           G_STRFUNC,
-           priv->loaded_sources);
 
   for (l = sources; l != NULL; l = l->next)
     gtd_provider_eds_load_source (provider, l->data);
