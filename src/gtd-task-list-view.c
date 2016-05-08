@@ -582,7 +582,7 @@ gtd_task_list_view__remove_row_for_task (GtdTaskListView *view,
       if (!gtd_task_row_get_new_task_mode (l->data) &&
           gtd_task_row_get_task (l->data) == task)
         {
-          gtd_task_row_destroy (l->data);
+          gtk_widget_destroy (l->data);
         }
     }
 
@@ -1255,7 +1255,7 @@ gtd_task_list_view_set_show_completed (GtdTaskListView *view,
               if (!gtd_task_row_get_new_task_mode (l->data) &&
                   gtd_task_get_complete (gtd_task_row_get_task (l->data)))
                 {
-                  gtd_task_row_destroy (l->data);
+                  gtk_widget_destroy (l->data);
                 }
             }
 

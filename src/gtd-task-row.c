@@ -188,6 +188,12 @@ gtd_task_row__create_task_for_name (const gchar *name)
   return task;
 }
 
+static void
+gtd_task_row__destroy_cb (GtkWidget *widget)
+{
+  GTK_WIDGET_CLASS (gtd_task_row_parent_class)->destroy (widget);
+}
+
 GtkWidget*
 gtd_task_row_new (GtdTask *task)
 {
@@ -345,6 +351,26 @@ gtd_task_row_activate (GtkListBoxRow *row)
 }
 
 static void
+gtd_task_row_destroy (GtkWidget *widget)
+{
+  GtdTaskRow *row = GTD_TASK_ROW (widget);
+
+  if (!gtk_revealer_get_child_revealed (row->priv->revealer))
+    {
+      gtd_task_row__destroy_cb (GTK_WIDGET (row));
+    }
+  else
+    {
+      g_signal_connect_swapped (row->priv->revealer,
+                                "notify::child-revealed",
+                                G_CALLBACK (gtk_widget_destroy),
+                                row);
+
+      gtk_revealer_set_reveal_child (row->priv->revealer, FALSE);
+    }
+}
+
+static void
 gtd_task_row_class_init (GtdTaskRowClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
@@ -355,6 +381,7 @@ gtd_task_row_class_init (GtdTaskRowClass *klass)
   object_class->get_property = gtd_task_row_get_property;
   object_class->set_property = gtd_task_row_set_property;
 
+  widget_class->destroy = gtd_task_row_destroy;
   widget_class->focus_in_event = gtd_task_row__focus_in;
   widget_class->key_press_event = gtd_task_row__key_press_event;
 
@@ -653,32 +680,4 @@ gtd_task_row_reveal (GtdTaskRow *row)
   g_return_if_fail (GTD_IS_TASK_ROW (row));
 
   gtk_revealer_set_reveal_child (row->priv->revealer, TRUE);
-}
-
-/**
- * gtd_task_row_destroy:
- * @row: a #GtdTaskRow
- *
- * Runs an animation and the destory @row.
- *
- * Returns:
- */
-void
-gtd_task_row_destroy (GtdTaskRow *row)
-{
-  g_return_if_fail (GTD_IS_TASK_ROW (row));
-
-  if (gtk_revealer_get_child_revealed (row->priv->revealer))
-    {
-      gtk_widget_destroy (GTK_WIDGET (row));
-    }
-  else
-    {
-      g_signal_connect_swapped (row->priv->revealer,
-                                "notify::child-revealed",
-                                G_CALLBACK (gtk_widget_destroy),
-                                row);
-
-      gtk_revealer_set_reveal_child (row->priv->revealer, FALSE);
-    }
 }
