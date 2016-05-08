@@ -118,6 +118,27 @@ enum {
 };
 
 static void
+real_save_task (GtdTaskListView *self,
+                GtdTask         *task)
+{
+  GtdTaskListViewPrivate *priv;
+  GtdTaskList *list;
+
+  priv = self->priv;
+  list = gtd_task_get_list (task);
+
+  /*
+   * This will emit GtdTaskList::task-added and we'll readd
+   * to the list.
+   */
+  gtd_task_list_save_task (list, task);
+
+  if (priv->task_list != list)
+    gtd_task_list_save_task (priv->task_list, task);
+}
+
+
+static void
 remove_task_action (GtdNotification *notification,
                     gpointer         user_data)
 {
@@ -132,22 +153,9 @@ static void
 undo_remove_task_action (GtdNotification *notification,
                          gpointer         user_data)
 {
-  GtdTaskListViewPrivate *priv;
-  RemoveTaskData  *data;
-  GtdTaskList *list;
+  RemoveTaskData *data = user_data;
 
-  data = user_data;
-  priv = data->view->priv;
-  list = gtd_task_get_list (data->task);
-
-  /*
-   * This will emit GtdTaskList::task-added and we'll readd
-   * to the list.
-   */
-  gtd_task_list_save_task (list, data->task);
-
-  if (priv->task_list != list)
-    gtd_task_list_save_task (priv->task_list, data->task);
+  real_save_task (data->view, data->task);
 
   g_free (data);
 }
@@ -381,7 +389,7 @@ gtd_task_list_view__edit_task_finished (GtdEditPane *pane,
   gtd_task_save (task);
 
   gtd_manager_update_task (gtd_manager_get_default (), task);
-  gtd_task_list_save_task (priv->task_list, task);
+  real_save_task (GTD_TASK_LIST_VIEW (user_data), task);
 
   gtk_list_box_invalidate_sort (priv->listbox);
 }
@@ -622,7 +630,7 @@ gtd_task_list_view__task_completed (GObject    *object,
   task_complete = gtd_task_get_complete (task);
 
   gtd_manager_update_task (gtd_manager_get_default (), task);
-  gtd_task_list_save_task (gtd_task_get_list (task), task);
+  real_save_task (GTD_TASK_LIST_VIEW (user_data), task);
 
   if (task_complete)
     priv->complete_tasks++;
