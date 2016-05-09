@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gnome-todo HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-23 00:54+0000\n"
+"POT-Creation-Date: 2016-03-03 22:44+0000\n"
 "PO-Revision-Date: 2016-02-25 18:20+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
@@ -20,25 +20,21 @@ msgstr ""
 "X-Project-Style: gnome\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
-#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "To Do"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-#| msgid "Todo manager for GNOME"
 msgid "Task manager for GNOME"
-msgstr "Lo gestionari de prètzfaches de GNOME"
+msgstr "Lo gestionari de prètzfaits de GNOME"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
-#| msgid ""
-#| "GNOME Todo is a simple task management application designed to integrate "
-#| "with GNOME."
 msgid ""
 "GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
 msgstr ""
-"GNOME Prètzfaches es un simple gestionari de prètzfaches destinat a èsser "
+"GNOME Prètzfaits es un simple gestionari de prètzfaits destinat a èsser "
 "integrat dins GNOME."
 
 #: ../data/gtk/menus.ui.h:1
@@ -63,11 +59,11 @@ msgstr "_Quitar"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:2
 msgid "Manage your personal tasks"
-msgstr "Gerir vòstres prètzfaches personals"
+msgstr "Gerir vòstres prètzfaits personals"
 
 #: ../data/org.gnome.Todo.desktop.in.in.h:3
 msgid "Task;Productivity;"
-msgstr "Prètzfach;Productivitat;"
+msgstr "Prètzfait;Productivitat;"
 
 #: ../data/org.gnome.todo.gschema.xml.h:1
 msgid "Window maximized"
@@ -105,23 +101,19 @@ msgstr ""
 "configuracion iniciala)"
 
 #: ../data/org.gnome.todo.gschema.xml.h:9
-#| msgid "Default location to add new lists to"
 msgid "Default provider to add new lists to"
 msgstr "Emplaçament per defaut per l'apondon de listas novèlas"
 
 #: ../data/org.gnome.todo.gschema.xml.h:10
-#| msgid "The identifier of the default location to add new lists to"
 msgid "The identifier of the default provider to add new lists to"
 msgstr ""
 "L'identificant de l'emplaçament per defaut per l'apondn de listas novèlas"
 
 #: ../data/org.gnome.todo.gschema.xml.h:11
-#| msgid "List of the task"
 msgid "List of active extensions"
 msgstr "Lista de las extensions activas"
 
 #: ../data/org.gnome.todo.gschema.xml.h:12
-#| msgid "Task list of the item"
 msgid "The list of active extensions"
 msgstr "La lista de las extensions activas"
 
@@ -150,24 +142,23 @@ msgstr "Data d'escasença"
 msgid "Priority"
 msgstr "Prioritat"
 
-# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+# En considerant que s'agís plan de cadena en rapòrt amb la prioritat
 #: ../data/ui/edit-pane.ui.h:5 ../plugins/eds/edit-pane.ui.h:5
-#| msgid "None"
 msgctxt "taskpriority"
 msgid "None"
 msgstr "Pas cap"
 
-# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+# En considerant que s'agís plan de cadena en rapòrt amb la prioritat
 #: ../data/ui/edit-pane.ui.h:6 ../plugins/eds/edit-pane.ui.h:6
 msgid "Low"
 msgstr "Bassa"
 
-# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+# En considerant que s'agís plan de cadena en rapòrt amb la prioritat
 #: ../data/ui/edit-pane.ui.h:7 ../plugins/eds/edit-pane.ui.h:7
 msgid "Medium"
 msgstr "Mejana"
 
-# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+# En considerant que s'agís plan de cadena en rapòrt amb la prioritat
 #: ../data/ui/edit-pane.ui.h:8 ../plugins/eds/edit-pane.ui.h:8
 msgid "High"
 msgstr "Nauta"
@@ -177,9 +168,8 @@ msgstr "Nauta"
 msgid "Delete"
 msgstr "Suprimir"
 
-# En considérant qu'il s'agit bien de chaine en rapport avec la priorité
+# En considerant que s'agís plan de cadena en rapòrt amb la prioritat
 #: ../data/ui/edit-pane.ui.h:10 ../plugins/eds/edit-pane.ui.h:10
-#| msgid "None"
 msgctxt "taskdate"
 msgid "None"
 msgstr "Pas cap"
@@ -190,7 +180,7 @@ msgstr "Benvenguda"
 
 #: ../data/ui/initial-setup.ui.h:2
 msgid "Login to online accounts to access your tasks"
-msgstr "S’autentificar a de comptes en linha per accedir a vòstres prètzfaches"
+msgstr "S’autentificar a de comptes en linha per accedir a vòstres prètzfaits"
 
 #: ../data/ui/initial-setup.ui.h:3 ../data/ui/provider-popover.ui.h:2
 #: ../data/ui/window.ui.h:1 ../src/views/gtd-list-selector-panel.c:386
@@ -212,13 +202,12 @@ msgid "Lists"
 msgstr "Listas"
 
 #: ../data/ui/list-selector-panel.ui.h:4
-#| msgid "No tasks"
 msgid "Tasks"
-msgstr "Prètzfaches"
+msgstr "Prètzfaits"
 
 #: ../data/ui/list-selector-panel.ui.h:5
 msgid "Name of the task list"
-msgstr "Nom de la lista de prètzfaches"
+msgstr "Nom de la lista de prètzfaits"
 
 #: ../data/ui/list-selector-panel.ui.h:6
 msgid "New List"
@@ -226,25 +215,24 @@ msgstr "Lista Novèla"
 
 #: ../data/ui/list-view.ui.h:1
 msgid "No tasks found"
-msgstr "Cap de prètzfach pas trobat"
+msgstr "Cap de prètzfait pas trobat"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr "Podètz apondre de prètzfaches dins la vista en <b>Lista</b>"
+msgstr "Podètz apondre de prètzfaits dins la vista en <b>Lista</b>"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
-msgstr "Afichar o amagar los prètzfaches acabats"
+msgstr "Afichar o amagar los prètzfaits acabats"
 
 #: ../data/ui/plugin-dialog.ui.h:1
-#| msgid "No tasks found"
 msgid "No extensions found"
 msgstr "Cap d'extension pas trobada"
 
 #: ../data/ui/provider-dialog.ui.h:1
 msgid "Select the default storage location to create task lists:"
 msgstr ""
-"Seleccionar l'emplaçament per défaut ont crear de listas de prètzfaches :"
+"Seleccionar l'emplaçament per defaut ont crear de listas de prètzfaits :"
 
 #: ../data/ui/provider-dialog.ui.h:2
 msgid "Default storage location"
@@ -293,11 +281,11 @@ msgstr "Microsoft Exchange"
 #: ../data/ui/provider-selector.ui.h:7
 msgid "Or you can just store your tasks on this computer"
 msgstr ""
-"Siquenon, podètz juste enregistrar vòstres prètzfaches sus aqueste ordenador"
+"Siquenon, podètz juste enregistrar vòstres prètzfaits sus aqueste ordenador"
 
 #: ../data/ui/task-row.ui.h:1
 msgid "New task…"
-msgstr "Prètzfach novèl..."
+msgstr "Prètzfait novèl..."
 
 #: ../plugins/eds/gtd-panel-scheduled.c:67 ../src/gtd-edit-pane.c:147
 #: ../src/gtd-task-row.c:170
@@ -306,7 +294,6 @@ msgstr "Cap de data pas definida"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-#| msgid "Yesterday"
 msgid "Yesterday"
 msgid_plural "%d days ago"
 msgstr[0] "Ièr"
@@ -324,18 +311,17 @@ msgid "Tomorrow"
 msgstr "Deman"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:316
-#: ../plugins/eds/gtd-panel-scheduled.c:321
-#: ../plugins/eds/gtd-panel-scheduled.c:451
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "Previst per"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
-#| msgid "Clear completed task…"
 msgid "Clear completed tasks…"
-msgstr "Escafar los prètzfaches acabats…"
+msgstr "Escafar los prètzfaits acabats…"
 
 #: ../plugins/eds/gtd-plugin-eds.c:249 ../plugins/eds/gtd-plugin-eds.c:253
 msgid "Error loading GNOME Online Accounts"
@@ -345,21 +331,21 @@ msgstr "Error de cargament dels Comptes en linha GNOME"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr ""
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "Error de cargament del CSS demnpuèi las fonts"
 
 #: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
 msgid "Error fetching tasks from list"
-msgstr "Error de recuperacion del prètzfach en provenéncia de la lista"
+msgstr "Error de recuperacion del prètzfait en provenéncia de la lista"
 
 #: ../plugins/eds/gtd-provider-eds.c:187
 msgid "Task list source successfully connected"
-msgstr "Font de la lista de prètzfaches connectada amb succès"
+msgstr "Font de la lista de prètzfaits connectada amb succès"
 
 #: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
 msgid "Failed to connect to task list source"
-msgstr "Fracàs de connexion amb la font de la lista de prètzfaches"
+msgstr "Fracàs de connexion amb la font de la lista de prètzfaits"
 
 #: ../plugins/eds/gtd-provider-eds.c:311
 msgid "Failed to prompt for credentials"
@@ -375,32 +361,32 @@ msgstr "Fracàs d'autentificacion"
 
 #: ../plugins/eds/gtd-provider-eds.c:440
 msgid "Error loading task manager"
-msgstr "Error de cargament del gestionari de prètzfaches"
+msgstr "Error de cargament del gestionari de prètzfaits"
 
 #: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
 msgid "Error creating task"
-msgstr "Error de creacion del prètzfach"
+msgstr "Error de creacion del prètzfait"
 
 #: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
 msgid "Error updating task"
-msgstr "Error de mesa a jorn del prètzfach"
+msgstr "Error de mesa a jorn del prètzfait"
 
 #: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
 msgid "Error removing task"
-msgstr "Error de supression del prètzfach"
+msgstr "Error de supression del prètzfait"
 
 #: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
 msgid "Error creating task list"
-msgstr "Error al moment de la creacion de la lista de prètzfaches"
+msgstr "Error al moment de la creacion de la lista de prètzfaits"
 
 #: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
 msgid "Error removing task list"
-msgstr "Error de supression de la lista de prètzfaches"
+msgstr "Error de supression de la lista de prètzfaits"
 
 #: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
-msgstr "Error d'enregistrament del prètzfach"
+msgstr "Error d'enregistrament del prètzfait"
 
 #: ../plugins/eds/gtd-provider-local.c:60
 msgid "Local"
@@ -413,26 +399,34 @@ msgstr "Sus aqueste ordenador"
 #: ../plugins/eds/gtd-provider-local.c:133
 #: ../plugins/eds/gtd-provider-local.c:137
 msgid "Error creating new task list"
-msgstr "Error al moment de la creacion de la novèla lista de prètzfaches"
+msgstr "Error al moment de la creacion de la novèla lista de prètzfaits"
 
-#: ../src/gtd-application.c:111
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d Los autors de To Do"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d-%d Los autors de To Do"
 
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "Error de cargament del plugin"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr ""
 
 #: ../src/gtd-task-list-view.c:326
 #, c-format
 msgid "Task <b>%s</b> removed"
-msgstr "Prètzfach <b>%s</b> suprimit"
+msgstr "Prètzfait <b>%s</b> suprimit"
 
 #: ../src/gtd-task-list-view.c:357
 msgid "Undo"
@@ -440,355 +434,345 @@ msgstr "Anullar"
 
 #: ../src/gtd-window.c:817
 msgid "Loading your task lists…"
-msgstr "Cargament de vòstra lista de prètzfaches..."
+msgstr "Cargament de vòstra lista de prètzfaits..."
 
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
-msgstr "Clicatz sus una lista de prètzfaches per la seleccionar"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
-msgid "Error loading plugin"
-msgstr "Error de cargament del plugin"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
-msgid "Error unloading plugin"
-msgstr ""
+msgstr "Clicatz sus una lista de prètzfaits per la seleccionar"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
-msgstr "Pas cap de prètzfach"
+msgstr "Pas cap de prètzfait"
 
 #: ../src/views/gtd-list-selector-panel.c:185
 msgid "Setting new color for task list"
-msgstr "Definicion d'una novèla color per la lista de prètzfaches"
+msgstr "Definicion d'una novèla color per la lista de prètzfaits"
 
 #: ../src/views/gtd-list-selector-panel.c:379
 msgid "Remove the selected task lists?"
-msgstr "Suprimir la lista de prètzfaches seleccionada ?"
+msgstr "Suprimir la lista de prètzfaits seleccionada ?"
 
 #: ../src/views/gtd-list-selector-panel.c:382
 msgid "Once removed, the task lists cannot be recovered."
-msgstr "Un còp suprimida, la lista de prètzfaches es perduda definitivament."
+msgstr "Un còp suprimida, la lista de prètzfaits es perduda definitivament."
 
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
-msgstr "Suprimir la lista de prètzfaches"
+msgstr "Suprimir la lista de prètzfaits"
 
 #~ msgid "Todo"
-#~ msgstr "Tâches"
+#~ msgstr "Prètzfaits"
 
 #~ msgid "Skipping already loaded task list "
-#~ msgstr "Liste de tâches ignorée car déjà chargée"
+#~ msgstr "Lista de prètzfaits ignorada perque ja cargada"
 
 #~ msgid "Manager of this application"
-#~ msgstr "Gestionnaire de cette application"
+#~ msgstr "Gestionari d'aquesta aplicacion"
 
 #~ msgid "The manager of the application"
-#~ msgstr "Le gestionnaire de l'application"
+#~ msgstr "Lo gestionari de l'aplicacion"
 
 #~ msgid "Task being edited"
-#~ msgstr "Tâche en cours de modification"
+#~ msgstr "Prètzfait en cors de modificacion"
 
 #~ msgid "The task that is actually being edited"
-#~ msgstr "La tâche actuellement en cours de modification"
+#~ msgstr "La prètzfait actualament en cors de modificacion"
 
 #~ msgid "Manager of the task"
-#~ msgstr "Gestionnaire de la tâche"
+#~ msgstr "Gestionari del prètzfait"
 
 #~ msgid "The singleton manager instance of the task"
-#~ msgstr "L'unique instance du gestionnaire de la tâche "
+#~ msgstr "L'unica instància del gestionari del prètzfait "
 
 #~ msgid "The online accounts client of the manager"
-#~ msgstr "Le client des comptes en ligne du gestionnaire"
+#~ msgstr "Lo client des comptes en linha del gestionari"
 
 #~ msgid ""
 #~ "The read-only GNOME online accounts client loaded and owned by the manager"
 #~ msgstr ""
-#~ "Le client des comptes en ligne GNOME chargé en lecture seule et propriété "
-#~ "du gestionnaire"
+#~ "Lo client des comptes en linha GNOME cargat en lectura sola e proprietat "
+#~ "del gestionari"
 
 #~ msgid "Whether GNOME Online Accounts client is ready"
-#~ msgstr "Indique si le client des Comptes en ligne GNOME est prêt"
+#~ msgstr "Indica se lo client dels Comptes en linha GNOME es prêt"
 
 #~ msgid "Whether the read-only GNOME online accounts client is loaded"
 #~ msgstr ""
-#~ "Indique si le client des Comptes en ligne GNOME en lecture seule est "
-#~ "chargé"
+#~ "Indica se lo client dels Comptes en linha GNOME en lectura sola es "
+#~ "cargat"
 
 #~ msgid "The source registry of the manager"
-#~ msgstr "Le registre des sources du gestionnaire"
+#~ msgstr "Lo registre des sources del gestionari"
 
 #~ msgid "The read-only source registry loaded and owned by the manager"
 #~ msgstr ""
-#~ "Le registre des sources est chargé en lecture seule et détenu par le "
-#~ "gestionnaire"
+#~ "Lo registre des sources es cargat en lectura sola e détenu per lo "
+#~ "gestionari"
 
 #~ msgid "Unique identifier of the object"
-#~ msgstr "Identifiant unique de l'objet"
+#~ msgstr "Identificant unic de l'objècte"
 
 #~ msgid "The unique identifier of the object, defined by the backend"
-#~ msgstr "L'identifiant unique de l'objet, défini par le moteur de recherches"
+#~ msgstr "L'identificant unic de l'objècte, definit pel motor de recèrcas"
 
 #~ msgid "Ready state of the object"
-#~ msgstr "L'objet est marqué prêt"
+#~ msgstr "L'objècte es marcat prèst"
 
 #~ msgid "Whether the object is marked as ready or not"
-#~ msgstr "Indique si l'objet est marqué comme prêt ou non"
+#~ msgstr "Indica se l'objècte es marcat coma prèst o pas"
 
 #~ msgid "Whether the task is completed or not"
-#~ msgstr "Indique si la tâche est terminée ou non"
+#~ msgstr "Indica se lo prètzfait es acabada o pas"
 
 #~ msgid "Whether the task is marked as completed by the user"
-#~ msgstr "Indique si la tâche est marquée comme terminée par l'utilisateur"
+#~ msgstr "Indica se lo prètzfait es marcada coma acabada per l'utilizaire"
 
 #~ msgid "Component of the task"
-#~ msgstr "Composition de la tâche"
+#~ msgstr "Composition del prètzfait"
 
 #~ msgid "The #ECalComponent this task handles."
-#~ msgstr "Le #ECalComponent que cette tâche gère."
+#~ msgstr "Lo #ECalComponent qu'aqueste prètzfait gère."
 
 #~ msgid "Description of the task"
-#~ msgstr "Description de la tâche"
+#~ msgstr "Descripcion del prètzfait"
 
 #~ msgid "Optional string describing the task"
-#~ msgstr "Chaîne optionnelle décrivant la tâche"
+#~ msgstr "Cadena opcionala décrivant lo prètzfait"
 
 #~ msgid "End date of the task"
-#~ msgstr "Date de fin de la tâche"
+#~ msgstr "Data de fin del prètzfait"
 
 #~ msgid "The day the task is supposed to be completed"
-#~ msgstr "Le jour où la tâche est sensée être terminée"
+#~ msgstr "Lo jorn quand lo prètzfait es sensat èsser acabat"
 
 #~ msgid "The list that owns this task"
-#~ msgstr "La liste propriétaire de cette tâche"
+#~ msgstr "La lista proprietari d'aqueste prètzfait"
 
 #~ msgid "Priority of the task"
-#~ msgstr "Priorité de la tâche"
+#~ msgstr "Prioritat del prètzfait"
 
 #~ msgid ""
 #~ "The priority of the task. 0 means no priority set, and tasks will be "
 #~ "sorted alphabetically."
 #~ msgstr ""
-#~ "La priorité de la tâche. 0 signifie qu'il n'y a pas de priorité définie "
-#~ "et que les tâches seront triées dans l'ordre alphabétique."
+#~ "La prioritat del prètzfait. 0 significa qu'i a pas de prioritat definida "
+#~ "e que los prètzfaits seràn triats dins l'òrdre alfabetic."
 
 #~ msgid "Title of the task"
-#~ msgstr "Titre de la tâche"
+#~ msgstr "Títol del prètzfait"
 
 #~ msgid "The title of the task"
-#~ msgstr "Le titre de la tâche"
+#~ msgstr "Lo títol del prètzfait"
 
 #~ msgid "Color of the list"
-#~ msgstr "Couleur de la liste"
+#~ msgstr "Color de la lista"
 
 #~ msgid "The color of the list"
-#~ msgstr "La couleur de la liste"
+#~ msgstr "La color de la lista"
 
 #~ msgid "Whether the task list is removable"
-#~ msgstr "Indique si la tâche est supprimable "
+#~ msgstr "Indica se lo prètzfait es suprimible "
 
 #~ msgid "Whether the task list can be removed from the system"
-#~ msgstr "Indique si la liste de tâches peut être supprimée du système"
+#~ msgstr "Indica se la lista de prètzfaits pòt èsser suprimida del sistèma"
 
 #~ msgid "Name of the list"
-#~ msgstr "Nom de la liste"
+#~ msgstr "Nom de la lista"
 
 #~ msgid "The name of the list"
-#~ msgstr "Le nom de la liste"
+#~ msgstr "Lo nom de la lista"
 
 #~ msgid "Data origin of the list"
-#~ msgstr "Provenance des données de la liste"
+#~ msgstr "Provenéncia de las donadas de la lista"
 
 #~ msgid "The data origin location of the list"
-#~ msgstr "La provenance des données de la liste"
+#~ msgstr "La provenéncia de las donadas de la lista"
 
 #~ msgid "Source of the list"
-#~ msgstr "Source de la liste"
+#~ msgstr "Font de la lista"
 
 #~ msgid "The parent source that handles the list"
-#~ msgstr "La source parente qui gère la liste"
+#~ msgstr "La font parenta que gerís la lista"
 
 #~ msgid "Mode of this item"
-#~ msgstr "Mode de cet élément"
+#~ msgstr "Mòde d'aqueste element"
 
 #~ msgid "The mode of this item, inherited from the parent's mode"
-#~ msgstr "Le mode de cet élément, hérité du mode du parent"
+#~ msgstr "Lo mòde d'aqueste element, ereitat del mòde del parent"
 
 #~ msgid "Whether the task list is selected"
-#~ msgstr "Indique si la liste de tâches est sélectionnée"
+#~ msgstr "Indica se la lista de prètzfaits es seleccionada"
 
 #~ msgid "Whether the task list is selected when in selection mode"
 #~ msgstr ""
-#~ "Indique si la liste de tâches est sélectionnée lorsqu'elle est en mode "
-#~ "sélection"
+#~ "Indica se la lista de prètzfaits es seleccionada quand es en mòde "
+#~ "seleccion"
 
 #~ msgid "The task list associated with this item"
-#~ msgstr "La liste de tâches associée à cet élément"
+#~ msgstr "La lista de prètzfaits associada a aqueste element"
 
 #~ msgid "Manager of this window's application"
-#~ msgstr "Gestionnaire de la fenêtre de cette application"
+#~ msgstr "Gestionari de la fenèstra d'aquesta aplicacion"
 
 #~ msgid "The manager of the window's application"
-#~ msgstr "Les gestionnaire de la fenêtre de cette application"
+#~ msgstr "Los gestionari de la fenèstra d'aquesta aplicacion"
 
 #~ msgid "Whether the list is readonly"
-#~ msgstr "Indique si cette liste est en lecture seule"
+#~ msgstr "Indica se aquesta lista es en lectura sola"
 
 #~ msgid ""
 #~ "Whether the list is readonly, i.e. doesn't show the New Task row, or not"
 #~ msgstr ""
-#~ "Indique si cette liste est en lecture seule, c.à.d. affiche ou non la "
-#~ "ligne Nouvelle Tâche"
+#~ "Indica se aquesta liste es en lectura sola, es a dire aficha o pas la "
+#~ "linha Novèla Prètzfait"
 
 #~ msgid "Whether task rows show the list name"
-#~ msgstr "Indique si les lignes de tâches affichent le nom de la liste"
+#~ msgstr "Indica se las linhas de prètzfaits affichent lo nom de la lista"
 
 #~ msgid "Whether task rows show the list name at the end of the row"
 #~ msgstr ""
-#~ "Indique si les lignes de tâches affichent le nom de la liste à la fin de "
-#~ "chaque ligne"
+#~ "Indica se las linhas de prètzfaits affichent lo nom de la lista a la fin de "
+#~ "cada linha"
 
 #~ msgid "Whether completed tasks are shown"
-#~ msgstr "Indique si les tâches terminées doivent être affichées"
+#~ msgstr "Indica se les prètzfaits acabadas devon èsser afichadas"
 
 #~ msgid "Whether completed tasks are visible or not"
-#~ msgstr "Indique si les tâches terminées doivent être visibles"
+#~ msgstr "Indica se les prètzfaits acabadas devon èsser visibles"
 
 #~ msgid "If the row is used to add a new task"
-#~ msgstr "Si cette ligne est utilisée pour ajouter une nouvelle tâche"
+#~ msgstr "Se aquesta linha es utilizada per apondre un prètzfait novèl"
 
 #~ msgid "Whether the row is used to add a new task"
-#~ msgstr "Indique si cette ligne est utilisée pour ajouter une nouvelle tâche"
+#~ msgstr "Indica se aquesta linha es utilizada per apondre un prètzfait novèl"
 
 #~ msgid "Task of the row"
-#~ msgstr "Tâche de la ligne"
+#~ msgstr "Prètzfait de la linha"
 
 #~ msgid "The task that this row represents"
-#~ msgstr "La tâche que cette ligne représente"
+#~ msgstr "La prètzfait qu'aquesta linha representa"
 
 #~ msgid "Mode of this window"
-#~ msgstr "Mode de cette fenêtre"
+#~ msgstr "Mòde d'aquesta fenèstra"
 
 #~ msgid "The interaction mode of the window"
-#~ msgstr "Le mode d’interaction de la fenêtre"
+#~ msgstr "Lo mòde d’interaccion de la fenèstra"
 
 #~ msgid "Whether the storage is enabled"
-#~ msgstr "Indique si le stockage est activé"
+#~ msgstr "Indica se l'emmagazinatge es activat"
 
 #~ msgid "Whether the storage is available to be used."
-#~ msgstr "Indique si le stockage est prêt à être utilisé."
+#~ msgstr "Indica se l'emmagazinatge es prèst a èsser utilizat."
 
 #~ msgid "Icon of the storage"
-#~ msgstr "Icône du support de stockage"
+#~ msgstr "Icòna del supòrt d'emmagazinatge"
 
 #~ msgid "The icon representing the storage location."
-#~ msgstr "L'icône indiquant l'emplacement du stockage."
+#~ msgstr "L'icòna indiquant l'emplaçament de l'emmagazinatge."
 
 #~ msgid "Identifier of the storage"
-#~ msgstr "Identifiant du stockage"
+#~ msgstr "Identificant de l'emmagazinatge"
 
 #~ msgid "The unique identifier of the storage location."
-#~ msgstr "L'identifiant unique de l'emplacement de stockage."
+#~ msgstr "L'identificant unic de l'emplaçament d'emmagazinatge."
 
 #~ msgid "Whether the storage is the default"
-#~ msgstr "Indique si le support de stockage est celui par défaut"
+#~ msgstr "Indica se lo supòrt d'emmagazinatge es lo per defaut"
 
 #~ msgid "Whether the storage is the default storage location to be used."
 #~ msgstr ""
-#~ "Indique si le support de stockage est l'emplacement par défaut à utiliser."
+#~ "Indica se lo supòrt d'emmagazinatge es l'emplaçament per defaut d'utilizar."
 
 #~ msgid "Name of the storage"
-#~ msgstr "Nom du support de stockage"
+#~ msgstr "Nom del supòrt d'emmagazinatge"
 
 #~ msgid "The user-visible name of the storage location."
-#~ msgstr "Le nom visible à l'utilisateur de l'emplacement de stockage."
+#~ msgstr "Lo nom visible a l'utilizaire de l'emplaçament d'emmagazinatge."
 
 #~ msgid "Name of the data provider of the storage"
-#~ msgstr "Nom du fournisseur de données du support de stockage"
+#~ msgstr "Nom del provesidor de donadas del supòrt d'emmagazinatge"
 
 #~ msgid "The user-visible name of the data provider of the storage location."
 #~ msgstr ""
-#~ "Le nom visible à l'utilisateur du fournisseur de données de l'emplacement "
-#~ "de stockage."
+#~ "Lo nom visible a l'utilizaire del provesidor de donadas de l'emplaçament "
+#~ "d'emmagazinatge."
 
 #~ msgid "GoaObject of the storage"
-#~ msgstr "GoaObject du support de stockage"
+#~ msgstr "GoaObject del supòrt d'emmagazinatge"
 
 #~ msgid "The GoaObject this storage location represents."
-#~ msgstr "Le GoaObject que cet emplacement de stockage représente."
+#~ msgstr "Lo GoaObject qu'aqueste emplaçament d'emmagazinatge representa."
 
 #~ msgid "Parent of the storage"
-#~ msgstr "Parent du support de stockage"
+#~ msgstr "Parent del supòrt d'emmagazinatge"
 
 #~ msgid "The parent source identifier of the storage location."
-#~ msgstr "L'identifiant de source parente de l'emplacement de stockage."
+#~ msgstr "L'identificant de font parenta de l'emplaçament d'emmagazinatge."
 
 #~ msgid "Storage of the row"
-#~ msgstr "Stockage de la ligne"
+#~ msgstr "Emmagazinatge de la linha"
 
 #~ msgid "The storage that this row holds"
-#~ msgstr "Le stockage que contient cette ligne"
+#~ msgstr "L'emmagazinatge que conten aquesta linha"
 
 #~ msgid "Show local storage row"
-#~ msgstr "Afficher la ligne du stockage local"
+#~ msgstr "Afichar la linha de l'emmagazinatge local"
 
 #~ msgid "Whether should show a local storage row instead of a checkbox"
 #~ msgstr ""
-#~ "Indique s'il faut afficher une ligne de stockage local à la place d'une "
-#~ "case à cocher"
+#~ "Indica se cal afichar una linha d'emmagazinatge local a la plaça d'una "
+#~ "casa de marcar"
 
 #~ msgid "Show stub rows"
-#~ msgstr "Afficher les lignes incomplètes"
+#~ msgstr "Afichar las linhas incompletas"
 
 #~ msgid "Whether should show stub rows for non-added accounts"
 #~ msgstr ""
-#~ "Indique s'il faut afficher les lignes incomplètes de comptes n'ayant pas "
-#~ "été ajoutés"
+#~ "Indica se cal afichar las linhas incompletas de comptes que son pas "
+#~ "estadas apondudas"
 
 #~ msgid "Selects default storage row"
-#~ msgstr "Sélectionne la ligne de stockage par défaut"
+#~ msgstr "Selecciona la linha d'emmagazinatge per defaut"
 
 #~ msgid "Whether should select the default storage row"
-#~ msgstr "Indique s'il faut sélectionner la ligne de stockage par défaut"
+#~ msgstr "Indica se cal seleccionar la linha d'emmagazinatge per defaut"
 
 #~ msgid "Whether the notification has a primary action"
-#~ msgstr "Indique si la notification a une action principale"
+#~ msgstr "Indica se la notificacion a una action principala"
 
 #~ msgid ""
 #~ "Whether the notification has the primary action, activated on timeout or "
 #~ "dismiss"
 #~ msgstr ""
-#~ "Indique si la notification a une action principale, activée par "
-#~ "dépassement de sa durée de vie ou par rejet"
+#~ "Indica se la notificacion a una action principala, activada per "
+#~ "dépassement de sa durée de vie o per rejet"
 
 #~ msgid "Whether the notification has a secondary action"
-#~ msgstr "Indique si la notification a une action secondaire"
+#~ msgstr "Indica se la notificacion a una accion segondària"
 
 #~ msgid ""
 #~ "Whether the notification has the secondary action, activated by the user"
 #~ msgstr ""
-#~ "Indique si la notification a une action secondaire, activée par "
-#~ "l'utilisateur"
+#~ "Indica se la notificacion a una accion segondària, activada per "
+#~ "l'utilizaire"
 
 #~ msgid "Text of the secondary action button"
-#~ msgstr "Texte du bouton de l'action secondaire"
+#~ msgstr "Tèxte del boton de l'accion segondària"
 
 #~ msgid "The text of the secondary action button"
-#~ msgstr "Le texte du bouton de l'action secondaire"
+#~ msgstr "Lo tèxte del boton de l'accion segondària"
 
 #~ msgid "Notification message"
-#~ msgstr "Message de notification"
+#~ msgstr "Messatge de notificacion"
 
 #~ msgid "The main message of the notification"
-#~ msgstr "Le message principal de la notification"
+#~ msgstr "Lo messatge principal de la notificacion"
 
 #~ msgid "Notification timeout"
-#~ msgstr "Temps d'affichage de la notification"
+#~ msgstr "Temps d'afichatge de la notificacion"
 
 #~ msgid "The time the notification is displayed"
-#~ msgstr "Affiche le temps d'affichage de la notification"
+#~ msgstr "Aficha lo temps d'afichatge de la notificacion"
 
 #~ msgid "Account of the storage"
-#~ msgstr "Compte du support de stockage"
+#~ msgstr "Compte del supòrt d'emmagazinatge"
