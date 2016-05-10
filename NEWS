@@ -1,4 +1,16 @@
 ==============
+Version 3.20.2
+==============
+
+Project:
+        * Small code cleanups
+        * Fix Scheduled and Today panels' misbehavior
+
+Translations:
+        * Portuguese (Tiago Santos)
+        * Occitan (Cédric Valmary)
+
+==============
 Version 3.20.1
 ==============
 
