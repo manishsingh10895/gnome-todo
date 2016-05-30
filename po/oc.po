@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: gnome-todo HEAD\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-03 22:44+0000\n"
+"POT-Creation-Date: 2016-05-15 11:19+0000\n"
 "PO-Revision-Date: 2016-02-25 18:20+0200\n"
 "Last-Translator: Cédric Valmary (totenoc.eu) <cvalmary@yahoo.fr>\n"
 "Language-Team: Tot En Òc\n"
@@ -45,7 +45,7 @@ msgstr "Lista Novèla..."
 msgid "Change default storage location…"
 msgstr "Modificacion de l'emplaçament d'emmagazinatge per defaut..."
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "Extensions"
 
@@ -188,7 +188,7 @@ msgid "Cancel"
 msgstr "Anullar"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:426
+#: ../src/gtd-task-list-view.c:434
 msgid "Done"
 msgstr "Acabat"
 
@@ -225,7 +225,7 @@ msgstr "Podètz apondre de prètzfaits dins la vista en <b>Lista</b>"
 msgid "Show or hide completed tasks"
 msgstr "Afichar o amagar los prètzfaits acabats"
 
-#: ../data/ui/plugin-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "Cap d'extension pas trobada"
 
@@ -335,55 +335,55 @@ msgstr ""
 msgid "Error loading CSS from resource"
 msgstr "Error de cargament del CSS demnpuèi las fonts"
 
-#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+#: ../plugins/eds/gtd-provider-eds.c:118 ../plugins/eds/gtd-provider-eds.c:122
 msgid "Error fetching tasks from list"
 msgstr "Error de recuperacion del prètzfait en provenéncia de la lista"
 
-#: ../plugins/eds/gtd-provider-eds.c:187
+#: ../plugins/eds/gtd-provider-eds.c:182
 msgid "Task list source successfully connected"
 msgstr "Font de la lista de prètzfaits connectada amb succès"
 
-#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+#: ../plugins/eds/gtd-provider-eds.c:189 ../plugins/eds/gtd-provider-eds.c:194
 msgid "Failed to connect to task list source"
 msgstr "Fracàs de connexion amb la font de la lista de prètzfaits"
 
-#: ../plugins/eds/gtd-provider-eds.c:311
+#: ../plugins/eds/gtd-provider-eds.c:306
 msgid "Failed to prompt for credentials"
 msgstr "Fracàs de demanda d'identificacion"
 
-#: ../plugins/eds/gtd-provider-eds.c:334
+#: ../plugins/eds/gtd-provider-eds.c:329
 msgid "Failed to prompt for credentials for"
 msgstr "Fracàs de demanda d'identificacion per"
 
-#: ../plugins/eds/gtd-provider-eds.c:388
+#: ../plugins/eds/gtd-provider-eds.c:383
 msgid "Authentication failure"
 msgstr "Fracàs d'autentificacion"
 
-#: ../plugins/eds/gtd-provider-eds.c:440
+#: ../plugins/eds/gtd-provider-eds.c:435
 msgid "Error loading task manager"
 msgstr "Error de cargament del gestionari de prètzfaits"
 
-#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+#: ../plugins/eds/gtd-provider-eds.c:532 ../plugins/eds/gtd-provider-eds.c:536
 msgid "Error creating task"
 msgstr "Error de creacion del prètzfait"
 
-#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+#: ../plugins/eds/gtd-provider-eds.c:575 ../plugins/eds/gtd-provider-eds.c:579
 msgid "Error updating task"
 msgstr "Error de mesa a jorn del prètzfait"
 
-#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+#: ../plugins/eds/gtd-provider-eds.c:611 ../plugins/eds/gtd-provider-eds.c:615
 msgid "Error removing task"
 msgstr "Error de supression del prètzfait"
 
-#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+#: ../plugins/eds/gtd-provider-eds.c:639 ../plugins/eds/gtd-provider-eds.c:643
 msgid "Error creating task list"
 msgstr "Error al moment de la creacion de la lista de prètzfaits"
 
-#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+#: ../plugins/eds/gtd-provider-eds.c:660 ../plugins/eds/gtd-provider-eds.c:664
 msgid "Error removing task list"
 msgstr "Error de supression de la lista de prètzfaits"
 
-#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-provider-eds.c:721 ../plugins/eds/gtd-provider-eds.c:725
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
 msgstr "Error d'enregistrament del prètzfait"
@@ -423,12 +423,12 @@ msgstr "Error de cargament del plugin"
 msgid "Error unloading plugin"
 msgstr ""
 
-#: ../src/gtd-task-list-view.c:326
+#: ../src/gtd-task-list-view.c:334
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Prètzfait <b>%s</b> suprimit"
 
-#: ../src/gtd-task-list-view.c:357
+#: ../src/gtd-task-list-view.c:365
 msgid "Undo"
 msgstr "Anullar"
 
@@ -498,8 +498,7 @@ msgstr "Suprimir la lista de prètzfaits"
 
 #~ msgid "Whether the read-only GNOME online accounts client is loaded"
 #~ msgstr ""
-#~ "Indica se lo client dels Comptes en linha GNOME en lectura sola es "
-#~ "cargat"
+#~ "Indica se lo client dels Comptes en linha GNOME en lectura sola es cargat"
 
 #~ msgid "The source registry of the manager"
 #~ msgstr "Lo registre des sources del gestionari"
@@ -631,8 +630,8 @@ msgstr "Suprimir la lista de prètzfaits"
 
 #~ msgid "Whether task rows show the list name at the end of the row"
 #~ msgstr ""
-#~ "Indica se las linhas de prètzfaits affichent lo nom de la lista a la fin de "
-#~ "cada linha"
+#~ "Indica se las linhas de prètzfaits affichent lo nom de la lista a la fin "
+#~ "de cada linha"
 
 #~ msgid "Whether completed tasks are shown"
 #~ msgstr "Indica se les prètzfaits acabadas devon èsser afichadas"
@@ -681,7 +680,8 @@ msgstr "Suprimir la lista de prètzfaits"
 
 #~ msgid "Whether the storage is the default storage location to be used."
 #~ msgstr ""
-#~ "Indica se lo supòrt d'emmagazinatge es l'emplaçament per defaut d'utilizar."
+#~ "Indica se lo supòrt d'emmagazinatge es l'emplaçament per defaut "
+#~ "d'utilizar."
 
 #~ msgid "Name of the storage"
 #~ msgstr "Nom del supòrt d'emmagazinatge"
