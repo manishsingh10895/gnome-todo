@@ -87,6 +87,7 @@ dnl ================================================================
 dnl Plugins
 dnl ================================================================
 GNOME_TODO_ADD_PLUGIN([eds], [Evolution-Data-Server], [yes])
+GNOME_TODO_ADD_PLUGIN([score], [Score], [yes])
 
 AC_CONFIG_FILES([
       Makefile
@@ -114,6 +115,9 @@ echo "
 	project flags: ${GNOME_TODO_CFLAGS} ${GNOME_TODO_LIBS} ${LIBS}
         warning flags: ${GNOME_TODO_WARN_CFLAGS} ${GNOME_TODO_WARN_LDFLAGS}
         release:       ${ax_is_release}
+
+    Plugins:
+        Score:         ${enable_score_plugin}
 
         Now type 'make' to build $PACKAGE
 "

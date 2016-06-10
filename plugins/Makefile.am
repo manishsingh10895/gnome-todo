@@ -1,3 +1,7 @@
 SUBDIRS = eds
 
+if BUILD_SCORE_PLUGIN
+SUBDIRS += score
+endif
+
 MAINTAINERCLEANFILES = Makefile.in
