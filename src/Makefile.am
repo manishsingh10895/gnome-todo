@@ -126,11 +126,11 @@ nobase_gnome_todo_include_HEADERS = \
 #
 # Resources
 #
-resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --generate-dependencies $(top_srcdir)/data/todo.gresource.xml)
+resource_files = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --sourcedir=$(top_builddir)/data --generate-dependencies $(top_srcdir)/data/todo.gresource.xml)
 gtd-resources.c: $(top_srcdir)/data/todo.gresource.xml $(resource_files)
-	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-source --c-name todo $(top_srcdir)/data/todo.gresource.xml
+	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --sourcedir=$(top_builddir)/data --generate-source --c-name todo $(top_srcdir)/data/todo.gresource.xml
 gtd-resources.h: $(top_srcdir)/data/todo.gresource.xml $(resource_files)
-	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --generate-header --c-name todo $(top_srcdir)/data/todo.gresource.xml
+	$(AM_V_GEN)$(GLIB_COMPILE_RESOURCES) --target=$@ --sourcedir=$(top_srcdir)/data --sourcedir=$(top_builddir)/data --generate-header --c-name todo $(top_srcdir)/data/todo.gresource.xml
 
 #
 # Enums
