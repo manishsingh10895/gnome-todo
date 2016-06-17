@@ -21,6 +21,8 @@ plugins/eds/gtd-plugin-eds.c
 plugins/eds/gtd-provider-eds.c
 plugins/eds/gtd-provider-local.c
 plugins/eds/gtd-task-list-eds.c
+plugins/score/score/__init__.py
+plugins/unscheduled-panel/unscheduled-panel/__init__.py
 src/gtd-application.c
 src/gtd-edit-pane.c
 src/gtd-plugin-dialog-row.c
