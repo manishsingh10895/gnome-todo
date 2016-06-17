@@ -88,6 +88,7 @@ dnl Plugins
 dnl ================================================================
 GNOME_TODO_ADD_PLUGIN([eds], [Evolution-Data-Server], [yes])
 GNOME_TODO_ADD_PLUGIN([score], [Score], [yes])
+GNOME_TODO_ADD_PLUGIN([unscheduled-panel], [Unscheduled Tasks Panel], [yes])
 
 AC_CONFIG_FILES([
       Makefile
@@ -117,7 +118,8 @@ echo "
         release:       ${ax_is_release}
 
     Plugins:
-        Score:         ${enable_score_plugin}
+        Score.................... ${enable_score_plugin}
+        Unscheduled panel........ ${enable_unscheduled_panel_plugin}
 
         Now type 'make' to build $PACKAGE
 "
