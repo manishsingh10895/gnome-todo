@@ -582,9 +582,9 @@ gtd_provider_eds_update_task_finished (GObject      *client,
       g_error_free (error);
     }
 
-  g_free (data);
-
   gtd_object_set_ready (GTD_OBJECT (data->data), TRUE);
+
+  g_free (data);
 }
 
 static void
