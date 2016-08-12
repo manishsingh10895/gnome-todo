@@ -9,10 +9,10 @@ msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-13 10:44+0000\n"
-"PO-Revision-Date: 2016-03-13 12:53+0200\n"
+"POT-Creation-Date: 2016-06-17 21:44+0000\n"
+"PO-Revision-Date: 2016-08-12 16:50+0300\n"
 "Last-Translator: Jiri Grönroos <jiri.gronroos+l10n@iki.fi>\n"
-"Language-Team: suomi <gnome-fi-laatu@lists.sourceforge.net>\n"
+"Language-Team: suomi <lokalisointi-lista@googlegroups.com>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -27,14 +27,10 @@ msgid "To Do"
 msgstr "Tehtävät"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:2
-#| msgid "Todo manager for GNOME"
 msgid "Task manager for GNOME"
 msgstr "Tehtävien hallinta Gnomelle"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:3
-#| msgid ""
-#| "GNOME Todo is a simple task management application designed to integrate "
-#| "with GNOME."
 msgid ""
 "GNOME To Do is a simple task management application designed to integrate "
 "with GNOME."
@@ -49,7 +45,7 @@ msgstr "Uusi lista…"
 msgid "Change default storage location…"
 msgstr "Muuta tallennustilan oletussijaintia…"
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "Laajennukset"
 
@@ -190,7 +186,7 @@ msgid "Cancel"
 msgstr "Peru"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:426
+#: ../src/gtd-task-list-view.c:434
 msgid "Done"
 msgstr "Valmis"
 
@@ -204,7 +200,6 @@ msgid "Lists"
 msgstr "Listat"
 
 #: ../data/ui/list-selector-panel.ui.h:4
-#| msgid "No tasks"
 msgid "Tasks"
 msgstr "Tehtävät"
 
@@ -228,8 +223,7 @@ msgstr "Voit lisätä tehtäviä listoihin <b>Listat</b>-näkymässä"
 msgid "Show or hide completed tasks"
 msgstr "Näytä tai piilota valmistuneet tehtävät"
 
-#: ../data/ui/plugin-dialog.ui.h:1
-#| msgid "No tasks found"
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "Laajennuksia ei löytynyt"
 
@@ -296,7 +290,6 @@ msgstr "Päivää ei ole asetettu"
 
 #: ../plugins/eds/gtd-panel-scheduled.c:83 ../src/gtd-task-row.c:148
 #, c-format
-#| msgid "Yesterday"
 msgid "Yesterday"
 msgid_plural "%d days ago"
 msgstr[0] "Eilen"
@@ -305,7 +298,7 @@ msgstr[1] "%d päivää sitten"
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
 #: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/score/score/__init__.py:95 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Tänään"
 
@@ -338,55 +331,55 @@ msgstr "Virhe ladatessa Evolution-Data-Server-taustaosaa"
 msgid "Error loading CSS from resource"
 msgstr "Virhe ladatessa CSS:ää resurssista"
 
-#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+#: ../plugins/eds/gtd-provider-eds.c:118 ../plugins/eds/gtd-provider-eds.c:122
 msgid "Error fetching tasks from list"
 msgstr "Virhe hakiessa tehtäviä listalta"
 
-#: ../plugins/eds/gtd-provider-eds.c:187
+#: ../plugins/eds/gtd-provider-eds.c:182
 msgid "Task list source successfully connected"
 msgstr "Tehtävälistan lähde yhdistetty onnistuneesti"
 
-#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+#: ../plugins/eds/gtd-provider-eds.c:189 ../plugins/eds/gtd-provider-eds.c:194
 msgid "Failed to connect to task list source"
 msgstr "Yhteys tehtävälistan lähteeseen epäonnistui"
 
-#: ../plugins/eds/gtd-provider-eds.c:311
+#: ../plugins/eds/gtd-provider-eds.c:306
 msgid "Failed to prompt for credentials"
 msgstr "Käyttäjätunnuksen kysely epäonnistui"
 
-#: ../plugins/eds/gtd-provider-eds.c:334
+#: ../plugins/eds/gtd-provider-eds.c:329
 msgid "Failed to prompt for credentials for"
 msgstr "Käyttäjätunnuksen kysely epäonnistui käyttäjälle"
 
-#: ../plugins/eds/gtd-provider-eds.c:388
+#: ../plugins/eds/gtd-provider-eds.c:383
 msgid "Authentication failure"
 msgstr "Tunnistautumisvirhe"
 
-#: ../plugins/eds/gtd-provider-eds.c:440
+#: ../plugins/eds/gtd-provider-eds.c:435
 msgid "Error loading task manager"
 msgstr "Virhe tehtävähallintaa ladatessa"
 
-#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+#: ../plugins/eds/gtd-provider-eds.c:532 ../plugins/eds/gtd-provider-eds.c:536
 msgid "Error creating task"
 msgstr "Virhe tehtävää luotaessa"
 
-#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+#: ../plugins/eds/gtd-provider-eds.c:575 ../plugins/eds/gtd-provider-eds.c:579
 msgid "Error updating task"
 msgstr "Virhe tehtävää päivittäessä"
 
-#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+#: ../plugins/eds/gtd-provider-eds.c:611 ../plugins/eds/gtd-provider-eds.c:615
 msgid "Error removing task"
 msgstr "Virhe tehtävää poistaessa"
 
-#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+#: ../plugins/eds/gtd-provider-eds.c:639 ../plugins/eds/gtd-provider-eds.c:643
 msgid "Error creating task list"
 msgstr "Virhe tehtävälistaa luotaessa"
 
-#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+#: ../plugins/eds/gtd-provider-eds.c:660 ../plugins/eds/gtd-provider-eds.c:664
 msgid "Error removing task list"
 msgstr "Virhe tehtävälistaa poistaessa"
 
-#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-provider-eds.c:721 ../plugins/eds/gtd-provider-eds.c:725
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
 msgstr "Virhe tehtävälistaa tallennettaessa"
@@ -404,6 +397,27 @@ msgstr "Tällä tietokoneella"
 msgid "Error creating new task list"
 msgstr "Virhe luotaessa uutta tehtävälistaa"
 
+#: ../plugins/score/score/__init__.py:84
+msgid "No task completed today"
+msgstr "Ei tänään suoritettuja tehtäviä"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:33
+#| msgid "Scheduled"
+msgid "unscheduled-panel"
+msgstr "unscheduled-panel"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:34
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:85
+#| msgid "Scheduled"
+msgid "Unscheduled"
+msgstr "Ajastamaton"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:87
+#, python-format
+#| msgid "Scheduled"
+msgid "Unscheduled (%d)"
+msgstr "Ajastamaton (%d)"
+
 #: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
@@ -419,21 +433,19 @@ msgid "translator-credits"
 msgstr "Jiri Grönroos"
 
 #: ../src/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
 msgid "Error loading plugin"
 msgstr "Virhe liitännäistä ladatessa"
 
 #: ../src/gtd-plugin-dialog-row.c:95
-#| msgid "Error loading task manager"
 msgid "Error unloading plugin"
 msgstr "Virhe poistaessa liittännäistä käytöstä"
 
-#: ../src/gtd-task-list-view.c:326
+#: ../src/gtd-task-list-view.c:334
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Tehtävä <b>%s<b> poistettu"
 
-#: ../src/gtd-task-list-view.c:357
+#: ../src/gtd-task-list-view.c:365
 msgid "Undo"
 msgstr "Kumoa"
 
