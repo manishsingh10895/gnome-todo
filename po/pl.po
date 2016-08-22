@@ -1,31 +1,27 @@
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-# Aviary.pl
-# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
-# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas:
-# gnomepl@aviary.pl
-# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Polish translation for gnome-todo.
+# Copyright © 2015-2016 the gnome-todo authors.
+# This file is distributed under the same license as the gnome-todo package.
 # Piotr Drąg <piotrdrag@gmail.com>, 2015-2016.
-# Aviary.pl <gnomepl@aviary.pl>, 2015-2016.
+# Aviary.pl <community-poland@mozilla.org>, 2015-2016.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-23 19:44+0100\n"
-"PO-Revision-Date: 2016-02-23 19:45+0100\n"
+"POT-Creation-Date: 2016-08-22 17:29+0200\n"
+"PO-Revision-Date: 2016-08-22 17:30+0200\n"
 "Last-Translator: Piotr Drąg <piotrdrag@gmail.com>\n"
-"Language-Team: Polish <gnomepl@aviary.pl>\n"
+"Language-Team: Polish <community-poland@mozilla.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: Poland\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
-#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "Zadania"
 
@@ -49,13 +45,13 @@ msgstr "Nowa lista…"
 msgid "Change default storage location…"
 msgstr "Zmień domyślne położenie zadań…"
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "Rozszerzenia"
 
 #: ../data/gtk/menus.ui.h:4
 msgid "_About"
-msgstr "_O programie"
+msgstr "_O programie"
 
 #: ../data/gtk/menus.ui.h:5
 msgid "_Quit"
@@ -83,7 +79,7 @@ msgstr "Rozmiar okna"
 
 #: ../data/org.gnome.todo.gschema.xml.h:4
 msgid "Window size (width and height)."
-msgstr "Rozmiar okna (szerokość i wysokość)."
+msgstr "Rozmiar okna (szerokość i wysokość)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:5
 msgid "Window position"
@@ -91,7 +87,7 @@ msgstr "Położenie okna"
 
 #: ../data/org.gnome.todo.gschema.xml.h:6
 msgid "Window position (x and y)."
-msgstr "Położenie okna (na osi X i Y)."
+msgstr "Położenie okna (na osi X i Y)."
 
 #: ../data/org.gnome.todo.gschema.xml.h:7
 msgid "First run of GNOME To Do"
@@ -186,7 +182,7 @@ msgid "Cancel"
 msgstr "Anuluj"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:426
+#: ../src/gtd-task-list-view.c:434
 msgid "Done"
 msgstr "Gotowe"
 
@@ -217,13 +213,13 @@ msgstr "Nie odnaleziono żadnych zadań"
 
 #: ../data/ui/list-view.ui.h:2
 msgid "You can add tasks to lists in the <b>Lists</b> view"
-msgstr "Można dodawać zadania do listy w widoku <b>Listy</b>"
+msgstr "Można dodawać zadania do listy w widoku <b>Listy</b>"
 
 #: ../data/ui/list-view.ui.h:3
 msgid "Show or hide completed tasks"
 msgstr "Wyświetla lub ukrywa ukończone zadania"
 
-#: ../data/ui/plugin-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "Nie odnaleziono żadnych rozszerzeń"
 
@@ -299,7 +295,7 @@ msgstr[2] "%d dni temu"
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
 #: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/score/score/__init__.py:95 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "Dzisiaj"
 
@@ -328,59 +324,59 @@ msgstr "Błąd podczas wczytywania Kont online GNOME"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Błąd podczas wczytywania mechanizmu Evolution-Data-Server"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
-msgstr "Błąd podczas wczytywania pliku CSS z zasobu"
+msgstr "Błąd podczas wczytywania pliku CSS z zasobu"
 
-#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+#: ../plugins/eds/gtd-provider-eds.c:118 ../plugins/eds/gtd-provider-eds.c:122
 msgid "Error fetching tasks from list"
-msgstr "Błąd podczas pobierania zadań z listy"
+msgstr "Błąd podczas pobierania zadań z listy"
 
-#: ../plugins/eds/gtd-provider-eds.c:187
+#: ../plugins/eds/gtd-provider-eds.c:182
 msgid "Task list source successfully connected"
 msgstr "Pomyślnie połączono ze źródłem listy zadań"
 
-#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+#: ../plugins/eds/gtd-provider-eds.c:189 ../plugins/eds/gtd-provider-eds.c:194
 msgid "Failed to connect to task list source"
 msgstr "Połączenie ze źródłem listy zadań się nie powiodło"
 
-#: ../plugins/eds/gtd-provider-eds.c:311
+#: ../plugins/eds/gtd-provider-eds.c:306
 msgid "Failed to prompt for credentials"
-msgstr "Zapytanie o dane uwierzytelniające się nie powiodło"
+msgstr "Zapytanie o dane uwierzytelniające się nie powiodło"
 
-#: ../plugins/eds/gtd-provider-eds.c:334
+#: ../plugins/eds/gtd-provider-eds.c:329
 msgid "Failed to prompt for credentials for"
-msgstr "Nie powiodło się zapytanie o dane uwierzytelniające dla"
+msgstr "Nie powiodło się zapytanie o dane uwierzytelniające dla"
 
-#: ../plugins/eds/gtd-provider-eds.c:388
+#: ../plugins/eds/gtd-provider-eds.c:383
 msgid "Authentication failure"
 msgstr "Niepowodzenie uwierzytelnienia"
 
-#: ../plugins/eds/gtd-provider-eds.c:440
+#: ../plugins/eds/gtd-provider-eds.c:435
 msgid "Error loading task manager"
 msgstr "Błąd podczas wczytywania menedżera zadań"
 
-#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+#: ../plugins/eds/gtd-provider-eds.c:532 ../plugins/eds/gtd-provider-eds.c:536
 msgid "Error creating task"
 msgstr "Błąd podczas tworzenia zadania"
 
-#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+#: ../plugins/eds/gtd-provider-eds.c:575 ../plugins/eds/gtd-provider-eds.c:579
 msgid "Error updating task"
 msgstr "Błąd podczas aktualizowania zadania"
 
-#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+#: ../plugins/eds/gtd-provider-eds.c:611 ../plugins/eds/gtd-provider-eds.c:615
 msgid "Error removing task"
 msgstr "Błąd podczas usuwania zadania"
 
-#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+#: ../plugins/eds/gtd-provider-eds.c:639 ../plugins/eds/gtd-provider-eds.c:643
 msgid "Error creating task list"
 msgstr "Błąd podczas tworzenia listy zadań"
 
-#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+#: ../plugins/eds/gtd-provider-eds.c:660 ../plugins/eds/gtd-provider-eds.c:664
 msgid "Error removing task list"
 msgstr "Błąd podczas usuwania listy zadań"
 
-#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-provider-eds.c:721 ../plugins/eds/gtd-provider-eds.c:725
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
 msgstr "Błąd podczas zapisywania listy zadań"
@@ -398,21 +394,39 @@ msgstr "Na tym komputerze"
 msgid "Error creating new task list"
 msgstr "Błąd podczas tworzenia nowej listy zadań"
 
-#: ../src/gtd-application.c:111
+#: ../plugins/score/score/__init__.py:84
+msgid "No task completed today"
+msgstr "Brak zadań ukończonych dzisiaj"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:33
+msgid "unscheduled-panel"
+msgstr "Panel niezaplanowanych"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:34
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:85
+msgid "Unscheduled"
+msgstr "Niezaplanowane"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:87
+#, python-format
+msgid "Unscheduled (%d)"
+msgstr "Niezaplanowane (%d)"
+
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d Autorzy Menedżera zadań"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d Autorzy Menedżera zadań"
 
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr ""
 "Piotr Drąg <piotrdrag@gmail.com>, 2015-2016\n"
-"Aviary.pl <gnomepl@aviary.pl>, 2015-2016"
+"Aviary.pl <community-poland@mozilla.org>, 2015-2016"
 
 #: ../src/gtd-plugin-dialog-row.c:95
 msgid "Error loading plugin"
@@ -422,12 +436,12 @@ msgstr "Błąd podczas wczytywania wtyczki"
 msgid "Error unloading plugin"
 msgstr "Błąd podczas usuwania wtyczki"
 
-#: ../src/gtd-task-list-view.c:326
+#: ../src/gtd-task-list-view.c:334
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "Usunięto zadanie <b>%s</b>"
 
-#: ../src/gtd-task-list-view.c:357
+#: ../src/gtd-task-list-view.c:365
 msgid "Undo"
 msgstr "Cofnij"
 
