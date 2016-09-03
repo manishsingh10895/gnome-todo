@@ -7,21 +7,21 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-02-23 00:54+0000\n"
-"PO-Revision-Date: 2016-03-02 02:38+0900\n"
-"Last-Translator: Seong-ho Cho <shcho@gnome.org>\n"
+"todo&keywords=I18N+L10N&component=General\n"
+"POT-Creation-Date: 2016-08-18 20:13+0000\n"
+"PO-Revision-Date: 2016-09-02 02:31+0900\n"
+"Last-Translator: Seong-ho Cho <darkcircle.0426@gmail.com>\n"
 "Language-Team: 한국어 <gnome-kr@googlegroups.com>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Gtranslator 2.91.7\n"
+"X-Generator: Poedit 1.8.7\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
-#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:121
-#: ../src/gtd-application.c:147 ../src/gtd-window.c:955
+#: ../data/org.gnome.Todo.desktop.in.in.h:1 ../src/gtd-application.c:123
+#: ../src/gtd-application.c:149 ../src/gtd-window.c:955
 msgid "To Do"
 msgstr "일정 목록"
 
@@ -44,7 +44,7 @@ msgstr "새 목록…"
 msgid "Change default storage location…"
 msgstr "기본 저장소 위치 바꾸기…"
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "확장 기능"
 
@@ -179,7 +179,7 @@ msgid "Cancel"
 msgstr "취소"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:426
+#: ../src/gtd-task-list-view.c:434
 msgid "Done"
 msgstr "완료"
 
@@ -216,7 +216,7 @@ msgstr "<b>목록</b> 보기에서 일정을 목록에 추가할 수 있습니�
 msgid "Show or hide completed tasks"
 msgstr "완료 일정 표시하거나 숨기기"
 
-#: ../data/ui/plugin-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "확장 기능 없음"
 
@@ -290,7 +290,7 @@ msgstr[0] "%d일 전"
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
 #: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/score/score/__init__.py:95 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "오늘"
 
@@ -299,13 +299,13 @@ msgid "Tomorrow"
 msgstr "내일"
 
 #. Setup a title
-#: ../plugins/eds/gtd-panel-scheduled.c:316
-#: ../plugins/eds/gtd-panel-scheduled.c:321
-#: ../plugins/eds/gtd-panel-scheduled.c:451
+#: ../plugins/eds/gtd-panel-scheduled.c:354
+#: ../plugins/eds/gtd-panel-scheduled.c:359
+#: ../plugins/eds/gtd-panel-scheduled.c:489
 msgid "Scheduled"
 msgstr "일정"
 
-#: ../plugins/eds/gtd-panel-scheduled.c:459
+#: ../plugins/eds/gtd-panel-scheduled.c:497
 #: ../plugins/eds/gtd-panel-today.c:322
 #: ../src/views/gtd-list-selector-panel.c:700
 msgid "Clear completed tasks…"
@@ -319,59 +319,59 @@ msgstr "그놈 온라인 계정을 불러오는 중 오류 발생"
 msgid "Error loading Evolution-Data-Server backend"
 msgstr "Evolution-Data-Server 백엔드 불러오는 중 오류"
 
-#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:241
+#: ../plugins/eds/gtd-plugin-eds.c:371 ../src/gtd-application.c:243
 msgid "Error loading CSS from resource"
 msgstr "CSS 자원을 불러오는 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+#: ../plugins/eds/gtd-provider-eds.c:118 ../plugins/eds/gtd-provider-eds.c:122
 msgid "Error fetching tasks from list"
 msgstr "목록에서 일정을 가져오는 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:187
+#: ../plugins/eds/gtd-provider-eds.c:182
 msgid "Task list source successfully connected"
 msgstr "일정 목록 원본에 성공적으로 연결했습니다"
 
-#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+#: ../plugins/eds/gtd-provider-eds.c:189 ../plugins/eds/gtd-provider-eds.c:194
 msgid "Failed to connect to task list source"
 msgstr "일정 목록 원본 연결에 실패했습니다"
 
-#: ../plugins/eds/gtd-provider-eds.c:311
+#: ../plugins/eds/gtd-provider-eds.c:306
 msgid "Failed to prompt for credentials"
 msgstr "인증 질의 처리에 실패했습니다"
 
-#: ../plugins/eds/gtd-provider-eds.c:334
+#: ../plugins/eds/gtd-provider-eds.c:329
 msgid "Failed to prompt for credentials for"
 msgstr "인증 대상의 질의 처리에 실패했습니다"
 
-#: ../plugins/eds/gtd-provider-eds.c:388
+#: ../plugins/eds/gtd-provider-eds.c:383
 msgid "Authentication failure"
 msgstr "인증에 실패했습니다"
 
-#: ../plugins/eds/gtd-provider-eds.c:440
+#: ../plugins/eds/gtd-provider-eds.c:435
 msgid "Error loading task manager"
 msgstr "일정 관리자 불러오는 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+#: ../plugins/eds/gtd-provider-eds.c:532 ../plugins/eds/gtd-provider-eds.c:536
 msgid "Error creating task"
 msgstr "일정 만드는 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+#: ../plugins/eds/gtd-provider-eds.c:575 ../plugins/eds/gtd-provider-eds.c:579
 msgid "Error updating task"
 msgstr "일정 업데이트 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+#: ../plugins/eds/gtd-provider-eds.c:611 ../plugins/eds/gtd-provider-eds.c:615
 msgid "Error removing task"
 msgstr "일정 제거 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+#: ../plugins/eds/gtd-provider-eds.c:639 ../plugins/eds/gtd-provider-eds.c:643
 msgid "Error creating task list"
 msgstr "일정 목록 만드는 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+#: ../plugins/eds/gtd-provider-eds.c:660 ../plugins/eds/gtd-provider-eds.c:664
 msgid "Error removing task list"
 msgstr "일정 목록 제거 중 오류 발생"
 
-#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-provider-eds.c:721 ../plugins/eds/gtd-provider-eds.c:725
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
 msgstr "일정 목록 저장 중 오류 발생"
@@ -389,26 +389,53 @@ msgstr "이 컴퓨터"
 msgid "Error creating new task list"
 msgstr "새 일정 목록을 만드는 중 오류 발생"
 
-#: ../src/gtd-application.c:111
+#: ../plugins/score/score/__init__.py:84
+msgid "No task completed today"
+msgstr "오늘 끝낸 일정 없음"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:33
+#| msgid "Scheduled"
+msgid "unscheduled-panel"
+msgstr "unscheduled-panel"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:34
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:85
+msgid "Unscheduled"
+msgstr "일정 없음"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:87
+#, python-format
+msgid "Unscheduled (%d)"
+msgstr "일정 없음(%d)"
+
+#: ../src/gtd-application.c:113
 #, c-format
 msgid "Copyright © %d The To Do authors"
 msgstr "Copyright © %d 일정 관리 개발자"
 
-#: ../src/gtd-application.c:116
+#: ../src/gtd-application.c:118
 #, c-format
 msgid "Copyright © %d–%d The To Do authors"
 msgstr "Copyright © %d–%d 일정 관리 개발자"
 
-#: ../src/gtd-application.c:128
+#: ../src/gtd-application.c:130
 msgid "translator-credits"
 msgstr "조성호 <shcho@gnome.org>"
 
-#: ../src/gtd-task-list-view.c:326
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error loading plugin"
+msgstr "플러그인 불러오는 중 오류"
+
+#: ../src/gtd-plugin-dialog-row.c:95
+msgid "Error unloading plugin"
+msgstr "불러온 플러그인 없애는 중 오류"
+
+#: ../src/gtd-task-list-view.c:334
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "<b>%s</b> 일정을 제거했습니다"
 
-#: ../src/gtd-task-list-view.c:357
+#: ../src/gtd-task-list-view.c:365
 msgid "Undo"
 msgstr "실행 취소"
 
@@ -419,14 +446,6 @@ msgstr "일정 목록 불러오는 중…"
 #: ../src/gtd-window.c:949
 msgid "Click a task list to select"
 msgstr "일정 목록을 선택하려면 누르십시오"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error loading plugin"
-msgstr "플러그인 불러오는 중 오류"
-
-#: ../src/plugin/gtd-plugin-dialog-row.c:95
-msgid "Error unloading plugin"
-msgstr "불러온 플러그인 없애는 중 오류"
 
 #: ../src/views/gtd-list-selector-grid-item.c:233
 msgid "No tasks"
@@ -447,4 +466,3 @@ msgstr "한 번 제거하면 일정 목록을 되살릴 수 없습니다."
 #: ../src/views/gtd-list-selector-panel.c:394
 msgid "Remove task lists"
 msgstr "일정 목록 제거"
-
