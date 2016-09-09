@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-todo master\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"todo&keywords=I18N+L10N&component=general\n"
-"POT-Creation-Date: 2016-03-15 16:21+0000\n"
-"PO-Revision-Date: 2016-04-09 00:55+0430\n"
+"todo&keywords=I18N+L10N&component=General\n"
+"POT-Creation-Date: 2016-08-18 20:13+0000\n"
+"PO-Revision-Date: 2016-09-09 17:24+0430\n"
 "Last-Translator: Arash Mousavi <mousavi.arash@gmail.com>\n"
 "Language-Team: Persian <fa@li.org>\n"
 "Language: fa\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.8\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 
 #: ../data/appdata/org.gnome.Todo.appdata.xml.in.h:1
@@ -45,7 +45,7 @@ msgstr "فهرست جدید..."
 msgid "Change default storage location…"
 msgstr "تغییر محل ذخیره پیش‌فرض..."
 
-#: ../data/gtk/menus.ui.h:3
+#: ../data/gtk/menus.ui.h:3 ../data/ui/plugin-dialog.ui.h:1
 msgid "Extensions"
 msgstr "متصل‌شونده‌ها"
 
@@ -182,7 +182,7 @@ msgid "Cancel"
 msgstr "لغو"
 
 #: ../data/ui/initial-setup.ui.h:4 ../data/ui/list-view.ui.h:4
-#: ../src/gtd-task-list-view.c:426
+#: ../src/gtd-task-list-view.c:434
 msgid "Done"
 msgstr "اعمال"
 
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Show or hide completed tasks"
 msgstr "نمایش یا مخفی کردن فعالیت‌های تکمیل شده"
 
-#: ../data/ui/plugin-dialog.ui.h:1
+#: ../data/ui/plugin-dialog.ui.h:2
 msgid "No extensions found"
 msgstr "هیچ متصل‌شونده‌ای پیدا نشد"
 
@@ -295,7 +295,7 @@ msgstr[1] "%Id روز گذشته"
 #. Setup a title
 #: ../plugins/eds/gtd-panel-scheduled.c:87 ../plugins/eds/gtd-panel-today.c:147
 #: ../plugins/eds/gtd-panel-today.c:152 ../plugins/eds/gtd-panel-today.c:314
-#: ../src/gtd-task-row.c:140
+#: ../plugins/score/score/__init__.py:95 ../src/gtd-task-row.c:140
 msgid "Today"
 msgstr "امروز"
 
@@ -327,55 +327,55 @@ msgstr "خطا در خواندن پسانه Evolution-Data-Server"
 msgid "Error loading CSS from resource"
 msgstr "خطا در بارگیری CSS از منبع"
 
-#: ../plugins/eds/gtd-provider-eds.c:119 ../plugins/eds/gtd-provider-eds.c:123
+#: ../plugins/eds/gtd-provider-eds.c:118 ../plugins/eds/gtd-provider-eds.c:122
 msgid "Error fetching tasks from list"
 msgstr "خطا در هنگام گرفتن فعالیت‌ها از فهرست"
 
-#: ../plugins/eds/gtd-provider-eds.c:187
+#: ../plugins/eds/gtd-provider-eds.c:182
 msgid "Task list source successfully connected"
 msgstr "منبع فهرست فعالیت‌ها بطور موفقیت‌آمیزی متصل شد"
 
-#: ../plugins/eds/gtd-provider-eds.c:194 ../plugins/eds/gtd-provider-eds.c:199
+#: ../plugins/eds/gtd-provider-eds.c:189 ../plugins/eds/gtd-provider-eds.c:194
 msgid "Failed to connect to task list source"
 msgstr "اتصال به منبع فهرست فعالیت‌ها شکست خورد"
 
-#: ../plugins/eds/gtd-provider-eds.c:311
+#: ../plugins/eds/gtd-provider-eds.c:306
 msgid "Failed to prompt for credentials"
 msgstr "درخواست برای اطلاعات گذرواژه شکست خورد"
 
-#: ../plugins/eds/gtd-provider-eds.c:334
+#: ../plugins/eds/gtd-provider-eds.c:329
 msgid "Failed to prompt for credentials for"
 msgstr "درخواست برای اطلاعات گذرواژه شکست خورد:"
 
-#: ../plugins/eds/gtd-provider-eds.c:388
+#: ../plugins/eds/gtd-provider-eds.c:383
 msgid "Authentication failure"
 msgstr "تصدیق هویت شکست خورد"
 
-#: ../plugins/eds/gtd-provider-eds.c:440
+#: ../plugins/eds/gtd-provider-eds.c:435
 msgid "Error loading task manager"
 msgstr "خطا در هنگام بارگیری مدیر فعالیت‌ها"
 
-#: ../plugins/eds/gtd-provider-eds.c:546 ../plugins/eds/gtd-provider-eds.c:550
+#: ../plugins/eds/gtd-provider-eds.c:532 ../plugins/eds/gtd-provider-eds.c:536
 msgid "Error creating task"
 msgstr "خطا در هنگام ساخت فعالیت"
 
-#: ../plugins/eds/gtd-provider-eds.c:589 ../plugins/eds/gtd-provider-eds.c:593
+#: ../plugins/eds/gtd-provider-eds.c:575 ../plugins/eds/gtd-provider-eds.c:579
 msgid "Error updating task"
 msgstr "خطا در بروزرسانی فعالیت"
 
-#: ../plugins/eds/gtd-provider-eds.c:625 ../plugins/eds/gtd-provider-eds.c:629
+#: ../plugins/eds/gtd-provider-eds.c:611 ../plugins/eds/gtd-provider-eds.c:615
 msgid "Error removing task"
 msgstr "خطا در هنگام حذف فعالیت"
 
-#: ../plugins/eds/gtd-provider-eds.c:653 ../plugins/eds/gtd-provider-eds.c:657
+#: ../plugins/eds/gtd-provider-eds.c:639 ../plugins/eds/gtd-provider-eds.c:643
 msgid "Error creating task list"
 msgstr "خطا در حذف فهرست فعالیت‌ها"
 
-#: ../plugins/eds/gtd-provider-eds.c:674 ../plugins/eds/gtd-provider-eds.c:678
+#: ../plugins/eds/gtd-provider-eds.c:660 ../plugins/eds/gtd-provider-eds.c:664
 msgid "Error removing task list"
 msgstr "خطا در حذف فهرست فعالیت‌ها"
 
-#: ../plugins/eds/gtd-provider-eds.c:735 ../plugins/eds/gtd-provider-eds.c:739
+#: ../plugins/eds/gtd-provider-eds.c:721 ../plugins/eds/gtd-provider-eds.c:725
 #: ../plugins/eds/gtd-task-list-eds.c:69
 msgid "Error saving task list"
 msgstr "خطا در ذخیره فهرست فعالیت‌ها"
@@ -392,6 +392,24 @@ msgstr "بر روی این رایانه"
 #: ../plugins/eds/gtd-provider-local.c:137
 msgid "Error creating new task list"
 msgstr "خطا در هنگام ساخت یک فهرست فعالیت"
+
+#: ../plugins/score/score/__init__.py:84
+msgid "No task completed today"
+msgstr "هیچ فعالیتی امروز کامل نشده است"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:33
+msgid "unscheduled-panel"
+msgstr "unscheduled-panel"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:34
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:85
+msgid "Unscheduled"
+msgstr "برنامه‌ریزی نشده"
+
+#: ../plugins/unscheduled-panel/unscheduled-panel/__init__.py:87
+#, python-format
+msgid "Unscheduled (%d)"
+msgstr "برنامه‌ریزی نشده (%d)"
 
 #: ../src/gtd-application.c:113
 #, c-format
@@ -415,12 +433,12 @@ msgstr "خطا در بارگیری افزونه"
 msgid "Error unloading plugin"
 msgstr "خطا در غیرفعال کردن افزونه"
 
-#: ../src/gtd-task-list-view.c:326
+#: ../src/gtd-task-list-view.c:334
 #, c-format
 msgid "Task <b>%s</b> removed"
 msgstr "فعالیت <b>%s</b> حذف شد"
 
-#: ../src/gtd-task-list-view.c:357
+#: ../src/gtd-task-list-view.c:365
 msgid "Undo"
 msgstr "برگردان"
 
